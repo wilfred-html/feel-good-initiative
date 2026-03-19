@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 /* ═══════════════════════════════════════════════
    DESIGN SYSTEM — Golden Ratio: φ = 1.618
@@ -528,8 +529,8 @@ section {
 }
 .about-grid {
   display: grid;
-  grid-template-columns: var(--golden-major) var(--golden-minor);
-  gap: var(--sp-2xl);
+  grid-template-columns: 1fr minmax(0, 0.618fr);
+  gap: var(--sp-xl);
   align-items: start;
 }
 .about-text .section-desc {
@@ -583,7 +584,8 @@ section {
   align-items: center;
   justify-content: center;
   margin-bottom: var(--sp-sm);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
+  color: var(--teal-primary);
 }
 .pillar-card h3 {
   font-family: 'Playfair Display', serif;
@@ -638,8 +640,8 @@ section {
 }
 .about-badge {
   position: absolute;
-  bottom: -20px;
-  right: -20px;
+  bottom: -10px;
+  right: 10px;
   width: 140px; height: 140px;
   background: var(--gold);
   border-radius: 50%;
@@ -829,7 +831,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  color: var(--white);
   z-index: 2;
 }
 
@@ -941,7 +944,8 @@ section {
   align-items: center;
   justify-content: center;
   margin: 0 auto var(--sp-lg);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  color: var(--teal-deep);
   transition: transform 0.4s var(--ease-out-expo);
 }
 .involved-card:hover .involved-icon { transform: scale(1.1) rotate(5deg); }
@@ -1094,8 +1098,8 @@ section {
 .contact .container { position: relative; z-index: 1; }
 .contact-grid {
   display: grid;
-  grid-template-columns: var(--golden-major) var(--golden-minor);
-  gap: var(--sp-2xl);
+  grid-template-columns: 1fr minmax(0, 0.618fr);
+  gap: var(--sp-xl);
   align-items: start;
 }
 .contact .section-label { color: var(--gold); }
@@ -1152,7 +1156,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--teal-light);
   flex-shrink: 0;
 }
 .contact-info-text h4 {
@@ -1340,22 +1345,22 @@ footer {
         </blockquote>
         <div class="pillars">
           <div class="pillar-card reveal reveal-delay-2">
-            <div class="pillar-icon">🐘</div>
+            <div class="pillar-icon"><i class="bi bi-tree"></i></div>
             <h3>Conservation</h3>
             <p>Protecting wildlife corridors and restoring indigenous habitats across the Western Cape.</p>
           </div>
           <div class="pillar-card reveal reveal-delay-3">
-            <div class="pillar-icon">🌿</div>
+            <div class="pillar-icon"><i class="bi bi-heart-pulse"></i></div>
             <h3>Wellness</h3>
             <p>Nature-based healing programs that restore mental health and build inner resilience.</p>
           </div>
           <div class="pillar-card reveal reveal-delay-4">
-            <div class="pillar-icon">🤝</div>
+            <div class="pillar-icon"><i class="bi bi-people"></i></div>
             <h3>Community</h3>
             <p>Empowering local communities through environmental stewardship and shared purpose.</p>
           </div>
           <div class="pillar-card reveal reveal-delay-5">
-            <div class="pillar-icon">📚</div>
+            <div class="pillar-icon"><i class="bi bi-book"></i></div>
             <h3>Education</h3>
             <p>Teaching the next generation to value, protect, and thrive alongside nature.</p>
           </div>
@@ -1440,7 +1445,7 @@ footer {
       <div class="program-card reveal reveal-delay-1">
         <div class="program-bg program-bg-1"></div>
         <div class="program-overlay"></div>
-        <div class="program-icon">🦁</div>
+        <div class="program-icon"><i class="bi bi-shield-check"></i></div>
         <div class="program-content">
           <span class="program-tag">Conservation</span>
           <h3>Wildlife Protection</h3>
@@ -1450,7 +1455,7 @@ footer {
       <div class="program-card reveal reveal-delay-2">
         <div class="program-bg program-bg-2"></div>
         <div class="program-overlay"></div>
-        <div class="program-icon">🧘</div>
+        <div class="program-icon"><i class="bi bi-brightness-high"></i></div>
         <div class="program-content">
           <span class="program-tag">Wellness</span>
           <h3>Nature Wellness Retreats</h3>
@@ -1460,7 +1465,7 @@ footer {
       <div class="program-card reveal reveal-delay-3">
         <div class="program-bg program-bg-3"></div>
         <div class="program-overlay"></div>
-        <div class="program-icon">🎓</div>
+        <div class="program-icon"><i class="bi bi-mortarboard"></i></div>
         <div class="program-content">
           <span class="program-tag">Education</span>
           <h3>Environmental Education</h3>
@@ -1470,7 +1475,7 @@ footer {
       <div class="program-card reveal reveal-delay-4">
         <div class="program-bg program-bg-4"></div>
         <div class="program-overlay"></div>
-        <div class="program-icon">🏖️</div>
+        <div class="program-icon"><i class="bi bi-water"></i></div>
         <div class="program-content">
           <span class="program-tag">Action</span>
           <h3>Coastal & Mountain Cleanups</h3>
@@ -1480,7 +1485,7 @@ footer {
       <div class="program-card reveal reveal-delay-5">
         <div class="program-bg program-bg-5"></div>
         <div class="program-overlay"></div>
-        <div class="program-icon">🌱</div>
+        <div class="program-icon"><i class="bi bi-flower1"></i></div>
         <div class="program-content">
           <span class="program-tag">Youth</span>
           <h3>Youth Nature Programs</h3>
@@ -1532,19 +1537,19 @@ footer {
     </div>
     <div class="involved-grid">
       <div class="involved-card reveal reveal-delay-1">
-        <div class="involved-icon">🙌</div>
+        <div class="involved-icon"><i class="bi bi-hand-thumbs-up"></i></div>
         <h3>Volunteer</h3>
         <p>Join our cleanups, lead a wellness walk, or mentor young conservationists. Your time is the most powerful gift.</p>
         <a href="#contact" class="involved-btn involved-btn-primary">Sign Up</a>
       </div>
       <div class="involved-card reveal reveal-delay-2">
-        <div class="involved-icon">💛</div>
+        <div class="involved-icon"><i class="bi bi-heart"></i></div>
         <h3>Donate</h3>
         <p>Fund conservation projects, sponsor a youth program, or help us protect another hectare of wilderness.</p>
         <a href="#contact" class="involved-btn involved-btn-gold">Give Today</a>
       </div>
       <div class="involved-card reveal reveal-delay-3">
-        <div class="involved-icon">🤝</div>
+        <div class="involved-icon"><i class="bi bi-handshake"></i></div>
         <h3>Partner</h3>
         <p>Align your brand with purpose. Corporate partnerships amplify impact and create shared value for all.</p>
         <a href="#contact" class="involved-btn involved-btn-outline">Let's Talk</a>
@@ -1640,28 +1645,28 @@ footer {
       </div>
       <div class="contact-info reveal reveal-delay-3">
         <div class="contact-info-item">
-          <div class="contact-info-icon">📍</div>
+          <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
           <div class="contact-info-text">
             <h4>Location</h4>
             <p>Western Cape, South Africa<br>Near Table Mountain National Park</p>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-info-icon">✉️</div>
+          <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
           <div class="contact-info-text">
             <h4>Email</h4>
             <p>hello@thefeelgoodinitiative.org</p>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-info-icon">📱</div>
+          <div class="contact-info-icon"><i class="bi bi-share"></i></div>
           <div class="contact-info-text">
             <h4>Social</h4>
             <p>@TheFeelGoodInitiative<br>Facebook · Instagram</p>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-info-icon">🕐</div>
+          <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
           <div class="contact-info-text">
             <h4>Hours</h4>
             <p>Monday — Friday<br>9:00 AM — 5:00 PM SAST</p>
