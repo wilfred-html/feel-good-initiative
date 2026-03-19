@@ -3,23 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Feel Good Initiative — Where Nature Heals & Community Thrives</title>
-<meta name="description" content="The Feel Good Initiative is a South African nonprofit dedicated to wellness, nature conservation, community upliftment, and environmental stewardship in the Western Cape.">
+<title>The Feel Good Initiative — Building Community Through Nature</title>
+<meta name="description" content="The Feel Good Initiative is a South African NPO championing ocean safety, marine education, and community access. Leading the R50M Hout Bay Tidal Pool project.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
-/* ═══════════════════════════════════════════════
-   DESIGN SYSTEM — Golden Ratio: φ = 1.618
-   Base unit: 16px
-   Scale: 16 → 25.9 → 41.9 → 67.8 → 109.7
-   ═══════════════════════════════════════════════ */
-
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  /* Colors */
   --teal-deep: #1A6B6B;
   --teal-primary: #2A8B8B;
   --teal-light: #5CBDAE;
@@ -35,17 +28,15 @@
   --text: #2D3E3E;
   --text-light: #5A7070;
 
-  /* Golden Ratio Typography Scale */
-  --fs-xs: 0.694rem;    /* 11.1px */
-  --fs-sm: 0.875rem;    /* 14px */
-  --fs-base: 1rem;      /* 16px */
-  --fs-md: 1.125rem;    /* 18px */
-  --fs-lg: 1.618rem;    /* 25.9px */
-  --fs-xl: 2.618rem;    /* 41.9px */
-  --fs-2xl: 4.236rem;   /* 67.8px */
-  --fs-3xl: 6.854rem;   /* 109.7px */
+  --fs-xs: 0.694rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.618rem;
+  --fs-xl: 2.618rem;
+  --fs-2xl: 4.236rem;
+  --fs-3xl: 6.854rem;
 
-  /* Spacing (φ-derived) */
   --sp-xs: 0.5rem;
   --sp-sm: 0.809rem;
   --sp-md: 1.309rem;
@@ -54,199 +45,53 @@
   --sp-2xl: 5.545rem;
   --sp-3xl: 8.972rem;
 
-  /* Layout */
-  --golden-major: 61.8%;
-  --golden-minor: 38.2%;
   --max-width: 1400px;
   --nav-height: 80px;
-
-  /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--cream); overflow-x: hidden; line-height: 1.618; }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  color: var(--text);
-  background: var(--cream);
-  overflow-x: hidden;
-  line-height: 1.618;
-  cursor: default;
+/* Grain */
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 99998; pointer-events: none; opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat; background-size: 200px;
 }
 
 /* Custom cursor */
 @media (hover: hover) and (pointer: fine) {
-  .cursor-dot, .cursor-ring {
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 100000;
-    border-radius: 50%;
-    mix-blend-mode: difference;
-  }
-  .cursor-dot {
-    width: 8px; height: 8px;
-    background: var(--white);
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s;
-  }
-  .cursor-ring {
-    width: 40px; height: 40px;
-    border: 1.5px solid rgba(255,255,255,0.5);
-    transform: translate(-50%, -50%);
-    transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), border-color 0.3s;
-  }
-  body:hover .cursor-dot, body:hover .cursor-ring { opacity: 1; }
-  a:hover ~ .cursor-ring, button:hover ~ .cursor-ring,
-  .cursor-ring.hovering {
-    width: 60px; height: 60px;
-    border-color: var(--gold);
-  }
+  .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 100000; border-radius: 50%; mix-blend-mode: difference; }
+  .cursor-dot { width: 8px; height: 8px; background: var(--white); transform: translate(-50%, -50%); }
+  .cursor-ring { width: 40px; height: 40px; border: 1.5px solid rgba(255,255,255,0.5); transform: translate(-50%, -50%); transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo); }
+  .cursor-ring.hovering { width: 60px; height: 60px; border-color: var(--gold); }
 }
 
-/* Grain overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 99998;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 200px;
-}
-
-/* ─── LOADING SCREEN ─── */
-.loader {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  background: var(--dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
-}
+/* Loader */
+.loader { position: fixed; inset: 0; z-index: 99999; background: var(--dark); display: flex; align-items: center; justify-content: center; transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s; }
 .loader.hidden { opacity: 0; visibility: hidden; }
-
-.loader-circle {
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  border-top-color: var(--teal-light);
-  border-right-color: var(--teal-primary);
-  animation: spin 1.2s linear infinite;
-  position: relative;
-}
-.loader-circle::after {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  border-bottom-color: var(--gold);
-  border-left-color: var(--gold-light);
-  animation: spin 0.8s linear reverse infinite;
-}
+.loader-circle { width: 80px; height: 80px; border-radius: 50%; border: 2px solid transparent; border-top-color: var(--teal-light); border-right-color: var(--teal-primary); animation: spin 1.2s linear infinite; position: relative; }
+.loader-circle::after { content: ''; position: absolute; inset: 8px; border-radius: 50%; border: 2px solid transparent; border-bottom-color: var(--gold); border-left-color: var(--gold-light); animation: spin 0.8s linear reverse infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ─── NAVIGATION ─── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--nav-height);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 clamp(1.5rem, 4vw, 4rem);
-  transition: all 0.5s var(--ease-out-expo);
-}
-nav.scrolled {
-  background: rgba(26, 42, 42, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.05);
-}
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-lg);
-  font-weight: 500;
-  color: var(--white);
-  text-decoration: none;
-  letter-spacing: -0.02em;
-}
+/* ─── NAV ─── */
+nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem, 4vw, 4rem); transition: all 0.5s var(--ease-out-expo); }
+nav.scrolled { background: rgba(26, 42, 42, 0.88); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); box-shadow: 0 1px 0 rgba(255,255,255,0.05); }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: var(--fs-lg); font-weight: 500; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
 .nav-logo span { color: var(--gold); }
-.nav-links {
-  display: flex;
-  gap: var(--sp-lg);
-  list-style: none;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-size: var(--fs-sm);
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 0.3s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0; height: 1px;
-  background: var(--gold);
-  transition: width 0.4s var(--ease-out-expo);
-}
+.nav-links { display: flex; gap: var(--sp-lg); list-style: none; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: var(--fs-sm); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.4s var(--ease-out-expo); }
 .nav-links a:hover { color: var(--white); }
 .nav-links a:hover::after { width: 100%; }
-
-.nav-cta {
-  padding: 0.6rem 1.8rem;
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold) !important;
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--fs-sm);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.4s var(--ease-out-expo);
-  cursor: pointer;
-}
-.nav-cta:hover {
-  background: var(--gold);
-  color: var(--dark) !important;
-}
+.nav-cta { padding: 0.6rem 1.8rem; background: transparent; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: var(--fs-sm); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.4s var(--ease-out-expo); cursor: pointer; }
+.nav-cta:hover { background: var(--gold); color: var(--dark) !important; }
 .nav-cta::after { display: none !important; }
 
-/* Mobile menu */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  width: 32px; height: 24px;
-  position: relative;
-  cursor: pointer;
-  z-index: 1001;
-}
-.menu-toggle span {
-  position: absolute;
-  left: 0; width: 100%; height: 2px;
-  background: var(--white);
-  transition: all 0.3s var(--ease-out-expo);
-}
+.menu-toggle { display: none; background: none; border: none; width: 32px; height: 24px; position: relative; cursor: pointer; z-index: 1001; }
+.menu-toggle span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--white); transition: all 0.3s var(--ease-out-expo); }
 .menu-toggle span:nth-child(1) { top: 0; }
 .menu-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
 .menu-toggle span:nth-child(3) { bottom: 0; }
@@ -255,1046 +100,314 @@ nav.scrolled {
 .menu-toggle.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
 
 /* ─── HERO ─── */
-.hero {
-  height: 100vh;
-  min-height: 700px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: var(--dark);
-}
+.hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--dark); }
 .hero-bg {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background:
     radial-gradient(ellipse at 30% 50%, rgba(42, 139, 139, 0.3) 0%, transparent 60%),
     radial-gradient(ellipse at 70% 30%, rgba(92, 189, 174, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 80%, rgba(201, 169, 110, 0.1) 0%, transparent 40%),
     linear-gradient(180deg, #0D1B1B 0%, #1A2A2A 40%, #1A3535 70%, #1A2A2A 100%);
-  transform: translateY(var(--hero-parallax, 0));
-  will-change: transform;
+  transform: translateY(var(--hero-parallax, 0)); will-change: transform;
 }
+.hero-particles { position: absolute; inset: 0; overflow: hidden; }
+.particle { position: absolute; border-radius: 50%; background: rgba(92, 189, 174, 0.15); animation: float linear infinite; }
+@keyframes float { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-10vh) scale(1); opacity: 0; } }
 
-/* Animated particles */
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(92, 189, 174, 0.15);
-  animation: float linear infinite;
-}
-@keyframes float {
-  0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  width: var(--golden-major);
-  max-width: 900px;
-  padding: 0 var(--sp-lg);
-}
-.hero-eyebrow {
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--fs-sm);
-  font-weight: 400;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: var(--sp-lg);
-  opacity: 0;
-  transform: translateY(30px);
-}
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 7vw, var(--fs-2xl));
-  font-weight: 400;
-  color: var(--white);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: var(--sp-lg);
-}
-.hero-title em {
-  font-style: italic;
-  color: var(--teal-light);
-}
-.hero-title .word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(60px) rotateX(15deg);
-}
-.hero-sub {
-  font-size: clamp(1rem, 1.5vw, var(--fs-md));
-  color: rgba(255,255,255,0.6);
-  max-width: 600px;
-  margin: 0 auto var(--sp-xl);
-  font-weight: 300;
-  line-height: 1.8;
-  opacity: 0;
-  transform: translateY(30px);
-}
-.hero-cta-group {
-  display: flex;
-  gap: var(--sp-md);
-  justify-content: center;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(30px);
-}
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 1rem 2.4rem;
-  background: var(--teal-primary);
-  color: var(--white);
-  border: none;
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.4s var(--ease-out-expo);
-  position: relative;
-  overflow: hidden;
-}
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--teal-light), var(--teal-deep));
-  opacity: 0;
-  transition: opacity 0.4s;
-}
+.hero-content { position: relative; z-index: 2; width: 61.8%; max-width: 850px; padding: 0 var(--sp-lg) 0 clamp(2rem, 6vw, 8rem); }
+.hero-eyebrow { font-size: var(--fs-sm); font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: var(--sp-md); display: flex; align-items: center; gap: 0.8rem; opacity: 0; transform: translateY(30px); }
+.hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, var(--fs-2xl)); font-weight: 400; color: var(--white); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: var(--sp-lg); }
+.hero-title em { font-style: italic; color: var(--teal-light); }
+.hero-title .word { display: inline-block; opacity: 0; transform: translateY(60px) rotateX(15deg); }
+.hero-sub { font-size: clamp(1rem, 1.5vw, var(--fs-md)); color: rgba(255,255,255,0.6); max-width: 550px; font-weight: 300; line-height: 1.8; opacity: 0; transform: translateY(30px); margin-bottom: var(--sp-xl); }
+.hero-cta-group { display: flex; gap: var(--sp-md); flex-wrap: wrap; opacity: 0; transform: translateY(30px); }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.4rem; background: var(--teal-primary); color: var(--white); border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: var(--fs-sm); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.4s var(--ease-out-expo); position: relative; overflow: hidden; }
+.btn-primary::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--teal-light), var(--teal-deep)); opacity: 0; transition: opacity 0.4s; }
 .btn-primary:hover::before { opacity: 1; }
 .btn-primary span { position: relative; z-index: 1; }
+.btn-outline { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.4rem; background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.25); border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: var(--fs-sm); font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: all 0.4s var(--ease-out-expo); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 1rem 2.4rem;
-  background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--fs-sm);
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.4s var(--ease-out-expo);
-}
-.btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
+/* NGO trust badge on hero */
+.hero-trust { position: absolute; bottom: 120px; right: clamp(2rem, 6vw, 8rem); z-index: 2; display: flex; flex-direction: column; gap: var(--sp-sm); align-items: flex-end; opacity: 0; animation: fadeIn 1s 2.5s forwards; }
+.trust-tag { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; backdrop-filter: blur(10px); font-size: var(--fs-xs); color: rgba(255,255,255,0.5); letter-spacing: 0.05em; }
+.trust-tag i { color: var(--teal-light); font-size: 0.8rem; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* Hero wave divider */
-.hero-wave {
-  position: absolute;
-  bottom: -2px;
-  left: 0; right: 0;
-  z-index: 3;
-}
-.hero-wave svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+.hero-wave { position: absolute; bottom: -2px; left: 0; right: 0; z-index: 3; }
+.hero-wave svg { display: block; width: 100%; height: auto; }
 
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-  opacity: 0;
-  animation: fadeInUp 1s 2.5s forwards;
-}
-.scroll-indicator span {
-  font-size: var(--fs-xs);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-}
-.scroll-line {
-  width: 1px; height: 40px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%, 100% { transform: scaleY(1); opacity: 0.4; }
-  50% { transform: scaleY(0.5); opacity: 1; }
-}
+.scroll-indicator { position: absolute; bottom: 80px; left: clamp(2rem, 6vw, 8rem); z-index: 4; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; opacity: 0; animation: fadeInUp 1s 2.5s forwards; }
+.scroll-indicator span { font-size: var(--fs-xs); letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%, 100% { transform: scaleY(1); opacity: 0.4; } 50% { transform: scaleY(0.5); opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ─── REVEAL ANIMATIONS ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ─── REVEALS ─── */
+.reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
+/* ─── COMMON ─── */
+section { position: relative; }
+.section-pad { padding: clamp(4rem, 8vw, var(--sp-3xl)) clamp(1.5rem, 4vw, 4rem); }
+.container { max-width: var(--max-width); margin: 0 auto; }
+.section-label { font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--teal-primary); margin-bottom: var(--sp-sm); display: flex; align-items: center; gap: 0.8rem; }
+.section-label::before { content: ''; width: 20px; height: 1px; background: var(--teal-primary); }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, var(--fs-xl)); font-weight: 400; color: var(--dark); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: var(--sp-md); }
+.section-title em { font-style: italic; color: var(--teal-primary); }
+.section-desc { font-size: var(--fs-md); color: var(--text-light); max-width: 600px; font-weight: 300; line-height: 1.8; }
 
-/* ─── SECTION COMMON ─── */
-section {
-  position: relative;
-}
-.section-pad {
-  padding: clamp(4rem, 8vw, var(--sp-3xl)) clamp(1.5rem, 4vw, 4rem);
-}
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-.section-label {
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--teal-primary);
-  margin-bottom: var(--sp-sm);
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, var(--fs-xl));
-  font-weight: 400;
-  color: var(--dark);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--sp-md);
-}
-.section-title em {
-  font-style: italic;
-  color: var(--teal-primary);
-}
-.section-desc {
-  font-size: var(--fs-md);
-  color: var(--text-light);
-  max-width: 600px;
-  font-weight: 300;
-  line-height: 1.8;
-}
+/* ─── ANNOUNCEMENT BAR ─── */
+.announcement { background: var(--teal-deep); text-align: center; padding: 0.6rem var(--sp-lg); position: relative; z-index: 1001; }
+.announcement p { font-size: var(--fs-sm); color: var(--white); letter-spacing: 0.02em; }
+.announcement a { color: var(--gold); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
 
-/* ─── WAVE DIVIDERS ─── */
-.wave-divider {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-.wave-divider svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+/* ─── FLAGSHIP PROJECT ─── */
+.flagship { background: var(--white); overflow: hidden; }
+.flagship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 600px; }
+.flagship-visual { position: relative; background: linear-gradient(160deg, #0D2B3E, #1A5C6B, #2A8B8B, #5CBDAE); overflow: hidden; }
+.flagship-visual::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 30 50 50 Q75 70 100 50' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.5'/%3E%3C/svg%3E") repeat; }
+.flagship-visual-content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--sp-2xl); text-align: center; }
+.flagship-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.2rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; font-size: var(--fs-xs); color: var(--white); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: var(--sp-lg); backdrop-filter: blur(10px); }
+.flagship-badge i { color: var(--gold); }
+.flagship-amount { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; color: var(--white); line-height: 1; margin-bottom: var(--sp-sm); }
+.flagship-amount span { color: var(--gold); font-size: 0.5em; vertical-align: super; }
+.flagship-visual-label { font-size: var(--fs-md); color: rgba(255,255,255,0.7); font-weight: 300; }
+.flagship-wave-art { position: absolute; bottom: 0; left: 0; right: 0; }
+.flagship-wave-art svg { display: block; width: 120%; margin-left: -10%; }
+
+.flagship-text { padding: clamp(2.5rem, 5vw, var(--sp-2xl)); display: flex; flex-direction: column; justify-content: center; }
+.flagship-text .section-title { margin-bottom: var(--sp-lg); }
+.flagship-text .section-desc { margin-bottom: var(--sp-xl); }
+
+.flagship-features { display: flex; flex-direction: column; gap: var(--sp-md); margin-bottom: var(--sp-xl); }
+.flagship-feature { display: flex; gap: var(--sp-md); align-items: flex-start; }
+.flagship-feature-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--teal-wash); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--teal-primary); font-size: 1.1rem; }
+.flagship-feature h4 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: var(--fs-base); color: var(--dark); margin-bottom: 0.2rem; }
+.flagship-feature p { font-size: var(--fs-sm); color: var(--text-light); line-height: 1.5; }
 
 /* ─── ABOUT / MISSION ─── */
-.about {
-  background: var(--cream);
-}
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 0.618fr);
-  gap: var(--sp-xl);
-  align-items: start;
-}
-.about-text .section-desc {
-  margin-bottom: var(--sp-xl);
-}
-.about-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-lg);
-  font-style: italic;
-  color: var(--teal-deep);
-  line-height: 1.5;
-  padding-left: var(--sp-lg);
-  border-left: 2px solid var(--gold);
-  margin-bottom: var(--sp-xl);
-}
+.about { background: var(--cream); }
+.about-grid { display: grid; grid-template-columns: 1fr minmax(0, 0.618fr); gap: var(--sp-xl); align-items: start; }
+.about-text .section-desc { margin-bottom: var(--sp-xl); }
 
-.pillars {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-md);
-}
-.pillar-card {
-  background: var(--white);
-  border-radius: 16px;
-  padding: var(--sp-lg);
-  transition: all 0.4s var(--ease-out-expo);
-  border: 1px solid rgba(26, 107, 107, 0.06);
-  position: relative;
-  overflow: hidden;
-}
-.pillar-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: linear-gradient(90deg, var(--teal-primary), var(--teal-light));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s var(--ease-out-expo);
-}
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
+.pillar-card { background: var(--white); border-radius: 16px; padding: var(--sp-lg); transition: all 0.4s var(--ease-out-expo); border: 1px solid rgba(26, 107, 107, 0.06); position: relative; overflow: hidden; }
+.pillar-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--teal-primary), var(--teal-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--ease-out-expo); }
 .pillar-card:hover::before { transform: scaleX(1); }
-.pillar-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(26, 107, 107, 0.08);
-}
-.pillar-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: var(--teal-wash);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--sp-sm);
-  font-size: 1.25rem;
-  color: var(--teal-primary);
-}
-.pillar-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-base);
-  font-weight: 600;
-  color: var(--dark);
-  margin-bottom: var(--sp-xs);
-}
-.pillar-card p {
-  font-size: var(--fs-sm);
-  color: var(--text-light);
-  line-height: 1.6;
-}
+.pillar-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26, 107, 107, 0.08); }
+.pillar-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--teal-wash); display: flex; align-items: center; justify-content: center; margin-bottom: var(--sp-sm); font-size: 1.25rem; color: var(--teal-primary); }
+.pillar-card h3 { font-family: 'Playfair Display', serif; font-size: var(--fs-base); font-weight: 600; color: var(--dark); margin-bottom: var(--sp-xs); }
+.pillar-card p { font-size: var(--fs-sm); color: var(--text-light); line-height: 1.6; }
 
-/* About visual side */
-.about-visual {
-  position: relative;
-}
-.about-image-frame {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  aspect-ratio: 3/4;
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-light) 50%, var(--teal-pale) 100%);
-}
-.about-image-frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 70%, rgba(201, 169, 110, 0.2) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q45 15 50 30 Q45 45 30 55 Q15 45 10 30 Q15 15 30 5Z' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='0.5'/%3E%3C/svg%3E");
-}
-.about-image-content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--sp-xl);
-  text-align: center;
-}
-.about-image-content svg { width: 120px; height: auto; margin-bottom: var(--sp-lg); opacity: 0.9; }
-.about-image-content p {
-  color: var(--white);
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-lg);
-  font-style: italic;
-  line-height: 1.5;
-  opacity: 0.85;
-}
-.about-badge {
-  position: absolute;
-  bottom: -10px;
-  right: 10px;
-  width: 140px; height: 140px;
-  background: var(--gold);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--dark);
-  box-shadow: 0 10px 40px rgba(201, 169, 110, 0.3);
-}
-.about-badge .number {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-xl);
-  font-weight: 700;
-  line-height: 1;
-}
-.about-badge .label {
-  font-size: var(--fs-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 500;
-}
+.about-visual { position: relative; }
+.about-image-frame { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 3/4; background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-light) 50%, var(--teal-pale) 100%); }
+.about-image-frame::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 70%, rgba(201, 169, 110, 0.2) 0%, transparent 50%); }
+.about-image-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--sp-xl); text-align: center; }
+.about-image-content i { font-size: 4rem; color: rgba(255,255,255,0.7); margin-bottom: var(--sp-lg); }
+.about-image-content p { color: var(--white); font-family: 'Playfair Display', serif; font-size: var(--fs-lg); font-style: italic; line-height: 1.5; opacity: 0.85; }
+.about-badge { position: absolute; bottom: -10px; right: 10px; width: 130px; height: 130px; background: var(--gold); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--dark); box-shadow: 0 10px 40px rgba(201, 169, 110, 0.3); }
+.about-badge .number { font-family: 'Playfair Display', serif; font-size: var(--fs-xl); font-weight: 700; line-height: 1; }
+.about-badge .label { font-size: var(--fs-xs); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; text-align: center; }
 
 /* ─── IMPACT ─── */
-.impact {
-  background: linear-gradient(135deg, var(--dark) 0%, #0F2828 30%, var(--teal-deep) 70%, #1A3A3A 100%);
-  color: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-.impact::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 50%, rgba(92, 189, 174, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(201, 169, 110, 0.08) 0%, transparent 40%);
-}
+.impact { background: linear-gradient(135deg, var(--dark) 0%, #0F2828 30%, var(--teal-deep) 70%, #1A3A3A 100%); color: var(--white); position: relative; overflow: hidden; }
+.impact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%, rgba(92, 189, 174, 0.12) 0%, transparent 50%), radial-gradient(circle at 80% 30%, rgba(201, 169, 110, 0.08) 0%, transparent 40%); }
 .impact .container { position: relative; z-index: 1; }
 .impact .section-label { color: var(--gold); }
+.impact .section-label::before { background: var(--gold); }
 .impact .section-title { color: var(--white); }
 .impact .section-title em { color: var(--teal-light); }
 .impact .section-desc { color: rgba(255,255,255,0.6); }
-
-.impact-header {
-  text-align: center;
-  margin-bottom: var(--sp-2xl);
-}
+.impact-header { text-align: center; margin-bottom: var(--sp-2xl); }
+.impact-header .section-label { justify-content: center; }
 .impact-header .section-desc { margin: 0 auto; }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-lg);
-}
-.stat-card {
-  text-align: center;
-  padding: var(--sp-xl) var(--sp-lg);
-  border-radius: 20px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s var(--ease-out-expo);
-}
-.stat-card:hover {
-  background: rgba(255,255,255,0.08);
-  transform: translateY(-6px);
-  border-color: rgba(201, 169, 110, 0.2);
-}
-.stat-number {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 4vw, var(--fs-2xl));
-  font-weight: 700;
-  color: var(--teal-light);
-  line-height: 1;
-  margin-bottom: var(--sp-xs);
-}
-.stat-suffix {
-  font-size: 0.5em;
-  color: var(--gold);
-}
-.stat-label {
-  font-size: var(--fs-sm);
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.05em;
-}
-.stat-divider {
-  width: 30px; height: 1px;
-  background: var(--gold);
-  margin: var(--sp-sm) auto;
-}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-lg); }
+.stat-card { text-align: center; padding: var(--sp-xl) var(--sp-lg); border-radius: 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(10px); transition: all 0.4s var(--ease-out-expo); }
+.stat-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-6px); border-color: rgba(201, 169, 110, 0.2); }
+.stat-number { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, var(--fs-2xl)); font-weight: 700; color: var(--teal-light); line-height: 1; margin-bottom: var(--sp-xs); }
+.stat-suffix { font-size: 0.5em; color: var(--gold); }
+.stat-label { font-size: var(--fs-sm); color: rgba(255,255,255,0.5); letter-spacing: 0.05em; }
+.stat-divider { width: 30px; height: 1px; background: var(--gold); margin: var(--sp-sm) auto; }
 
-/* ─── PROGRAMS ─── */
-.programs {
-  background: var(--white);
-}
-.programs-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: var(--sp-2xl);
-  flex-wrap: wrap;
-  gap: var(--sp-lg);
-}
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-lg);
-}
-.program-card {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  cursor: pointer;
-  group: program;
-}
-.program-bg {
-  position: absolute;
-  inset: 0;
-  transition: transform 0.7s var(--ease-out-expo);
-}
-.program-card:hover .program-bg { transform: scale(1.05); }
+/* ─── COMMUNITY FOCUS ─── */
+.community { background: var(--white); }
+.community-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-lg); }
+.community-header { margin-bottom: var(--sp-2xl); }
+.community-card { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; cursor: default; }
+.community-bg { position: absolute; inset: 0; transition: transform 0.7s var(--ease-out-expo); }
+.community-card:hover .community-bg { transform: scale(1.05); }
+.community-bg-1 { background: linear-gradient(160deg, #0D2B3E, #1A5C6B, #2A8B8B); }
+.community-bg-2 { background: linear-gradient(160deg, #1A3A2A, #2D6B4F, #4A9B75); }
+.community-bg-3 { background: linear-gradient(160deg, #2A4A6B, #3A7BAB, #5BA5D5); }
+.community-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7) 100%); z-index: 1; }
+.community-content { position: absolute; bottom: 0; left: 0; right: 0; padding: var(--sp-xl); z-index: 2; }
+.community-tag { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 100px; font-size: var(--fs-xs); color: var(--white); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--sp-sm); }
+.community-tag i { font-size: 0.75rem; }
+.community-content h3 { font-family: 'Playfair Display', serif; font-size: var(--fs-lg); color: var(--white); font-weight: 500; margin-bottom: var(--sp-xs); }
+.community-content p { font-size: var(--fs-sm); color: rgba(255,255,255,0.7); line-height: 1.6; }
 
-.program-bg-1 { background: linear-gradient(160deg, #1A5C5C, #2A8B8B, #3DA89E); }
-.program-bg-2 { background: linear-gradient(160deg, #1A3A2A, #2D6B4F, #4A9B75); }
-.program-bg-3 { background: linear-gradient(160deg, #2A4A6B, #3A7BAB, #5BA5D5); }
-.program-bg-4 { background: linear-gradient(160deg, #5B3A1A, #8B6A3A, #B89A5A); }
-.program-bg-5 { background: linear-gradient(160deg, #3A2A5B, #6B4A8B, #9B7ABB); }
-
-.program-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.7) 100%);
-  z-index: 1;
-}
-.program-content {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: var(--sp-xl);
-  z-index: 2;
-  transform: translateY(20px);
-  transition: transform 0.5s var(--ease-out-expo);
-}
-.program-card:hover .program-content { transform: translateY(0); }
-
-.program-tag {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 100px;
-  font-size: var(--fs-xs);
-  color: var(--white);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: var(--sp-sm);
-}
-.program-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-lg);
-  color: var(--white);
-  font-weight: 500;
-  margin-bottom: var(--sp-xs);
-}
-.program-content p {
-  font-size: var(--fs-sm);
-  color: rgba(255,255,255,0.7);
-  line-height: 1.6;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s var(--ease-out-expo), opacity 0.5s;
-  opacity: 0;
-}
-.program-card:hover .program-content p {
-  max-height: 100px;
-  opacity: 1;
-}
-.program-icon {
-  position: absolute;
-  top: var(--sp-lg);
-  right: var(--sp-lg);
-  width: 50px; height: 50px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--white);
-  z-index: 2;
-}
-
-/* ─── GALLERY ─── */
-.gallery {
-  background: var(--cream);
-  overflow: hidden;
-}
-.gallery-header {
-  text-align: center;
-  margin-bottom: var(--sp-2xl);
-}
-.gallery-header .section-desc { margin: 0 auto; }
-
-.gallery-masonry {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 200px);
-  gap: var(--sp-sm);
-}
-.gallery-item {
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.5s var(--ease-out-expo);
-}
-.gallery-item:hover { transform: scale(0.98); }
-.gallery-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.gallery-item:hover::after { opacity: 1; }
-
-.gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; background: linear-gradient(135deg, #1A5C5C, #3DA89E, #7ECFC0); }
-.gallery-item:nth-child(2) { background: linear-gradient(135deg, #C9A96E, #E2C992, #F5E6C8); }
-.gallery-item:nth-child(3) { background: linear-gradient(135deg, #2A6B5B, #4A9B85, #7BCBAB); }
-.gallery-item:nth-child(4) { background: linear-gradient(135deg, #1A3535, #2A5555, #3A7575); }
-.gallery-item:nth-child(5) { grid-column: 3 / 5; background: linear-gradient(135deg, #5BA5D5, #3A7BAB, #1A4A6B); }
-.gallery-item:nth-child(6) { background: linear-gradient(135deg, #8B6A3A, #B89A5A, #E2C992); }
-
-.gallery-item-label {
-  position: absolute;
-  bottom: var(--sp-md);
-  left: var(--sp-md);
-  z-index: 1;
-  font-size: var(--fs-sm);
-  color: var(--white);
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s var(--ease-out-expo);
-}
-.gallery-item:hover .gallery-item-label {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ─── TRANSPARENCY / NGO CREDIBILITY ─── */
+.transparency { background: var(--cream); }
+.transparency-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-lg); }
+.transparency-header { text-align: center; margin-bottom: var(--sp-2xl); }
+.transparency-header .section-label { justify-content: center; }
+.transparency-header .section-desc { margin: 0 auto; }
+.transparency-card { background: var(--white); border-radius: 16px; padding: var(--sp-xl) var(--sp-lg); text-align: center; border: 1px solid rgba(26,107,107,0.06); transition: all 0.4s var(--ease-out-expo); }
+.transparency-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26,107,107,0.06); }
+.transparency-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--teal-wash); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--sp-md); font-size: 1.3rem; color: var(--teal-primary); }
+.transparency-card h3 { font-family: 'Playfair Display', serif; font-size: var(--fs-base); font-weight: 600; color: var(--dark); margin-bottom: var(--sp-xs); }
+.transparency-card p { font-size: var(--fs-sm); color: var(--text-light); line-height: 1.6; }
 
 /* ─── GET INVOLVED ─── */
-.involved {
-  background: var(--white);
-}
-.involved-header {
-  text-align: center;
-  margin-bottom: var(--sp-2xl);
-}
+.involved { background: var(--white); }
+.involved-header { text-align: center; margin-bottom: var(--sp-2xl); }
+.involved-header .section-label { justify-content: center; }
 .involved-header .section-desc { margin: 0 auto; }
-
-.involved-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-lg);
-}
-.involved-card {
-  background: var(--cream);
-  border-radius: 24px;
-  padding: var(--sp-xl);
-  text-align: center;
-  transition: all 0.5s var(--ease-out-expo);
-  border: 1px solid transparent;
-  position: relative;
-  overflow: hidden;
-}
-.involved-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%; transform: translateX(-50%);
-  width: 60%; height: 3px;
-  border-radius: 0 0 4px 4px;
-  background: linear-gradient(90deg, var(--teal-primary), var(--gold));
-  opacity: 0;
-  transition: opacity 0.4s, width 0.4s var(--ease-out-expo);
-}
+.involved-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-lg); }
+.involved-card { background: var(--cream); border-radius: 24px; padding: var(--sp-xl); text-align: center; transition: all 0.5s var(--ease-out-expo); border: 1px solid transparent; position: relative; overflow: hidden; }
+.involved-card::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 3px; border-radius: 0 0 4px 4px; background: linear-gradient(90deg, var(--teal-primary), var(--gold)); opacity: 0; transition: opacity 0.4s, width 0.4s var(--ease-out-expo); }
 .involved-card:hover::before { opacity: 1; width: 80%; }
-.involved-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(26, 107, 107, 0.1);
-  border-color: var(--teal-pale);
-}
-.involved-icon {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-wash), var(--teal-pale));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto var(--sp-lg);
-  font-size: 1.6rem;
-  color: var(--teal-deep);
-  transition: transform 0.4s var(--ease-out-expo);
-}
+.involved-card:hover { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(26, 107, 107, 0.1); border-color: var(--teal-pale); }
+.involved-icon { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--teal-wash), var(--teal-pale)); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--sp-lg); font-size: 1.6rem; color: var(--teal-deep); transition: transform 0.4s var(--ease-out-expo); }
 .involved-card:hover .involved-icon { transform: scale(1.1) rotate(5deg); }
-.involved-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-lg);
-  color: var(--dark);
-  margin-bottom: var(--sp-sm);
-}
-.involved-card p {
-  font-size: var(--fs-sm);
-  color: var(--text-light);
-  line-height: 1.7;
-  margin-bottom: var(--sp-lg);
-}
-.involved-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 2rem;
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  transition: all 0.4s var(--ease-out-expo);
-  cursor: pointer;
-  border: none;
-}
-.involved-btn-primary {
-  background: var(--teal-primary);
-  color: var(--white);
-}
+.involved-card h3 { font-family: 'Playfair Display', serif; font-size: var(--fs-lg); color: var(--dark); margin-bottom: var(--sp-sm); }
+.involved-card p { font-size: var(--fs-sm); color: var(--text-light); line-height: 1.7; margin-bottom: var(--sp-lg); }
+.involved-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 2rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: var(--fs-sm); font-weight: 500; letter-spacing: 0.05em; text-decoration: none; transition: all 0.4s var(--ease-out-expo); cursor: pointer; border: none; }
+.involved-btn-primary { background: var(--teal-primary); color: var(--white); }
 .involved-btn-primary:hover { background: var(--teal-deep); transform: translateY(-2px); }
-.involved-btn-outline {
-  background: transparent;
-  border: 1px solid var(--teal-primary);
-  color: var(--teal-primary);
-}
-.involved-btn-outline:hover { background: var(--teal-primary); color: var(--white); }
-.involved-btn-gold {
-  background: var(--gold);
-  color: var(--dark);
-}
+.involved-btn-gold { background: var(--gold); color: var(--dark); }
 .involved-btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.involved-btn-outline { background: transparent; border: 1px solid var(--teal-primary); color: var(--teal-primary); }
+.involved-btn-outline:hover { background: var(--teal-primary); color: var(--white); }
 
 /* ─── TESTIMONIALS ─── */
-.testimonials {
-  background: var(--cream);
-  overflow: hidden;
-}
-.testimonials-header {
-  text-align: center;
-  margin-bottom: var(--sp-2xl);
-}
-.testimonials-track {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  min-height: 250px;
-}
-.testimonial {
-  position: absolute;
-  inset: 0;
-  text-align: center;
-  opacity: 0;
-  transform: translateX(60px);
-  transition: all 0.7s var(--ease-out-expo);
-  pointer-events: none;
-}
-.testimonial.active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: all;
-}
-.testimonial.prev {
-  opacity: 0;
-  transform: translateX(-60px);
-}
-.testimonial-quote-mark {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  color: var(--teal-pale);
-  line-height: 1;
-  margin-bottom: var(--sp-sm);
-}
-.testimonial blockquote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.2rem, 2vw, var(--fs-lg));
-  font-style: italic;
-  color: var(--dark);
-  line-height: 1.6;
-  margin-bottom: var(--sp-lg);
-}
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sp-sm);
-}
-.testimonial-avatar {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
-}
-.testimonial-info h4 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  font-size: var(--fs-base);
-  color: var(--dark);
-}
-.testimonial-info span {
-  font-size: var(--fs-sm);
-  color: var(--text-light);
-}
-.testimonial-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-top: var(--sp-xl);
-}
-.testimonial-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--teal-pale);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s var(--ease-out-expo);
-}
-.testimonial-dot.active {
-  background: var(--teal-primary);
-  width: 28px;
-  border-radius: 4px;
-}
+.testimonials { background: var(--cream); overflow: hidden; }
+.testimonials-header { text-align: center; margin-bottom: var(--sp-2xl); }
+.testimonials-header .section-label { justify-content: center; }
+.testimonials-track { position: relative; max-width: 800px; margin: 0 auto; min-height: 250px; }
+.testimonial { position: absolute; inset: 0; text-align: center; opacity: 0; transform: translateX(60px); transition: all 0.7s var(--ease-out-expo); pointer-events: none; }
+.testimonial.active { opacity: 1; transform: translateX(0); pointer-events: all; }
+.testimonial.prev { opacity: 0; transform: translateX(-60px); }
+.testimonial-quote-mark { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--teal-pale); line-height: 1; margin-bottom: var(--sp-sm); }
+.testimonial blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2vw, var(--fs-lg)); font-style: italic; color: var(--dark); line-height: 1.6; margin-bottom: var(--sp-lg); }
+.testimonial-author { display: flex; align-items: center; justify-content: center; gap: var(--sp-sm); }
+.testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem; }
+.testimonial-info h4 { font-weight: 600; font-size: var(--fs-base); color: var(--dark); }
+.testimonial-info span { font-size: var(--fs-sm); color: var(--text-light); }
+.testimonial-dots { display: flex; justify-content: center; gap: 0.6rem; margin-top: var(--sp-xl); }
+.testimonial-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-pale); border: none; cursor: pointer; transition: all 0.3s var(--ease-out-expo); }
+.testimonial-dot.active { background: var(--teal-primary); width: 28px; border-radius: 4px; }
 
-/* ─── CONTACT / NEWSLETTER ─── */
-.contact {
-  background: linear-gradient(135deg, var(--dark) 0%, #0F2828 50%, var(--teal-deep) 100%);
-  color: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-.contact::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(92, 189, 174, 0.08) 0%, transparent 50%);
-}
+/* ─── CONTACT ─── */
+.contact { background: linear-gradient(135deg, var(--dark) 0%, #0F2828 50%, var(--teal-deep) 100%); color: var(--white); position: relative; overflow: hidden; }
+.contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(92, 189, 174, 0.08) 0%, transparent 50%); }
 .contact .container { position: relative; z-index: 1; }
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 0.618fr);
-  gap: var(--sp-xl);
-  align-items: start;
-}
+.contact-grid { display: grid; grid-template-columns: 1fr minmax(0, 0.618fr); gap: var(--sp-xl); align-items: start; }
 .contact .section-label { color: var(--gold); }
+.contact .section-label::before { background: var(--gold); }
 .contact .section-title { color: var(--white); }
 .contact .section-title em { color: var(--teal-light); }
 .contact .section-desc { color: rgba(255,255,255,0.6); margin-bottom: var(--sp-xl); }
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-md);
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-md);
-}
-.form-group { position: relative; }
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem 1.2rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--fs-base);
-  transition: all 0.3s var(--ease-out-expo);
-  outline: none;
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--teal-light);
-  background: rgba(255,255,255,0.1);
-  box-shadow: 0 0 0 3px rgba(92, 189, 174, 0.15);
-}
+.contact-form { display: flex; flex-direction: column; gap: var(--sp-md); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
+.form-group input, .form-group textarea { width: 100%; padding: 1rem 1.2rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: var(--fs-base); transition: all 0.3s var(--ease-out-expo); outline: none; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--teal-light); background: rgba(255,255,255,0.1); box-shadow: 0 0 0 3px rgba(92, 189, 174, 0.15); }
 .form-group textarea { min-height: 140px; resize: vertical; }
 
-.contact-info {
-  padding-top: var(--sp-xl);
-}
-.contact-info-item {
-  display: flex;
-  gap: var(--sp-md);
-  margin-bottom: var(--sp-xl);
-}
-.contact-info-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  color: var(--teal-light);
-  flex-shrink: 0;
-}
-.contact-info-text h4 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  margin-bottom: 0.3rem;
-}
-.contact-info-text p {
-  font-size: var(--fs-sm);
-  color: rgba(255,255,255,0.5);
-  line-height: 1.6;
-}
+.contact-info { padding-top: var(--sp-xl); }
+.contact-info-item { display: flex; gap: var(--sp-md); margin-bottom: var(--sp-xl); }
+.contact-info-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--teal-light); flex-shrink: 0; }
+.contact-info-text h4 { font-family: 'Playfair Display', serif; font-weight: 500; margin-bottom: 0.3rem; }
+.contact-info-text p { font-size: var(--fs-sm); color: rgba(255,255,255,0.5); line-height: 1.6; }
 
 /* ─── FOOTER ─── */
-footer {
-  background: #0A1515;
-  padding: var(--sp-xl) clamp(1.5rem, 4vw, 4rem);
-  position: relative;
-}
-.footer-content {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--sp-lg);
-}
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--fs-lg);
-  color: var(--white);
-  font-weight: 500;
-}
+footer { background: #0A1515; padding: var(--sp-xl) clamp(1.5rem, 4vw, 4rem) var(--sp-lg); position: relative; }
+.footer-content { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--sp-lg); padding-bottom: var(--sp-lg); border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: var(--sp-lg); }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: var(--fs-lg); color: var(--white); font-weight: 500; }
 .footer-logo span { color: var(--gold); }
-.footer-links {
-  display: flex;
-  gap: var(--sp-lg);
-  list-style: none;
-}
-.footer-links a {
-  color: rgba(255,255,255,0.4);
-  text-decoration: none;
-  font-size: var(--fs-sm);
-  transition: color 0.3s;
-}
+.footer-links { display: flex; gap: var(--sp-lg); list-style: none; }
+.footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: var(--fs-sm); transition: color 0.3s; }
 .footer-links a:hover { color: var(--white); }
-.footer-copy {
-  font-size: var(--fs-xs);
-  color: rgba(255,255,255,0.25);
-}
-.footer-wave {
-  position: absolute;
-  top: -2px; left: 0; right: 0;
-  line-height: 0;
-}
-.footer-wave svg { display: block; width: 100%; height: auto; }
+.footer-bottom { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--sp-md); }
+.footer-copy { font-size: var(--fs-xs); color: rgba(255,255,255,0.25); }
+.footer-npo { font-size: var(--fs-xs); color: rgba(255,255,255,0.25); display: flex; align-items: center; gap: 0.5rem; }
+.footer-npo i { color: var(--teal-light); }
+.footer-socials { display: flex; gap: var(--sp-sm); }
+.footer-socials a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.95rem; transition: all 0.3s; }
+.footer-socials a:hover { background: var(--teal-primary); color: var(--white); }
+
+/* ─── WAVE DIVIDERS ─── */
+.wave-top { position: absolute; top: -2px; left: 0; right: 0; line-height: 0; z-index: 2; }
+.wave-top svg { display: block; width: 100%; height: auto; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
+  .hero-content { width: 75%; }
+  .hero-trust { display: none; }
+  .flagship-grid { grid-template-columns: 1fr; }
+  .flagship-visual { min-height: 350px; }
   .about-grid { grid-template-columns: 1fr; }
   .about-visual { order: -1; }
   .about-image-frame { aspect-ratio: 16/9; }
-  .about-badge { bottom: -15px; right: 20px; width: 110px; height: 110px; }
-  .about-badge .number { font-size: var(--fs-lg); }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .programs-grid { grid-template-columns: repeat(2, 1fr); }
-  .programs-grid .program-card:last-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
+  .community-grid { grid-template-columns: repeat(2, 1fr); }
+  .transparency-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
 }
-
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .menu-toggle { display: block; }
-  .nav-links.mobile-open {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    inset: 0;
-    background: rgba(26, 42, 42, 0.98);
-    backdrop-filter: blur(20px);
-    align-items: center;
-    justify-content: center;
-    gap: var(--sp-xl);
-    z-index: 999;
-  }
-  .nav-links.mobile-open a {
-    font-size: var(--fs-lg);
-    color: var(--white);
-  }
-  .hero-content { width: 90%; }
+  .nav-links.mobile-open { display: flex; flex-direction: column; position: fixed; inset: 0; background: rgba(26, 42, 42, 0.98); backdrop-filter: blur(20px); align-items: center; justify-content: center; gap: var(--sp-xl); z-index: 999; }
+  .nav-links.mobile-open a { font-size: var(--fs-lg); color: var(--white); }
+  .hero-content { width: 90%; padding-left: var(--sp-lg); }
+  .scroll-indicator { left: var(--sp-lg); }
   .pillars { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
-  .programs-grid { grid-template-columns: 1fr; }
-  .programs-grid .program-card { aspect-ratio: 4/3; }
-  .gallery-masonry {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 160px);
-  }
-  .gallery-item:nth-child(1) { grid-column: 1 / -1; grid-row: 1 / 2; }
-  .gallery-item:nth-child(5) { grid-column: 1 / -1; }
+  .community-grid { grid-template-columns: 1fr; }
+  .community-card { aspect-ratio: 4/3; }
+  .transparency-grid { grid-template-columns: 1fr 1fr; }
   .involved-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-content { flex-direction: column; text-align: center; }
+  .footer-content, .footer-bottom { flex-direction: column; text-align: center; }
   .cursor-dot, .cursor-ring { display: none !important; }
+  .announcement { display: none; }
 }
-
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
-  .gallery-masonry { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .gallery-item { aspect-ratio: 16/9; }
-  .gallery-item:nth-child(1) { grid-column: 1; grid-row: auto; }
-  .gallery-item:nth-child(5) { grid-column: 1; }
+  .transparency-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<!-- Loading Screen -->
-<div class="loader" id="loader">
-  <div class="loader-circle"></div>
-</div>
-
-<!-- Custom Cursor -->
+<div class="loader" id="loader"><div class="loader-circle"></div></div>
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  <p><i class="bi bi-megaphone"></i> &nbsp; Big News: The R50 Million Hout Bay Tidal Pool project is underway. <a href="#flagship">Learn More →</a></p>
+</div>
 
 <!-- Navigation -->
 <nav id="nav">
   <a href="#" class="nav-logo">Feel Good<span>.</span></a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="#flagship">Tidal Pool</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#impact">Impact</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#testimonials">Stories</a></li>
-    <li><a href="#contact" class="nav-cta">Get Involved</a></li>
+    <li><a href="#community">Our Work</a></li>
+    <li><a href="#transparency">Transparency</a></li>
+    <li><a href="#contact" class="nav-cta">Support Us</a></li>
   </ul>
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -1306,17 +419,22 @@ footer {
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-particles" id="heroParticles"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow" id="heroEyebrow">Western Cape, South Africa</p>
+    <p class="hero-eyebrow" id="heroEyebrow">Hout Bay, Western Cape</p>
     <h1 class="hero-title" id="heroTitle">
-      Where <em>Nature</em> Heals &amp; Community <em>Thrives</em>
+      Building <em>Community</em> Through Nature
     </h1>
     <p class="hero-sub" id="heroSub">
-      We believe in the transformative power of nature to restore wellbeing, protect wildlife, and strengthen the communities that call the Western Cape home.
+      We champion ocean safety, marine education, and equitable beach access for every community in the Western Cape. Because nature belongs to everyone.
     </p>
     <div class="hero-cta-group" id="heroCta">
-      <a href="#involved" class="btn-primary"><span>Join the Movement</span></a>
-      <a href="#about" class="btn-outline">Discover Our Story</a>
+      <a href="#flagship" class="btn-primary"><span>See Our Flagship Project</span></a>
+      <a href="#involved" class="btn-outline">Support the Mission</a>
     </div>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-tag"><i class="bi bi-patch-check-fill"></i> Registered NPO</div>
+    <div class="trust-tag"><i class="bi bi-shield-check"></i> Environmental Compliance</div>
+    <div class="trust-tag"><i class="bi bi-globe-americas"></i> Hout Bay, South Africa</div>
   </div>
   <div class="hero-wave">
     <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -1330,59 +448,101 @@ footer {
   </div>
 </section>
 
+<!-- Flagship Project: Tidal Pool -->
+<section class="flagship section-pad" id="flagship">
+  <div class="container">
+    <div class="flagship-grid">
+      <div class="flagship-visual">
+        <div class="flagship-visual-content">
+          <div class="flagship-badge"><i class="bi bi-star-fill"></i> Flagship Project</div>
+          <div class="flagship-amount">R50<span>M</span></div>
+          <p class="flagship-visual-label">Community Investment in Hout Bay</p>
+        </div>
+        <div class="flagship-wave-art">
+          <svg viewBox="0 0 600 80" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 40C100 10 200 70 300 40C400 10 500 70 600 40V80H0Z" fill="rgba(255,255,255,0.05)"/>
+            <path d="M0 50C150 20 300 80 450 50C525 35 575 45 600 40V80H0Z" fill="rgba(255,255,255,0.03)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="flagship-text">
+        <p class="section-label reveal">Hout Bay Tidal Pool</p>
+        <h2 class="section-title reveal reveal-delay-1">A Safe Ocean for <em>Everyone</em></h2>
+        <p class="section-desc reveal reveal-delay-2">
+          A world-class tidal pool is coming to Hout Bay Beach — creating a safe, eco-friendly swimming spot for locals from Imizamo Yethu, Hangberg, and beyond who have long lacked easy beach access.
+        </p>
+        <div class="flagship-features reveal reveal-delay-3">
+          <div class="flagship-feature">
+            <div class="flagship-feature-icon"><i class="bi bi-water"></i></div>
+            <div>
+              <h4>Natural Shoreline Integration</h4>
+              <p>Designed to blend seamlessly into the coast, replacing the old revetment with a living tidal ecosystem.</p>
+            </div>
+          </div>
+          <div class="flagship-feature">
+            <div class="flagship-feature-icon"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <h4>Environmental Assessment</h4>
+              <p>Full environmental impact study underway with marine biologists to protect existing marine life.</p>
+            </div>
+          </div>
+          <div class="flagship-feature">
+            <div class="flagship-feature-icon"><i class="bi bi-mortarboard"></i></div>
+            <div>
+              <h4>Ocean Safety &amp; Marine Education</h4>
+              <p>A hub for teaching water safety and marine ecology to community members and school groups.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#involved" class="btn-primary reveal reveal-delay-4"><span>Help Fund This Project</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- About / Mission -->
 <section class="about section-pad" id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <p class="section-label reveal">Our Purpose</p>
-        <h2 class="section-title reveal reveal-delay-1">Reconnecting People with <em>Nature</em>, One Heartbeat at a Time</h2>
+        <p class="section-label reveal">Who We Are</p>
+        <h2 class="section-title reveal reveal-delay-1">Where Nature Heals &amp; <em>Community</em> Thrives</h2>
         <p class="section-desc reveal reveal-delay-2">
-          The Feel Good Initiative was born from a simple truth: when we nurture nature, nature nurtures us. Founded in the shadow of Table Mountain, we bring together conservation, wellness, and community to create lasting change across the Western Cape.
+          The Feel Good Initiative is a registered South African nonprofit dedicated to creating equitable access to nature, ocean safety, and environmental stewardship. Based in the Western Cape, we bridge the gap between underserved communities and the natural spaces they deserve.
         </p>
-        <blockquote class="about-quote reveal reveal-delay-3">
-          "The earth has music for those who listen — and healing for those who dare to reconnect."
-        </blockquote>
         <div class="pillars">
           <div class="pillar-card reveal reveal-delay-2">
-            <div class="pillar-icon"><i class="bi bi-tree"></i></div>
-            <h3>Conservation</h3>
-            <p>Protecting wildlife corridors and restoring indigenous habitats across the Western Cape.</p>
+            <div class="pillar-icon"><i class="bi bi-water"></i></div>
+            <h3>Ocean Access</h3>
+            <p>Creating safe, inclusive coastal infrastructure for communities historically excluded from beach access.</p>
           </div>
           <div class="pillar-card reveal reveal-delay-3">
-            <div class="pillar-icon"><i class="bi bi-heart-pulse"></i></div>
-            <h3>Wellness</h3>
-            <p>Nature-based healing programs that restore mental health and build inner resilience.</p>
+            <div class="pillar-icon"><i class="bi bi-life-preserver"></i></div>
+            <h3>Ocean Safety</h3>
+            <p>Teaching water safety and drowning prevention to protect lives in coastal communities.</p>
           </div>
           <div class="pillar-card reveal reveal-delay-4">
-            <div class="pillar-icon"><i class="bi bi-people"></i></div>
-            <h3>Community</h3>
-            <p>Empowering local communities through environmental stewardship and shared purpose.</p>
+            <div class="pillar-icon"><i class="bi bi-tree"></i></div>
+            <h3>Marine Conservation</h3>
+            <p>Protecting marine ecosystems through science-led environmental assessments and habitat restoration.</p>
           </div>
           <div class="pillar-card reveal reveal-delay-5">
             <div class="pillar-icon"><i class="bi bi-book"></i></div>
             <h3>Education</h3>
-            <p>Teaching the next generation to value, protect, and thrive alongside nature.</p>
+            <p>Marine education programs that inspire the next generation to understand and protect our oceans.</p>
           </div>
         </div>
       </div>
       <div class="about-visual reveal reveal-delay-2">
         <div class="about-image-frame">
           <div class="about-image-content">
-            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="100" cy="100" r="95" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-              <path d="M40 130 L60 90 L80 110 L100 70 L120 95 L140 80 L160 130" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M30 140 Q60 125 100 140 Q140 155 170 140" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
-              <path d="M25 150 Q60 135 100 150 Q140 165 175 150" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none"/>
-              <circle cx="100" cy="55" r="15" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/>
-              <path d="M92 50 Q100 40 108 50" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
-            </svg>
-            <p>Where mountain meets ocean, healing begins</p>
+            <i class="bi bi-tsunami"></i>
+            <p>Where mountain meets ocean, community begins</p>
           </div>
         </div>
         <div class="about-badge reveal reveal-delay-4">
-          <span class="number">8</span>
-          <span class="label">Years of<br>Impact</span>
+          <span class="number">R50M</span>
+          <span class="label">Flagship<br>Project</span>
         </div>
       </div>
     </div>
@@ -1391,7 +551,7 @@ footer {
 
 <!-- Impact -->
 <section class="impact section-pad" id="impact">
-  <div class="wave-divider" style="position:absolute;top:-2px;left:0;right:0;">
+  <div class="wave-top">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 60V30C360 0 720 60 1080 30C1260 15 1380 25 1440 30V60H0Z" fill="var(--cream)"/>
     </svg>
@@ -1400,128 +560,101 @@ footer {
     <div class="impact-header">
       <p class="section-label reveal">Our Impact</p>
       <h2 class="section-title reveal reveal-delay-1">Measurable Change, <em>Immeasurable</em> Hope</h2>
-      <p class="section-desc reveal reveal-delay-2">
-        Every number represents a life changed, a species protected, or a community strengthened.
-      </p>
+      <p class="section-desc reveal reveal-delay-2">Every initiative is designed to create lasting, measurable impact for the communities we serve.</p>
     </div>
     <div class="stats-grid">
       <div class="stat-card reveal reveal-delay-1">
-        <div class="stat-number"><span class="counter" data-target="500">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-number">R<span class="counter" data-target="50">0</span><span class="stat-suffix">M</span></div>
         <div class="stat-divider"></div>
-        <div class="stat-label">Lives Touched</div>
+        <div class="stat-label">Tidal Pool Investment</div>
       </div>
       <div class="stat-card reveal reveal-delay-2">
-        <div class="stat-number"><span class="counter" data-target="12">0</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat-label">Conservation Projects</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-3">
-        <div class="stat-number"><span class="counter" data-target="50">0</span><span class="stat-suffix">+</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat-label">Community Events</div>
-      </div>
-      <div class="stat-card reveal reveal-delay-4">
         <div class="stat-number"><span class="counter" data-target="3">0</span></div>
         <div class="stat-divider"></div>
-        <div class="stat-label">Nature Reserves Protected</div>
+        <div class="stat-label">Communities Served</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-number"><span class="counter" data-target="500">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Lives Impacted</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-4">
+        <div class="stat-number"><span class="counter" data-target="1">0</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-label">Eco-Tourism Destination</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Programs -->
-<section class="programs section-pad" id="programs">
+<!-- Community Focus Areas -->
+<section class="community section-pad" id="community">
   <div class="container">
-    <div class="programs-header">
-      <div>
-        <p class="section-label reveal">What We Do</p>
-        <h2 class="section-title reveal reveal-delay-1">Programs That <em>Transform</em></h2>
-      </div>
-      <p class="section-desc reveal reveal-delay-2">
-        From mountain peaks to ocean shores, our initiatives create lasting change.
-      </p>
+    <div class="community-header">
+      <p class="section-label reveal">Our Focus Areas</p>
+      <h2 class="section-title reveal reveal-delay-1">Creating Spaces Where <em>Everyone</em> Belongs</h2>
+      <p class="section-desc reveal reveal-delay-2">From infrastructure to education — our initiatives are designed around the people who need them most.</p>
     </div>
-    <div class="programs-grid">
-      <div class="program-card reveal reveal-delay-1">
-        <div class="program-bg program-bg-1"></div>
-        <div class="program-overlay"></div>
-        <div class="program-icon"><i class="bi bi-shield-check"></i></div>
-        <div class="program-content">
-          <span class="program-tag">Conservation</span>
-          <h3>Wildlife Protection</h3>
-          <p>Safeguarding endangered species and restoring natural habitats across the Western Cape's biodiversity hotspots.</p>
+    <div class="community-grid">
+      <div class="community-card reveal reveal-delay-1">
+        <div class="community-bg community-bg-1"></div>
+        <div class="community-overlay"></div>
+        <div class="community-content">
+          <span class="community-tag"><i class="bi bi-water"></i> Infrastructure</span>
+          <h3>Coastal Access Projects</h3>
+          <p>Building tidal pools and beach access points that serve communities like Imizamo Yethu and Hangberg who lack safe ocean access.</p>
         </div>
       </div>
-      <div class="program-card reveal reveal-delay-2">
-        <div class="program-bg program-bg-2"></div>
-        <div class="program-overlay"></div>
-        <div class="program-icon"><i class="bi bi-brightness-high"></i></div>
-        <div class="program-content">
-          <span class="program-tag">Wellness</span>
-          <h3>Nature Wellness Retreats</h3>
-          <p>Guided outdoor experiences combining mindfulness, movement, and the healing power of South Africa's landscapes.</p>
+      <div class="community-card reveal reveal-delay-2">
+        <div class="community-bg community-bg-2"></div>
+        <div class="community-overlay"></div>
+        <div class="community-content">
+          <span class="community-tag"><i class="bi bi-life-preserver"></i> Safety</span>
+          <h3>Ocean Safety Programs</h3>
+          <p>Water safety training and drowning prevention — especially vital during summer when Hout Bay Beach sees heavy foot traffic.</p>
         </div>
       </div>
-      <div class="program-card reveal reveal-delay-3">
-        <div class="program-bg program-bg-3"></div>
-        <div class="program-overlay"></div>
-        <div class="program-icon"><i class="bi bi-mortarboard"></i></div>
-        <div class="program-content">
-          <span class="program-tag">Education</span>
-          <h3>Environmental Education</h3>
-          <p>Teaching young South Africans about conservation, sustainability, and their role as environmental stewards.</p>
-        </div>
-      </div>
-      <div class="program-card reveal reveal-delay-4">
-        <div class="program-bg program-bg-4"></div>
-        <div class="program-overlay"></div>
-        <div class="program-icon"><i class="bi bi-water"></i></div>
-        <div class="program-content">
-          <span class="program-tag">Action</span>
-          <h3>Coastal & Mountain Cleanups</h3>
-          <p>Regular volunteer-driven cleanups along Cape Town's coastlines and mountain trails to preserve natural beauty.</p>
-        </div>
-      </div>
-      <div class="program-card reveal reveal-delay-5">
-        <div class="program-bg program-bg-5"></div>
-        <div class="program-overlay"></div>
-        <div class="program-icon"><i class="bi bi-flower1"></i></div>
-        <div class="program-content">
-          <span class="program-tag">Youth</span>
-          <h3>Youth Nature Programs</h3>
-          <p>Empowering the next generation through outdoor leadership, wildlife encounters, and conservation projects.</p>
+      <div class="community-card reveal reveal-delay-3">
+        <div class="community-bg community-bg-3"></div>
+        <div class="community-overlay"></div>
+        <div class="community-content">
+          <span class="community-tag"><i class="bi bi-mortarboard"></i> Education</span>
+          <h3>Marine Education Hub</h3>
+          <p>The tidal pool will double as an outdoor classroom for marine ecology, connecting youth to the ocean through hands-on learning.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Gallery -->
-<section class="gallery section-pad" id="gallery">
+<!-- Transparency -->
+<section class="transparency section-pad" id="transparency">
   <div class="container">
-    <div class="gallery-header">
-      <p class="section-label reveal">Visual Stories</p>
-      <h2 class="section-title reveal reveal-delay-1">Moments That <em>Matter</em></h2>
-      <p class="section-desc reveal reveal-delay-2">A glimpse into the landscapes, wildlife, and communities that inspire everything we do.</p>
+    <div class="transparency-header">
+      <p class="section-label reveal">Accountability</p>
+      <h2 class="section-title reveal reveal-delay-1">Transparency Is <em>Non-Negotiable</em></h2>
+      <p class="section-desc reveal reveal-delay-2">We believe trust is earned through openness. Here's how we hold ourselves accountable.</p>
     </div>
-    <div class="gallery-masonry">
-      <div class="gallery-item reveal" aria-label="Table Mountain at golden hour with fynbos in foreground">
-        <span class="gallery-item-label">Table Mountain at Golden Hour</span>
+    <div class="transparency-grid">
+      <div class="transparency-card reveal reveal-delay-1">
+        <div class="transparency-icon"><i class="bi bi-patch-check"></i></div>
+        <h3>Registered NPO</h3>
+        <p>Fully registered nonprofit organisation under South African law with public governance records.</p>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" aria-label="Community wellness session on the beach">
-        <span class="gallery-item-label">Beach Wellness Session</span>
+      <div class="transparency-card reveal reveal-delay-2">
+        <div class="transparency-icon"><i class="bi bi-clipboard-data"></i></div>
+        <h3>Environmental Review</h3>
+        <p>Full environmental impact assessment with marine biologists before any construction begins.</p>
       </div>
-      <div class="gallery-item reveal reveal-delay-2" aria-label="Indigenous fynbos restoration project">
-        <span class="gallery-item-label">Fynbos Restoration</span>
+      <div class="transparency-card reveal reveal-delay-3">
+        <div class="transparency-icon"><i class="bi bi-people"></i></div>
+        <h3>Expert Collaboration</h3>
+        <p>Working with marine biologists, urban planners, and community leaders at every stage of the project.</p>
       </div>
-      <div class="gallery-item reveal reveal-delay-3" aria-label="Young volunteers during mountain cleanup">
-        <span class="gallery-item-label">Mountain Cleanup Crew</span>
-      </div>
-      <div class="gallery-item reveal reveal-delay-4" aria-label="Elephant at Aquila Reserve near Cape Town">
-        <span class="gallery-item-label">Wildlife Encounters</span>
-      </div>
-      <div class="gallery-item reveal reveal-delay-5" aria-label="Sunset yoga session at Muizenberg beach">
-        <span class="gallery-item-label">Sunset Yoga, Muizenberg</span>
+      <div class="transparency-card reveal reveal-delay-4">
+        <div class="transparency-icon"><i class="bi bi-bar-chart-line"></i></div>
+        <h3>Public Reporting</h3>
+        <p>Regular project updates, financial disclosures, and milestone reporting shared with all stakeholders.</p>
       </div>
     </div>
   </div>
@@ -1533,26 +666,26 @@ footer {
     <div class="involved-header">
       <p class="section-label reveal">Take Action</p>
       <h2 class="section-title reveal reveal-delay-1">Be Part of <em>Something Beautiful</em></h2>
-      <p class="section-desc reveal reveal-delay-2">Whether you give your time, your resources, or your voice — every contribution ripples outward.</p>
+      <p class="section-desc reveal reveal-delay-2">The Hout Bay Tidal Pool needs community support to become reality. Every contribution matters.</p>
     </div>
     <div class="involved-grid">
       <div class="involved-card reveal reveal-delay-1">
-        <div class="involved-icon"><i class="bi bi-hand-thumbs-up"></i></div>
-        <h3>Volunteer</h3>
-        <p>Join our cleanups, lead a wellness walk, or mentor young conservationists. Your time is the most powerful gift.</p>
-        <a href="#contact" class="involved-btn involved-btn-primary">Sign Up</a>
-      </div>
-      <div class="involved-card reveal reveal-delay-2">
         <div class="involved-icon"><i class="bi bi-heart"></i></div>
         <h3>Donate</h3>
-        <p>Fund conservation projects, sponsor a youth program, or help us protect another hectare of wilderness.</p>
-        <a href="#contact" class="involved-btn involved-btn-gold">Give Today</a>
+        <p>Help fund the R50M tidal pool and give Hout Bay's communities the safe ocean access they deserve.</p>
+        <a href="#contact" class="involved-btn involved-btn-gold">Contribute Now</a>
+      </div>
+      <div class="involved-card reveal reveal-delay-2">
+        <div class="involved-icon"><i class="bi bi-hand-thumbs-up"></i></div>
+        <h3>Volunteer</h3>
+        <p>Join beach cleanups, assist with community outreach, or lend your professional skills to the project.</p>
+        <a href="#contact" class="involved-btn involved-btn-primary">Join Us</a>
       </div>
       <div class="involved-card reveal reveal-delay-3">
-        <div class="involved-icon"><i class="bi bi-handshake"></i></div>
-        <h3>Partner</h3>
-        <p>Align your brand with purpose. Corporate partnerships amplify impact and create shared value for all.</p>
-        <a href="#contact" class="involved-btn involved-btn-outline">Let's Talk</a>
+        <div class="involved-icon"><i class="bi bi-building"></i></div>
+        <h3>Corporate Partner</h3>
+        <p>Align your brand with a landmark project. CSI partnerships and sponsorship opportunities available.</p>
+        <a href="#contact" class="involved-btn involved-btn-outline">Partner With Us</a>
       </div>
     </div>
   </div>
@@ -1562,40 +695,40 @@ footer {
 <section class="testimonials section-pad" id="testimonials">
   <div class="container">
     <div class="testimonials-header">
-      <p class="section-label reveal">Stories of Change</p>
-      <h2 class="section-title reveal reveal-delay-1">Voices from the <em>Heart</em></h2>
+      <p class="section-label reveal">Community Voices</p>
+      <h2 class="section-title reveal reveal-delay-1">What People Are <em>Saying</em></h2>
     </div>
     <div class="testimonials-track" id="testimonialsTrack">
       <div class="testimonial active" data-index="0">
         <div class="testimonial-quote-mark">"</div>
-        <blockquote>The Feel Good Initiative didn't just take me outdoors — it brought me back to myself. The wellness retreat changed my perspective on healing completely.</blockquote>
+        <blockquote>The tidal pool is long overdue, especially in summer when the beach gets packed. This will be a game-changer for our community.</blockquote>
         <div class="testimonial-author">
-          <div class="testimonial-avatar"></div>
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));"><i class="bi bi-person-fill"></i></div>
           <div class="testimonial-info">
-            <h4>Nomsa Khumalo</h4>
-            <span>Retreat Participant</span>
+            <h4>Local Surfer</h4>
+            <span>Hout Bay Community Member</span>
           </div>
         </div>
       </div>
       <div class="testimonial" data-index="1">
         <div class="testimonial-quote-mark">"</div>
-        <blockquote>Watching my students discover their passion for conservation through these programs has been the most rewarding experience of my teaching career.</blockquote>
+        <blockquote>This project represents what real community development looks like — infrastructure that serves the people who've been overlooked for too long.</blockquote>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--gold), var(--gold-light));"></div>
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--gold), var(--gold-light));"><i class="bi bi-person-fill"></i></div>
           <div class="testimonial-info">
-            <h4>David van der Merwe</h4>
-            <span>Partner School Teacher</span>
+            <h4>Community Leader</h4>
+            <span>Imizamo Yethu</span>
           </div>
         </div>
       </div>
       <div class="testimonial" data-index="2">
         <div class="testimonial-quote-mark">"</div>
-        <blockquote>This initiative proves that conservation and community wellness aren't separate goals — they're the same journey. Their approach is truly visionary.</blockquote>
+        <blockquote>The environmental-first approach is exactly right. You can create incredible community spaces while protecting the marine ecosystem — and that's what this team is doing.</blockquote>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #2A6B5B, #4A9B85);"></div>
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #2A6B5B, #4A9B85);"><i class="bi bi-person-fill"></i></div>
           <div class="testimonial-info">
-            <h4>Dr. Amahle Ndlovu</h4>
-            <span>Environmental Scientist</span>
+            <h4>Marine Biologist</h4>
+            <span>Environmental Consultant</span>
           </div>
         </div>
       </div>
@@ -1610,7 +743,7 @@ footer {
 
 <!-- Contact -->
 <section class="contact section-pad" id="contact">
-  <div class="wave-divider" style="position:absolute;top:-2px;left:0;right:0;">
+  <div class="wave-top">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 60V20C360 50 720 0 1080 30C1260 45 1380 35 1440 30V60H0Z" fill="var(--cream)"/>
     </svg>
@@ -1618,29 +751,17 @@ footer {
   <div class="container">
     <div class="contact-grid">
       <div>
-        <p class="section-label reveal">Connect With Us</p>
-        <h2 class="section-title reveal reveal-delay-1">Let's Create <em>Impact</em> Together</h2>
-        <p class="section-desc reveal reveal-delay-2">
-          Whether you want to volunteer, partner, or simply learn more — we'd love to hear from you.
-        </p>
+        <p class="section-label reveal">Get In Touch</p>
+        <h2 class="section-title reveal reveal-delay-1">Let's Build <em>Together</em></h2>
+        <p class="section-desc reveal reveal-delay-2">Questions about the tidal pool project, partnerships, or how to get involved? We'd love to hear from you.</p>
         <form class="contact-form reveal reveal-delay-3" onsubmit="event.preventDefault();">
           <div class="form-row">
-            <div class="form-group">
-              <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-              <input type="email" placeholder="Email Address" required>
-            </div>
+            <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+            <div class="form-group"><input type="email" placeholder="Email Address" required></div>
           </div>
-          <div class="form-group">
-            <input type="text" placeholder="Subject">
-          </div>
-          <div class="form-group">
-            <textarea placeholder="Your Message" rows="5"></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="align-self:flex-start;">
-            <span>Send Message</span>
-          </button>
+          <div class="form-group"><input type="text" placeholder="Subject"></div>
+          <div class="form-group"><textarea placeholder="Your Message" rows="5"></textarea></div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start;"><span>Send Message</span></button>
         </form>
       </div>
       <div class="contact-info reveal reveal-delay-3">
@@ -1648,21 +769,21 @@ footer {
           <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
           <div class="contact-info-text">
             <h4>Location</h4>
-            <p>Western Cape, South Africa<br>Near Table Mountain National Park</p>
+            <p>Hout Bay, Western Cape<br>South Africa</p>
           </div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
           <div class="contact-info-text">
             <h4>Email</h4>
-            <p>hello@thefeelgoodinitiative.org</p>
+            <p>info@thefeelgoodinitiative.org</p>
           </div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-info-icon"><i class="bi bi-share"></i></div>
+          <div class="contact-info-icon"><i class="bi bi-facebook"></i></div>
           <div class="contact-info-text">
             <h4>Social</h4>
-            <p>@TheFeelGoodInitiative<br>Facebook · Instagram</p>
+            <p>@TheFeelGoodInitiative<br>Facebook</p>
           </div>
         </div>
         <div class="contact-info-item">
@@ -1679,217 +800,76 @@ footer {
 
 <!-- Footer -->
 <footer>
-  <div class="footer-wave">
-    <svg viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 40V15C240 0 480 30 720 15C960 0 1200 30 1440 15V40H0Z" fill="#0A1515"/>
-    </svg>
-  </div>
   <div class="footer-content">
     <div class="footer-logo">Feel Good<span>.</span></div>
     <ul class="footer-links">
+      <li><a href="#flagship">Tidal Pool</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#programs">Programs</a></li>
       <li><a href="#involved">Get Involved</a></li>
-      <li><a href="#">Privacy</a></li>
+      <li><a href="#transparency">Transparency</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
     <p class="footer-copy">© 2026 The Feel Good Initiative. All rights reserved.</p>
+    <p class="footer-npo"><i class="bi bi-patch-check-fill"></i> Registered Non-Profit Organisation — South Africa</p>
   </div>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════════
-   JAVASCRIPT — Animations, Interactions, Life
-   ═══════════════════════════════════════════════ */
+window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('hidden'); animateHero(); }, 800); });
 
-// Loader
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-    animateHero();
-  }, 800);
-});
-
-// Custom Cursor
 const dot = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  if (dot) { dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; }
-});
-
-function animateCursor() {
-  ringX += (mouseX - ringX) * 0.15;
-  ringY += (mouseY - ringY) * 0.15;
-  if (ring) { ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; }
-  requestAnimationFrame(animateCursor);
-}
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; if (dot) { dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; } });
+function animateCursor() { ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15; if (ring) { ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; } requestAnimationFrame(animateCursor); }
 animateCursor();
+document.querySelectorAll('a, button, .community-card').forEach(el => { el.addEventListener('mouseenter', () => ring && ring.classList.add('hovering')); el.addEventListener('mouseleave', () => ring && ring.classList.remove('hovering')); });
 
-document.querySelectorAll('a, button, .program-card, .gallery-item').forEach(el => {
-  el.addEventListener('mouseenter', () => ring && ring.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => ring && ring.classList.remove('hovering'));
-});
-
-// Hero Animation
 function animateHero() {
   const eyebrow = document.getElementById('heroEyebrow');
   const sub = document.getElementById('heroSub');
   const cta = document.getElementById('heroCta');
   const title = document.getElementById('heroTitle');
-
-  // Wrap words
   const text = title.innerHTML;
-  title.innerHTML = text.replace(/(<em>.*?<\/em>|\S+)/g, (match) => {
-    if (match.startsWith('<em>')) return `<span class="word">${match}</span>`;
-    return `<span class="word">${match}</span>`;
-  });
-
-  // Animate eyebrow
-  setTimeout(() => {
-    eyebrow.style.transition = 'opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo)';
-    eyebrow.style.opacity = '1'; eyebrow.style.transform = 'translateY(0)';
-  }, 200);
-
-  // Animate words
-  const words = title.querySelectorAll('.word');
-  words.forEach((word, i) => {
-    setTimeout(() => {
-      word.style.transition = 'opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo)';
-      word.style.opacity = '1'; word.style.transform = 'translateY(0) rotateX(0)';
-    }, 500 + i * 80);
-  });
-
-  // Animate sub and CTA
-  setTimeout(() => {
-    sub.style.transition = 'opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo)';
-    sub.style.opacity = '1'; sub.style.transform = 'translateY(0)';
-  }, 1200);
-  setTimeout(() => {
-    cta.style.transition = 'opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo)';
-    cta.style.opacity = '1'; cta.style.transform = 'translateY(0)';
-  }, 1500);
+  title.innerHTML = text.replace(/(<em>.*?<\/em>|\S+)/g, m => `<span class="word">${m}</span>`);
+  setTimeout(() => { eyebrow.style.transition = 'opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo)'; eyebrow.style.opacity = '1'; eyebrow.style.transform = 'translateY(0)'; }, 200);
+  title.querySelectorAll('.word').forEach((w, i) => { setTimeout(() => { w.style.transition = 'opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo)'; w.style.opacity = '1'; w.style.transform = 'translateY(0) rotateX(0)'; }, 500 + i * 80); });
+  setTimeout(() => { sub.style.transition = 'opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo)'; sub.style.opacity = '1'; sub.style.transform = 'translateY(0)'; }, 1200);
+  setTimeout(() => { cta.style.transition = 'opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo)'; cta.style.opacity = '1'; cta.style.transform = 'translateY(0)'; }, 1500);
 }
 
-// Particles
-function createParticles() {
-  const container = document.getElementById('heroParticles');
-  for (let i = 0; i < 20; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    const size = Math.random() * 4 + 2;
-    p.style.cssText = `
-      width: ${size}px; height: ${size}px;
-      left: ${Math.random() * 100}%;
-      animation-duration: ${Math.random() * 15 + 10}s;
-      animation-delay: ${Math.random() * 10}s;
-      opacity: ${Math.random() * 0.3 + 0.1};
-    `;
-    container.appendChild(p);
-  }
-}
+function createParticles() { const c = document.getElementById('heroParticles'); for (let i = 0; i < 20; i++) { const p = document.createElement('div'); p.className = 'particle'; const s = Math.random() * 4 + 2; p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s;opacity:${Math.random()*0.3+0.1};`; c.appendChild(p); } }
 createParticles();
 
-// Nav scroll
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 80);
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); const bg = document.getElementById('heroBg'); if (bg) bg.style.setProperty('--hero-parallax', window.scrollY * 0.3 + 'px'); });
 
-  // Parallax hero bg
-  const heroBg = document.getElementById('heroBg');
-  if (heroBg) heroBg.style.setProperty('--hero-parallax', window.scrollY * 0.3 + 'px');
-});
-
-// Mobile menu
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  navLinks.classList.toggle('mobile-open');
-});
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    menuToggle.classList.remove('active');
-    navLinks.classList.remove('mobile-open');
-  });
-});
+menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('mobile-open'); });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('mobile-open'); }));
 
-// Scroll Reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Counter Animation
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const counters = entry.target.querySelectorAll('.counter');
-      counters.forEach(counter => {
-        if (counter.dataset.animated) return;
-        counter.dataset.animated = 'true';
-        const target = parseInt(counter.dataset.target);
-        const duration = 2000;
-        const start = performance.now();
+const counterObserver = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.querySelectorAll('.counter').forEach(c => { if (c.dataset.animated) return; c.dataset.animated = 'true'; const t = parseInt(c.dataset.target), start = performance.now(); function update(now) { const p = Math.min((now - start) / 2000, 1); c.textContent = Math.floor((1 - Math.pow(1 - p, 4)) * t); if (p < 1) requestAnimationFrame(update); else c.textContent = t; } requestAnimationFrame(update); }); counterObserver.unobserve(entry.target); } }); }, { threshold: 0.3 });
+const sg = document.querySelector('.stats-grid'); if (sg) counterObserver.observe(sg);
 
-        function update(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          // Ease out expo
-          const eased = 1 - Math.pow(1 - progress, 4);
-          counter.textContent = Math.floor(eased * target);
-          if (progress < 1) requestAnimationFrame(update);
-          else counter.textContent = target;
-        }
-        requestAnimationFrame(update);
-      });
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-const statsGrid = document.querySelector('.stats-grid');
-if (statsGrid) counterObserver.observe(statsGrid);
-
-// Testimonials
-let currentTestimonial = 0;
+let currentT = 0;
 const testimonials = document.querySelectorAll('.testimonial');
 const dots = document.querySelectorAll('.testimonial-dot');
+function showT(i) { testimonials.forEach((t, j) => { t.classList.remove('active', 'prev'); if (j === i) t.classList.add('active'); else if (j < i || (i === 0 && j === testimonials.length - 1)) t.classList.add('prev'); }); dots.forEach((d, j) => d.classList.toggle('active', j === i)); currentT = i; }
+dots.forEach(d => d.addEventListener('click', () => showT(parseInt(d.dataset.index))));
+setInterval(() => showT((currentT + 1) % testimonials.length), 6000);
 
-function showTestimonial(index) {
-  testimonials.forEach((t, i) => {
-    t.classList.remove('active', 'prev');
-    if (i === index) t.classList.add('active');
-    else if (i < index || (index === 0 && i === testimonials.length - 1)) t.classList.add('prev');
-  });
-  dots.forEach((d, i) => d.classList.toggle('active', i === index));
-  currentTestimonial = index;
-}
-
-dots.forEach(dot => {
-  dot.addEventListener('click', () => showTestimonial(parseInt(dot.dataset.index)));
-});
-
-setInterval(() => {
-  showTestimonial((currentTestimonial + 1) % testimonials.length);
-}, 6000);
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
+document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
 </script>
 </body>
 </html>
