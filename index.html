@@ -194,6 +194,16 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(247,249,248,0.92)
 .solution-card h3 { font-size: var(--t-md); margin-bottom: var(--s-1); }
 .solution-card p { font-size: var(--t-sm); color: var(--text-light); line-height: 1.65; }
 
+/* Progressive Disclosure: expandable detail on solution cards */
+.solution-detail { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease), opacity 0.35s; opacity: 0; }
+.solution-card.expanded .solution-detail { max-height: 200px; opacity: 1; }
+.solution-toggle { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--s-2); font-size: var(--t-xs); font-weight: 600; color: var(--teal); cursor: pointer; border: none; background: none; font-family: inherit; padding: 0; transition: color 0.15s; }
+.solution-toggle:hover { color: var(--dark); }
+.solution-toggle i { transition: transform 0.25s var(--ease); font-size: 0.7rem; }
+.solution-card.expanded .solution-toggle i { transform: rotate(180deg); }
+
+/* Doherty Threshold: tighten all transitions to <400ms */
+
 /* ── HOW IT WORKS ── */
 .how { background: var(--bg-alt); }
 .how-header { text-align: center; max-width: 540px; margin: 0 auto var(--s-8); }
@@ -212,12 +222,31 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(247,249,248,0.92)
 .trust-card h4 { font-size: var(--t-sm); font-weight: 600; color: var(--dark); margin-bottom: var(--s-1); font-family: 'Plus Jakarta Sans', sans-serif; }
 .trust-card p { font-size: var(--t-xs); color: var(--text-light); line-height: 1.5; }
 
-/* ── CTA BANNER — Fitts's Law: big donate button ── */
+/* ── CTA BANNER — Fitts's Law + Von Restorff + Hick's Law + Anchoring ── */
 .cta { background: var(--dark-deep); color: #fff; text-align: center; }
 .cta h2 { color: #fff; margin-bottom: var(--s-2); }
 .cta h2 span { color: var(--teal-light); }
 .cta p { color: rgba(255,255,255,0.7); max-width: 540px; margin: 0 auto var(--s-6); font-size: var(--t-base); }
-.cta-buttons { display: flex; gap: var(--s-2); justify-content: center; flex-wrap: wrap; }
+
+/* Anchoring Effect: suggested donation amounts */
+.donation-anchors { display: flex; gap: var(--s-2); justify-content: center; flex-wrap: wrap; margin-bottom: var(--s-4); }
+.anchor-amount { padding: var(--s-2) var(--s-4); border-radius: var(--r-lg); border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); color: #fff; font-family: 'Josefin Sans', sans-serif; font-size: var(--t-lg); font-weight: 600; cursor: pointer; transition: all 0.2s var(--ease); text-decoration: none; display: block; text-align: center; min-width: 120px; }
+.anchor-amount span { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: var(--t-xs); font-weight: 400; color: rgba(255,255,255,0.4); margin-top: 4px; }
+.anchor-amount:hover { border-color: var(--orange); background: rgba(234,88,12,0.1); }
+.anchor-amount.popular { border-color: var(--orange); background: rgba(234,88,12,0.15); position: relative; }
+.anchor-popular-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 2px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+
+/* Von Restorff: Donate button pulses — only element with animation */
+.btn-donate-hero { animation: subtlePulse 3s ease-in-out infinite; }
+@keyframes subtlePulse { 0%,100% { box-shadow: 0 0 0 0 rgba(217,90,16,0); } 50% { box-shadow: 0 0 0 8px rgba(217,90,16,0.15); } }
+
+/* Hick's Law: one clear primary, others are clearly secondary */
+.cta-actions { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); }
+.cta-primary { margin-bottom: var(--s-1); }
+.cta-secondary { display: flex; gap: var(--s-2); justify-content: center; flex-wrap: wrap; }
+.cta-secondary-link { color: rgba(255,255,255,0.5); font-size: var(--t-sm); text-decoration: underline; text-underline-offset: 4px; transition: color 0.15s; cursor: pointer; }
+.cta-secondary-link:hover { color: #fff; }
+.cta-or { color: rgba(255,255,255,0.25); font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.15em; }
 
 /* ── TESTIMONIALS — Gestalt: equal spacing ── */
 .voices { background: var(--bg-alt); }
@@ -266,7 +295,8 @@ footer { background: var(--dark-deep); color: #fff; padding: var(--s-8) 0 var(--
 .footer-socials a:hover { background: var(--teal); color: #fff; }
 
 /* ── REVEAL ── */
-.reveal { opacity: 0; transform: translateY(var(--s-3)); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+/* Doherty Threshold: all transitions ≤400ms for perceived instant response */
+.reveal { opacity: 0; transform: translateY(var(--s-3)); transition: opacity 0.38s var(--ease), transform 0.38s var(--ease); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .rd1 { transition-delay: 0.08s; } .rd2 { transition-delay: 0.16s; } .rd3 { transition-delay: 0.24s; } .rd4 { transition-delay: 0.32s; }
 
@@ -323,7 +353,7 @@ footer { background: var(--dark-deep); color: #fff; padding: var(--s-8) 0 var(--
         <h1 class="reveal rd1">A safe ocean for <span>every community.</span></h1>
         <p class="lead reveal rd2">We're building a R50 million tidal pool in Hout Bay — creating safe ocean access for communities from Imizamo Yethu and Hangberg who've been excluded for too long.</p>
         <div class="hero-ctas reveal rd3">
-          <a href="#cta" class="btn btn-orange btn-donate"><i class="bi bi-heart-fill"></i> Support This Project</a>
+          <a href="#cta" class="btn btn-orange btn-donate btn-donate-hero"><i class="bi bi-heart-fill"></i> Support This Project</a>
           <a href="#problem" class="btn btn-outline btn-lg">Learn Why It Matters</a>
         </div>
         <div class="hero-proof reveal rd4">
@@ -394,20 +424,32 @@ footer { background: var(--dark-deep); color: #fff; padding: var(--s-8) 0 var(--
       <p class="section-desc reveal rd2">The R50M Hout Bay Tidal Pool will blend into the natural shoreline, replacing the old revetment with a living coastal ecosystem — safe, beautiful, and built for everyone.</p>
     </div>
     <div class="solution-grid">
-      <div class="solution-card reveal rd1">
+      <div class="solution-card reveal rd1" onclick="this.classList.toggle('expanded')">
         <div class="solution-icon teal"><i class="bi bi-water"></i></div>
         <h3>Natural Shoreline Integration</h3>
-        <p>Designed to blend seamlessly into the coast, replacing ageing infrastructure with a living tidal ecosystem that works with nature, not against it.</p>
+        <p>Designed to blend seamlessly into the coast, replacing ageing infrastructure with a living tidal ecosystem.</p>
+        <div class="solution-detail">
+          <p style="margin-top:var(--s-2);">The pool replaces Hout Bay's old revetment with a structure that works with ocean currents, not against them. Natural rock formations will create tidal zones that support marine biodiversity while providing safe swimming depths.</p>
+        </div>
+        <button class="solution-toggle">Learn more <i class="bi bi-chevron-down"></i></button>
       </div>
-      <div class="solution-card reveal rd2">
+      <div class="solution-card reveal rd2" onclick="this.classList.toggle('expanded')">
         <div class="solution-icon blue"><i class="bi bi-shield-check"></i></div>
         <h3>Ocean Safety Infrastructure</h3>
-        <p>A safe, protected swimming environment especially for children and non-swimmers from communities that lack water safety resources.</p>
+        <p>A safe, protected swimming environment especially for children and non-swimmers from vulnerable communities.</p>
+        <div class="solution-detail">
+          <p style="margin-top:var(--s-2);">Graduated depth zones, clear visibility, and protected boundaries make the pool safe for all ages and swimming abilities. Lifeguard stations and water safety signage in multiple languages ensure everyone can enjoy the ocean safely.</p>
+        </div>
+        <button class="solution-toggle">Learn more <i class="bi bi-chevron-down"></i></button>
       </div>
-      <div class="solution-card reveal rd3">
+      <div class="solution-card reveal rd3" onclick="this.classList.toggle('expanded')">
         <div class="solution-icon green"><i class="bi bi-mortarboard"></i></div>
         <h3>Marine Education Hub</h3>
-        <p>An outdoor classroom for schools and communities — teaching ocean safety, marine ecology, and environmental stewardship firsthand.</p>
+        <p>An outdoor classroom for schools and communities — connecting the next generation to the ocean.</p>
+        <div class="solution-detail">
+          <p style="margin-top:var(--s-2);">School groups and community members will learn ocean safety, marine ecology, and environmental stewardship hands-on. The tidal pool's ecosystem becomes a living laboratory — observe, learn, and protect.</p>
+        </div>
+        <button class="solution-toggle">Learn more <i class="bi bi-chevron-down"></i></button>
       </div>
     </div>
   </div>
@@ -447,20 +489,7 @@ footer { background: var(--dark-deep); color: #fff; padding: var(--s-8) 0 var(--
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta section" id="cta">
-  <div class="container">
-    <h2 class="reveal">Help build a safe ocean for <span>everyone.</span></h2>
-    <p class="reveal rd1">Donate, volunteer, or partner — every contribution moves us closer to breaking ground.</p>
-    <div class="cta-buttons reveal rd2">
-      <a href="#contact" class="btn btn-orange btn-donate"><i class="bi bi-heart-fill"></i> Donate Now</a>
-      <a href="#contact" class="btn btn-white btn-lg"><i class="bi bi-hand-thumbs-up-fill"></i> Volunteer</a>
-      <a href="#contact" class="btn btn-white btn-lg"><i class="bi bi-building"></i> Corporate Partner</a>
-    </div>
-  </div>
-</section>
-
-<!-- VOICES -->
+<!-- VOICES — Social Proof Proximity: placed directly BEFORE CTA so validation precedes the ask -->
 <section class="voices section" id="voices">
   <div class="container">
     <div class="voices-header">
@@ -479,6 +508,38 @@ footer { background: var(--dark-deep); color: #fff; padding: var(--s-8) 0 var(--
       <div class="voice-card reveal rd3">
         <blockquote>"The environmental-first approach is exactly right. You can create community spaces while protecting the marine ecosystem."</blockquote>
         <div class="voice-author"><div class="voice-avatar" style="background:#16A34A;"><i class="bi bi-person-fill"></i></div><div><div class="voice-name">Marine Biologist</div><div class="voice-role">Environmental Consultant</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA — Serial Position Effect: this is the LAST content section (most remembered) -->
+<!-- Hick's Law: ONE clear primary action, secondary options de-emphasized -->
+<!-- Anchoring Effect: suggested amounts anchor expectations -->
+<section class="cta section" id="cta">
+  <div class="container">
+    <h2 class="reveal">Help build a safe ocean for <span>everyone.</span></h2>
+    <p class="reveal rd1">Choose how you'd like to contribute to the R50M Hout Bay Tidal Pool.</p>
+
+    <!-- Anchoring: suggested donation amounts -->
+    <div class="donation-anchors reveal rd2">
+      <a href="#contact" class="anchor-amount">R250<span>Supporter</span></a>
+      <a href="#contact" class="anchor-amount">R500<span>Champion</span></a>
+      <a href="#contact" class="anchor-amount popular"><div class="anchor-popular-tag">Most Popular</div>R1,000<span>Builder</span></a>
+      <a href="#contact" class="anchor-amount">R5,000<span>Founder</span></a>
+      <a href="#contact" class="anchor-amount">R10,000<span>Visionary</span></a>
+    </div>
+
+    <!-- Hick's Law: one dominant CTA, secondary options are text links -->
+    <div class="cta-actions reveal rd3">
+      <div class="cta-primary">
+        <a href="#contact" class="btn btn-orange btn-donate btn-donate-hero"><i class="bi bi-heart-fill"></i> Donate Now</a>
+      </div>
+      <div class="cta-secondary">
+        <span class="cta-or">or</span>
+        <a href="#contact" class="cta-secondary-link"><i class="bi bi-hand-thumbs-up"></i> Volunteer your time</a>
+        <span class="cta-or">·</span>
+        <a href="#contact" class="cta-secondary-link"><i class="bi bi-building"></i> Become a corporate partner</a>
       </div>
     </div>
   </div>
