@@ -13,14 +13,14 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --teal: #0D9488; --teal-dark: #0F766E; --teal-light: #5EEAD4; --teal-pale: #CCFBF1; --teal-wash: #F0FDFA;
-  --navy: #0F172A; --slate: #334155; --slate-light: #64748B; --gray-50: #F8FAFC; --gray-100: #F1F5F9; --gray-200: #E2E8F0; --gray-300: #CBD5E1;
+  --navy: #1A3C3C; --slate: #2D4A4A; --slate-light: #5A7A7A; --gray-50: #F8FAFA; --gray-100: #F0F5F5; --gray-200: #DCE8E8; --gray-300: #B8CECE;
   --white: #FAFCFB; --orange: #EA580C; --orange-light: #FFF7ED; --orange-pale: #FFEDD5;
   --max-w: 1140px; --nav-h: 64px; --r: 10px; --r-lg: 16px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; color: var(--slate); background: #F7F9F8; line-height: 1.6; overflow-x: hidden; }
-h1,h2,h3,h4 { font-family: 'Fraunces', serif; color: var(--navy); }
+h1,h2,h3,h4 { font-family: 'Josefin Sans', sans-serif; color: var(--navy); }
 a { color: inherit; }
 img { max-width: 100%; display: block; }
 
@@ -80,7 +80,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(247,249,248,0.92)
 .hero-card { background: var(--white); border-radius: var(--r-lg); border: 1px solid var(--gray-200); overflow: hidden; box-shadow: 0 4px 24px rgba(15,23,42,0.06); }
 .hero-card-top { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); padding: 2rem; color: var(--white); text-align: center; }
 .hero-card-top small { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
-.hero-card-amount { font-family: 'Fraunces', serif; font-size: 2.75rem; font-weight: 700; line-height: 1; margin: 0.25rem 0 0.15rem; }
+.hero-card-amount { font-family: 'Josefin Sans', sans-serif; font-size: 2.75rem; font-weight: 700; line-height: 1; margin: 0.25rem 0 0.15rem; }
 .hero-card-sub { font-size: 0.875rem; opacity: 0.8; }
 .hero-card-body { padding: 1.5rem 2rem 2rem; }
 .hero-progress { margin-bottom: 1.25rem; }
@@ -88,18 +88,18 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(247,249,248,0.92)
 .progress-bar { height: 100%; width: 0%; background: var(--teal); border-radius: 100px; transition: width 2s var(--ease); }
 .progress-labels { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--slate-light); }
 .hero-card-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center; }
-.hero-card-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 1.25rem; color: var(--navy); font-weight: 700; }
+.hero-card-stat strong { display: block; font-family: 'Josefin Sans', sans-serif; font-size: 1.25rem; color: var(--navy); font-weight: 700; }
 .hero-card-stat span { font-size: 0.7rem; color: var(--slate-light); }
 
 /* ── THE PROBLEM ── */
-.problem { background: var(--navy); color: var(--white); }
+.problem { background: #122E2E; color: var(--white); }
 .problem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .problem h2 { color: var(--white); font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 1rem; }
 .problem h2 span { color: var(--teal-light); }
 .problem p { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; margin-bottom: 1rem; }
 .problem-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
 .problem-stat { text-align: center; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: var(--r); border: 1px solid rgba(255,255,255,0.08); }
-.problem-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--teal-light); font-weight: 700; }
+.problem-stat strong { display: block; font-family: 'Josefin Sans', sans-serif; font-size: 1.5rem; color: var(--teal-light); font-weight: 700; }
 .problem-stat span { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
 
 /* Problem visual */
@@ -134,7 +134,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(247,249,248,0.92)
 .how h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 0.75rem; }
 .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
 .how-step { text-align: center; padding: 1.5rem 1rem; }
-.step-number { width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; margin: 0 auto 1rem; }
+.step-number { width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: 'Josefin Sans', sans-serif; font-weight: 700; font-size: 1rem; margin: 0 auto 1rem; }
 .how-step h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.35rem; }
 .how-step p { font-size: 0.8125rem; color: var(--slate-light); line-height: 1.5; }
 
@@ -188,7 +188,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(247,249,248,0.92)
 .contact-card p { font-size: 0.8125rem; color: var(--slate-light); line-height: 1.4; }
 
 /* ── FOOTER ── */
-footer { background: var(--navy); color: var(--white); padding: 3rem 0 1.5rem; }
+footer { background: #122E2E; color: var(--white); padding: 3rem 0 1.5rem; }
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
 .footer-brand p { font-size: 0.8125rem; color: rgba(255,255,255,0.45); margin-top: 0.75rem; line-height: 1.6; max-width: 260px; }
 .footer-col h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; color: rgba(255,255,255,0.5); }
