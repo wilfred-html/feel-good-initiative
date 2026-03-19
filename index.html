@@ -247,7 +247,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .nav-links{display:none}.menu-toggle{display:block}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--bg);align-items:center;justify-content:center;gap:var(--s4);z-index:200}
   .nav-links.open a{font-size:var(--t-lg);color:var(--dark)}
-  .env-grid,.voices-grid{grid-template-columns:1fr}
+  .env-grid,.voices-grid,#projects [style*="grid-template-columns"]{grid-template-columns:1fr!important}
   .sponsor-tiers{grid-template-columns:1fr}
   .comm-stats{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
@@ -284,7 +284,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <div>
         <div class="hero-badge reveal"><div class="hero-badge-dot"></div> Capital Campaign — Feasibility Stage</div>
         <h1 class="reveal rd1">Bridging the divide through <span>ocean access.</span></h1>
-        <p class="lead reveal rd2">A R50 million eco-friendly tidal pool for Hout Bay Beach — delivering ocean safety, marine education, and eco-tourism to communities excluded from the coastline they live beside.</p>
+        <p class="lead reveal rd2">A 10-year, R50 million eco-friendly tidal pool near Chapman's Peak — delivering ocean safety, marine education, and eco-tourism to communities excluded from the coastline they live beside.</p>
         <div class="hero-ctas reveal rd3">
           <a href="#sponsor" class="btn btn-orange btn-donate"><i class="bi bi-arrow-up-right"></i> Become a Sponsor</a>
           <a href="#vision" class="btn btn-outline btn-lg">View the Vision</a>
@@ -292,7 +292,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <div class="hero-proof reveal rd4">
           <span><i class="bi bi-globe-americas"></i> Hout Bay, Western Cape</span>
           <span><i class="bi bi-shield-check"></i> Marine Protected Area</span>
-          <span><i class="bi bi-people-fill"></i> Led by Sandy Daniel</span>
+          <span><i class="bi bi-patch-check-fill"></i> Registered NPO</span>
         </div>
       </div>
       <div class="reveal rd2">
@@ -323,9 +323,9 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 <section class="vp section">
   <div class="container">
     <div class="vp-inner">
-      <h2 class="reveal">A landmark infrastructure project bridging <span>community, conservation &amp; commerce.</span></h2>
+      <h2 class="reveal">Community upliftment &amp; environmental sustainability in <span>Hout Bay.</span></h2>
       <div class="vp-divider"></div>
-      <p class="reveal rd1">The Hout Bay Tidal Pool isn't just a swimming spot — it's a catalyst for ocean safety, marine education, and sustainable eco-tourism that will serve generations of South Africans from Imizamo Yethu, Hangberg, and beyond.</p>
+      <p class="reveal rd1">From a landmark 10-year tidal pool project near Chapman's Peak to ongoing beach cleanups across the Hout Bay coastline — FGI bridges the gap between underserved communities and the natural environment they deserve to access, enjoy, and protect.</p>
     </div>
   </div>
 </section>
@@ -336,8 +336,8 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <div class="vision-grid">
       <div>
         <div class="label reveal"><i class="bi bi-eye"></i> The Vision</div>
-        <h2 class="reveal rd1">Architectural &amp; environmental <span>plan.</span></h2>
-        <p class="desc reveal rd2">An eco-friendly tidal pool that blends into Hout Bay's natural rock formations — replacing an ageing shoreline revetment with living coastal infrastructure.</p>
+        <h2 class="reveal rd1">A 10-year vision for Hout Bay's <span>coastline.</span></h2>
+        <p class="desc reveal rd2">An eco-friendly tidal pool near Chapman's Peak that blends into Hout Bay's natural rock formations — replacing an ageing shoreline revetment with living coastal infrastructure.</p>
         <div class="vision-features">
           <div class="vf reveal rd1" onclick="this.classList.toggle('expanded')">
             <div class="vf-icon t"><i class="bi bi-water"></i></div>
@@ -418,6 +418,37 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   </div>
 </section>
 
+<!-- ACTIVE PROJECTS -->
+<section class="section" id="projects" style="background:var(--bg-card);">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto var(--s8);">
+      <div class="label reveal" style="justify-content:center;"><i class="bi bi-kanban"></i> Our Projects</div>
+      <h2 class="reveal rd1">Two initiatives, one <span>mission.</span></h2>
+      <p class="desc reveal rd2" style="margin:var(--s1) auto 0;">Community upliftment and environmental sustainability — delivered through infrastructure and action.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);">
+      <div class="env-card reveal rd1" style="border-left:3px solid var(--teal);">
+        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
+          <div class="env-icon t"><i class="bi bi-water"></i></div>
+          <div><span style="font-size:var(--t-xs);color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Flagship · 10-Year Project</span></div>
+        </div>
+        <h3>The Tidal Pool</h3>
+        <p>A R50 million proposal to build a safe, eco-sensitive swimming space at Hout Bay Beach near Chapman's Peak. Replaces the aging revetment and provides recreational coastal access for underserved residents.</p>
+        <a href="#vision" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--teal);text-decoration:none;">View the full plan <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="env-card reveal rd2" style="border-left:3px solid var(--orange);">
+        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
+          <div class="env-icon" style="background:var(--bg-alt);color:var(--orange);"><i class="bi bi-trash3"></i></div>
+          <div><span style="font-size:var(--t-xs);color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Ongoing Initiative</span></div>
+        </div>
+        <h3>Beach Cleanups</h3>
+        <p>Regular coastal cleanup operations maintaining the Hout Bay shoreline and protecting the marine environment. Currently expanding into the Hangberg area to increase community coverage and impact.</p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--orange);text-decoration:none;">Get involved <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- COMMUNITY -->
 <section class="community section" id="community">
   <div class="container">
@@ -453,13 +484,21 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <h2 class="reveal rd1">Led by people who know this <span>coastline.</span></h2>
         <p class="desc reveal rd2">The Feel Good Initiative is driven by local leaders with deep roots in Hout Bay's community and a clear vision for its future.</p>
       </div>
-      <div>
+      <div style="display:flex;flex-direction:column;gap:var(--s3);">
+        <div class="lead-card reveal rd1">
+          <div class="lead-avatar"><i class="bi bi-people"></i></div>
+          <div class="lead-info">
+            <h3>Ryan &amp; Greg Simpson</h3>
+            <div class="lead-role">Co-Founders</div>
+            <p>Co-founders of The Feel Good Initiative with a shared vision for community upliftment and environmental sustainability in Hout Bay.</p>
+          </div>
+        </div>
         <div class="lead-card reveal rd2">
-          <div class="lead-avatar"><i class="bi bi-person"></i></div>
+          <div class="lead-avatar" style="background:var(--teal);"><i class="bi bi-person-gear"></i></div>
           <div class="lead-info">
             <h3>Sandy Daniel</h3>
-            <div class="lead-role">Founder &amp; Project Lead</div>
-            <p>Leading the Hout Bay Tidal Pool project from feasibility through to construction — coordinating marine biologists, environmental practitioners, and community stakeholders.</p>
+            <div class="lead-role">Administration &amp; Project Management</div>
+            <p>Managing the day-to-day operations and project coordination — from EAP appointments and stakeholder engagement to funding logistics and compliance.</p>
           </div>
         </div>
       </div>
@@ -592,7 +631,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <button type="submit" class="btn btn-teal" style="align-self:flex-start;"><i class="bi bi-send"></i> Submit Enquiry</button>
       </form>
       <div class="contact-cards reveal rd3">
-        <div class="cc"><div class="cc-icon"><i class="bi bi-person"></i></div><div><h4>Project Lead</h4><p>Sandy Daniel<br>Founder, The Feel Good Initiative</p></div></div>
+        <div class="cc"><div class="cc-icon"><i class="bi bi-person"></i></div><div><h4>Administration</h4><p>Sandy Daniel<br>The Feel Good Initiative</p></div></div>
         <div class="cc"><div class="cc-icon"><i class="bi bi-geo-alt"></i></div><div><h4>Location</h4><p>Hout Bay, Western Cape<br>South Africa</p></div></div>
         <div class="cc"><div class="cc-icon"><i class="bi bi-envelope"></i></div><div><h4>Email</h4><p>info@thefeelgoodinitiative.org</p></div></div>
         <div class="cc"><div class="cc-icon"><i class="bi bi-facebook"></i></div><div><h4>Facebook</h4><p>@TheFeelGoodInitiative</p></div></div>
@@ -614,7 +653,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     </div>
     <div class="ft-bottom">
       <span class="ft-copy">© 2026 The Feel Good Initiative. All rights reserved.</span>
-      <span class="ft-npo"><i class="bi bi-heart-fill"></i> Non-Profit Initiative — Hout Bay, South Africa</span>
+      <span class="ft-npo"><i class="bi bi-patch-check-fill"></i> Registered NPO — Hout Bay, South Africa</span>
       <div class="ft-social">
         <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank"><i class="bi bi-facebook"></i></a>
         <a href="#"><i class="bi bi-instagram"></i></a>
