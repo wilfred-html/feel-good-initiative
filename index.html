@@ -4,442 +4,282 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Feel Good Initiative — Safe Oceans, Strong Communities</title>
-<meta name="description" content="The Feel Good Initiative is a South African NPO building the R50M Hout Bay Tidal Pool — creating safe ocean access, marine education, and community upliftment in the Western Cape.">
+<meta name="description" content="We're building a R50 million tidal pool in Hout Bay to give safe ocean access to communities who've been excluded. Join the movement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
-  --teal-deep: #0C7C7C;
-  --teal: #0EA5A5;
-  --teal-bright: #14B8A6;
-  --teal-light: #5EEAD4;
-  --teal-pale: #CCFBF1;
-  --teal-wash: #F0FDFA;
-  --navy: #0F172A;
-  --navy-light: #1E293B;
-  --slate: #334155;
-  --slate-light: #64748B;
-  --gray-100: #F8FAFC;
-  --gray-200: #E2E8F0;
-  --gray-300: #CBD5E1;
-  --white: #FFFFFF;
-  --orange: #F97316;
-  --orange-light: #FFF7ED;
-  --amber: #F59E0B;
-
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-md: 1.125rem;
-  --fs-lg: 1.25rem;
-  --fs-xl: 1.5rem;
-  --fs-2xl: 2rem;
-  --fs-3xl: 2.5rem;
-  --fs-4xl: 3.25rem;
-  --fs-5xl: 4rem;
-
-  --max-width: 1200px;
-  --nav-height: 72px;
-  --radius: 12px;
-  --radius-lg: 20px;
+  --teal: #0D9488; --teal-dark: #0F766E; --teal-light: #5EEAD4; --teal-pale: #CCFBF1; --teal-wash: #F0FDFA;
+  --navy: #0F172A; --slate: #334155; --slate-light: #64748B; --gray-50: #F8FAFC; --gray-100: #F1F5F9; --gray-200: #E2E8F0; --gray-300: #CBD5E1;
+  --white: #FFFFFF; --orange: #EA580C; --orange-light: #FFF7ED; --orange-pale: #FFEDD5;
+  --max-w: 1140px; --nav-h: 64px; --r: 10px; --r-lg: 16px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; color: var(--slate); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+h1,h2,h3,h4 { font-family: 'Fraunces', serif; color: var(--navy); }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
 
-html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
-body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--slate); background: var(--white); overflow-x: hidden; line-height: 1.7; }
+/* ── UTILITY ── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2rem); }
+.section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
 
-/* ─── NAV ─── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height); z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 clamp(1.25rem, 4vw, 3rem);
-  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--gray-200);
-  transition: box-shadow 0.3s;
-}
-nav.scrolled { box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
-.nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.1rem; }
-.nav-logo-text { font-family: 'Fraunces', serif; font-weight: 700; font-size: var(--fs-lg); color: var(--navy); }
-.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-.nav-links a { color: var(--slate-light); text-decoration: none; font-size: var(--fs-sm); font-weight: 500; transition: color 0.2s; }
-.nav-links a:hover { color: var(--teal-deep); }
-.nav-donate { padding: 0.55rem 1.5rem; background: var(--teal); color: var(--white) !important; border-radius: 100px; font-weight: 600; font-size: var(--fs-sm); transition: background 0.2s, transform 0.2s; }
-.nav-donate:hover { background: var(--teal-deep) !important; color: var(--white) !important; transform: translateY(-1px); }
-
-.menu-toggle { display: none; background: none; border: none; width: 28px; height: 20px; position: relative; cursor: pointer; z-index: 1001; }
-.menu-toggle span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s var(--ease); }
-.menu-toggle span:nth-child(1) { top: 0; }
-.menu-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
-.menu-toggle span:nth-child(3) { bottom: 0; }
-.menu-toggle.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
-
-/* ─── BUTTONS ─── */
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: var(--fs-sm); font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.25s var(--ease); border: none; }
+/* ── BUTTONS ── */
+.btn { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.7rem 1.6rem; border-radius: 8px; font-family: inherit; font-size: 0.875rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; }
 .btn-teal { background: var(--teal); color: var(--white); }
-.btn-teal:hover { background: var(--teal-deep); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(14,165,165,0.25); }
-.btn-white { background: var(--white); color: var(--teal-deep); }
-.btn-white:hover { background: var(--gray-100); transform: translateY(-2px); }
-.btn-outline { background: transparent; color: var(--teal-deep); border: 1.5px solid var(--teal); }
-.btn-outline:hover { background: var(--teal-wash); }
+.btn-teal:hover { background: var(--teal-dark); transform: translateY(-1px); }
 .btn-orange { background: var(--orange); color: var(--white); }
-.btn-orange:hover { background: #EA580C; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249,115,22,0.25); }
+.btn-orange:hover { background: #C2410C; }
+.btn-outline { background: transparent; border: 1.5px solid var(--gray-300); color: var(--slate); }
+.btn-outline:hover { border-color: var(--teal); color: var(--teal-dark); }
+.btn-white { background: var(--white); color: var(--teal-dark); }
+.btn-white:hover { background: var(--gray-50); }
+.btn-sm { padding: 0.5rem 1.2rem; font-size: 0.8125rem; }
+.btn-lg { padding: 0.85rem 2rem; font-size: 0.9375rem; }
 
-/* ─── HERO ─── */
-.hero {
-  padding: calc(var(--nav-height) + 4rem) clamp(1.25rem, 4vw, 3rem) 5rem;
-  background: linear-gradient(170deg, var(--teal-wash) 0%, var(--white) 50%, var(--orange-light) 100%);
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px;
-  border-radius: 50%; background: radial-gradient(circle, rgba(14,165,165,0.08), transparent 70%);
-}
-.hero-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.4rem 1rem 0.4rem 0.5rem; background: var(--white); border: 1px solid var(--gray-200);
-  border-radius: 100px; font-size: var(--fs-xs); font-weight: 600; color: var(--teal-deep);
-  margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-}
-.hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-bright); animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-.hero-title {
-  font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, var(--fs-5xl));
-  font-weight: 700; color: var(--navy); line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 1.25rem;
-}
-.hero-title span { color: var(--teal); }
-.hero-desc { font-size: var(--fs-md); color: var(--slate-light); max-width: 520px; margin-bottom: 2rem; line-height: 1.7; }
-.hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-.hero-trust { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-.hero-trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: var(--fs-xs); color: var(--slate-light); font-weight: 500; }
-.hero-trust-item i { color: var(--teal); font-size: 0.9rem; }
+/* ── NAV ── */
+nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2rem); }
+.nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.nav-logo-mark { width: 32px; height: 32px; background: var(--teal); border-radius: 8px; display: grid; place-items: center; color: var(--white); font-size: 1rem; }
+.nav-logo-text { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; color: var(--navy); }
+.nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+.nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--slate-light); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--navy); }
+.donate-btn { background: var(--orange); color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600; font-size: 0.8125rem; transition: background 0.15s; }
+.donate-btn:hover { background: #C2410C; }
 
-.hero-visual { position: relative; }
-.hero-card {
-  background: var(--white); border-radius: var(--radius-lg); padding: 2rem;
-  box-shadow: 0 20px 60px rgba(15,23,42,0.08), 0 1px 3px rgba(15,23,42,0.06);
-  border: 1px solid var(--gray-200);
-}
-.hero-card-label { font-size: var(--fs-xs); font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-.hero-card-title { font-family: 'Fraunces', serif; font-size: var(--fs-3xl); font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
-.hero-card-sub { font-size: var(--fs-sm); color: var(--slate-light); margin-bottom: 1.5rem; }
-.hero-card-progress { margin-bottom: 1.5rem; }
-.progress-bar { height: 8px; background: var(--gray-200); border-radius: 100px; overflow: hidden; margin-bottom: 0.5rem; }
-.progress-fill { height: 100%; width: 35%; background: linear-gradient(90deg, var(--teal), var(--teal-bright)); border-radius: 100px; transition: width 1.5s var(--ease); }
-.progress-labels { display: flex; justify-content: space-between; font-size: var(--fs-xs); color: var(--slate-light); }
-.hero-card-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--gray-200); }
-.hero-stat { text-align: center; }
-.hero-stat-number { font-family: 'Fraunces', serif; font-size: var(--fs-xl); font-weight: 700; color: var(--navy); }
-.hero-stat-label { font-size: var(--fs-xs); color: var(--slate-light); }
+.menu-toggle { display: none; background: none; border: none; padding: 0.5rem; cursor: pointer; }
+.menu-toggle i { font-size: 1.4rem; color: var(--navy); }
 
-.hero-float-card {
-  position: absolute; padding: 0.75rem 1rem; background: var(--white); border-radius: var(--radius);
-  box-shadow: 0 8px 30px rgba(15,23,42,0.1); border: 1px solid var(--gray-200);
-  display: flex; align-items: center; gap: 0.6rem; font-size: var(--fs-sm); font-weight: 500; color: var(--navy);
-  animation: floatCard 3s ease-in-out infinite;
-}
-.hero-float-card i { font-size: 1.1rem; }
-.hero-float-1 { top: -10px; right: -10px; }
-.hero-float-2 { bottom: 30px; left: -20px; animation-delay: 1.5s; }
-@keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+/* ── HERO ── */
+.hero { background: var(--teal-wash); padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem); }
+.hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--white); border: 1px solid var(--gray-200); border-radius: 100px; font-size: 0.75rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 1.25rem; }
+.hero-badge-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 { font-size: clamp(2.25rem, 4.5vw, 3.25rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1rem; }
+.hero h1 span { color: var(--teal); }
+.hero p.lead { font-size: clamp(1rem, 1.2vw, 1.125rem); color: var(--slate-light); max-width: 480px; margin-bottom: 1.75rem; }
+.hero-ctas { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.hero-proof { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+.hero-proof-item { display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; color: var(--slate-light); font-weight: 500; }
+.hero-proof-item i { color: var(--teal); }
 
-/* ─── SECTIONS ─── */
-section { position: relative; }
-.section-pad { padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem); }
-.container { max-width: var(--max-width); margin: 0 auto; }
-.section-header { margin-bottom: 3.5rem; }
-.section-header.center { text-align: center; }
-.section-header.center .section-desc { margin: 0 auto; }
-.section-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--fs-xs); font-weight: 700; color: var(--teal-deep); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; padding: 0.3rem 0.8rem; background: var(--teal-wash); border-radius: 100px; }
-.section-title { font-family: 'Fraunces', serif; font-size: clamp(1.75rem, 3.5vw, var(--fs-4xl)); font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; }
-.section-title span { color: var(--teal); }
-.section-desc { font-size: var(--fs-md); color: var(--slate-light); max-width: 600px; line-height: 1.7; }
+/* Hero card */
+.hero-card { background: var(--white); border-radius: var(--r-lg); border: 1px solid var(--gray-200); overflow: hidden; box-shadow: 0 4px 24px rgba(15,23,42,0.06); }
+.hero-card-top { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); padding: 2rem; color: var(--white); text-align: center; }
+.hero-card-top small { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+.hero-card-amount { font-family: 'Fraunces', serif; font-size: 2.75rem; font-weight: 700; line-height: 1; margin: 0.25rem 0 0.15rem; }
+.hero-card-sub { font-size: 0.875rem; opacity: 0.8; }
+.hero-card-body { padding: 1.5rem 2rem 2rem; }
+.hero-progress { margin-bottom: 1.25rem; }
+.progress-track { height: 6px; background: var(--gray-200); border-radius: 100px; overflow: hidden; margin-bottom: 0.4rem; }
+.progress-bar { height: 100%; width: 0%; background: var(--teal); border-radius: 100px; transition: width 2s var(--ease); }
+.progress-labels { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--slate-light); }
+.hero-card-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; text-align: center; }
+.hero-card-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 1.25rem; color: var(--navy); font-weight: 700; }
+.hero-card-stat span { font-size: 0.7rem; color: var(--slate-light); }
 
-/* ─── FLAGSHIP ─── */
-.flagship { background: var(--navy); color: var(--white); overflow: hidden; }
-.flagship-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.flagship .section-label { background: rgba(255,255,255,0.1); color: var(--teal-light); }
-.flagship .section-title { color: var(--white); }
-.flagship .section-title span { color: var(--teal-light); }
-.flagship .section-desc { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
-.flagship-features { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem; }
-.flagship-feature { display: flex; gap: 1rem; align-items: flex-start; }
-.flagship-feature-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--teal-light); font-size: 1rem; }
-.flagship-feature h4 { font-weight: 600; font-size: var(--fs-sm); color: var(--white); margin-bottom: 0.15rem; }
-.flagship-feature p { font-size: var(--fs-sm); color: rgba(255,255,255,0.5); line-height: 1.5; }
+/* ── THE PROBLEM ── */
+.problem { background: var(--navy); color: var(--white); }
+.problem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.problem h2 { color: var(--white); font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 1rem; }
+.problem h2 span { color: var(--teal-light); }
+.problem p { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; margin-bottom: 1rem; }
+.problem-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.problem-stat { text-align: center; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: var(--r); border: 1px solid rgba(255,255,255,0.08); }
+.problem-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--teal-light); font-weight: 700; }
+.problem-stat span { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
 
-.flagship-visual { position: relative; }
-.flagship-mockup {
-  background: linear-gradient(135deg, var(--teal-deep), var(--teal), var(--teal-bright));
-  border-radius: var(--radius-lg); padding: 3rem; text-align: center;
-  position: relative; overflow: hidden;
-}
-.flagship-mockup::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 Q30 40 60 60 Q90 80 120 60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E") repeat; }
-.flagship-mockup-content { position: relative; z-index: 1; }
-.flagship-mockup-amount { font-family: 'Fraunces', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; color: var(--white); line-height: 1; }
-.flagship-mockup-amount small { font-size: 0.4em; opacity: 0.7; vertical-align: super; }
-.flagship-mockup-sub { font-size: var(--fs-md); color: rgba(255,255,255,0.8); margin-top: 0.5rem; }
-.flagship-mockup-tags { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
-.flagship-mockup-tag { padding: 0.35rem 0.8rem; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: var(--fs-xs); color: var(--white); font-weight: 500; }
+/* Problem visual */
+.problem-visual { position: relative; }
+.problem-map { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-lg); padding: 2rem; min-height: 320px; display: flex; flex-direction: column; justify-content: center; }
+.problem-map h3 { color: var(--white); font-size: 1.125rem; margin-bottom: 1.25rem; }
+.community-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.community-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.04); border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); }
+.community-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.community-item h4 { color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; }
+.community-item p { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
 
-/* ─── ABOUT PILLARS ─── */
-.pillars { background: var(--gray-100); }
-.pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.pillar { background: var(--white); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--gray-200); transition: all 0.3s var(--ease); }
-.pillar:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(15,23,42,0.06); border-color: var(--teal-pale); }
-.pillar-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.2rem; }
-.pillar-icon.blue { background: #EFF6FF; color: #2563EB; }
-.pillar-icon.teal { background: var(--teal-wash); color: var(--teal-deep); }
-.pillar-icon.green { background: #F0FDF4; color: #16A34A; }
-.pillar-icon.purple { background: #F5F3FF; color: #7C3AED; }
-.pillar h3 { font-family: 'Fraunces', serif; font-size: var(--fs-lg); font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
-.pillar p { font-size: var(--fs-sm); color: var(--slate-light); line-height: 1.6; }
+/* ── THE SOLUTION ── */
+.solution { background: var(--white); }
+.solution-header { max-width: 600px; margin-bottom: 3rem; }
+.solution h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 0.75rem; }
+.solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.solution-card { padding: 1.75rem; border: 1px solid var(--gray-200); border-radius: var(--r-lg); transition: all 0.25s var(--ease); position: relative; overflow: hidden; }
+.solution-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); transform: scaleX(0); transition: transform 0.3s var(--ease); }
+.solution-card:hover::before { transform: scaleX(1); }
+.solution-card:hover { box-shadow: 0 8px 30px rgba(15,23,42,0.06); transform: translateY(-2px); }
+.solution-icon { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 1.25rem; font-size: 1.15rem; }
+.solution-icon.teal { background: var(--teal-wash); color: var(--teal-dark); }
+.solution-icon.blue { background: #EFF6FF; color: #2563EB; }
+.solution-icon.green { background: #F0FDF4; color: #16A34A; }
+.solution-card h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; }
+.solution-card p { font-size: 0.875rem; color: var(--slate-light); line-height: 1.6; }
 
-/* ─── IMPACT ─── */
-.impact { background: var(--white); }
-.impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.impact-card { text-align: center; padding: 2.5rem 1.5rem; border-radius: var(--radius-lg); background: var(--gray-100); border: 1px solid var(--gray-200); transition: all 0.3s var(--ease); }
-.impact-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(15,23,42,0.06); }
-.impact-number { font-family: 'Fraunces', serif; font-size: var(--fs-4xl); font-weight: 700; color: var(--teal-deep); line-height: 1; margin-bottom: 0.3rem; }
-.impact-label { font-size: var(--fs-sm); color: var(--slate-light); font-weight: 500; }
+/* ── HOW IT WORKS ── */
+.how { background: var(--gray-50); }
+.how-header { text-align: center; max-width: 540px; margin: 0 auto 3rem; }
+.how h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 0.75rem; }
+.how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.how-step { text-align: center; padding: 1.5rem 1rem; }
+.step-number { width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: var(--white); display: grid; place-items: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; margin: 0 auto 1rem; }
+.how-step h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.35rem; }
+.how-step p { font-size: 0.8125rem; color: var(--slate-light); line-height: 1.5; }
 
-/* ─── COMMUNITY FOCUS ─── */
-.focus { background: var(--gray-100); }
-.focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.focus-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); transition: all 0.3s var(--ease); }
-.focus-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(15,23,42,0.06); }
-.focus-card-img { height: 200px; position: relative; overflow: hidden; }
-.focus-card-img-1 { background: linear-gradient(135deg, #0C7C7C, #14B8A6); }
-.focus-card-img-2 { background: linear-gradient(135deg, #1E3A5F, #3B82F6); }
-.focus-card-img-3 { background: linear-gradient(135deg, #065F46, #10B981); }
-.focus-card-img i { position: absolute; bottom: 1rem; right: 1rem; font-size: 2.5rem; color: rgba(255,255,255,0.15); }
-.focus-card-body { padding: 1.75rem; }
-.focus-card-tag { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.6rem; background: var(--teal-wash); color: var(--teal-deep); border-radius: 6px; font-size: var(--fs-xs); font-weight: 600; margin-bottom: 0.75rem; }
-.focus-card-body h3 { font-family: 'Fraunces', serif; font-size: var(--fs-xl); font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
-.focus-card-body p { font-size: var(--fs-sm); color: var(--slate-light); line-height: 1.6; }
+/* ── TRANSPARENCY ── */
+.trust { background: var(--white); }
+.trust-header { text-align: center; max-width: 540px; margin: 0 auto 2.5rem; }
+.trust h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 0.75rem; }
+.trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.trust-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1.5rem 1rem; background: var(--gray-50); border-radius: var(--r); border: 1px solid var(--gray-200); }
+.trust-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--teal-wash); color: var(--teal-dark); display: grid; place-items: center; font-size: 1rem; margin-bottom: 0.75rem; }
+.trust-card h4 { font-size: 0.875rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+.trust-card p { font-size: 0.75rem; color: var(--slate-light); line-height: 1.5; }
 
-/* ─── TRANSPARENCY ─── */
-.transparency { background: var(--white); }
-.transparency-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.transparency-card { display: flex; gap: 1.25rem; padding: 1.75rem; background: var(--gray-100); border-radius: var(--radius); border: 1px solid var(--gray-200); transition: all 0.3s var(--ease); }
-.transparency-card:hover { border-color: var(--teal-pale); }
-.transparency-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--teal-wash); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--teal-deep); font-size: 1.1rem; }
-.transparency-card h3 { font-weight: 600; font-size: var(--fs-base); color: var(--navy); margin-bottom: 0.25rem; }
-.transparency-card p { font-size: var(--fs-sm); color: var(--slate-light); line-height: 1.5; }
+/* ── CTA BANNER ── */
+.cta { background: var(--teal); color: var(--white); text-align: center; }
+.cta h2 { color: var(--white); font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 0.75rem; }
+.cta p { color: rgba(255,255,255,0.8); max-width: 540px; margin: 0 auto 2rem; font-size: 1rem; }
+.cta-buttons { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
 
-/* ─── CTA BANNER ─── */
-.cta-banner {
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 50%, var(--teal-bright) 100%);
-  color: var(--white); text-align: center; position: relative; overflow: hidden;
-}
-.cta-banner::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat; }
-.cta-banner .container { position: relative; z-index: 1; }
-.cta-banner .section-title { color: var(--white); }
-.cta-banner .section-desc { color: rgba(255,255,255,0.8); margin: 0 auto 2rem; }
-.cta-banner .section-label { background: rgba(255,255,255,0.15); color: var(--white); }
-.cta-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+/* ── TESTIMONIALS ── */
+.voices { background: var(--gray-50); }
+.voices-header { text-align: center; max-width: 540px; margin: 0 auto 2.5rem; }
+.voices h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 0.75rem; }
+.voices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.voice-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--r-lg); padding: 1.75rem; }
+.voice-card blockquote { font-size: 0.9375rem; line-height: 1.65; color: var(--slate); margin-bottom: 1.25rem; font-style: italic; }
+.voice-author { display: flex; align-items: center; gap: 0.6rem; }
+.voice-avatar { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--white); font-size: 0.85rem; }
+.voice-name { font-weight: 600; font-size: 0.8125rem; color: var(--navy); }
+.voice-role { font-size: 0.75rem; color: var(--slate-light); }
 
-/* ─── TESTIMONIALS ─── */
-.testimonials { background: var(--gray-100); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.testimonial-card { background: var(--white); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--gray-200); }
-.testimonial-card blockquote { font-size: var(--fs-base); color: var(--slate); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
-.testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
-.testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--white); }
-.testimonial-name { font-weight: 600; font-size: var(--fs-sm); color: var(--navy); }
-.testimonial-role { font-size: var(--fs-xs); color: var(--slate-light); }
-.testimonial-stars { color: var(--amber); font-size: var(--fs-sm); margin-bottom: 1rem; }
-
-/* ─── CONTACT ─── */
+/* ── CONTACT ── */
 .contact { background: var(--white); }
-.contact-grid { display: grid; grid-template-columns: 1fr minmax(0, 0.7fr); gap: 4rem; align-items: start; }
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group input, .form-group textarea {
-  width: 100%; padding: 0.85rem 1rem; background: var(--gray-100); border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius); color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: var(--fs-base); transition: all 0.2s; outline: none;
+.contact-grid { display: grid; grid-template-columns: 1fr 0.7fr; gap: 3rem; align-items: start; }
+.contact h2 { font-size: clamp(1.5rem, 2.5vw, 1.75rem); margin-bottom: 0.5rem; }
+.contact > .container > p { color: var(--slate-light); margin-bottom: 2rem; }
+.contact-form { display: flex; flex-direction: column; gap: 0.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 0.7rem 0.85rem; background: var(--gray-50); border: 1.5px solid var(--gray-200);
+  border-radius: 8px; font-family: inherit; font-size: 0.875rem; color: var(--navy); outline: none; transition: border 0.15s;
 }
-.form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-300); }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(14,165,165,0.1); background: var(--white); }
-.form-group textarea { min-height: 130px; resize: vertical; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--gray-300); }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--teal); }
+.contact-form textarea { min-height: 110px; resize: vertical; }
 
-.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
-.contact-info-card { display: flex; gap: 1rem; padding: 1.25rem; background: var(--gray-100); border-radius: var(--radius); border: 1px solid var(--gray-200); }
-.contact-info-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--teal-wash); display: flex; align-items: center; justify-content: center; color: var(--teal-deep); font-size: 1rem; flex-shrink: 0; }
-.contact-info-card h4 { font-weight: 600; font-size: var(--fs-sm); color: var(--navy); margin-bottom: 0.15rem; }
-.contact-info-card p { font-size: var(--fs-sm); color: var(--slate-light); line-height: 1.5; }
+.contact-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-card { display: flex; gap: 0.75rem; padding: 1rem; background: var(--gray-50); border-radius: var(--r); border: 1px solid var(--gray-200); }
+.contact-card-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--teal-wash); color: var(--teal-dark); display: grid; place-items: center; font-size: 0.9rem; flex-shrink: 0; }
+.contact-card h4 { font-size: 0.8125rem; font-weight: 600; color: var(--navy); margin-bottom: 0.1rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+.contact-card p { font-size: 0.8125rem; color: var(--slate-light); line-height: 1.4; }
 
-/* ─── FOOTER ─── */
-footer { background: var(--navy); color: var(--white); padding: 3.5rem clamp(1.25rem, 4vw, 3rem) 2rem; }
-.footer-inner { max-width: var(--max-width); margin: 0 auto; }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-.footer-brand p { font-size: var(--fs-sm); color: rgba(255,255,255,0.5); margin-top: 1rem; line-height: 1.6; max-width: 280px; }
-.footer-col h4 { font-size: var(--fs-sm); font-weight: 600; color: var(--white); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
-.footer-col a { display: block; font-size: var(--fs-sm); color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 0.6rem; transition: color 0.2s; }
+/* ── FOOTER ── */
+footer { background: var(--navy); color: var(--white); padding: 3rem 0 1.5rem; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+.footer-brand p { font-size: 0.8125rem; color: rgba(255,255,255,0.45); margin-top: 0.75rem; line-height: 1.6; max-width: 260px; }
+.footer-col h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; color: rgba(255,255,255,0.5); }
+.footer-col a { display: block; font-size: 0.8125rem; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 0.45rem; transition: color 0.15s; }
 .footer-col a:hover { color: var(--white); }
-.footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-copy { font-size: var(--fs-xs); color: rgba(255,255,255,0.35); }
-.footer-npo { font-size: var(--fs-xs); color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 0.4rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 0.75rem; }
+.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.3); }
+.footer-npo { font-size: 0.7rem; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 0.3rem; }
 .footer-npo i { color: var(--teal-light); }
-.footer-socials { display: flex; gap: 0.6rem; }
-.footer-socials a { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
+.footer-socials { display: flex; gap: 0.4rem; }
+.footer-socials a { width: 30px; height: 30px; border-radius: 6px; background: rgba(255,255,255,0.06); display: grid; place-items: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.8rem; transition: all 0.15s; }
 .footer-socials a:hover { background: var(--teal); color: var(--white); }
 
-/* ─── REVEAL ─── */
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.rd1 { transition-delay: 0.08s; } .rd2 { transition-delay: 0.16s; } .rd3 { transition-delay: 0.24s; } .rd4 { transition-delay: 0.32s; }
 
-/* ─── RESPONSIVE ─── */
+/* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { max-width: 500px; }
-  .flagship-inner { grid-template-columns: 1fr; }
-  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-  .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-inner, .problem-inner { grid-template-columns: 1fr; }
+  .hero-card { max-width: 480px; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: repeat(2, 1fr); }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .menu-toggle { display: block; }
-  .nav-links.mobile-open {
-    display: flex; flex-direction: column; position: fixed; inset: 0;
-    background: var(--white); align-items: center; justify-content: center;
-    gap: 2rem; z-index: 999;
-  }
-  .nav-links.mobile-open a { font-size: var(--fs-xl); color: var(--navy); }
-  .pillars-grid { grid-template-columns: 1fr; }
-  .impact-grid { grid-template-columns: 1fr 1fr; }
-  .focus-grid { grid-template-columns: 1fr; }
-  .transparency-grid { grid-template-columns: 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .hero-float-card { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; background: var(--white); align-items: center; justify-content: center; gap: 1.5rem; z-index: 200; }
+  .nav-links.open a { font-size: 1.25rem; color: var(--navy); }
+  .problem-stats { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr; }
+  .voices-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
-}
-@media (max-width: 480px) {
-  .impact-grid { grid-template-columns: 1fr; }
-  .hero-card-stats { grid-template-columns: 1fr; gap: 0.75rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav id="nav">
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-icon"><i class="bi bi-water"></i></div>
-    <span class="nav-logo-text">Feel Good Initiative</span>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#flagship">Tidal Pool</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#focus">Our Work</a></li>
-    <li><a href="#transparency">Transparency</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#cta" class="nav-donate">Donate</a></li>
-  </ul>
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><div class="nav-logo-mark"><i class="bi bi-water"></i></div><span class="nav-logo-text">Feel Good Initiative</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#problem">The Problem</a></li>
+      <li><a href="#solution">Our Solution</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#trust">Transparency</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#cta" class="donate-btn"><i class="bi bi-heart-fill"></i> Donate</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="bi bi-list"></i></button>
+  </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        Flagship Project Live — Hout Bay Tidal Pool
-      </div>
-      <h1 class="hero-title">Safe Oceans.<br><span>Strong Communities.</span></h1>
-      <p class="hero-desc">
-        We're building a R50 million tidal pool in Hout Bay — creating safe ocean access for communities like Imizamo Yethu and Hangberg who've been excluded for too long.
-      </p>
-      <div class="hero-ctas">
-        <a href="#cta" class="btn btn-teal"><i class="bi bi-heart-fill"></i> Support the Project</a>
-        <a href="#flagship" class="btn btn-outline">Learn More</a>
-      </div>
-      <div class="hero-trust">
-        <div class="hero-trust-item"><i class="bi bi-patch-check-fill"></i> Registered NPO</div>
-        <div class="hero-trust-item"><i class="bi bi-shield-check"></i> Environmental Compliance</div>
-        <div class="hero-trust-item"><i class="bi bi-geo-alt-fill"></i> Hout Bay, SA</div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-card-label"><i class="bi bi-star-fill"></i> Flagship Campaign</div>
-        <div class="hero-card-title">R50 Million</div>
-        <div class="hero-card-sub">Hout Bay Community Tidal Pool</div>
-        <div class="hero-card-progress">
-          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-          <div class="progress-labels"><span>Funding in progress</span><span>R50M Goal</span></div>
-        </div>
-        <div class="hero-card-stats">
-          <div class="hero-stat"><div class="hero-stat-number">3</div><div class="hero-stat-label">Communities</div></div>
-          <div class="hero-stat"><div class="hero-stat-number">500+</div><div class="hero-stat-label">Lives Impacted</div></div>
-          <div class="hero-stat"><div class="hero-stat-number">1st</div><div class="hero-stat-label">Eco Tidal Pool</div></div>
-        </div>
-      </div>
-      <div class="hero-float-card hero-float-1"><i class="bi bi-check-circle-fill" style="color:var(--teal);"></i> EIA in progress</div>
-      <div class="hero-float-card hero-float-2"><i class="bi bi-people-fill" style="color:var(--orange);"></i> Community-led</div>
-    </div>
-  </div>
-</section>
-
-<!-- Flagship Project -->
-<section class="flagship section-pad" id="flagship">
+<!-- 1. HERO — The mission + the ask -->
+<section class="hero">
   <div class="container">
-    <div class="flagship-inner">
+    <div class="hero-inner">
       <div>
-        <div class="section-label reveal"><i class="bi bi-star-fill"></i> Flagship Project</div>
-        <h2 class="section-title reveal reveal-delay-1">The Hout Bay <span>Tidal Pool</span></h2>
-        <p class="section-desc reveal reveal-delay-2">
-          A world-class eco-friendly tidal pool on Hout Bay Beach — designed to give safe ocean access to thousands of community members from Imizamo Yethu and Hangberg who currently lack it.
-        </p>
-        <div class="flagship-features reveal reveal-delay-3">
-          <div class="flagship-feature">
-            <div class="flagship-feature-icon"><i class="bi bi-water"></i></div>
-            <div><h4>Natural Shoreline Integration</h4><p>Blends into the natural coast, replacing an old revetment with a living tidal ecosystem.</p></div>
-          </div>
-          <div class="flagship-feature">
-            <div class="flagship-feature-icon"><i class="bi bi-shield-check"></i></div>
-            <div><h4>Full Environmental Assessment</h4><p>Marine biologists conducting a comprehensive impact study before any construction starts.</p></div>
-          </div>
-          <div class="flagship-feature">
-            <div class="flagship-feature-icon"><i class="bi bi-mortarboard"></i></div>
-            <div><h4>Ocean Safety &amp; Marine Education</h4><p>A hub for water safety training and marine ecology education for schools and communities.</p></div>
-          </div>
-          <div class="flagship-feature">
-            <div class="flagship-feature-icon"><i class="bi bi-globe-americas"></i></div>
-            <div><h4>Eco-Tourism Destination</h4><p>Designed to become a landmark attraction for sustainable tourism in the Western Cape.</p></div>
-          </div>
+        <div class="hero-badge reveal"><div class="hero-badge-dot"></div> Flagship Project — Now in Planning</div>
+        <h1 class="reveal rd1">A safe ocean for <span>every community.</span></h1>
+        <p class="lead reveal rd2">We're building a R50 million tidal pool in Hout Bay — creating safe ocean access for communities from Imizamo Yethu and Hangberg who've been excluded for too long.</p>
+        <div class="hero-ctas reveal rd3">
+          <a href="#cta" class="btn btn-orange btn-lg"><i class="bi bi-heart-fill"></i> Support This Project</a>
+          <a href="#problem" class="btn btn-outline btn-lg">Learn Why It Matters</a>
         </div>
-        <a href="#cta" class="btn btn-white reveal reveal-delay-4"><i class="bi bi-heart-fill"></i> Help Fund This Project</a>
+        <div class="hero-proof reveal rd4">
+          <span class="hero-proof-item"><i class="bi bi-patch-check-fill"></i> Registered NPO</span>
+          <span class="hero-proof-item"><i class="bi bi-shield-check"></i> EIA In Progress</span>
+          <span class="hero-proof-item"><i class="bi bi-people-fill"></i> Community-Led</span>
+        </div>
       </div>
-      <div class="flagship-visual reveal reveal-delay-2">
-        <div class="flagship-mockup">
-          <div class="flagship-mockup-content">
-            <div class="flagship-mockup-amount">R50M<small> ZAR</small></div>
-            <p class="flagship-mockup-sub">Community Investment in Hout Bay Beach</p>
-            <div class="flagship-mockup-tags">
-              <span class="flagship-mockup-tag"><i class="bi bi-water"></i> Tidal Pool</span>
-              <span class="flagship-mockup-tag"><i class="bi bi-tree"></i> Eco-Friendly</span>
-              <span class="flagship-mockup-tag"><i class="bi bi-people"></i> Community-Led</span>
+      <div class="reveal rd2">
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <small>Flagship Campaign</small>
+            <div class="hero-card-amount">R50 Million</div>
+            <div class="hero-card-sub">Hout Bay Community Tidal Pool</div>
+          </div>
+          <div class="hero-card-body">
+            <div class="hero-progress">
+              <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+              <div class="progress-labels"><span>Funding in progress</span><span>Goal: R50M</span></div>
+            </div>
+            <div class="hero-card-stats">
+              <div class="hero-card-stat"><strong>3</strong><span>Communities</span></div>
+              <div class="hero-card-stat"><strong>500+</strong><span>Lives Impacted</span></div>
+              <div class="hero-card-stat"><strong>1st</strong><span>Eco Tidal Pool</span></div>
             </div>
           </div>
         </div>
@@ -448,220 +288,155 @@ footer { background: var(--navy); color: var(--white); padding: 3.5rem clamp(1.2
   </div>
 </section>
 
-<!-- About Pillars -->
-<section class="pillars section-pad" id="about">
+<!-- 2. THE PROBLEM — Why this matters -->
+<section class="problem section" id="problem">
   <div class="container">
-    <div class="section-header center">
-      <div class="section-label reveal">Our Mission</div>
-      <h2 class="section-title reveal reveal-delay-1">What We <span>Stand For</span></h2>
-      <p class="section-desc reveal reveal-delay-2">The Feel Good Initiative bridges the gap between underserved communities and the natural spaces they deserve.</p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar reveal reveal-delay-1">
-        <div class="pillar-icon blue"><i class="bi bi-water"></i></div>
-        <h3>Ocean Access</h3>
-        <p>Creating safe, inclusive coastal infrastructure for communities historically excluded from beach access.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-2">
-        <div class="pillar-icon teal"><i class="bi bi-life-preserver"></i></div>
-        <h3>Ocean Safety</h3>
-        <p>Water safety education and drowning prevention — especially vital during summer months.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-3">
-        <div class="pillar-icon green"><i class="bi bi-tree-fill"></i></div>
-        <h3>Conservation</h3>
-        <p>Protecting marine ecosystems through science-led environmental assessments and community stewardship.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-4">
-        <div class="pillar-icon purple"><i class="bi bi-book"></i></div>
-        <h3>Education</h3>
-        <p>Marine education programs that inspire the next generation to understand and protect our oceans.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Impact -->
-<section class="impact section-pad" id="impact">
-  <div class="container">
-    <div class="section-header center">
-      <div class="section-label reveal">Our Impact</div>
-      <h2 class="section-title reveal reveal-delay-1">Numbers That <span>Matter</span></h2>
-    </div>
-    <div class="impact-grid">
-      <div class="impact-card reveal reveal-delay-1">
-        <div class="impact-number">R50M</div>
-        <div class="impact-label">Tidal Pool Investment</div>
-      </div>
-      <div class="impact-card reveal reveal-delay-2">
-        <div class="impact-number">3</div>
-        <div class="impact-label">Communities Served</div>
-      </div>
-      <div class="impact-card reveal reveal-delay-3">
-        <div class="impact-number">500+</div>
-        <div class="impact-label">Lives Impacted</div>
-      </div>
-      <div class="impact-card reveal reveal-delay-4">
-        <div class="impact-number">1st</div>
-        <div class="impact-label">Eco Tidal Pool in SA</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Focus Areas -->
-<section class="focus section-pad" id="focus">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label reveal">Our Work</div>
-      <h2 class="section-title reveal reveal-delay-1">Creating Spaces Where <span>Everyone Belongs</span></h2>
-      <p class="section-desc reveal reveal-delay-2">From infrastructure to education — designed around the people who need it most.</p>
-    </div>
-    <div class="focus-grid">
-      <div class="focus-card reveal reveal-delay-1">
-        <div class="focus-card-img focus-card-img-1"><i class="bi bi-water"></i></div>
-        <div class="focus-card-body">
-          <div class="focus-card-tag"><i class="bi bi-hammer"></i> Infrastructure</div>
-          <h3>Coastal Access Projects</h3>
-          <p>Building tidal pools and beach access points that serve communities like Imizamo Yethu and Hangberg.</p>
+    <div class="problem-inner">
+      <div>
+        <h2 class="reveal">The communities beside the ocean <span>can't safely access it.</span></h2>
+        <p class="reveal rd1">Thousands of residents in Imizamo Yethu and Hangberg live minutes from Hout Bay Beach — but lack safe, accessible places to swim. An ageing revetment blocks the shoreline. In summer, the beach gets dangerously overcrowded. There's no ocean safety infrastructure, no marine education, and no plan to fix it.</p>
+        <p class="reveal rd2">Until now.</p>
+        <div class="problem-stats reveal rd3">
+          <div class="problem-stat"><strong>34,000+</strong><span>People in Imizamo Yethu</span></div>
+          <div class="problem-stat"><strong>Zero</strong><span>Safe swimming spots</span></div>
+          <div class="problem-stat"><strong>Summer</strong><span>Beach overcrowding crisis</span></div>
         </div>
       </div>
-      <div class="focus-card reveal reveal-delay-2">
-        <div class="focus-card-img focus-card-img-2"><i class="bi bi-life-preserver"></i></div>
-        <div class="focus-card-body">
-          <div class="focus-card-tag"><i class="bi bi-shield-check"></i> Safety</div>
-          <h3>Ocean Safety Programs</h3>
-          <p>Water safety training and drowning prevention — especially vital during summer when beaches get packed.</p>
-        </div>
-      </div>
-      <div class="focus-card reveal reveal-delay-3">
-        <div class="focus-card-img focus-card-img-3"><i class="bi bi-mortarboard"></i></div>
-        <div class="focus-card-body">
-          <div class="focus-card-tag"><i class="bi bi-book"></i> Education</div>
-          <h3>Marine Education Hub</h3>
-          <p>The tidal pool doubles as an outdoor classroom — connecting youth to the ocean through hands-on learning.</p>
+      <div class="problem-visual reveal rd2">
+        <div class="problem-map">
+          <h3><i class="bi bi-geo-alt"></i> Communities We Serve</h3>
+          <div class="community-list">
+            <div class="community-item">
+              <div class="community-dot" style="background:var(--teal-light);"></div>
+              <div><h4>Imizamo Yethu</h4><p>34,000+ residents — informal settlement adjacent to Hout Bay Beach</p></div>
+            </div>
+            <div class="community-item">
+              <div class="community-dot" style="background:var(--orange);"></div>
+              <div><h4>Hangberg</h4><p>Fishing community on the harbour side — limited beach access</p></div>
+            </div>
+            <div class="community-item">
+              <div class="community-dot" style="background:#A78BFA;"></div>
+              <div><h4>Greater Hout Bay</h4><p>Families, surfers, and visitors — all sharing overcrowded facilities</p></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Transparency -->
-<section class="transparency section-pad" id="transparency">
+<!-- 3. THE SOLUTION — What we're building -->
+<section class="solution section" id="solution">
   <div class="container">
-    <div class="section-header center">
-      <div class="section-label reveal"><i class="bi bi-shield-check"></i> Accountability</div>
-      <h2 class="section-title reveal reveal-delay-1">Transparency Is <span>Non-Negotiable</span></h2>
-      <p class="section-desc reveal reveal-delay-2">We earn trust through openness. Every rand, every decision, every outcome — accounted for.</p>
+    <div class="solution-header">
+      <h2 class="reveal">An eco-friendly tidal pool that gives the ocean <span>back to the people.</span></h2>
+      <p class="reveal rd1" style="color:var(--slate-light);font-size:1rem;">The R50M Hout Bay Tidal Pool will blend into the natural shoreline, replacing the old revetment with a living coastal ecosystem — safe, beautiful, and built for everyone.</p>
     </div>
-    <div class="transparency-grid">
-      <div class="transparency-card reveal reveal-delay-1">
-        <div class="transparency-icon"><i class="bi bi-patch-check"></i></div>
-        <div><h3>Registered NPO</h3><p>Fully registered non-profit under South African law with public governance records.</p></div>
+    <div class="solution-grid">
+      <div class="solution-card reveal rd1">
+        <div class="solution-icon teal"><i class="bi bi-water"></i></div>
+        <h3>Natural Shoreline Integration</h3>
+        <p>Designed to blend seamlessly into the coast, replacing ageing infrastructure with a living tidal ecosystem that works with nature, not against it.</p>
       </div>
-      <div class="transparency-card reveal reveal-delay-2">
-        <div class="transparency-icon"><i class="bi bi-clipboard-data"></i></div>
-        <div><h3>Environmental Review</h3><p>Full EIA with marine biologists before any construction — no shortcuts.</p></div>
+      <div class="solution-card reveal rd2">
+        <div class="solution-icon blue"><i class="bi bi-shield-check"></i></div>
+        <h3>Ocean Safety Infrastructure</h3>
+        <p>A safe, protected swimming environment especially for children and non-swimmers from communities that lack water safety resources.</p>
       </div>
-      <div class="transparency-card reveal reveal-delay-3">
-        <div class="transparency-icon"><i class="bi bi-people"></i></div>
-        <div><h3>Expert Collaboration</h3><p>Marine biologists, urban planners, and community leaders at every stage.</p></div>
-      </div>
-      <div class="transparency-card reveal reveal-delay-4">
-        <div class="transparency-icon"><i class="bi bi-bar-chart-line"></i></div>
-        <div><h3>Public Reporting</h3><p>Regular project updates and financial disclosures shared with all stakeholders.</p></div>
+      <div class="solution-card reveal rd3">
+        <div class="solution-icon green"><i class="bi bi-mortarboard"></i></div>
+        <h3>Marine Education Hub</h3>
+        <p>An outdoor classroom for schools and communities — teaching ocean safety, marine ecology, and environmental stewardship firsthand.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA Banner -->
-<section class="cta-banner section-pad" id="cta">
+<!-- 4. HOW IT WORKS — The process -->
+<section class="how section" id="how">
   <div class="container">
-    <div class="section-header center">
-      <div class="section-label reveal">Take Action</div>
-      <h2 class="section-title reveal reveal-delay-1">Help Build <span>Something Beautiful</span></h2>
-      <p class="section-desc reveal reveal-delay-2">The Hout Bay Tidal Pool needs community support to become reality. Every contribution matters — donate, volunteer, or partner with us.</p>
+    <div class="how-header">
+      <h2 class="reveal">How we're making it happen</h2>
+      <p class="reveal rd1" style="color:var(--slate-light);">A rigorous, transparent process with experts and community at every step.</p>
     </div>
-    <div class="cta-buttons reveal reveal-delay-3">
-      <a href="#contact" class="btn btn-orange"><i class="bi bi-heart-fill"></i> Donate Now</a>
-      <a href="#contact" class="btn btn-white"><i class="bi bi-hand-thumbs-up-fill"></i> Volunteer</a>
-      <a href="#contact" class="btn btn-white"><i class="bi bi-building"></i> Corporate Partner</a>
+    <div class="how-steps">
+      <div class="how-step reveal rd1"><div class="step-number">1</div><h4>Community Engagement</h4><p>Working directly with Imizamo Yethu, Hangberg, and Hout Bay residents to shape the project.</p></div>
+      <div class="how-step reveal rd2"><div class="step-number">2</div><h4>Environmental Assessment</h4><p>Full EIA with marine biologists ensuring marine life stays protected throughout construction.</p></div>
+      <div class="how-step reveal rd3"><div class="step-number">3</div><h4>Expert Design</h4><p>Marine engineers, urban planners, and ecologists designing an eco-friendly tidal pool.</p></div>
+      <div class="how-step reveal rd4"><div class="step-number">4</div><h4>Build &amp; Launch</h4><p>Construction with local labor, creating jobs and a lasting community asset.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials section-pad" id="testimonials">
+<!-- 5. TRANSPARENCY -->
+<section class="trust section" id="trust">
   <div class="container">
-    <div class="section-header center">
-      <div class="section-label reveal">Community Voices</div>
-      <h2 class="section-title reveal reveal-delay-1">What People Are <span>Saying</span></h2>
+    <div class="trust-header">
+      <h2 class="reveal">We earn your trust through <span>openness.</span></h2>
+      <p class="reveal rd1" style="color:var(--slate-light);">Every rand, every decision, every outcome — accounted for.</p>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+    <div class="trust-grid">
+      <div class="trust-card reveal rd1"><div class="trust-icon"><i class="bi bi-patch-check"></i></div><h4>Registered NPO</h4><p>Fully registered under South African law</p></div>
+      <div class="trust-card reveal rd2"><div class="trust-icon"><i class="bi bi-clipboard-data"></i></div><h4>Full EIA</h4><p>Environmental impact assessment with marine biologists</p></div>
+      <div class="trust-card reveal rd3"><div class="trust-icon"><i class="bi bi-people"></i></div><h4>Expert Team</h4><p>Marine biologists, engineers &amp; community leaders</p></div>
+      <div class="trust-card reveal rd4"><div class="trust-icon"><i class="bi bi-bar-chart-line"></i></div><h4>Public Reports</h4><p>Financial &amp; progress updates for all stakeholders</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CTA — The ask -->
+<section class="cta section" id="cta">
+  <div class="container">
+    <h2 class="reveal">Help build a safe ocean for <span>everyone.</span></h2>
+    <p class="reveal rd1">Donate, volunteer, or partner — every contribution moves us closer to breaking ground.</p>
+    <div class="cta-buttons reveal rd2">
+      <a href="#contact" class="btn btn-orange btn-lg"><i class="bi bi-heart-fill"></i> Donate Now</a>
+      <a href="#contact" class="btn btn-white btn-lg"><i class="bi bi-hand-thumbs-up-fill"></i> Volunteer</a>
+      <a href="#contact" class="btn btn-white btn-lg"><i class="bi bi-building"></i> Corporate Partner</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. COMMUNITY VOICES -->
+<section class="voices section" id="voices">
+  <div class="container">
+    <div class="voices-header">
+      <h2 class="reveal">Community voices</h2>
+    </div>
+    <div class="voices-grid">
+      <div class="voice-card reveal rd1">
         <blockquote>"The tidal pool is long overdue, especially in summer when the beach gets packed. This will be a game-changer for our community."</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:var(--teal);"><i class="bi bi-person-fill"></i></div>
-          <div><div class="testimonial-name">Local Surfer</div><div class="testimonial-role">Hout Bay Community Member</div></div>
-        </div>
+        <div class="voice-author"><div class="voice-avatar" style="background:var(--teal);"><i class="bi bi-person-fill"></i></div><div><div class="voice-name">Local Surfer</div><div class="voice-role">Hout Bay Community Member</div></div></div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+      <div class="voice-card reveal rd2">
         <blockquote>"This is what real community development looks like — infrastructure that serves the people who've been overlooked for too long."</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:var(--orange);"><i class="bi bi-person-fill"></i></div>
-          <div><div class="testimonial-name">Community Leader</div><div class="testimonial-role">Imizamo Yethu</div></div>
-        </div>
+        <div class="voice-author"><div class="voice-avatar" style="background:var(--orange);"><i class="bi bi-person-fill"></i></div><div><div class="voice-name">Community Leader</div><div class="voice-role">Imizamo Yethu</div></div></div>
       </div>
-      <div class="testimonial-card reveal reveal-delay-3">
-        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-        <blockquote>"The environmental-first approach is exactly right. You can create incredible community spaces while protecting the marine ecosystem."</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:#16A34A;"><i class="bi bi-person-fill"></i></div>
-          <div><div class="testimonial-name">Marine Biologist</div><div class="testimonial-role">Environmental Consultant</div></div>
-        </div>
+      <div class="voice-card reveal rd3">
+        <blockquote>"The environmental-first approach is exactly right. You can create community spaces while protecting the marine ecosystem."</blockquote>
+        <div class="voice-author"><div class="voice-avatar" style="background:#16A34A;"><i class="bi bi-person-fill"></i></div><div><div class="voice-name">Marine Biologist</div><div class="voice-role">Environmental Consultant</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
-<section class="contact section-pad" id="contact">
+<!-- 8. CONTACT -->
+<section class="contact section" id="contact">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label reveal">Get In Touch</div>
-      <h2 class="section-title reveal reveal-delay-1">Let's Build <span>Together</span></h2>
-      <p class="section-desc reveal reveal-delay-2">Questions about the tidal pool, partnerships, or volunteering? We'd love to hear from you.</p>
-    </div>
+    <h2 class="reveal">Get in touch</h2>
+    <p class="reveal rd1" style="color:var(--slate-light);margin-bottom:2rem;">Questions about the project, partnerships, or volunteering? We'd love to hear from you.</p>
     <div class="contact-grid">
-      <form class="contact-form reveal reveal-delay-3" onsubmit="event.preventDefault();">
-        <div class="form-row">
-          <div class="form-group"><input type="text" placeholder="Your Name" required></div>
-          <div class="form-group"><input type="email" placeholder="Email Address" required></div>
-        </div>
-        <div class="form-group"><input type="text" placeholder="Subject"></div>
-        <div class="form-group"><textarea placeholder="Your Message" rows="5"></textarea></div>
+      <form class="contact-form reveal rd2" onsubmit="event.preventDefault();">
+        <div class="form-row"><input type="text" placeholder="Your Name" required><input type="email" placeholder="Email Address" required></div>
+        <input type="text" placeholder="Subject">
+        <textarea placeholder="Your Message" rows="5"></textarea>
         <button type="submit" class="btn btn-teal" style="align-self:flex-start;"><i class="bi bi-send"></i> Send Message</button>
       </form>
-      <div class="contact-info reveal reveal-delay-3">
-        <div class="contact-info-card">
-          <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
-          <div><h4>Location</h4><p>Hout Bay, Western Cape<br>South Africa</p></div>
-        </div>
-        <div class="contact-info-card">
-          <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
-          <div><h4>Email</h4><p>info@thefeelgoodinitiative.org</p></div>
-        </div>
-        <div class="contact-info-card">
-          <div class="contact-info-icon"><i class="bi bi-facebook"></i></div>
-          <div><h4>Social</h4><p>@TheFeelGoodInitiative</p></div>
-        </div>
-        <div class="contact-info-card">
-          <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
-          <div><h4>Hours</h4><p>Mon — Fri, 9AM — 5PM SAST</p></div>
-        </div>
+      <div class="contact-cards reveal rd3">
+        <div class="contact-card"><div class="contact-card-icon"><i class="bi bi-geo-alt"></i></div><div><h4>Location</h4><p>Hout Bay, Western Cape, South Africa</p></div></div>
+        <div class="contact-card"><div class="contact-card-icon"><i class="bi bi-envelope"></i></div><div><h4>Email</h4><p>info@thefeelgoodinitiative.org</p></div></div>
+        <div class="contact-card"><div class="contact-card-icon"><i class="bi bi-facebook"></i></div><div><h4>Facebook</h4><p>@TheFeelGoodInitiative</p></div></div>
+        <div class="contact-card"><div class="contact-card-icon"><i class="bi bi-clock"></i></div><div><h4>Hours</h4><p>Mon — Fri, 9AM — 5PM SAST</p></div></div>
       </div>
     </div>
   </div>
@@ -669,70 +444,43 @@ footer { background: var(--navy); color: var(--white); padding: 3.5rem clamp(1.2
 
 <!-- Footer -->
 <footer>
-  <div class="footer-inner">
+  <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#" class="nav-logo" style="margin-bottom:0;">
-          <div class="nav-logo-icon"><i class="bi bi-water"></i></div>
-          <span class="nav-logo-text" style="color:var(--white);">Feel Good Initiative</span>
-        </a>
-        <p>A South African NPO championing ocean safety, marine education, and equitable beach access for all communities in the Western Cape.</p>
+        <a href="#" class="nav-logo"><div class="nav-logo-mark"><i class="bi bi-water"></i></div><span class="nav-logo-text" style="color:var(--white);">Feel Good Initiative</span></a>
+        <p>A South African NPO championing ocean safety, marine education, and equitable beach access for every community in the Western Cape.</p>
       </div>
-      <div class="footer-col">
-        <h4>Project</h4>
-        <a href="#flagship">Tidal Pool</a>
-        <a href="#impact">Impact</a>
-        <a href="#focus">Our Work</a>
-        <a href="#transparency">Transparency</a>
-      </div>
-      <div class="footer-col">
-        <h4>Get Involved</h4>
-        <a href="#cta">Donate</a>
-        <a href="#cta">Volunteer</a>
-        <a href="#cta">Partner</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-      </div>
+      <div class="footer-col"><h4>Project</h4><a href="#problem">The Problem</a><a href="#solution">Our Solution</a><a href="#how">How It Works</a><a href="#trust">Transparency</a></div>
+      <div class="footer-col"><h4>Get Involved</h4><a href="#cta">Donate</a><a href="#cta">Volunteer</a><a href="#cta">Corporate Partner</a><a href="#contact">Contact</a></div>
+      <div class="footer-col"><h4>Connect</h4><a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">Facebook</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 The Feel Good Initiative. All rights reserved.</p>
-      <p class="footer-npo"><i class="bi bi-patch-check-fill"></i> Registered Non-Profit Organisation — South Africa</p>
+      <span class="footer-copy">© 2026 The Feel Good Initiative. All rights reserved.</span>
+      <span class="footer-npo"><i class="bi bi-patch-check-fill"></i> Registered Non-Profit Organisation — South Africa</span>
       <div class="footer-socials">
-        <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+const nav = document.querySelector('nav');
+const mt = document.getElementById('menuToggle');
+const nl = document.getElementById('navLinks');
+mt.addEventListener('click', () => nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('open')));
 
-// Mobile menu
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('active'); navLinks.classList.toggle('mobile-open'); });
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menuToggle.classList.remove('active'); navLinks.classList.remove('mobile-open'); }));
+const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Scroll reveal
-const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Progress bar
+const pObs = new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) { document.getElementById('progressBar').style.width = '35%'; pObs.unobserve(x.target); } }); }, { threshold: 0.4 });
+const hc = document.querySelector('.hero-card'); if (hc) { pObs.observe(hc); }
 
-// Progress bar animation
-const progressObserver = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { document.getElementById('progressFill').style.width = '35%'; progressObserver.unobserve(e.target); } }); }, { threshold: 0.5 });
-const heroCard = document.querySelector('.hero-card');
-if (heroCard) { document.getElementById('progressFill').style.width = '0%'; progressObserver.observe(heroCard); }
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); } }));
 </script>
 </body>
 </html>
