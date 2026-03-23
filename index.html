@@ -663,6 +663,92 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   </div>
 </footer>
 
+<!-- ═══ CHATBOT ═══ -->
+<style>
+.cb-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:var(--teal);color:#fff;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(42,139,139,.4);display:grid;place-items:center;font-size:24px;z-index:900;transition:all .25s var(--ease)}
+.cb-fab:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(42,139,139,.5)}
+.cb-fab.open{border-radius:16px;background:var(--dark)}
+.cb-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;background:var(--orange);border-radius:50%;border:2px solid #fff;font-size:9px;font-weight:700;display:grid;place-items:center;animation:pulse 2s infinite}
+
+.cb-window{position:fixed;bottom:96px;right:24px;width:380px;max-height:560px;background:var(--bg-card);border-radius:var(--rlg);border:1px solid var(--border);box-shadow:0 12px 48px rgba(26,60,60,.18);z-index:901;display:none;flex-direction:column;overflow:hidden;animation:cbSlide .3s var(--ease)}
+.cb-window.open{display:flex}
+@keyframes cbSlide{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.cb-header{background:var(--dark);padding:16px 20px;display:flex;align-items:center;gap:12px;color:#fff}
+.cb-avatar{width:36px;height:36px;border-radius:50%;background:var(--teal);display:grid;place-items:center;font-size:16px}
+.cb-header-info h4{font-size:13px;font-weight:600;margin-bottom:1px;font-family:'Plus Jakarta Sans',sans-serif}
+.cb-header-info span{font-size:11px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
+.cb-header-info span::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80}
+.cb-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;padding:4px;transition:color .15s}
+.cb-close:hover{color:#fff}
+
+.cb-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:260px;max-height:380px}
+.cb-messages::-webkit-scrollbar{width:4px}.cb-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+
+.cb-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5;animation:msgIn .25s var(--ease)}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.cb-msg.bot{align-self:flex-start;background:var(--bg-alt);color:var(--text);border-bottom-left-radius:4px}
+.cb-msg.user{align-self:flex-end;background:var(--teal);color:#fff;border-bottom-right-radius:4px}
+.cb-msg a{color:inherit;font-weight:600;text-decoration:underline}
+.cb-msg.bot a{color:var(--teal)}
+
+.cb-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.cb-action{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:100px;border:1.5px solid var(--border);background:var(--bg-card);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.cb-action:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-wash)}
+.cb-action i{font-size:12px}
+
+.cb-typing{align-self:flex-start;padding:10px 18px;background:var(--bg-alt);border-radius:14px;border-bottom-left-radius:4px;display:none;gap:4px}
+.cb-typing.show{display:flex}
+.cb-typing span{width:6px;height:6px;background:var(--text-muted);border-radius:50%;animation:typDot .8s infinite}
+.cb-typing span:nth-child(2){animation-delay:.15s}
+.cb-typing span:nth-child(3){animation-delay:.3s}
+@keyframes typDot{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+
+.cb-input-wrap{padding:12px 16px;border-top:1px solid var(--border-light);display:flex;gap:8px;align-items:center;background:var(--bg-card)}
+.cb-input{flex:1;border:1.5px solid var(--border);border-radius:100px;padding:8px 16px;font-size:13px;font-family:inherit;outline:none;background:var(--bg);color:var(--dark);transition:border .15s}
+.cb-input:focus{border-color:var(--teal)}
+.cb-input::placeholder{color:var(--text-muted)}
+.cb-send{width:34px;height:34px;border-radius:50%;background:var(--teal);border:none;color:#fff;cursor:pointer;display:grid;place-items:center;font-size:14px;transition:background .15s;flex-shrink:0}
+.cb-send:hover{background:var(--dark)}
+
+.cb-quick{padding:8px 16px 12px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--border-light);background:var(--bg)}
+.cb-quick button{padding:5px 12px;border-radius:100px;border:1.5px solid var(--border);background:var(--bg-card);color:var(--text-light);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.cb-quick button:hover{border-color:var(--teal);color:var(--teal)}
+
+@media(max-width:480px){
+  .cb-window{right:8px;left:8px;bottom:88px;width:auto;max-height:70vh}
+}
+</style>
+
+<!-- Chat FAB -->
+<button class="cb-fab" id="cbFab" aria-label="Chat with us">
+  <i class="bi bi-chat-dots-fill"></i>
+  <div class="cb-badge">1</div>
+</button>
+
+<!-- Chat Window -->
+<div class="cb-window" id="cbWin">
+  <div class="cb-header">
+    <div class="cb-avatar"><i class="bi bi-chat-dots-fill"></i></div>
+    <div class="cb-header-info">
+      <h4>Feel Good Assistant</h4>
+      <span>Online — typically replies instantly</span>
+    </div>
+    <button class="cb-close" id="cbClose"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <div class="cb-messages" id="cbMsgs"></div>
+  <div class="cb-quick" id="cbQuick">
+    <button onclick="cbAsk('What is the tidal pool project?')">🌊 Tidal Pool</button>
+    <button onclick="cbAsk('How can I become a sponsor?')">🤝 Sponsorship</button>
+    <button onclick="cbAsk('How do I donate?')">💚 Donate</button>
+    <button onclick="cbAsk('Who runs this?')">👥 Team</button>
+  </div>
+  <div class="cb-input-wrap">
+    <input type="text" class="cb-input" id="cbIn" placeholder="Ask anything about the initiative..." autocomplete="off">
+    <button class="cb-send" id="cbSendBtn"><i class="bi bi-send-fill"></i></button>
+  </div>
+</div>
+
 <script>
 document.getElementById('mt').addEventListener('click',()=>document.getElementById('nl').classList.toggle('open'));
 document.querySelectorAll('#nl a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nl').classList.remove('open')));
@@ -671,6 +757,193 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const po=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){document.getElementById('pb').style.width='15%';po.unobserve(x.target)}}),{threshold:.4});
 const hc=document.querySelector('.hcard');if(hc)po.observe(hc);
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
+
+/* ═══ CHATBOT ENGINE ═══ */
+(function(){
+  const fab=document.getElementById('cbFab'),win=document.getElementById('cbWin'),msgs=document.getElementById('cbMsgs'),inp=document.getElementById('cbIn'),badge=fab.querySelector('.cb-badge');
+  let isOpen=false,firstOpen=true;
+
+  // Knowledge base
+  const KB={
+    project:{
+      keywords:['tidal pool','project','pool','what is','about','tell me','overview','mission'],
+      answer:`The Feel Good Initiative is building a <strong>R50 million eco-friendly tidal pool</strong> at Hout Bay Beach near Chapman's Peak. It's a 10-year community project that will provide safe ocean access, marine education, and eco-tourism opportunities for communities like Imizamo Yethu (34,000+ residents) and Hangberg — who live beside the ocean but have zero safe swimming spots.`,
+      actions:[{label:'View the Vision',icon:'bi-eye',action:'navigate',target:'#vision'},{label:'See Our Projects',icon:'bi-kanban',action:'navigate',target:'#projects'}]
+    },
+    sponsor:{
+      keywords:['sponsor','sponsorship','partner','invest','support','fund','corporate','csi','csr'],
+      answer:`We have <strong>4 sponsorship tiers</strong> designed for meaningful impact:\n\n<strong>🟢 Supporter</strong> — R50K (logo, social recognition, updates)\n<strong>🔵 Champion</strong> — R250K (media features, on-site branding, CSI report)\n<strong>🟠 Builder</strong> — R1M (permanent plaque, naming rights, VIP launch)\n<strong>⭐ Visionary</strong> — R5M+ (major naming rights, board advisory seat)\n\nAll contributions are tax-deductible under NPO status.`,
+      actions:[{label:'View Sponsorship Tiers',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},{label:'Enquire Now',icon:'bi-envelope',action:'navigate',target:'#contact'},{label:'Request Prospectus',icon:'bi-file-earmark-arrow-down',action:'navigate',target:'#contact'}]
+    },
+    donate:{
+      keywords:['donate','donation','give','contribute','help','money'],
+      answer:`Thank you for wanting to support us! 💚 You can contribute through our <strong>sponsorship programme</strong> starting from R50,000 for corporate partnerships. For smaller individual donations or alternative ways to help, please reach out via our contact form and we'll guide you through the options.`,
+      actions:[{label:'Sponsorship Options',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},{label:'Contact Us',icon:'bi-envelope',action:'navigate',target:'#contact'}]
+    },
+    team:{
+      keywords:['who','team','founder','sandy','ryan','greg','leadership','lead','run','behind'],
+      answer:`The Feel Good Initiative is led by:\n\n<strong>Ryan & Greg Simpson</strong> — Co-Founders with a shared vision for community upliftment and environmental sustainability in Hout Bay.\n\n<strong>Sandy Daniel</strong> — Administration & Project Management, handling EAP appointments, stakeholder engagement, funding logistics, and compliance.`,
+      actions:[{label:'Meet the Team',icon:'bi-people',action:'navigate',target:'#leadership'}]
+    },
+    environment:{
+      keywords:['environment','marine','protected','eia','eco','sustainable','nature','wildlife','assessment'],
+      answer:`Environmental integrity is at the core of this project. The site lies within a <strong>Marine Protected Area</strong>, requiring the highest level of environmental compliance:\n\n• Full Environmental Impact Assessment (EIA)\n• Marine biologist oversight before any construction\n• Design integrates with natural rock formations\n• Bio-compatible materials — no concrete walls\n• Ongoing environmental monitoring\n\nNo shortcuts. The environment comes first.`,
+      actions:[{label:'Environmental Commitment',icon:'bi-tree',action:'navigate',target:'#environment'}]
+    },
+    community:{
+      keywords:['community','imizamo','hangberg','hout bay','residents','people','who benefits','impact'],
+      answer:`The tidal pool directly benefits three communities:\n\n<strong>Imizamo Yethu</strong> — 34,000+ residents in an informal settlement adjacent to Hout Bay Beach with no safe coastal access.\n\n<strong>Hangberg</strong> — A fishing community with limited beach access and no safe swimming infrastructure.\n\n<strong>Greater Hout Bay</strong> — Families and visitors sharing dangerously overcrowded beach facilities.\n\nCurrently, there are <strong>zero</strong> safe swimming spots for these communities despite living meters from the ocean.`,
+      actions:[{label:'Community Impact',icon:'bi-people-fill',action:'navigate',target:'#community'}]
+    },
+    beach:{
+      keywords:['beach','cleanup','clean','ranger','rangers','waste','trash','litter'],
+      answer:`Our <strong>Beach Rangers</strong> programme runs regular coastal cleanup operations maintaining the Hout Bay shoreline and protecting the marine environment. We're currently expanding into the <strong>Hangberg area</strong> to increase community coverage and impact. Want to get involved?`,
+      actions:[{label:'See Our Projects',icon:'bi-kanban',action:'navigate',target:'#projects'},{label:'Volunteer',icon:'bi-hand-thumbs-up',action:'navigate',target:'#contact'}]
+    },
+    volunteer:{
+      keywords:['volunteer','join','help out','get involved','participate','work'],
+      answer:`We'd love to have you! Whether it's joining a beach cleanup, helping with events, or contributing your professional skills — there's a place for you. Fill out our contact form and select "Volunteering" and we'll get back to you.`,
+      actions:[{label:'Sign Up to Volunteer',icon:'bi-person-plus',action:'form',target:'Volunteering'}]
+    },
+    contact:{
+      keywords:['contact','email','phone','reach','talk','get in touch','address','location','where'],
+      answer:`You can reach us at:\n\n📧 <strong>info@thefeelgoodinitiative.org</strong>\n📍 Hout Bay, Western Cape, South Africa\n📘 <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">@TheFeelGoodInitiative on Facebook</a>\n\nOr fill out the contact form on this page and we'll get back to you promptly.`,
+      actions:[{label:'Open Contact Form',icon:'bi-envelope',action:'navigate',target:'#contact'}]
+    },
+    status:{
+      keywords:['status','progress','when','timeline','stage','phase','update','how far','started'],
+      answer:`The project is currently in the <strong>early feasibility stage</strong>:\n\n✅ Site assessment — Complete\n🔄 Appointing Environmental Assessment Practitioner (EAP) — In progress\n⏳ Capital raising — Seeking corporate & private sponsors\n⏳ Full EIA — Pending EAP appointment\n\nOnce the EIA is complete and funding secured, construction planning begins. This is a 10-year development project.`,
+      actions:[{label:'Project Status',icon:'bi-clipboard-check',action:'navigate',target:'#vision'}]
+    },
+    cost:{
+      keywords:['cost','r50','fifty million','how much','price','budget','expensive'],
+      answer:`The total project is estimated at <strong>R50 million ZAR</strong> over 10 years. This covers:\n\n• Environmental assessment & compliance\n• Natural rock-integrated pool construction\n• Marine education facilities\n• Lifeguard stations & safety infrastructure\n• Ongoing environmental monitoring\n\nWe're raising this through corporate sponsorship, private donations, and grant funding. A single corporate sponsor at the Builder tier (R1M) makes a significant, visible impact.`,
+      actions:[{label:'Sponsorship Tiers',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'}]
+    }
+  };
+
+  function matchTopic(text){
+    const lower=text.toLowerCase();
+    let best=null,bestScore=0;
+    for(const[key,topic] of Object.entries(KB)){
+      let score=0;
+      for(const kw of topic.keywords){
+        if(lower.includes(kw))score+=kw.split(' ').length;
+      }
+      if(score>bestScore){bestScore=score;best=key;}
+    }
+    return bestScore>0?best:null;
+  }
+
+  function addMsg(text,type,actions){
+    const d=document.createElement('div');
+    d.className='cb-msg '+type;
+    d.innerHTML=text.replace(/\n/g,'<br>');
+    if(actions&&actions.length){
+      const wrap=document.createElement('div');
+      wrap.className='cb-actions';
+      actions.forEach(a=>{
+        const btn=document.createElement('button');
+        btn.className='cb-action';
+        btn.innerHTML=`<i class="bi ${a.icon}"></i> ${a.label}`;
+        btn.onclick=()=>handleAction(a);
+        wrap.appendChild(btn);
+      });
+      d.appendChild(wrap);
+    }
+    msgs.appendChild(d);
+    msgs.scrollTop=msgs.scrollHeight;
+  }
+
+  function handleAction(a){
+    if(a.action==='navigate'){
+      win.classList.remove('open');isOpen=false;fab.classList.remove('open');
+      fab.innerHTML='<i class="bi bi-chat-dots-fill"></i>';
+      const el=document.querySelector(a.target);
+      if(el)el.scrollIntoView({behavior:'smooth'});
+    }else if(a.action==='form'){
+      win.classList.remove('open');isOpen=false;fab.classList.remove('open');
+      fab.innerHTML='<i class="bi bi-chat-dots-fill"></i>';
+      const el=document.querySelector('#contact');
+      if(el)el.scrollIntoView({behavior:'smooth'});
+      setTimeout(()=>{
+        const sel=document.querySelector('.contact-form select');
+        if(sel){
+          for(let i=0;i<sel.options.length;i++){
+            if(sel.options[i].text===a.target){sel.selectedIndex=i;break;}
+          }
+        }
+      },600);
+    }
+  }
+
+  function showTyping(){
+    let t=msgs.querySelector('.cb-typing');
+    if(!t){t=document.createElement('div');t.className='cb-typing show';t.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(t);}
+    else t.classList.add('show');
+    msgs.scrollTop=msgs.scrollHeight;
+    return t;
+  }
+
+  function respond(text){
+    const topic=matchTopic(text);
+    const typing=showTyping();
+    const delay=400+Math.random()*600;
+    setTimeout(()=>{
+      typing.remove();
+      if(topic){
+        addMsg(KB[topic].answer,'bot',KB[topic].actions);
+      }else{
+        addMsg(`I'm not sure I have info on that specific topic, but I can help with:\n\n🌊 The tidal pool project\n🤝 Sponsorship options\n💚 How to donate or volunteer\n👥 Our team & leadership\n🌿 Environmental approach\n📍 Contact details\n\nTry asking about any of these, or <a href="#contact" onclick="document.querySelector('.cb-window').classList.remove('open')">contact us directly</a>.`,'bot',[
+          {label:'View Sponsorship',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},
+          {label:'Contact Us',icon:'bi-envelope',action:'navigate',target:'#contact'}
+        ]);
+      }
+    },delay);
+  }
+
+  function send(){
+    const text=inp.value.trim();
+    if(!text)return;
+    addMsg(text,'user');
+    inp.value='';
+    respond(text);
+    document.getElementById('cbQuick').style.display='none';
+  }
+
+  // Toggle
+  fab.onclick=()=>{
+    isOpen=!isOpen;
+    win.classList.toggle('open',isOpen);
+    fab.classList.toggle('open',isOpen);
+    badge.style.display='none';
+    if(isOpen){
+      fab.innerHTML='<i class="bi bi-x-lg"></i>';
+      if(firstOpen){
+        firstOpen=false;
+        setTimeout(()=>{
+          addMsg(`Hi there! 👋 I'm the Feel Good Initiative assistant. I can help you with:\n\n🌊 Learn about the tidal pool project\n🤝 Explore sponsorship opportunities\n💚 Find out how to donate or volunteer\n📍 Get contact information\n\nWhat would you like to know?`,'bot');
+        },300);
+      }
+      setTimeout(()=>inp.focus(),350);
+    }else{
+      fab.innerHTML='<i class="bi bi-chat-dots-fill"></i>';
+    }
+  };
+  document.getElementById('cbClose').onclick=()=>{
+    isOpen=false;win.classList.remove('open');fab.classList.remove('open');
+    fab.innerHTML='<i class="bi bi-chat-dots-fill"></i>';
+  };
+  document.getElementById('cbSendBtn').onclick=send;
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+
+  // Quick ask from buttons
+  window.cbAsk=function(text){
+    addMsg(text,'user');
+    respond(text);
+    document.getElementById('cbQuick').style.display='none';
+  };
+})();
 </script>
 </body>
 </html>
