@@ -231,21 +231,30 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 .ft-social a:hover{background:var(--teal);color:#fff}
 
 /* ═══ SPONSOR CAROUSEL ═══ */
-.sponsors-bar{padding:var(--s4) 0 var(--s5);background:var(--bg-card);border-bottom:1px solid var(--border-light);overflow:hidden}
-.sponsors-label{text-align:center;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--text-muted);margin-bottom:var(--s3)}
-.carousel-track-wrapper{position:relative;overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
-.carousel-track{display:flex;gap:var(--s8);width:max-content;animation:scrollLogos 30s linear infinite}
+.sponsors-bar{padding:var(--s6) 0;background:var(--dark-deep);overflow:hidden;position:relative}
+.sponsors-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.08) 0%,transparent 70%)}
+.sponsors-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--s3)}
+.sponsors-header{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s5)}
+.sponsors-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
+.sponsors-label{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:400;text-transform:uppercase;letter-spacing:.25em;color:rgba(255,255,255,.35);white-space:nowrap;padding:0 var(--s2)}
+.carousel-track-wrapper{position:relative;overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%)}
+.carousel-track{display:flex;width:max-content;animation:scrollLogos 35s linear infinite}
 .carousel-track:hover{animation-play-state:paused}
 @keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.sp-logo{display:flex;align-items:center;justify-content:center;min-width:160px;height:60px;flex-shrink:0}
-.sp-logo img{max-height:48px;width:auto;object-fit:contain;opacity:.55;transition:opacity .3s;filter:grayscale(100%)}
-.sp-logo:hover img{opacity:.85;filter:grayscale(0%)}
-.sp-text{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:16px;color:var(--text-muted);letter-spacing:.08em;text-align:center;line-height:1.1;opacity:.45;transition:opacity .3s;display:flex;flex-direction:column;align-items:center;gap:0}
-.sp-logo:hover .sp-text{opacity:.8}
-.sp-text small{font-size:10px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
-.sp-beachbar{letter-spacing:.12em!important}
-.sp-gallery{font-weight:300!important;letter-spacing:.15em!important}
-.sp-handiman{color:#d35400!important}
+/* Golden ratio spacing: each logo cell = 1.618 × logo width */
+.sp-logo{display:flex;align-items:center;justify-content:center;min-width:200px;height:72px;flex-shrink:0;padding:0 var(--s5);position:relative}
+.sp-logo::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:24px;background:rgba(255,255,255,.06)}
+.sp-logo img{max-height:44px;width:auto;object-fit:contain;opacity:.4;transition:all .4s var(--ease);filter:brightness(10) grayscale(100%)}
+.sp-logo:hover img{opacity:.9;filter:brightness(1) grayscale(0%)}
+/* White logos need inverted filter on dark bg — they're already white so just show them */
+.sp-logo img.logo-white{filter:grayscale(100%) brightness(1);opacity:.45}
+.sp-logo:hover img.logo-white{filter:grayscale(0%) brightness(1);opacity:.9}
+/* Dark/colored logos need brightness boost to show on dark bg */
+.sp-logo img.logo-dark{filter:brightness(10) grayscale(100%);opacity:.35}
+.sp-logo:hover img.logo-dark{filter:brightness(1) grayscale(0%);opacity:.9}
+.sp-text{font-family:'Josefin Sans',sans-serif;font-weight:600;font-size:var(--t-sm);color:rgba(255,255,255,.3);letter-spacing:.12em;text-align:center;line-height:1.15;transition:all .4s var(--ease);display:flex;flex-direction:column;align-items:center;gap:2px}
+.sp-logo:hover .sp-text{color:rgba(255,255,255,.7)}
+.sp-text small{font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;opacity:.6}
 
 /* Reveal — Doherty ≤400ms */
 .reveal{opacity:0;transform:translateY(var(--s3));transition:opacity .35s var(--ease),transform .35s var(--ease)}
@@ -338,28 +347,32 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 
 <!-- SPONSOR CAROUSEL -->
 <section class="sponsors-bar">
-  <div class="container">
-    <p class="sponsors-label">Proudly Supported By</p>
+  <div class="sponsors-inner">
+    <div class="sponsors-header">
+      <div class="sponsors-line"></div>
+      <p class="sponsors-label">Proudly Supported By</p>
+      <div class="sponsors-line"></div>
+    </div>
   </div>
   <div class="carousel-track-wrapper">
     <div class="carousel-track">
-      <div class="sp-logo"><img src="logos/spar.png" alt="Spar"></div>
-      <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours"></div>
-      <div class="sp-logo"><span class="sp-text sp-beachbar">THE BEACH BAR</span></div>
-      <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security"></div>
-      <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt"></div>
-      <div class="sp-logo"><span class="sp-text sp-gallery">HOUT BAY<small>GALLERY</small></span></div>
-      <div class="sp-logo"><span class="sp-text sp-handiman">HANDIMAN<small>HARDWARE</small></span></div>
-      <div class="sp-logo"><img src="logos/officenational.png" alt="Office National"></div>
+      <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
+      <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
+      <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
+      <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
+      <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
+      <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
+      <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
+      <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
       <!-- Duplicate for seamless loop -->
-      <div class="sp-logo"><img src="logos/spar.png" alt="Spar"></div>
-      <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours"></div>
-      <div class="sp-logo"><span class="sp-text sp-beachbar">THE BEACH BAR</span></div>
-      <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security"></div>
-      <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt"></div>
-      <div class="sp-logo"><span class="sp-text sp-gallery">HOUT BAY<small>GALLERY</small></span></div>
-      <div class="sp-logo"><span class="sp-text sp-handiman">HANDIMAN<small>HARDWARE</small></span></div>
-      <div class="sp-logo"><img src="logos/officenational.png" alt="Office National"></div>
+      <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
+      <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
+      <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
+      <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
+      <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
+      <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
+      <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
+      <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
     </div>
   </div>
 </section>
