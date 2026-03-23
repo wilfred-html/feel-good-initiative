@@ -230,6 +230,27 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 .ft-social a{width:var(--s4);height:var(--s4);border-radius:var(--r);background:rgba(255,255,255,.06);display:grid;place-items:center;color:rgba(255,255,255,.4);text-decoration:none;font-size:var(--t-sm);transition:all .15s}
 .ft-social a:hover{background:var(--teal);color:#fff}
 
+/* ═══ SPONSOR CAROUSEL ═══ */
+.sponsors-bar{padding:var(--s4) 0 var(--s5);background:var(--bg-card);border-bottom:1px solid var(--border-light);overflow:hidden}
+.sponsors-label{text-align:center;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--text-muted);margin-bottom:var(--s3)}
+.carousel-track-wrapper{position:relative;overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.carousel-track{display:flex;gap:var(--s8);width:max-content;animation:scrollLogos 30s linear infinite}
+.carousel-track:hover{animation-play-state:paused}
+@keyframes scrollLogos{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sp-logo{display:flex;align-items:center;justify-content:center;min-width:160px;height:60px;flex-shrink:0}
+.sp-logo span{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:18px;color:var(--text-muted);letter-spacing:.08em;text-align:center;line-height:1.1;opacity:.5;transition:opacity .3s;display:flex;flex-direction:column;align-items:center;gap:0}
+.sp-logo:hover span{opacity:.85}
+.sp-logo span small{font-size:10px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
+/* Brand-specific styling */
+.sp-spar{color:#E31E24!important;font-size:26px!important;font-weight:900!important;letter-spacing:.02em!important}
+.sp-bokbus{color:var(--dark)!important}
+.sp-beachbar{font-size:15px!important;letter-spacing:.12em!important}
+.sp-deepblue{color:#1a3c6e!important}
+.sp-chas{color:#1a1a2e!important;font-size:15px!important;letter-spacing:.12em!important}
+.sp-gallery{font-weight:300!important;font-size:15px!important;letter-spacing:.15em!important}
+.sp-handiman{color:#d35400!important}
+.sp-office{color:#005ca9!important}
+
 /* Reveal — Doherty ≤400ms */
 .reveal{opacity:0;transform:translateY(var(--s3));transition:opacity .35s var(--ease),transform .35s var(--ease)}
 .reveal.v{opacity:1;transform:translateY(0)}
@@ -315,6 +336,34 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR CAROUSEL -->
+<section class="sponsors-bar">
+  <div class="container">
+    <p class="sponsors-label">Proudly Supported By</p>
+  </div>
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track">
+      <div class="sp-logo"><span class="sp-spar">SPAR</span></div>
+      <div class="sp-logo"><span class="sp-bokbus">BOKBUS<small>TOURS</small></span></div>
+      <div class="sp-logo"><span class="sp-beachbar">THE BEACH BAR</span></div>
+      <div class="sp-logo"><span class="sp-deepblue">DEEP BLUE<small>SECURITY</small></span></div>
+      <div class="sp-logo"><span class="sp-chas">CHAS EVERITT</span></div>
+      <div class="sp-logo"><span class="sp-gallery">HOUT BAY<small>GALLERY</small></span></div>
+      <div class="sp-logo"><span class="sp-handiman">HANDIMAN<small>HARDWARE</small></span></div>
+      <div class="sp-logo"><span class="sp-office">OFFICE<small>NATIONAL</small></span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="sp-logo"><span class="sp-spar">SPAR</span></div>
+      <div class="sp-logo"><span class="sp-bokbus">BOKBUS<small>TOURS</small></span></div>
+      <div class="sp-logo"><span class="sp-beachbar">THE BEACH BAR</span></div>
+      <div class="sp-logo"><span class="sp-deepblue">DEEP BLUE<small>SECURITY</small></span></div>
+      <div class="sp-logo"><span class="sp-chas">CHAS EVERITT</span></div>
+      <div class="sp-logo"><span class="sp-gallery">HOUT BAY<small>GALLERY</small></span></div>
+      <div class="sp-logo"><span class="sp-handiman">HANDIMAN<small>HARDWARE</small></span></div>
+      <div class="sp-logo"><span class="sp-office">OFFICE<small>NATIONAL</small></span></div>
     </div>
   </div>
 </section>
