@@ -23,20 +23,20 @@
   --ease:cubic-bezier(.16,1,.3,1);
 }
 html{-webkit-font-smoothing:antialiased}
-body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff;line-height:1.6}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--dark-deep);line-height:1.6;margin:0}
 h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);line-height:1.2}
 
 /* ═══ PAGE SYSTEM ═══ */
-.page{width:210mm;min-height:297mm;margin:0 auto;position:relative;overflow:hidden;page-break-after:always;padding:0}
-@media screen{.page{box-shadow:0 4px 40px rgba(26,60,60,.12);margin-bottom:40px;border-radius:4px}}
-@media print{.page{box-shadow:none;margin:0;border-radius:0}}
+.page{width:100%;min-height:100vh;position:relative;overflow:hidden;padding:0}
+@media print{.page{width:210mm;min-height:297mm;page-break-after:always}}
 
 /* ═══ COVER ═══ */
 .cover{background:var(--dark-deep);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:60mm 15mm 20mm}
 .cover::before{content:'';position:absolute;top:0;right:0;width:60%;height:100%;background:linear-gradient(135deg,rgba(42,139,139,.15) 0%,transparent 60%)}
 .cover-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(255,255,255,.08);border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-light);margin-bottom:24px;width:fit-content}
 .cover-badge::before{content:'';width:8px;height:8px;background:var(--teal-light);border-radius:50%}
-.cover h1{font-size:52px;font-weight:700;letter-spacing:-.03em;margin-bottom:16px;line-height:1.05}
+.cover .page-inner{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:100vh}
+.cover h1{font-size:clamp(36px,5vw,64px);font-weight:700;letter-spacing:-.03em;margin-bottom:16px;line-height:1.05}
 .cover h1 span{color:var(--teal-light)}
 .cover-sub{font-size:18px;color:rgba(255,255,255,.5);font-weight:300;max-width:400px;line-height:1.6;margin-bottom:48px}
 .cover-meta{display:flex;gap:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
@@ -47,7 +47,7 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
 .cover-logo span{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:13px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.6)}
 
 /* ═══ SECTION PAGES ═══ */
-.section-page{background:#fff;padding:20mm 15mm}
+.section-page{background:#fff;padding:0}
 .section-page.dark{background:var(--dark-deep);color:#fff}
 .section-page.teal-bg{background:var(--teal-wash)}
 .section-page.alt-bg{background:var(--bg-alt)}
@@ -56,6 +56,10 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
 .page-num.light{color:rgba(255,255,255,.25)}
 
 /* Section headers */
+/* Inner content container */
+.page-inner{max-width:960px;margin:0 auto;width:100%;padding:var(--s8) var(--s6)}
+@media(min-width:1200px){.page-inner{max-width:1080px;padding:var(--s8)}}
+
 .sec-label{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.15em;margin-bottom:16px;padding:4px 12px;background:var(--teal-wash);border-radius:100px}
 .dark .sec-label{background:rgba(255,255,255,.06);color:var(--teal-light)}
 .sec-title{font-size:36px;font-weight:600;margin-bottom:12px;letter-spacing:-.02em}
@@ -157,6 +161,7 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
 <!-- PAGE 1: COVER -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page cover">
+  <div class="page-inner">
   <div class="cover-logo">
     <img src="logo.jpg" alt="TFGI">
     <span>Feel Good Initiative</span>
@@ -175,6 +180,7 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
 <!-- PAGE 2: TABLE OF CONTENTS -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page">
+  <div class="page-inner">
   <div class="sec-label">Contents</div>
   <div class="sec-title">What's <span>inside.</span></div>
   <p class="sec-desc">Everything you need to represent The Feel Good Initiative consistently across every touchpoint — from digital to physical.</p>
@@ -189,12 +195,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     <div class="toc-item"><div class="toc-num">08</div><div class="toc-text"><h3>Digital Presence</h3><p>Website, social media, and content direction</p></div><div class="toc-page">10</div></div>
   </div>
   <div class="page-num">02</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 3: BRAND STRATEGY -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page alt-bg">
+  <div class="page-inner">
   <div class="sec-label">01 — Brand Strategy</div>
   <div class="sec-title">Why we <span>exist.</span></div>
   <p class="sec-desc">The Feel Good Initiative began with one person picking up litter on Hout Bay Beach. Today, it's a multi-front movement for environmental protection and community upliftment.</p>
@@ -230,12 +238,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     </div>
   </div>
   <div class="page-num">03</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 4: COLOUR PALETTE -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page">
+  <div class="page-inner">
   <div class="sec-label">02 — Colour Palette</div>
   <div class="sec-title">Our <span>colours.</span></div>
   <p class="sec-desc">A palette rooted in the ocean, beach, and natural environment of Hout Bay. Professional enough for sponsors, authentic enough to feel real.</p>
@@ -286,12 +296,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     </div>
   </div>
   <div class="page-num">04</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 5: TYPOGRAPHY -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page alt-bg">
+  <div class="page-inner">
   <div class="sec-label">03 — Typography</div>
   <div class="sec-title">How we <span>speak visually.</span></div>
   <p class="sec-desc">Two complementary typefaces: one with presence for headlines, one built for readability in body text.</p>
@@ -323,12 +335,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     <div class="type-row"><div class="size">XS — 13px</div><div class="sample" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700;">Labels & Badges</div></div>
   </div>
   <div class="page-num">05</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 6: TONE OF VOICE -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page dark">
+  <div class="page-inner">
   <div class="sec-label">04 — Tone of Voice</div>
   <div class="sec-title">How we <span>sound.</span></div>
   <p class="sec-desc">Our brand voice is an energetic, approachable friend — someone in their mid-30s who's casual but purposeful, confident without arrogance.</p>
@@ -403,12 +417,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     <span style="padding:8px 20px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.15);border-radius:100px;font-size:12px;font-weight:600;color:#FCA5A5;">Never Cynical</span>
   </div>
   <div class="page-num light">06</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 7: PHOTOGRAPHY -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page teal-bg">
+  <div class="page-inner">
   <div class="sec-label">05 — Photography & Imagery</div>
   <div class="sec-title">Visual <span>storytelling.</span></div>
   <p class="sec-desc">Every image should feel real, professional, and purposeful — showing action, community, and the natural beauty of Hout Bay.</p>
@@ -444,12 +460,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     </div>
   </div>
   <div class="page-num">07</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 8: SPONSOR CO-BRANDING -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page">
+  <div class="page-inner">
   <div class="sec-label">06 — Sponsor Co-Branding</div>
   <div class="sec-title">Partners, not <span>logos.</span></div>
   <p class="sec-desc">Sponsors are active partners in the mission. Their brand sits alongside ours with mutual respect — never above, never diminished.</p>
@@ -483,12 +501,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     </div>
   </div>
   <div class="page-num">08</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 9: MERCHANDISE & SIGNAGE -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page dark">
+  <div class="page-inner">
   <div class="sec-label">07 — Merchandise & Signage</div>
   <div class="sec-title">Physical <span>touchpoints.</span></div>
   <p class="sec-desc">Every t-shirt, bin, billboard, and banner is an opportunity to reinforce the brand and spread the movement.</p>
@@ -515,12 +535,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     <div class="card"><h4>Quality Control</h4><p>All physical items must be approved by Sandy Daniel before production. Proof must show accurate colour reproduction. No exceptions.</p></div>
   </div>
   <div class="page-num light">09</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 10: DIGITAL PRESENCE -->
 <!-- ═══════════════════════════════════════ -->
 <div class="page section-page alt-bg">
+  <div class="page-inner">
   <div class="sec-label">08 — Digital Presence</div>
   <div class="sec-title">Online <span>presence.</span></div>
   <p class="sec-desc">The website is live. Social media is next. Every digital touchpoint should reinforce the same brand identity.</p>
@@ -547,12 +569,14 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
     <div class="card" style="border-left:3px solid #2563EB;"><h4>Vision & Progress</h4><p>Tidal pool updates. Sponsor announcements. Milestone celebrations. Media coverage. Show momentum and credibility.</p></div>
   </div>
   <div class="page-num">10</div>
+  <div class="page-inner">
 </div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 11: BACK COVER -->
 <!-- ═══════════════════════════════════════ -->
-<div class="page cover" style="justify-content:center;align-items:center;text-align:center;padding:40mm">
+<div class="page cover" style="text-align:center;">
+  <div class="page-inner" style="justify-content:center;align-items:center;">
   <div style="position:relative;z-index:1;">
     <img src="logo.jpg" alt="TFGI" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto 24px;">
     <h1 style="font-size:42px;margin-bottom:12px;">Do good.<br><span>Feel good.</span></h1>
