@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Feel Good Initiative — Brand Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dark:#1A3C3C;--dark-deep:#122E2E;--teal:#2A8B8B;--teal-light:#5CBDAE;--teal-pale:#D1F0EA;--teal-wash:#EDF8F6;
+  --text:#1A3C3C;--text-light:#3D6363;--text-muted:#5E8585;
+  --bg:#F7F9F8;--bg-alt:#EEF3F2;--bg-card:#FAFCFB;--border:#D0DFDC;
+  --orange:#D95A10;--orange-hover:#B84A0D;
+}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff;line-height:1.6}
+h1,h2,h3,h4{font-family:'Josefin Sans',sans-serif;color:var(--dark);line-height:1.2}
+
+/* ═══ PAGE SYSTEM ═══ */
+.page{width:210mm;min-height:297mm;margin:0 auto;position:relative;overflow:hidden;page-break-after:always;padding:0}
+@media screen{.page{box-shadow:0 4px 40px rgba(26,60,60,.12);margin-bottom:40px;border-radius:4px}}
+@media print{.page{box-shadow:none;margin:0;border-radius:0}}
+
+/* ═══ COVER ═══ */
+.cover{background:var(--dark-deep);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:60mm 15mm 20mm}
+.cover::before{content:'';position:absolute;top:0;right:0;width:60%;height:100%;background:linear-gradient(135deg,rgba(42,139,139,.15) 0%,transparent 60%)}
+.cover-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(255,255,255,.08);border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-light);margin-bottom:24px;width:fit-content}
+.cover-badge::before{content:'';width:8px;height:8px;background:var(--teal-light);border-radius:50%}
+.cover h1{font-size:52px;font-weight:700;letter-spacing:-.03em;margin-bottom:16px;line-height:1.05}
+.cover h1 span{color:var(--teal-light)}
+.cover-sub{font-size:18px;color:rgba(255,255,255,.5);font-weight:300;max-width:400px;line-height:1.6;margin-bottom:48px}
+.cover-meta{display:flex;gap:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
+.cover-meta div{font-size:11px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em}
+.cover-meta strong{display:block;font-size:13px;color:rgba(255,255,255,.7);font-weight:600;text-transform:none;letter-spacing:0;margin-top:4px}
+.cover-logo{position:absolute;top:20mm;left:15mm;display:flex;align-items:center;gap:12px}
+.cover-logo img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.cover-logo span{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:13px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.6)}
+
+/* ═══ SECTION PAGES ═══ */
+.section-page{background:#fff;padding:20mm 15mm}
+.section-page.dark{background:var(--dark-deep);color:#fff}
+.section-page.teal-bg{background:var(--teal-wash)}
+.section-page.alt-bg{background:var(--bg-alt)}
+
+.page-num{position:absolute;bottom:12mm;right:15mm;font-size:10px;color:var(--text-muted);font-weight:500}
+.page-num.light{color:rgba(255,255,255,.25)}
+
+/* Section headers */
+.sec-label{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.15em;margin-bottom:16px;padding:4px 12px;background:var(--teal-wash);border-radius:100px}
+.dark .sec-label{background:rgba(255,255,255,.06);color:var(--teal-light)}
+.sec-title{font-size:36px;font-weight:600;margin-bottom:12px;letter-spacing:-.02em}
+.sec-title span{color:var(--teal)}
+.dark .sec-title{color:#fff}
+.dark .sec-title span{color:var(--teal-light)}
+.sec-desc{font-size:14px;color:var(--text-light);max-width:480px;line-height:1.7;margin-bottom:40px}
+.dark .sec-desc{color:rgba(255,255,255,.5)}
+
+/* ═══ CONTENT COMPONENTS ═══ */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+
+/* Cards */
+.card{padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px}
+.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+.card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;margin-bottom:8px}
+.card p{font-size:12px;color:var(--text-light);line-height:1.6}
+.dark .card p{color:rgba(255,255,255,.45)}
+
+/* Color swatches */
+.swatch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.swatch{border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.swatch-color{height:80px}
+.swatch-info{padding:12px 16px;background:#fff}
+.swatch-info h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.swatch-info code{font-size:10px;color:var(--text-muted);display:block;line-height:1.5}
+
+/* Typography specimens */
+.type-specimen{margin-bottom:32px}
+.type-specimen .display{font-size:42px;font-weight:700;line-height:1.1;margin-bottom:8px}
+.type-specimen .meta{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em}
+.type-scale{display:flex;flex-direction:column;gap:12px}
+.type-row{display:flex;align-items:baseline;gap:16px;padding:8px 0;border-bottom:1px solid var(--border)}
+.type-row .size{font-size:11px;color:var(--text-muted);width:80px;flex-shrink:0;font-weight:500}
+.type-row .sample{font-size:var(--sample-size)}
+
+/* Value cards */
+.value-card{display:flex;gap:16px;padding:20px;background:var(--bg);border-radius:12px;border:1px solid var(--border);margin-bottom:12px}
+.value-icon{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:18px}
+.value-icon.t{background:var(--teal-wash);color:var(--teal)}
+.value-icon.g{background:#F0FDF4;color:#16A34A}
+.value-icon.o{background:#FFF7ED;color:var(--orange)}
+.value-icon.p{background:#F3F0FF;color:#7C3AED}
+.value-icon.b{background:#EFF6FF;color:#2563EB}
+.value-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.value-card p{font-size:11px;color:var(--text-light);line-height:1.5}
+
+/* Tone grid */
+.tone-do{padding:20px;background:#F0FDF4;border-radius:12px;border:1px solid #BBF7D0}
+.tone-dont{padding:20px;background:#FEF2F2;border-radius:12px;border:1px solid #FECACA}
+.tone-do h4,.tone-dont h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;margin-bottom:12px}
+.tone-do h4{color:#16A34A}
+.tone-dont h4{color:#DC2626}
+.tone-list{list-style:none;font-size:11px;line-height:1.8}
+.tone-list li{padding-left:16px;position:relative}
+.tone-list li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%}
+.tone-do .tone-list li::before{background:#16A34A}
+.tone-dont .tone-list li::before{background:#DC2626}
+
+/* Sponsor rules */
+.rule-box{padding:20px;background:var(--bg);border-radius:12px;border-left:3px solid var(--teal);margin-bottom:16px}
+.rule-box h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.rule-box p{font-size:11px;color:var(--text-light);line-height:1.6}
+
+/* Divider */
+.divider{width:48px;height:2px;background:var(--teal);opacity:.4;margin:24px 0}
+
+/* Persona section */
+.persona-bar{display:flex;gap:4px;margin:8px 0 4px;height:8px;border-radius:4px;overflow:hidden}
+.persona-fill{background:var(--teal);border-radius:4px}
+.persona-empty{background:var(--bg-alt);border-radius:4px;flex:1}
+.persona-label{display:flex;justify-content:space-between;font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+
+/* TOC */
+.toc{margin-top:40px}
+.toc-item{display:flex;align-items:baseline;gap:8px;padding:12px 0;border-bottom:1px solid var(--border)}
+.toc-num{font-family:'Josefin Sans',sans-serif;font-size:24px;font-weight:700;color:var(--teal);width:40px;flex-shrink:0}
+.toc-text h3{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.toc-text p{font-size:11px;color:var(--text-muted)}
+.toc-page{margin-left:auto;font-size:11px;color:var(--text-muted);font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 1: COVER -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-logo">
+    <img src="logo.jpg" alt="TFGI">
+    <span>Feel Good Initiative</span>
+  </div>
+  <div class="cover-badge">Brand Identity Book</div>
+  <h1>Do good.<br><span>Feel good.</span></h1>
+  <p class="cover-sub">The complete brand identity system for The Feel Good Initiative — protecting Hout Bay's coastline and building community, every single day.</p>
+  <div class="cover-meta">
+    <div>Prepared by<strong>CloudSync Media (Pty) Ltd</strong></div>
+    <div>Version<strong>1.0 — April 2026</strong></div>
+    <div>For<strong>Ryan Bluck & Sandy Daniel</strong></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 2: TABLE OF CONTENTS -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page">
+  <div class="sec-label">Contents</div>
+  <div class="sec-title">What's <span>inside.</span></div>
+  <p class="sec-desc">Everything you need to represent The Feel Good Initiative consistently across every touchpoint — from digital to physical.</p>
+  <div class="toc">
+    <div class="toc-item"><div class="toc-num">01</div><div class="toc-text"><h3>Brand Strategy</h3><p>Mission, vision, values, and what makes TFGI different</p></div><div class="toc-page">03</div></div>
+    <div class="toc-item"><div class="toc-num">02</div><div class="toc-text"><h3>Colour Palette</h3><p>Primary, secondary, and accent colours with usage rules</p></div><div class="toc-page">04</div></div>
+    <div class="toc-item"><div class="toc-num">03</div><div class="toc-text"><h3>Typography</h3><p>Font families, scale, weights, and pairing rules</p></div><div class="toc-page">05</div></div>
+    <div class="toc-item"><div class="toc-num">04</div><div class="toc-text"><h3>Tone of Voice</h3><p>How The Feel Good Initiative sounds — and what to avoid</p></div><div class="toc-page">06</div></div>
+    <div class="toc-item"><div class="toc-num">05</div><div class="toc-text"><h3>Photography & Imagery</h3><p>Style guide for all visual content</p></div><div class="toc-page">07</div></div>
+    <div class="toc-item"><div class="toc-num">06</div><div class="toc-text"><h3>Sponsor Co-Branding</h3><p>How partners use the TFGI brand alongside theirs</p></div><div class="toc-page">08</div></div>
+    <div class="toc-item"><div class="toc-num">07</div><div class="toc-text"><h3>Merchandise & Signage</h3><p>T-shirts, bins, billboards, banners</p></div><div class="toc-page">09</div></div>
+    <div class="toc-item"><div class="toc-num">08</div><div class="toc-text"><h3>Digital Presence</h3><p>Website, social media, and content direction</p></div><div class="toc-page">10</div></div>
+  </div>
+  <div class="page-num">02</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 3: BRAND STRATEGY -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page">
+  <div class="sec-label">01 — Brand Strategy</div>
+  <div class="sec-title">Why we <span>exist.</span></div>
+  <p class="sec-desc">The Feel Good Initiative began with one person picking up litter on Hout Bay Beach. Today, it's a multi-front movement for environmental protection and community upliftment.</p>
+
+  <div class="two-col" style="margin-bottom:32px;">
+    <div>
+      <h3 style="font-size:16px;margin-bottom:12px;">Mission</h3>
+      <p style="font-size:12px;color:var(--text-light);line-height:1.7;">Protect, restore, and beautify Hout Bay's beaches and public spaces. Create safe, accessible environments. Bring the community together. Create jobs. Inspire local pride.</p>
+      <div class="divider"></div>
+      <h3 style="font-size:16px;margin-bottom:12px;">Vision</h3>
+      <p style="font-size:12px;color:var(--text-light);line-height:1.7;">Scale from a local initiative to a national model for environmental care and community upliftment — proving that consistent daily action creates lasting change.</p>
+    </div>
+    <div>
+      <h3 style="font-size:16px;margin-bottom:12px;">Unique Value</h3>
+      <p style="font-size:12px;color:var(--text-light);line-height:1.7;margin-bottom:16px;">Other organisations run occasional cleanups. We show up <strong>every single day.</strong> Our Beach Ranger walks the shoreline daily. Our bins are always there. Our projects are visible, local, and ongoing.</p>
+      <div class="card" style="background:var(--teal-wash);border-color:var(--teal-pale);">
+        <h4 style="color:var(--teal);">Tagline</h4>
+        <p style="font-family:'Josefin Sans',sans-serif;font-size:24px;color:var(--dark);font-weight:600;line-height:1.2;margin-top:4px;">Do Good. Feel Good.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:16px;margin-bottom:16px;">Core Values</h3>
+  <div class="two-col">
+    <div>
+      <div class="value-card"><div class="value-icon t">🤝</div><div><h4>Community First</h4><p>Every decision starts with the people it affects. We build for the community, with the community.</p></div></div>
+      <div class="value-card"><div class="value-icon g">🌿</div><div><h4>Environmental Stewardship</h4><p>Protect first. Build second. The environment is the foundation, not an afterthought.</p></div></div>
+      <div class="value-card"><div class="value-icon o">📅</div><div><h4>Consistency & Accountability</h4><p>Not once a month. Every single day. We show up, and we prove it.</p></div></div>
+    </div>
+    <div>
+      <div class="value-card"><div class="value-icon p">🏠</div><div><h4>Local Pride</h4><p>Built by Hout Bay, for Hout Bay. We restore pride in shared spaces.</p></div></div>
+      <div class="value-card"><div class="value-icon b">📈</div><div><h4>Growth & Opportunity</h4><p>Jobs, skills, and infrastructure that last beyond the project.</p></div></div>
+    </div>
+  </div>
+  <div class="page-num">03</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 4: COLOUR PALETTE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page alt-bg">
+  <div class="sec-label">02 — Colour Palette</div>
+  <div class="sec-title">Our <span>colours.</span></div>
+  <p class="sec-desc">A palette rooted in the ocean, beach, and natural environment of Hout Bay. Professional enough for sponsors, authentic enough to feel real.</p>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Primary Palette</h3>
+  <div class="swatch-grid" style="margin-bottom:32px;">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1A3C3C;"></div>
+      <div class="swatch-info"><h4>Deep Forest</h4><code>HEX: #1A3C3C<br>RGB: 26, 60, 60<br>CMYK: 57, 0, 0, 76</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#2A8B8B;"></div>
+      <div class="swatch-info"><h4>Ocean Teal</h4><code>HEX: #2A8B8B<br>RGB: 42, 139, 139<br>CMYK: 70, 0, 0, 45</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#5CBDAE;"></div>
+      <div class="swatch-info"><h4>Coastal Light</h4><code>HEX: #5CBDAE<br>RGB: 92, 189, 174<br>CMYK: 51, 0, 8, 26</code></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Accent & Neutral</h3>
+  <div class="swatch-grid" style="margin-bottom:32px;">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#D95A10;"></div>
+      <div class="swatch-info"><h4>Sunset Orange</h4><code>HEX: #D95A10<br>RGB: 217, 90, 16<br>CMYK: 0, 59, 93, 15</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#EDF8F6;"></div>
+      <div class="swatch-info"><h4>Teal Wash</h4><code>HEX: #EDF8F6<br>RGB: 237, 248, 246<br>CMYK: 4, 0, 1, 3</code></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#122E2E;"></div>
+      <div class="swatch-info"><h4>Deep Dark</h4><code>HEX: #122E2E<br>RGB: 18, 46, 46<br>CMYK: 61, 0, 0, 82</code></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Usage Rules</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>60-30-10 Rule</h4>
+      <p><strong>60%</strong> — Neutrals & backgrounds (Teal Wash, whites, light greys)<br>
+      <strong>30%</strong> — Deep Forest & Ocean Teal (text, headers, cards)<br>
+      <strong>10%</strong> — Sunset Orange (CTAs, highlights, urgency)</p>
+    </div>
+    <div class="card">
+      <h4>Accessibility</h4>
+      <p>Deep Forest on white/wash backgrounds meets WCAG AA contrast. Ocean Teal on dark backgrounds meets AA for large text. Never place Coastal Light on white — insufficient contrast. Sunset Orange is for accents only, not body text.</p>
+    </div>
+  </div>
+  <div class="page-num">04</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 5: TYPOGRAPHY -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page">
+  <div class="sec-label">03 — Typography</div>
+  <div class="sec-title">How we <span>speak visually.</span></div>
+  <p class="sec-desc">Two complementary typefaces: one with presence for headlines, one built for readability in body text.</p>
+
+  <div class="two-col" style="margin-bottom:40px;">
+    <div class="type-specimen">
+      <div class="meta">Display Font</div>
+      <div class="display" style="font-family:'Josefin Sans',sans-serif;">Josefin Sans</div>
+      <p style="font-size:12px;color:var(--text-light);line-height:1.6;margin-top:8px;">Used for all headings (H1–H4), the tagline, and feature numbers. Weights: Light (300), Regular (400), Medium (500), SemiBold (600), Bold (700).</p>
+      <p style="font-family:'Josefin Sans',sans-serif;font-size:14px;color:var(--text-muted);margin-top:12px;letter-spacing:.02em;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 !@#$%&*()</p>
+    </div>
+    <div class="type-specimen">
+      <div class="meta">Body Font</div>
+      <div class="display" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;">Plus Jakarta Sans</div>
+      <p style="font-size:12px;color:var(--text-light);line-height:1.6;margin-top:8px;">Used for body copy, labels, buttons, navigation, and UI elements. Weights: Light (300), Regular (400), Medium (500), SemiBold (600), Bold (700), ExtraBold (800).</p>
+      <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--text-muted);margin-top:12px;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 !@#$%&*()</p>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Type Scale (Major Third — 1.25 ratio)</h3>
+  <div class="type-scale">
+    <div class="type-row"><div class="size">3XL — 48px</div><div class="sample" style="font-family:'Josefin Sans',sans-serif;font-size:36px;font-weight:700;">Do good. Feel good.</div></div>
+    <div class="type-row"><div class="size">2XL — 39px</div><div class="sample" style="font-family:'Josefin Sans',sans-serif;font-size:30px;font-weight:600;">Section Headline</div></div>
+    <div class="type-row"><div class="size">XL — 31px</div><div class="sample" style="font-family:'Josefin Sans',sans-serif;font-size:24px;font-weight:600;">Card Title</div></div>
+    <div class="type-row"><div class="size">LG — 25px</div><div class="sample" style="font-family:'Josefin Sans',sans-serif;font-size:20px;font-weight:600;">Feature Heading</div></div>
+    <div class="type-row"><div class="size">MD — 20px</div><div class="sample" style="font-size:16px;font-weight:500;">Large body text and descriptions</div></div>
+    <div class="type-row"><div class="size">Base — 16px</div><div class="sample" style="font-size:14px;">Standard body copy for paragraphs and content</div></div>
+    <div class="type-row"><div class="size">SM — 14px</div><div class="sample" style="font-size:12px;color:var(--text-light);">Secondary text, captions, and metadata</div></div>
+    <div class="type-row"><div class="size">XS — 13px</div><div class="sample" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700;">Labels & Badges</div></div>
+  </div>
+  <div class="page-num">05</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 6: TONE OF VOICE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page dark">
+  <div class="sec-label">04 — Tone of Voice</div>
+  <div class="sec-title">How we <span>sound.</span></div>
+  <p class="sec-desc">Our brand voice is an energetic, approachable friend — someone in their mid-30s who's casual but purposeful, confident without arrogance.</p>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Brand Personality Spectrum</h3>
+
+  <div style="margin-bottom:32px;">
+    <div style="margin-bottom:16px;">
+      <div class="persona-label"><span>Formal</span><span>Casual ●</span></div>
+      <div class="persona-bar"><div class="persona-fill" style="width:75%"></div><div class="persona-empty"></div></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div class="persona-label"><span>Serious</span><span>Slightly Playful ●</span></div>
+      <div class="persona-bar"><div class="persona-fill" style="width:65%"></div><div class="persona-empty"></div></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div class="persona-label"><span>Exclusive</span><span>Inclusive ●</span></div>
+      <div class="persona-bar"><div class="persona-fill" style="width:85%"></div><div class="persona-empty"></div></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div class="persona-label"><span>Traditional</span><span>Modern ●</span></div>
+      <div class="persona-bar"><div class="persona-fill" style="width:70%"></div><div class="persona-empty"></div></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div class="persona-label"><span>Corporate</span><span>Grassroots ●</span></div>
+      <div class="persona-bar"><div class="persona-fill" style="width:80%"></div><div class="persona-empty"></div></div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-bottom:32px;">
+    <div class="tone-do">
+      <h4>✅ Do Say</h4>
+      <ul class="tone-list">
+        <li>"We show up. Every single day."</li>
+        <li>"Invest in positive change"</li>
+        <li>"Partner with us"</li>
+        <li>"Support our impact"</li>
+        <li>"Real impact. Real change."</li>
+        <li>"Built by the community, for the community"</li>
+        <li>"Join the movement"</li>
+        <li>"Action creates change"</li>
+      </ul>
+    </div>
+    <div class="tone-dont">
+      <h4>❌ Never Say</h4>
+      <ul class="tone-list">
+        <li>"Aid" or "relief"</li>
+        <li>"Hand-me-downs"</li>
+        <li>"We aim to" (we DO, not aim)</li>
+        <li>"Small initiative"</li>
+        <li>"Budget-friendly"</li>
+        <li>"Donate" (use "invest" or "partner")</li>
+        <li>Guilt-driven or pity-based messaging</li>
+        <li>Political or divisive content</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">The Brand Should Feel</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <span style="padding:8px 20px;background:rgba(92,189,174,.15);border:1px solid rgba(92,189,174,.2);border-radius:100px;font-size:12px;font-weight:600;color:var(--teal-light);">Empowering</span>
+    <span style="padding:8px 20px;background:rgba(92,189,174,.15);border:1px solid rgba(92,189,174,.2);border-radius:100px;font-size:12px;font-weight:600;color:var(--teal-light);">Joyful</span>
+    <span style="padding:8px 20px;background:rgba(92,189,174,.15);border:1px solid rgba(92,189,174,.2);border-radius:100px;font-size:12px;font-weight:600;color:var(--teal-light);">Bold</span>
+    <span style="padding:8px 20px;background:rgba(92,189,174,.15);border:1px solid rgba(92,189,174,.2);border-radius:100px;font-size:12px;font-weight:600;color:var(--teal-light);">Connected</span>
+    <span style="padding:8px 20px;background:rgba(92,189,174,.15);border:1px solid rgba(92,189,174,.2);border-radius:100px;font-size:12px;font-weight:600;color:var(--teal-light);">Vibrant</span>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+    <span style="padding:8px 20px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.15);border-radius:100px;font-size:12px;font-weight:600;color:#FCA5A5;">Never Dull</span>
+    <span style="padding:8px 20px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.15);border-radius:100px;font-size:12px;font-weight:600;color:#FCA5A5;">Never Closed-Off</span>
+    <span style="padding:8px 20px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.15);border-radius:100px;font-size:12px;font-weight:600;color:#FCA5A5;">Never Helpless</span>
+    <span style="padding:8px 20px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.15);border-radius:100px;font-size:12px;font-weight:600;color:#FCA5A5;">Never Overbearing</span>
+    <span style="padding:8px 20px;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.15);border-radius:100px;font-size:12px;font-weight:600;color:#FCA5A5;">Never Cynical</span>
+  </div>
+  <div class="page-num light">06</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 7: PHOTOGRAPHY -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page teal-bg">
+  <div class="sec-label">05 — Photography & Imagery</div>
+  <div class="sec-title">Visual <span>storytelling.</span></div>
+  <p class="sec-desc">Every image should feel real, professional, and purposeful — showing action, community, and the natural beauty of Hout Bay.</p>
+
+  <div class="two-col" style="margin-bottom:32px;">
+    <div>
+      <h3 style="font-size:16px;margin-bottom:12px;">Image Style</h3>
+      <div class="rule-box"><h4>Real, Not Stock</h4><p>Use actual photos from beach cleanups, community events, and the Hout Bay coastline. Never use generic stock imagery. Authenticity is everything.</p></div>
+      <div class="rule-box"><h4>Professional Quality</h4><p>Photos should be well-lit, properly composed, and high resolution. Professional enough for a sponsor pitch deck but natural enough to feel genuine.</p></div>
+      <div class="rule-box"><h4>Drone & Landscape</h4><p>Aerial shots of Hout Bay Beach, Chapman's Peak, and the coastline add scale and visual impact. Use for hero sections and section backgrounds.</p></div>
+    </div>
+    <div>
+      <h3 style="font-size:16px;margin-bottom:12px;">Subject Matter</h3>
+      <div class="rule-box"><h4>Action Shots</h4><p>People cleaning, building, collecting. Never posed or staged — always mid-action. The Beach Ranger walking the shore. Volunteers filling bags.</p></div>
+      <div class="rule-box"><h4>Community & Joy</h4><p>Smiling faces, group shots, hands working together. Show the human side — this isn't a corporate initiative, it's a community movement.</p></div>
+      <div class="rule-box"><h4>Before & After</h4><p>Document transformation. Show the problem and the solution side by side. This is powerful for social media and sponsor reports.</p></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Treatment Rules</h3>
+  <div class="three-col">
+    <div class="card">
+      <h4>Colour Grading</h4>
+      <p>Warm, natural tones. Slight boost to greens and teals. Never over-saturated or heavily filtered. The ocean should look like the real ocean.</p>
+    </div>
+    <div class="card">
+      <h4>Overlays</h4>
+      <p>When using images as backgrounds, apply a gradient overlay matching brand colours (teal wash or dark) at 85–95% opacity for text readability.</p>
+    </div>
+    <div class="card">
+      <h4>Sensitive Content</h4>
+      <p>Never show poverty, suffering, or exploitation. Show pride, action, and progress. Children require parental consent for photography.</p>
+    </div>
+  </div>
+  <div class="page-num">07</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 8: SPONSOR CO-BRANDING -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page">
+  <div class="sec-label">06 — Sponsor Co-Branding</div>
+  <div class="sec-title">Partners, not <span>logos.</span></div>
+  <p class="sec-desc">Sponsors are active partners in the mission. Their brand sits alongside ours with mutual respect — never above, never diminished.</p>
+
+  <div class="two-col" style="margin-bottom:32px;">
+    <div>
+      <h3 style="font-size:16px;margin-bottom:16px;">Logo Placement Rules</h3>
+      <div class="rule-box"><h4>Clear Space</h4><p>The TFGI logo must have clear space equal to the height of the "F" in "Feel" on all sides. No other element should intrude into this space.</p></div>
+      <div class="rule-box"><h4>Minimum Size</h4><p>Print: 30mm width minimum. Digital: 120px width minimum. Below these sizes, use the icon mark only.</p></div>
+      <div class="rule-box"><h4>Co-Branding Layout</h4><p>On shared materials, TFGI logo appears on the left or top. Sponsor logo on the right or bottom. Separated by a thin vertical divider line in Ocean Teal.</p></div>
+      <div class="rule-box"><h4>Background Compatibility</h4><p>On light backgrounds: use the full-colour logo. On dark backgrounds: use the white version. On photography: ensure sufficient contrast with an overlay if needed.</p></div>
+    </div>
+    <div>
+      <h3 style="font-size:16px;margin-bottom:16px;">Sponsor Tier Visibility</h3>
+      <div class="card" style="margin-bottom:16px;">
+        <h4 style="color:var(--orange);">Visionary (R5M+)</h4>
+        <p>Full co-branding across all channels. Major naming rights. Logo on all materials, signage, and communications. Advisory seat.</p>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <h4 style="color:var(--teal);">Builder (R1M)</h4>
+        <p>Permanent on-site plaque. Naming rights on pool features. Logo on website, events, and media. VIP launch access. Dedicated CSI case study.</p>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <h4>Champion (R250K)</h4>
+        <p>Featured in project media and press. On-site branding during construction. Annual CSI impact report for stakeholders.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--text-muted);">Supporter (R50K)</h4>
+        <p>Brand on website and materials. Social media features. Quarterly impact reports. Groundbreaking event invitation.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">08</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 9: MERCHANDISE & SIGNAGE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page dark">
+  <div class="sec-label">07 — Merchandise & Signage</div>
+  <div class="sec-title">Physical <span>touchpoints.</span></div>
+  <p class="sec-desc">Every t-shirt, bin, billboard, and banner is an opportunity to reinforce the brand and spread the movement.</p>
+
+  <div class="two-col" style="margin-bottom:32px;">
+    <div>
+      <h3 style="font-size:16px;margin-bottom:16px;color:#fff;">Apparel</h3>
+      <div class="card" style="margin-bottom:12px;"><h4>T-Shirts</h4><p>Primary: White tee with Ocean Teal logo on left chest. Tagline "Do Good. Feel Good." on upper back in Deep Forest. Secondary: Ocean Teal tee with white logo. Always use quality cotton — the merch represents the brand.</p></div>
+      <div class="card" style="margin-bottom:12px;"><h4>Volunteer Gear</h4><p>Hi-vis vests or bibs with TFGI logo prominently displayed. Sponsor logos may appear on back panel below TFGI. Use Sunset Orange for volunteer-specific items to differentiate from general merch.</p></div>
+      <div class="card"><h4>Caps & Accessories</h4><p>Ocean Teal or Deep Forest base with embroidered white logo. Keep it clean — logo only, no tagline on small items.</p></div>
+    </div>
+    <div>
+      <h3 style="font-size:16px;margin-bottom:16px;color:#fff;">Signage & Print</h3>
+      <div class="card" style="margin-bottom:12px;"><h4>Community Bins</h4><p>Deep Forest background with white TFGI logo and "Do Good. Feel Good." text. Sponsor logos in designated zone at bottom, never exceeding 30% of total face area. Weather-resistant vinyl wrap.</p></div>
+      <div class="card" style="margin-bottom:12px;"><h4>Billboards & Banners</h4><p>High-impact: use a drone photo of Hout Bay Beach with dark gradient overlay. TFGI logo top-left, tagline centered, CTA bottom-right. Sponsor bar at bottom with divider lines between logos.</p></div>
+      <div class="card"><h4>Event Signage</h4><p>Pull-up banners: 850×2000mm. Use the Teal Wash background with Deep Forest text for readability. Include QR code to website. Sponsor logos along bottom edge.</p></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Production Notes</h3>
+  <div class="three-col">
+    <div class="card"><h4>Print Colours</h4><p>Always use CMYK values from the colour palette. For Pantone matching: Ocean Teal ≈ Pantone 7473 C. Sunset Orange ≈ Pantone 1665 C.</p></div>
+    <div class="card"><h4>Materials</h4><p>Prefer recycled or eco-friendly materials where possible — consistent with the environmental mission. Vinyl for outdoor signage. 300gsm for business cards.</p></div>
+    <div class="card"><h4>Quality Control</h4><p>All physical items must be approved by Sandy Daniel before production. Proof must show accurate colour reproduction. No exceptions.</p></div>
+  </div>
+  <div class="page-num light">09</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 10: DIGITAL PRESENCE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page section-page">
+  <div class="sec-label">08 — Digital Presence</div>
+  <div class="sec-title">Online <span>presence.</span></div>
+  <p class="sec-desc">The website is live. Social media is next. Every digital touchpoint should reinforce the same brand identity.</p>
+
+  <div class="two-col" style="margin-bottom:32px;">
+    <div>
+      <h3 style="font-size:16px;margin-bottom:16px;">Website</h3>
+      <div class="rule-box"><h4>Live URL</h4><p>feel-good-initiative.netlify.app — the single source of truth for the initiative online. All social bios and print materials should link here.</p></div>
+      <div class="rule-box"><h4>Key Sections</h4><p>Our Story → The Vision → Projects → Community → Team → Sponsorship → Contact. This information hierarchy is optimised for sponsors first (primary audience), then community.</p></div>
+      <div class="rule-box"><h4>Design System</h4><p>The website uses the exact colour palette, typography, and spacing defined in this brand book. It serves as the living reference for all digital design.</p></div>
+    </div>
+    <div>
+      <h3 style="font-size:16px;margin-bottom:16px;">Social Media</h3>
+      <div class="rule-box"><h4>Active: Facebook</h4><p>@TheFeelGoodInitiative — 144 followers. Primary channel for community updates, event announcements, and sponsor recognition.</p></div>
+      <div class="rule-box"><h4>Active: TikTok</h4><p>Beach Ranger David's channel — 14K+ followers. Raw, authentic daily content showing real beach cleanup work. This is the brand's most powerful organic channel.</p></div>
+      <div class="rule-box"><h4>Recommended: Instagram</h4><p>Launch when ready with curated content. Focus on: drone shots, before/after, community events, sponsor spotlights. Use the brand colour palette for story highlights.</p></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;margin-bottom:16px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-family:'Plus Jakarta Sans',sans-serif;">Content Pillars</h3>
+  <div class="three-col">
+    <div class="card" style="border-left:3px solid var(--teal);"><h4>Daily Action</h4><p>Beach Ranger updates. Daily cleanup photos. "We showed up today" posts. Consistency is the brand — show it.</p></div>
+    <div class="card" style="border-left:3px solid var(--orange);"><h4>Community Impact</h4><p>Stories from residents. Volunteer spotlights. Event recaps. Before/after transformations. Make people feel part of it.</p></div>
+    <div class="card" style="border-left:3px solid #2563EB;"><h4>Vision & Progress</h4><p>Tidal pool updates. Sponsor announcements. Milestone celebrations. Media coverage. Show momentum and credibility.</p></div>
+  </div>
+  <div class="page-num">10</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PAGE 11: BACK COVER -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page cover" style="justify-content:center;align-items:center;text-align:center;padding:40mm">
+  <div style="position:relative;z-index:1;">
+    <img src="logo.jpg" alt="TFGI" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin:0 auto 24px;">
+    <h1 style="font-size:42px;margin-bottom:12px;">Do good.<br><span>Feel good.</span></h1>
+    <p style="font-size:14px;color:rgba(255,255,255,.4);max-width:360px;margin:0 auto 48px;line-height:1.7;">Protecting Hout Bay's beaches, building community infrastructure, and creating lasting change — every single day.</p>
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+      <span style="font-size:12px;color:rgba(255,255,255,.3);">feel-good-initiative.netlify.app</span>
+      <span style="font-size:12px;color:rgba(255,255,255,.3);">facebook.com/TheFeelGoodInitiative</span>
+      <span style="font-size:12px;color:rgba(255,255,255,.3);">info@thefeelgoodinitiative.org</span>
+    </div>
+    <div style="margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);">
+      <p style="font-size:10px;color:rgba(255,255,255,.2);">© 2026 The Feel Good Initiative. Brand identity designed by CloudSync Media (Pty) Ltd.<br>This document is confidential. Do not distribute without authorisation from Sandy Daniel or Ryan Bluck.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
