@@ -42,7 +42,7 @@ a{color:inherit}img{max-width:100%;display:block}
 .btn-outline{background:0 0;border:1.5px solid var(--border);color:var(--text)}.btn-outline:hover{border-color:var(--teal);color:var(--dark)}
 .btn-white{background:#fff;color:var(--dark)}.btn-white:hover{background:var(--bg)}
 .btn-lg{padding:var(--s2) var(--s4);font-size:var(--t-base)}
-.btn-donate{padding:var(--s2) var(--s5);font-size:var(--t-md);font-weight:700;border-radius:var(--rlg);animation:pulse 3s ease-in-out infinite}
+.btn-cta-main{padding:var(--s2) var(--s5);font-size:var(--t-md);font-weight:700;border-radius:var(--rlg);animation:pulse 3s ease-in-out infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,90,16,0)}50%{box-shadow:0 0 0 8px rgba(217,90,16,.15)}}
 
 /* Nav */
@@ -54,8 +54,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .nav-links{display:flex;align-items:center;gap:var(--s3);list-style:none}
 .nav-links a{font-size:13px;font-weight:500;color:var(--text-light);text-decoration:none;transition:color .15s;white-space:nowrap}
 .nav-links a:hover{color:var(--dark)}
-.donate-nav{background:var(--orange);color:#fff!important;padding:var(--s1) var(--s3);border-radius:var(--r);font-weight:700;transition:background .15s}
-.donate-nav:hover{background:var(--orange-hover)}
+.donate-nav,.partner-nav{background:var(--orange);color:#fff!important;padding:var(--s1) var(--s3);border-radius:var(--r);font-weight:700;transition:background .15s}
+.donate-nav:hover,.partner-nav:hover{background:var(--orange-hover)}
 .menu-toggle{display:none;background:0 0;border:none;padding:var(--s1);cursor:pointer}
 .menu-toggle i{font-size:var(--t-md);color:var(--dark)}
 
@@ -268,12 +268,13 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .sponsor-tiers{grid-template-columns:repeat(2,1fr)}
   .ft-top{grid-template-columns:1fr 1fr}
   .vision-aside{position:static}
+  .values-grid{grid-template-columns:repeat(3,1fr)!important}
 }
 @media(max-width:768px){
   .nav-links{display:none}.menu-toggle{display:block}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--bg);align-items:center;justify-content:center;gap:var(--s4);z-index:200}
   .nav-links.open a{font-size:var(--t-lg);color:var(--dark)}
-  .env-grid,.voices-grid{grid-template-columns:1fr!important}
+  .env-grid,.voices-grid,.values-grid{grid-template-columns:1fr!important}
   .sponsor-tiers{grid-template-columns:1fr}
   .comm-stats{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
@@ -328,7 +329,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <h1 class="reveal rd1">Do good. <span>Feel good.</span></h1>
         <p class="lead reveal rd2">We're cleaning Hout Bay's beaches every day, building a tidal pool for the community, and proving that small actions create real change. Join the movement.</p>
         <div class="hero-ctas reveal rd3">
-          <a href="#sponsor" class="btn btn-orange btn-donate"><i class="bi bi-arrow-up-right"></i> Become a Sponsor</a>
+          <a href="#sponsor" class="btn btn-orange btn-cta-main"><i class="bi bi-arrow-up-right"></i> Partner With Us</a>
           <a href="#vision" class="btn btn-outline btn-lg">View the Vision</a>
         </div>
         <div class="hero-proof reveal rd4">
@@ -381,6 +382,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
       <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
       <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
+      <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
       <!-- Duplicate for seamless loop -->
       <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
       <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
@@ -391,6 +393,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
       <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
       <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
+      <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
     </div>
   </div>
 </section>
@@ -402,6 +405,39 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <h2 class="reveal">We show up. <span>Every single day.</span></h2>
       <div class="vp-divider"></div>
       <p class="reveal rd1">From daily beach cleanups and our Beach Ranger walking the shoreline, to a landmark tidal pool project near Chapman's Peak — The Feel Good Initiative combines environmental action, community engagement, and real infrastructure that everyone can see and feel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section style="background:var(--bg-card);padding:var(--s8) 0;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s3);text-align:center;" class="values-grid">
+      <div class="reveal rd1">
+        <div class="env-icon t" style="margin:0 auto var(--s2);"><i class="bi bi-people-fill"></i></div>
+        <h4 style="font-size:var(--t-sm);margin-bottom:4px;">Community First</h4>
+        <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Every decision starts with the people it affects.</p>
+      </div>
+      <div class="reveal rd2">
+        <div class="env-icon g" style="margin:0 auto var(--s2);"><i class="bi bi-tree"></i></div>
+        <h4 style="font-size:var(--t-sm);margin-bottom:4px;">Environmental Stewardship</h4>
+        <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Protect first. Build second. No shortcuts.</p>
+      </div>
+      <div class="reveal rd3">
+        <div class="env-icon" style="margin:0 auto var(--s2);background:#FFF7ED;color:var(--orange);"><i class="bi bi-calendar-check"></i></div>
+        <h4 style="font-size:var(--t-sm);margin-bottom:4px;">Consistency</h4>
+        <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Not once a month. Every single day.</p>
+      </div>
+      <div class="reveal rd4">
+        <div class="env-icon" style="margin:0 auto var(--s2);background:#F3F0FF;color:#7C3AED;"><i class="bi bi-flag-fill"></i></div>
+        <h4 style="font-size:var(--t-sm);margin-bottom:4px;">Local Pride</h4>
+        <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Built by Hout Bay, for Hout Bay.</p>
+      </div>
+      <div class="reveal rd4">
+        <div class="env-icon b" style="margin:0 auto var(--s2);"><i class="bi bi-graph-up-arrow"></i></div>
+        <h4 style="font-size:var(--t-sm);margin-bottom:4px;">Growth & Opportunity</h4>
+        <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Jobs, skills, and infrastructure that last.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -423,7 +459,8 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-calendar-check"></i></div><div><h4>Every Single Day</h4><p>Our Beach Ranger walks the beach daily — removing waste, engaging the community, setting the standard</p></div></div>
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-people-fill"></i></div><div><h4>Community-Powered</h4><p>From one person to a team of volunteers, sponsors, and partners working together</p></div></div>
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-arrow-up-right-circle"></i></div><div><h4>Growing Impact</h4><p>Beach cleanups → Hangberg beautification → community bins → tidal pool vision</p></div></div>
-          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-trophy"></i></div><div><h4>9 Partners Strong</h4><p>Spar, Bokbus, Deep Blue Security, The Beach Bar, and more backing the mission</p></div></div>
+          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-trophy"></i></div><div><h4>10 Partners Strong</h4><p>Spar, Bokbus, Deep Blue Security, Alex Stewart, and more backing the mission</p></div></div>
+          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-globe2"></i></div><div><h4>Bigger Than Hout Bay</h4><p>Building a model for environmental care + community upliftment that can scale nationally</p></div></div>
         </div>
       </div>
     </div>
@@ -645,6 +682,9 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <div class="vc-author"><div class="vc-avatar" style="background:#16A34A"><i class="bi bi-person-fill"></i></div><div><div class="vc-name">Marine Biologist</div><div class="vc-role">Environmental Consultant</div></div></div>
       </div>
     </div>
+    <div class="reveal rd4" style="margin-top:var(--s4);text-align:center;">
+      <p style="font-size:var(--t-sm);color:var(--text-muted);display:inline-flex;align-items:center;gap:var(--s1);"><i class="bi bi-newspaper" style="color:var(--teal);"></i> As covered by the <strong style="color:var(--dark);">Sentinel</strong> newspaper &nbsp;·&nbsp; <i class="bi bi-tiktok" style="color:var(--teal);"></i> 14K+ followers on TikTok via Beach Ranger David</p>
+    </div>
   </div>
 </section>
 
@@ -654,59 +694,59 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <div class="sponsor-header">
       <div class="label reveal" style="background:rgba(255,255,255,.08);color:var(--teal-light);justify-content:center;"><i class="bi bi-arrow-up-right"></i> Sponsorship</div>
       <h2 class="reveal rd1">Invest in <span>lasting impact.</span></h2>
-      <p class="reveal rd2">Corporate and private sponsorship tiers designed for meaningful, visible contribution to South Africa's first eco-friendly community tidal pool.</p>
+      <p class="reveal rd2">Your partnership funds real infrastructure, creates jobs, and puts your brand alongside a movement people believe in. Not a logo on a wall — a seat at the table.</p>
     </div>
     <div class="sponsor-tiers">
       <div class="tier reveal rd1">
         <div class="tier-name">Supporter</div>
         <div class="tier-amount">R50K<small> ZAR</small></div>
         <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> Logo on project website</li>
-          <li><i class="bi bi-check-lg"></i> Social media recognition</li>
-          <li><i class="bi bi-check-lg"></i> Quarterly progress updates</li>
-          <li><i class="bi bi-check-lg"></i> Invitation to groundbreaking</li>
+          <li><i class="bi bi-check-lg"></i> Your brand on our website &amp; materials</li>
+          <li><i class="bi bi-check-lg"></i> Social media features to your audience</li>
+          <li><i class="bi bi-check-lg"></i> Quarterly impact reports for your CSI records</li>
+          <li><i class="bi bi-check-lg"></i> Exclusive invitation to groundbreaking event</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Enquire</a>
+        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Get Started</a>
       </div>
       <div class="tier reveal rd2">
         <div class="tier-name">Champion</div>
         <div class="tier-amount">R250K<small> ZAR</small></div>
         <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> All Supporter benefits</li>
-          <li><i class="bi bi-check-lg"></i> Featured in project media</li>
-          <li><i class="bi bi-check-lg"></i> On-site branding during construction</li>
-          <li><i class="bi bi-check-lg"></i> Annual CSI impact report</li>
+          <li><i class="bi bi-check-lg"></i> Everything in Supporter</li>
+          <li><i class="bi bi-check-lg"></i> Featured in all project media &amp; press coverage</li>
+          <li><i class="bi bi-check-lg"></i> On-site branding visible to thousands of visitors</li>
+          <li><i class="bi bi-check-lg"></i> Annual CSI impact report for stakeholders</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Enquire</a>
+        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Get Started</a>
       </div>
       <div class="tier featured reveal rd3">
-        <div class="tier-tag">Most Impact</div>
+        <div class="tier-tag">Most Popular</div>
         <div class="tier-name">Builder</div>
         <div class="tier-amount">R1M<small> ZAR</small></div>
         <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> All Champion benefits</li>
-          <li><i class="bi bi-check-lg"></i> Permanent on-site recognition plaque</li>
-          <li><i class="bi bi-check-lg"></i> Naming rights for pool features</li>
-          <li><i class="bi bi-check-lg"></i> VIP launch event access</li>
-          <li><i class="bi bi-check-lg"></i> Dedicated CSI case study</li>
+          <li><i class="bi bi-check-lg"></i> Everything in Champion</li>
+          <li><i class="bi bi-check-lg"></i> Your name permanently engraved on-site</li>
+          <li><i class="bi bi-check-lg"></i> Naming rights on pool features</li>
+          <li><i class="bi bi-check-lg"></i> VIP launch event with media coverage</li>
+          <li><i class="bi bi-check-lg"></i> Dedicated CSI case study for your brand</li>
         </ul>
-        <a href="#contact" class="btn btn-orange" style="justify-content:center;">Partner Now</a>
+        <a href="#contact" class="btn btn-orange" style="justify-content:center;">Become a Builder</a>
       </div>
       <div class="tier reveal rd4">
         <div class="tier-name">Visionary</div>
         <div class="tier-amount">R5M+<small> ZAR</small></div>
         <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> All Builder benefits</li>
-          <li><i class="bi bi-check-lg"></i> Major naming rights</li>
-          <li><i class="bi bi-check-lg"></i> Board advisory seat</li>
-          <li><i class="bi bi-check-lg"></i> Full project co-branding</li>
-          <li><i class="bi bi-check-lg"></i> Long-term tourism association</li>
+          <li><i class="bi bi-check-lg"></i> Everything in Builder</li>
+          <li><i class="bi bi-check-lg"></i> Major naming rights across the project</li>
+          <li><i class="bi bi-check-lg"></i> Advisory seat at the table</li>
+          <li><i class="bi bi-check-lg"></i> Full co-branding across all channels</li>
+          <li><i class="bi bi-check-lg"></i> Long-term tourism &amp; hospitality association</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Schedule Meeting</a>
+        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Schedule a Conversation</a>
       </div>
     </div>
     <div class="sponsor-footer reveal">
-      <p>Looking for a custom partnership? Download our sponsorship prospectus or get in touch.</p>
+      <p>Looking for a custom partnership structure? Every contribution is an investment in lasting change. Let's talk.</p>
       <a href="#contact" class="btn btn-white"><i class="bi bi-file-earmark-arrow-down"></i> Request Prospectus</a>
     </div>
   </div>
@@ -718,7 +758,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <h2 class="reveal">Do good. Feel good. <span>Join us.</span></h2>
     <p class="reveal rd1">Every beach cleanup, every bin placed, every rand invested brings us closer to a cleaner, safer Hout Bay for everyone. Your support creates real, visible change.</p>
     <div class="final-cta-btns reveal rd2">
-      <a href="#sponsor" class="btn btn-orange btn-donate"><i class="bi bi-arrow-up-right"></i> Become a Sponsor</a>
+      <a href="#sponsor" class="btn btn-orange btn-cta-main"><i class="bi bi-arrow-up-right"></i> Partner With Us</a>
       <a href="#contact" class="btn btn-outline btn-lg">Get In Touch</a>
     </div>
   </div>
@@ -767,15 +807,14 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       </div>
       <div class="ft-col"><h4>Project</h4><a href="#vision">The Vision</a><a href="#environment">Environment</a><a href="#community">Community</a><a href="#leadership">Leadership</a></div>
       <div class="ft-col"><h4>Get Involved</h4><a href="#sponsor">Sponsorship Tiers</a><a href="#contact">Enquiries</a><a href="#contact">Request Prospectus</a></div>
-      <div class="ft-col"><h4>Connect</h4><a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">Facebook</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div>
+      <div class="ft-col"><h4>Connect</h4><a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">Facebook</a><a href="https://www.tiktok.com/@beachranger" target="_blank">TikTok (Beach Ranger)</a></div>
     </div>
     <div class="ft-bottom">
       <span class="ft-copy">© 2026 The Feel Good Initiative. All rights reserved.</span>
       <span class="ft-npo"><i class="bi bi-heart-fill"></i> Community NPO — Hout Bay, South Africa</span>
       <div class="ft-social">
         <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.tiktok.com/@beachranger" target="_blank"><i class="bi bi-tiktok"></i></a>
       </div>
     </div>
   </div>
@@ -858,7 +897,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   <div class="cb-quick" id="cbQuick">
     <button onclick="cbAsk('What is the tidal pool project?')">🌊 Tidal Pool</button>
     <button onclick="cbAsk('How can I become a sponsor?')">🤝 Sponsorship</button>
-    <button onclick="cbAsk('How do I donate?')">💚 Donate</button>
+    <button onclick="cbAsk('How can I support you?')">💚 Support</button>
     <button onclick="cbAsk('Who runs this?')">👥 Team</button>
   </div>
   <div class="cb-input-wrap">
@@ -895,7 +934,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     donate:{
       keywords:['donate','donation','give','contribute','help','money'],
-      answer:`Thank you for wanting to support us! 💚 You can contribute through our <strong>sponsorship programme</strong> starting from R50,000 for corporate partnerships. For smaller individual donations or alternative ways to help, please reach out via our contact form and we'll guide you through the options.`,
+      answer:`Thank you for wanting to support us! 💚 You can invest in real change through our <strong>partnership programme</strong> starting from R50,000 for corporate partners. For smaller contributions or alternative ways to help, reach out via our contact form and we'll find the right fit for you.`,
       actions:[{label:'Sponsorship Options',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},{label:'Contact Us',icon:'bi-envelope',action:'navigate',target:'#contact'}]
     },
     team:{
