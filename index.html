@@ -138,7 +138,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .env-card h3{font-size:var(--t-md);margin-bottom:var(--s1)}.env-card p{font-size:var(--t-sm);color:var(--text-light);line-height:1.65}
 
 /* ═══ COMMUNITY — Golden Ratio ═══ */
-.community{background:var(--bg-card)}
+.community{background:var(--bg-alt)}
 .comm-grid{display:grid;grid-template-columns:38.2% 61.8%;gap:var(--s8);align-items:center}
 .comm-stats{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s4)}
 .comm-stat{padding:var(--s3);background:var(--bg);border-radius:var(--r);border:1px solid var(--border-light);text-align:center}
@@ -151,7 +151,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .comm-item p{font-size:var(--t-sm);color:var(--text-light);line-height:1.5}
 
 /* ═══ LEADERSHIP ═══ */
-.leadership{background:var(--bg-alt)}
+.leadership{background:var(--bg-card)}
 .lead-grid{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s8);align-items:center}
 .lead-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--rlg);padding:var(--s5);display:flex;gap:var(--s4);align-items:center}
 .lead-avatar{width:96px;height:96px;border-radius:50%;background:var(--dark);display:grid;place-items:center;color:var(--teal-light);font-size:var(--t-2xl);flex-shrink:0}
@@ -273,7 +273,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .nav-links{display:none}.menu-toggle{display:block}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--bg);align-items:center;justify-content:center;gap:var(--s4);z-index:200}
   .nav-links.open a{font-size:var(--t-lg);color:var(--dark)}
-  .env-grid,.voices-grid,#projects [style*="grid-template-columns"]{grid-template-columns:1fr!important}
+  .env-grid,.voices-grid{grid-template-columns:1fr!important}
   .sponsor-tiers{grid-template-columns:1fr}
   .comm-stats{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
@@ -281,10 +281,11 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .ft-bottom{flex-direction:column;text-align:center}
   .section{padding:var(--s8) 0}
   .lead-card{flex-direction:column;text-align:center}
+  .lead-avatar{margin:0 auto}
 }
 
 /* ═══ ORIGIN STORY ═══ */
-.origin{background:var(--bg-card);position:relative;overflow:hidden}
+.origin{background:var(--bg-alt);position:relative;overflow:hidden}
 .origin::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(135deg,var(--teal-wash) 0%,transparent 60%);opacity:.5}
 .origin .container{position:relative;z-index:1}
 .origin-grid{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s8);align-items:center}
@@ -324,7 +325,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   <div class="container">
     <div class="hero-inner">
       <div>
-        <div class="hero-badge reveal"><div class="hero-badge-dot"></div> Capital Campaign — Feasibility Stage</div>
+        <div class="hero-badge reveal"><div class="hero-badge-dot"></div> Community Movement — Hout Bay, Western Cape</div>
         <h1 class="reveal rd1">Do good. <span>Feel good.</span></h1>
         <p class="lead reveal rd2">We're cleaning Hout Bay's beaches every day, building a tidal pool for the community, and proving that small actions create real change. Join the movement.</p>
         <div class="hero-ctas reveal rd3">
@@ -526,60 +527,36 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <h2 class="reveal rd1">Six initiatives. One <span>mission.</span></h2>
       <p class="desc reveal rd2" style="margin:var(--s1) auto 0;">Environmental protection, community upliftment, and lasting infrastructure — delivered through daily action and long-term vision.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);">
-      <div class="env-card reveal rd1" style="border-left:3px solid var(--teal);">
-        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
-          <div class="env-icon t"><i class="bi bi-water"></i></div>
-          <div><span style="font-size:var(--t-xs);color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Flagship · 10-Year Project</span></div>
-        </div>
+    <div class="env-grid">
+      <div class="env-card reveal rd1">
+        <div class="env-icon t"><i class="bi bi-water"></i></div>
         <h3>The Tidal Pool</h3>
-        <p>A R50 million eco-friendly tidal pool near Chapman's Peak — safe ocean access, marine education, and eco-tourism for communities who live beside the water but can't safely swim in it.</p>
-        <a href="#vision" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--teal);text-decoration:none;">View the full plan <i class="bi bi-arrow-right"></i></a>
+        <p>A R50M eco-friendly pool near Chapman's Peak — safe ocean access and marine education for communities excluded from the coastline they live beside.</p>
       </div>
-      <div class="env-card reveal rd2" style="border-left:3px solid var(--orange);">
-        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
-          <div class="env-icon" style="background:var(--bg-alt);color:var(--orange);"><i class="bi bi-person-walking"></i></div>
-          <div><span style="font-size:var(--t-xs);color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Daily · Ongoing</span></div>
-        </div>
+      <div class="env-card reveal rd2">
+        <div class="env-icon" style="background:#FFF7ED;color:var(--orange);"><i class="bi bi-person-walking"></i></div>
         <h3>Beach Ranger Programme</h3>
-        <p>Our Beach Ranger David walks Hout Bay Beach every single day — removing waste, engaging visitors, educating the public, and maintaining clean, safe shorelines. Not occasional cleanups. Every. Single. Day.</p>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--orange);text-decoration:none;">Meet the team <i class="bi bi-arrow-right"></i></a>
+        <p>David Becker walks Hout Bay Beach every single day — removing waste, engaging visitors, and showing what consistent environmental care looks like.</p>
       </div>
-      <div class="env-card reveal rd1" style="border-left:3px solid #16A34A;">
-        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
-          <div class="env-icon g"><i class="bi bi-trash3"></i></div>
-          <div><span style="font-size:var(--t-xs);color:#16A34A;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Community · Active</span></div>
-        </div>
-        <h3>Community Bins Initiative</h3>
-        <p>Branded bins placed in key locations around Hout Bay to reduce litter and encourage responsible waste disposal. Turning awareness into action, one bin at a time.</p>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:#16A34A;text-decoration:none;">Get involved <i class="bi bi-arrow-right"></i></a>
+      <div class="env-card reveal rd3">
+        <div class="env-icon g"><i class="bi bi-trash3"></i></div>
+        <h3>Community Bins</h3>
+        <p>Branded bins in key locations reducing litter and encouraging responsible waste disposal. Turning awareness into daily action across Hout Bay.</p>
       </div>
-      <div class="env-card reveal rd2" style="border-left:3px solid #2563EB;">
-        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
-          <div class="env-icon b"><i class="bi bi-buildings"></i></div>
-          <div><span style="font-size:var(--t-xs);color:#2563EB;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Neighbourhood · In Progress</span></div>
-        </div>
+      <div class="env-card reveal rd1">
+        <div class="env-icon b"><i class="bi bi-buildings"></i></div>
         <h3>Hangberg Beautification</h3>
-        <p>Improving public spaces in Hangberg with effective waste management solutions — creating a cleaner, safer, and more welcoming environment for the whole community.</p>
-        <a href="#community" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:#2563EB;text-decoration:none;">Community impact <i class="bi bi-arrow-right"></i></a>
+        <p>Improving public spaces in Hangberg with effective waste management — creating a cleaner, safer environment for the whole community.</p>
       </div>
-      <div class="env-card reveal rd1" style="border-left:3px solid #7C3AED;">
-        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
-          <div class="env-icon" style="background:#F3F0FF;color:#7C3AED;"><i class="bi bi-signpost-2"></i></div>
-          <div><span style="font-size:var(--t-xs);color:#7C3AED;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Public Space · Active</span></div>
-        </div>
-        <h3>Hout Bay Entrance Beautification</h3>
-        <p>Enhancing the main entry points to Hout Bay — giving residents and visitors a positive first impression and restoring pride in shared spaces.</p>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:#7C3AED;text-decoration:none;">Learn more <i class="bi bi-arrow-right"></i></a>
+      <div class="env-card reveal rd2">
+        <div class="env-icon" style="background:#F3F0FF;color:#7C3AED;"><i class="bi bi-signpost-2"></i></div>
+        <h3>Entrance Beautification</h3>
+        <p>Enhancing Hout Bay's main entry points — giving residents and visitors a positive first impression and restoring pride in shared spaces.</p>
       </div>
-      <div class="env-card reveal rd2" style="border-left:3px solid var(--teal-light);">
-        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
-          <div class="env-icon" style="background:var(--teal-wash);color:var(--teal);"><i class="bi bi-calendar-event"></i></div>
-          <div><span style="font-size:var(--t-xs);color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Regular · Community Events</span></div>
-        </div>
+      <div class="env-card reveal rd3">
+        <div class="env-icon t"><i class="bi bi-calendar-event"></i></div>
         <h3>Beach Cleanup Events</h3>
-        <p>Regular community cleanup days bringing volunteers, families, and sponsors together to make a visible difference. Gloves and bags provided — just bring a friend and good energy.</p>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--teal);text-decoration:none;">Join the next one <i class="bi bi-arrow-right"></i></a>
+        <p>Regular community cleanup days bringing volunteers, families, and sponsors together. Gloves and bags provided — just bring a friend.</p>
       </div>
     </div>
   </div>
@@ -614,36 +591,34 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 <!-- LEADERSHIP -->
 <section class="leadership section" id="leadership">
   <div class="container">
-    <div class="lead-grid">
-      <div>
-        <div class="label reveal">Leadership</div>
-        <h2 class="reveal rd1">Led by people who know this <span>coastline.</span></h2>
-        <p class="desc reveal rd2">The Feel Good Initiative is driven by local leaders with deep roots in Hout Bay's community and a clear vision for its future.</p>
+    <div style="text-align:center;max-width:640px;margin:0 auto var(--s8);">
+      <div class="label reveal" style="justify-content:center;">Leadership</div>
+      <h2 class="reveal rd1">Led by people who know this <span>coastline.</span></h2>
+      <p class="desc reveal rd2" style="margin:var(--s1) auto 0;">The Feel Good Initiative is driven by local leaders with deep roots in Hout Bay's community and a clear vision for its future.</p>
+    </div>
+    <div class="env-grid">
+      <div class="lead-card reveal rd1" style="flex-direction:column;text-align:center;">
+        <div class="lead-avatar"><i class="bi bi-people"></i></div>
+        <div class="lead-info">
+          <h3>Ryan &amp; Greg Simpson</h3>
+          <div class="lead-role">Co-Founders</div>
+          <p>Co-founders of The Feel Good Initiative with a shared vision for community upliftment and environmental sustainability in Hout Bay.</p>
+        </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:var(--s3);">
-        <div class="lead-card reveal rd1">
-          <div class="lead-avatar"><i class="bi bi-people"></i></div>
-          <div class="lead-info">
-            <h3>Ryan &amp; Greg Simpson</h3>
-            <div class="lead-role">Co-Founders</div>
-            <p>Co-founders of The Feel Good Initiative with a shared vision for community upliftment and environmental sustainability in Hout Bay.</p>
-          </div>
+      <div class="lead-card reveal rd2" style="flex-direction:column;text-align:center;">
+        <div class="lead-avatar" style="background:var(--teal);"><i class="bi bi-person-gear"></i></div>
+        <div class="lead-info">
+          <h3>Sandy Daniel</h3>
+          <div class="lead-role">Administration &amp; Project Management</div>
+          <p>Day-to-day operations and project coordination — EAP appointments, stakeholder engagement, funding logistics, and compliance.</p>
         </div>
-        <div class="lead-card reveal rd2">
-          <div class="lead-avatar" style="background:var(--teal);"><i class="bi bi-person-gear"></i></div>
-          <div class="lead-info">
-            <h3>Sandy Daniel</h3>
-            <div class="lead-role">Administration &amp; Project Management</div>
-            <p>Managing the day-to-day operations and project coordination — from EAP appointments and stakeholder engagement to funding logistics and compliance.</p>
-          </div>
-        </div>
-        <div class="lead-card reveal rd3">
-          <div class="lead-avatar" style="background:#16A34A;"><i class="bi bi-tree"></i></div>
-          <div class="lead-info">
-            <h3>David Becker</h3>
-            <div class="lead-role">Beach Ranger &amp; Community Engagement</div>
-            <p>The face of daily action on Hout Bay Beach. David walks the shoreline every day, removing waste, educating visitors, and showing the community what consistent care looks like. 14K+ TikTok followers documenting real impact.</p>
-          </div>
+      </div>
+      <div class="lead-card reveal rd3" style="flex-direction:column;text-align:center;">
+        <div class="lead-avatar" style="background:#16A34A;"><i class="bi bi-tree"></i></div>
+        <div class="lead-info">
+          <h3>David Becker</h3>
+          <div class="lead-role">Beach Ranger &amp; Community Engagement</div>
+          <p>The face of daily action. David walks the shoreline every day, removing waste, educating visitors, and documenting real impact for 14K+ TikTok followers.</p>
         </div>
       </div>
     </div>
