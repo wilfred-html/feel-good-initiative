@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Feel Good Initiative — R50M Hout Bay Tidal Pool</title>
-<meta name="description" content="A R50 million eco-friendly tidal pool for Hout Bay Beach. Bridging the community divide through ocean safety, marine education, and eco-tourism. Partner with us.">
+<title>The Feel Good Initiative — Do Good. Feel Good.</title>
+<meta name="description" content="Protecting Hout Bay's beaches, building a community tidal pool, and creating real change through daily action. Beach cleanups, environmental projects, and community upliftment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -282,6 +282,21 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .section{padding:var(--s8) 0}
   .lead-card{flex-direction:column;text-align:center}
 }
+
+/* ═══ ORIGIN STORY ═══ */
+.origin{background:var(--bg-card);position:relative;overflow:hidden}
+.origin::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(135deg,var(--teal-wash) 0%,transparent 60%);opacity:.5}
+.origin .container{position:relative;z-index:1}
+.origin-grid{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s8);align-items:center}
+.origin-quote{font-family:'Josefin Sans',sans-serif;font-size:var(--t-lg);color:var(--teal);font-weight:600;line-height:1.4;margin-top:var(--s4);padding-left:var(--s3);border-left:3px solid var(--teal)}
+.origin-highlight{background:var(--dark);border-radius:var(--rlg);padding:var(--s5);color:#fff}
+.origin-highlight h3{color:#fff;font-size:var(--t-md);margin-bottom:var(--s3)}
+.origin-stat{display:flex;gap:var(--s2);margin-bottom:var(--s3);align-items:flex-start}
+.origin-stat:last-child{margin-bottom:0}
+.origin-stat-icon{width:var(--s5);height:var(--s5);border-radius:var(--r);background:rgba(255,255,255,.06);display:grid;place-items:center;flex-shrink:0;color:var(--teal-light);font-size:var(--t-sm)}
+.origin-stat h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-sm);font-weight:600;color:#fff;margin-bottom:2px}
+.origin-stat p{font-size:var(--t-xs);color:rgba(255,255,255,.45);line-height:1.5}
+@media(max-width:1024px){.origin-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -290,6 +305,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   <div class="nav-inner">
     <a href="#" class="nav-logo"><img src="logo.jpg" alt="TFGI" class="nav-logo-img"><span class="nav-logo-text">Feel Good Initiative</span></a>
     <ul class="nav-links" id="nl">
+      <li><a href="#story">Our Story</a></li>
       <li><a href="#vision">The Vision</a></li>
       <li><a href="#environment">Environment</a></li>
       <li><a href="#community">Community</a></li>
@@ -309,8 +325,8 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <div class="hero-inner">
       <div>
         <div class="hero-badge reveal"><div class="hero-badge-dot"></div> Capital Campaign — Feasibility Stage</div>
-        <h1 class="reveal rd1">Bridging the divide through <span>ocean access.</span></h1>
-        <p class="lead reveal rd2">A 10-year, R50 million eco-friendly tidal pool near Chapman's Peak — delivering ocean safety, marine education, and eco-tourism to communities excluded from the coastline they live beside.</p>
+        <h1 class="reveal rd1">Do good. <span>Feel good.</span></h1>
+        <p class="lead reveal rd2">We're cleaning Hout Bay's beaches every day, building a tidal pool for the community, and proving that small actions create real change. Join the movement.</p>
         <div class="hero-ctas reveal rd3">
           <a href="#sponsor" class="btn btn-orange btn-donate"><i class="bi bi-arrow-up-right"></i> Become a Sponsor</a>
           <a href="#vision" class="btn btn-outline btn-lg">View the Vision</a>
@@ -364,6 +380,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
       <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
       <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
+      <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
       <!-- Duplicate for seamless loop -->
       <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
       <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
@@ -373,6 +390,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
       <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
       <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
+      <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
     </div>
   </div>
 </section>
@@ -381,9 +399,33 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 <section class="vp section">
   <div class="container">
     <div class="vp-inner">
-      <h2 class="reveal">Community upliftment &amp; environmental sustainability in <span>Hout Bay.</span></h2>
+      <h2 class="reveal">We show up. <span>Every single day.</span></h2>
       <div class="vp-divider"></div>
-      <p class="reveal rd1">From a landmark 10-year tidal pool project near Chapman's Peak to ongoing beach cleanups across the Hout Bay coastline — FGI bridges the gap between underserved communities and the natural environment they deserve to access, enjoy, and protect.</p>
+      <p class="reveal rd1">From daily beach cleanups and our Beach Ranger walking the shoreline, to a landmark tidal pool project near Chapman's Peak — The Feel Good Initiative combines environmental action, community engagement, and real infrastructure that everyone can see and feel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN STORY -->
+<section class="origin section" id="story">
+  <div class="container">
+    <div class="origin-grid">
+      <div>
+        <div class="label reveal"><i class="bi bi-heart-fill"></i> How It Started</div>
+        <h2 class="reveal rd1">One man. One beach. <span>A daily commitment.</span></h2>
+        <p class="desc reveal rd2">The Feel Good Initiative started with Ryan Bluck, who grew up in Hout Bay with a deep love for its beach and ocean. Walking the shoreline every single day, Ryan became frustrated by the constant presence of rubbish — not just on the sand, but in the water itself.</p>
+        <p class="desc reveal rd3" style="margin-top:var(--s2);">Instead of accepting it, he decided to act. What began as one person picking up litter became a movement. Others joined. A dedicated Beach Ranger programme launched. Community projects followed. And a vision for something bigger — a tidal pool that gives every resident safe access to the ocean — took shape.</p>
+        <div class="origin-quote reveal rd4">"What began as a personal commitment to cleaning the beach grew into something bigger — a movement focused on restoring pride, protecting our environment, and creating lasting change."</div>
+      </div>
+      <div class="reveal rd2">
+        <div class="origin-highlight">
+          <h3><i class="bi bi-lightning-fill"></i> From Daily Action to Lasting Impact</h3>
+          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-calendar-check"></i></div><div><h4>Every Single Day</h4><p>Our Beach Ranger walks the beach daily — removing waste, engaging the community, setting the standard</p></div></div>
+          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-people-fill"></i></div><div><h4>Community-Powered</h4><p>From one person to a team of volunteers, sponsors, and partners working together</p></div></div>
+          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-arrow-up-right-circle"></i></div><div><h4>Growing Impact</h4><p>Beach cleanups → Hangberg beautification → community bins → tidal pool vision</p></div></div>
+          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-trophy"></i></div><div><h4>9 Partners Strong</h4><p>Spar, Bokbus, Deep Blue Security, The Beach Bar, and more backing the mission</p></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -481,8 +523,8 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   <div class="container">
     <div style="text-align:center;max-width:640px;margin:0 auto var(--s8);">
       <div class="label reveal" style="justify-content:center;"><i class="bi bi-kanban"></i> Our Projects</div>
-      <h2 class="reveal rd1">Two initiatives, one <span>mission.</span></h2>
-      <p class="desc reveal rd2" style="margin:var(--s1) auto 0;">Community upliftment and environmental sustainability — delivered through infrastructure and action.</p>
+      <h2 class="reveal rd1">Six initiatives. One <span>mission.</span></h2>
+      <p class="desc reveal rd2" style="margin:var(--s1) auto 0;">Environmental protection, community upliftment, and lasting infrastructure — delivered through daily action and long-term vision.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);">
       <div class="env-card reveal rd1" style="border-left:3px solid var(--teal);">
@@ -491,17 +533,53 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           <div><span style="font-size:var(--t-xs);color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Flagship · 10-Year Project</span></div>
         </div>
         <h3>The Tidal Pool</h3>
-        <p>A R50 million proposal to build a safe, eco-sensitive swimming space at Hout Bay Beach near Chapman's Peak. Replaces the aging revetment and provides recreational coastal access for underserved residents.</p>
+        <p>A R50 million eco-friendly tidal pool near Chapman's Peak — safe ocean access, marine education, and eco-tourism for communities who live beside the water but can't safely swim in it.</p>
         <a href="#vision" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--teal);text-decoration:none;">View the full plan <i class="bi bi-arrow-right"></i></a>
       </div>
       <div class="env-card reveal rd2" style="border-left:3px solid var(--orange);">
         <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
-          <div class="env-icon" style="background:var(--bg-alt);color:var(--orange);"><i class="bi bi-trash3"></i></div>
-          <div><span style="font-size:var(--t-xs);color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Ongoing Initiative</span></div>
+          <div class="env-icon" style="background:var(--bg-alt);color:var(--orange);"><i class="bi bi-person-walking"></i></div>
+          <div><span style="font-size:var(--t-xs);color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Daily · Ongoing</span></div>
         </div>
-        <h3>Beach Cleanups</h3>
-        <p>Regular coastal cleanup operations maintaining the Hout Bay shoreline and protecting the marine environment. Currently expanding into the Hangberg area to increase community coverage and impact.</p>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--orange);text-decoration:none;">Get involved <i class="bi bi-arrow-right"></i></a>
+        <h3>Beach Ranger Programme</h3>
+        <p>Our Beach Ranger David walks Hout Bay Beach every single day — removing waste, engaging visitors, educating the public, and maintaining clean, safe shorelines. Not occasional cleanups. Every. Single. Day.</p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--orange);text-decoration:none;">Meet the team <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="env-card reveal rd1" style="border-left:3px solid #16A34A;">
+        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
+          <div class="env-icon g"><i class="bi bi-trash3"></i></div>
+          <div><span style="font-size:var(--t-xs);color:#16A34A;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Community · Active</span></div>
+        </div>
+        <h3>Community Bins Initiative</h3>
+        <p>Branded bins placed in key locations around Hout Bay to reduce litter and encourage responsible waste disposal. Turning awareness into action, one bin at a time.</p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:#16A34A;text-decoration:none;">Get involved <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="env-card reveal rd2" style="border-left:3px solid #2563EB;">
+        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
+          <div class="env-icon b"><i class="bi bi-buildings"></i></div>
+          <div><span style="font-size:var(--t-xs);color:#2563EB;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Neighbourhood · In Progress</span></div>
+        </div>
+        <h3>Hangberg Beautification</h3>
+        <p>Improving public spaces in Hangberg with effective waste management solutions — creating a cleaner, safer, and more welcoming environment for the whole community.</p>
+        <a href="#community" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:#2563EB;text-decoration:none;">Community impact <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="env-card reveal rd1" style="border-left:3px solid #7C3AED;">
+        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
+          <div class="env-icon" style="background:#F3F0FF;color:#7C3AED;"><i class="bi bi-signpost-2"></i></div>
+          <div><span style="font-size:var(--t-xs);color:#7C3AED;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Public Space · Active</span></div>
+        </div>
+        <h3>Hout Bay Entrance Beautification</h3>
+        <p>Enhancing the main entry points to Hout Bay — giving residents and visitors a positive first impression and restoring pride in shared spaces.</p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:#7C3AED;text-decoration:none;">Learn more <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="env-card reveal rd2" style="border-left:3px solid var(--teal-light);">
+        <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);">
+          <div class="env-icon" style="background:var(--teal-wash);color:var(--teal);"><i class="bi bi-calendar-event"></i></div>
+          <div><span style="font-size:var(--t-xs);color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Regular · Community Events</span></div>
+        </div>
+        <h3>Beach Cleanup Events</h3>
+        <p>Regular community cleanup days bringing volunteers, families, and sponsors together to make a visible difference. Gloves and bags provided — just bring a friend and good energy.</p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:4px;margin-top:var(--s2);font-size:var(--t-sm);font-weight:600;color:var(--teal);text-decoration:none;">Join the next one <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -557,6 +635,14 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
             <h3>Sandy Daniel</h3>
             <div class="lead-role">Administration &amp; Project Management</div>
             <p>Managing the day-to-day operations and project coordination — from EAP appointments and stakeholder engagement to funding logistics and compliance.</p>
+          </div>
+        </div>
+        <div class="lead-card reveal rd3">
+          <div class="lead-avatar" style="background:#16A34A;"><i class="bi bi-tree"></i></div>
+          <div class="lead-info">
+            <h3>David Becker</h3>
+            <div class="lead-role">Beach Ranger &amp; Community Engagement</div>
+            <p>The face of daily action on Hout Bay Beach. David walks the shoreline every day, removing waste, educating visitors, and showing the community what consistent care looks like. 14K+ TikTok followers documenting real impact.</p>
           </div>
         </div>
       </div>
@@ -655,8 +741,8 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 <!-- FINAL CTA — Serial Position: last thing seen -->
 <section class="final-cta section">
   <div class="container">
-    <h2 class="reveal">This coastline belongs to <span>everyone.</span></h2>
-    <p class="reveal rd1">Help us build South Africa's first eco-friendly community tidal pool. Your investment creates ocean safety, marine education, and economic opportunity for generations.</p>
+    <h2 class="reveal">Do good. Feel good. <span>Join us.</span></h2>
+    <p class="reveal rd1">Every beach cleanup, every bin placed, every rand invested brings us closer to a cleaner, safer Hout Bay for everyone. Your support creates real, visible change.</p>
     <div class="final-cta-btns reveal rd2">
       <a href="#sponsor" class="btn btn-orange btn-donate"><i class="bi bi-arrow-up-right"></i> Become a Sponsor</a>
       <a href="#contact" class="btn btn-outline btn-lg">Get In Touch</a>
@@ -703,7 +789,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <div class="ft-top">
       <div class="ft-brand">
         <a href="#" class="nav-logo"><img src="logo.jpg" alt="TFGI" class="nav-logo-img"><span class="nav-logo-text" style="color:#fff">Feel Good Initiative</span></a>
-        <p>Bridging the community divide through ocean safety, marine education, and eco-tourism in Hout Bay, Western Cape.</p>
+        <p>Do Good. Feel Good. Protecting Hout Bay's beaches, building community infrastructure, and creating lasting change — every single day.</p>
       </div>
       <div class="ft-col"><h4>Project</h4><a href="#vision">The Vision</a><a href="#environment">Environment</a><a href="#community">Community</a><a href="#leadership">Leadership</a></div>
       <div class="ft-col"><h4>Get Involved</h4><a href="#sponsor">Sponsorship Tiers</a><a href="#contact">Enquiries</a><a href="#contact">Request Prospectus</a></div>
@@ -825,7 +911,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const KB={
     project:{
       keywords:['tidal pool','project','pool','what is','about','tell me','overview','mission'],
-      answer:`The Feel Good Initiative is building a <strong>R50 million eco-friendly tidal pool</strong> at Hout Bay Beach near Chapman's Peak. It's a 10-year community project that will provide safe ocean access, marine education, and eco-tourism opportunities for communities like Imizamo Yethu (34,000+ residents) and Hangberg — who live beside the ocean but have zero safe swimming spots.`,
+      answer:`The Feel Good Initiative protects, restores, and beautifies Hout Bay's beaches and public spaces. Our biggest project is a <strong>R50 million eco-friendly tidal pool</strong> at Hout Bay Beach — but we're also running <strong>daily Beach Ranger operations</strong>, community bin initiatives, Hangberg beautification, and entrance improvement projects. We don't just plan — we show up every single day.`,
       actions:[{label:'View the Vision',icon:'bi-eye',action:'navigate',target:'#vision'},{label:'See Our Projects',icon:'bi-kanban',action:'navigate',target:'#projects'}]
     },
     sponsor:{
@@ -855,7 +941,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     beach:{
       keywords:['beach','cleanup','clean','ranger','rangers','waste','trash','litter'],
-      answer:`Our <strong>Beach Rangers</strong> programme runs regular coastal cleanup operations maintaining the Hout Bay shoreline and protecting the marine environment. We're currently expanding into the <strong>Hangberg area</strong> to increase community coverage and impact. Want to get involved?`,
+      answer:`Our Beach Ranger <strong>David Becker</strong> walks Hout Bay Beach <strong>every single day</strong> — removing waste, engaging visitors, educating the public, and setting the standard for community pride. With 14K+ TikTok followers, David documents real, visible impact daily. Beyond the Beach Ranger programme, we run regular <strong>community cleanup events</strong> and are expanding into Hangberg. Want to get involved?`,
       actions:[{label:'See Our Projects',icon:'bi-kanban',action:'navigate',target:'#projects'},{label:'Volunteer',icon:'bi-hand-thumbs-up',action:'navigate',target:'#contact'}]
     },
     volunteer:{

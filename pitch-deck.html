@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feel Good Initiative — Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --teal: #1A3C3C;
+            --off-white: #F7F9F8;
+            --orange: #D95A10;
+            --text-dark: #2A2A2A;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--off-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            scroll-snap-align: start;
+            position: relative;
+            page-break-after: always;
+        }
+
+        .slide-content {
+            max-width: 1100px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 0.875rem;
+            color: var(--teal);
+            opacity: 0.6;
+            z-index: 1000;
+            background: var(--off-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.1;
+            color: var(--teal);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            line-height: 1.2;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: var(--teal);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: clamp(1.25rem, 2.5vw, 2rem);
+            font-weight: 300;
+            color: var(--orange);
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            color: var(--teal);
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* Slide 1: Title */
+        .slide-1 {
+            background: linear-gradient(135deg, var(--teal) 0%, #0f2626 100%);
+            color: var(--off-white);
+            text-align: center;
+        }
+
+        .slide-1 h1 {
+            color: var(--off-white);
+            margin-bottom: 2rem;
+        }
+
+        .slide-1 .subtitle {
+            color: var(--orange);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .slide-1 p {
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+
+        .slide-1 .tagline {
+            color: var(--off-white);
+            opacity: 0.7;
+            margin-top: 3rem;
+            font-style: italic;
+        }
+
+        /* Slide 2: Problem */
+        .slide-2 h2 {
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--orange);
+            box-shadow: 0 2px 12px rgba(26, 60, 60, 0.08);
+        }
+
+        .stat-box .number {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--orange);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .label {
+            font-size: 1rem;
+            color: var(--teal);
+            font-weight: 500;
+        }
+
+        .highlight {
+            background: var(--teal);
+            color: var(--off-white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Slide 3: Comparison */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-column {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(26, 60, 60, 0.1);
+        }
+
+        .comparison-column h3 {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--orange);
+        }
+
+        .comparison-column.today {
+            border-top: 4px solid #E74C3C;
+        }
+
+        .comparison-column.professional {
+            border-top: 4px solid #27AE60;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 0.75rem 0;
+            font-size: 1.125rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .comparison-list li::before {
+            content: '✗';
+            color: #E74C3C;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .comparison-column.professional .comparison-list li::before {
+            content: '✓';
+            color: #27AE60;
+        }
+
+        .comparison-footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--teal);
+        }
+
+        .comparison-footer strong {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        /* Slide 4: Approach */
+        .phase-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .phase-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(26, 60, 60, 0.1);
+            border-top: 4px solid var(--orange);
+            transition: transform 0.3s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .phase-number {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .phase-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        .phase-details {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Slide 5: Deliverables */
+        .deliverables-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .deliverables-list li {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--orange);
+            box-shadow: 0 2px 12px rgba(26, 60, 60, 0.08);
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .deliverables-list li strong {
+            color: var(--teal);
+            font-weight: 600;
+            font-family: 'Josefin Sans', sans-serif;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Slide 6: Pricing */
+        .pricing-table {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(26, 60, 60, 0.1);
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 1.25rem;
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+            margin-top: 1rem;
+            padding-top: 2rem;
+            border-top: 3px solid var(--teal);
+        }
+
+        .pricing-row.total {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--teal);
+        }
+
+        .pricing-label {
+            flex: 1;
+        }
+
+        .pricing-value {
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        .pricing-footer {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--teal);
+            color: var(--off-white);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .pricing-footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Slide 7 & 8: Phase 2 */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .platform-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--orange);
+            box-shadow: 0 2px 12px rgba(26, 60, 60, 0.08);
+        }
+
+        .platform-box h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        /* Slide 10: Full Picture */
+        .full-picture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .phase-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(26, 60, 60, 0.1);
+        }
+
+        .phase-summary h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.25rem;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .phase-summary ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .phase-summary ul li {
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .phase-summary .total-price {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--orange);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #E0E0E0;
+        }
+
+        .cta-box {
+            background: var(--teal);
+            color: var(--off-white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Slide 11: Accountability */
+        .targets-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .target-row {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(26, 60, 60, 0.08);
+            font-size: 1.25rem;
+        }
+
+        .target-row .arrow {
+            color: var(--orange);
+            font-weight: 700;
+            margin: 0 1rem;
+        }
+
+        .target-row .target-value {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .bonus-box {
+            background: var(--orange);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .bonus-box h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bonus-box ul {
+            list-style: none;
+        }
+
+        .bonus-box ul li {
+            padding: 0.75rem 0;
+            font-size: 1.125rem;
+            line-height: 1.5;
+        }
+
+        /* Slide 12: Urgency */
+        .urgency-number {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--orange);
+            text-align: center;
+            margin: 2rem 0;
+            line-height: 1;
+        }
+
+        /* Slide 13: Final CTA */
+        .slide-13 {
+            background: linear-gradient(135deg, var(--teal) 0%, #0f2626 100%);
+            color: var(--off-white);
+        }
+
+        .slide-13 h2 {
+            color: var(--off-white);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .final-phases {
+            margin-top: 3rem;
+        }
+
+        .final-phase {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--orange);
+        }
+
+        .final-phase h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .final-phase p {
+            margin-bottom: 0;
+        }
+
+        .final-tagline {
+            text-align: center;
+            margin-top: 3rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 2rem 1.5rem;
+            }
+
+            .comparison,
+            .phase-cards,
+            .platform-grid,
+            .full-picture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-counter {
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 0.75rem;
+                padding: 0.375rem 0.75rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                overflow: visible;
+                scroll-snap-type: none;
+            }
+
+            .slide {
+                page-break-after: always;
+                min-height: 100vh;
+            }
+
+            .slide-counter {
+                display: none;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">13</span>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <section class="slide slide-1">
+        <div class="slide-content">
+            <h1>FEEL GOOD INITIATIVE</h1>
+            <div class="subtitle">From Invisible to Irresistible</div>
+            <p>Nobody gives money to people they don't trust.<br>
+            This is how we build that trust — so sponsors come to you.</p>
+            <p class="tagline">Prepared for Ryan — March 2026</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: The Problem -->
+    <section class="slide slide-2">
+        <div class="slide-content">
+            <h2>You've built something worth R50 million.<br>
+            Right now it looks like it's worth R50.</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="number">144</span>
+                    <span class="label">Facebook Followers</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">5</span>
+                    <span class="label">Sponsors in 12 Months</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">0</span>
+                    <span class="label">Website</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">0</span>
+                    <span class="label">LinkedIn</span>
+                </div>
+            </div>
+
+            <p>Sandy has formally stepped back from social media. Without a professional digital presence, corporate sponsorship at the scale the Tidal Pool requires is impossible.</p>
+
+            <div class="highlight">
+                No one gives money to people they don't trust.<br>
+                Right now, there's nothing online that says "trust us."
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: The Sponsor's Perspective -->
+    <section class="slide slide-3">
+        <div class="slide-content">
+            <h2>A Woolworths CSR manager has R250K to give. Who does she trust?</h2>
+            
+            <div class="comparison">
+                <div class="comparison-column today">
+                    <h3>FEEL GOOD INITIATIVE (TODAY)</h3>
+                    <ul class="comparison-list">
+                        <li>144 followers</li>
+                        <li>Inconsistent, informal posts</li>
+                        <li>No website — can't even donate</li>
+                        <li>No LinkedIn — invisible to corporates</li>
+                        <li>No impact reporting</li>
+                        <li>No story — who are these people?</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-column professional">
+                    <h3>PROFESSIONAL NPO (e.g. Greenpop)</h3>
+                    <ul class="comparison-list">
+                        <li>50,000+ followers</li>
+                        <li>Daily professional content</li>
+                        <li>Full sponsor credibility hub</li>
+                        <li>Active LinkedIn with CSR content</li>
+                        <li>Clear story: who, why, what impact</li>
+                        <li>Corporate partner showcase</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison-footer">
+                The difference isn't the mission — both do incredible work.<br>
+                The difference is <strong>credibility</strong>. And credibility is built, not bought.
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: The Approach -->
+    <section class="slide slide-4">
+        <div class="slide-content">
+            <h2>THREE PHASES. ONE GOAL.</h2>
+            <p style="text-align: center; margin-bottom: 3rem;">Each phase has a clear focus. You see results before you commit to the next step. You only pay for what you need right now.</p>
+            
+            <div class="phase-cards">
+                <div class="phase-card">
+                    <div class="phase-number">1</div>
+                    <div class="phase-title">Fix Credibility</div>
+                    <div class="phase-details">Brand · Website · LinkedIn · Sponsor materials</div>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">2</div>
+                    <div class="phase-title">Build Authority</div>
+                    <div class="phase-details">Your story · Impact content · Social media</div>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">3</div>
+                    <div class="phase-title">Attract Sponsors</div>
+                    <div class="phase-details">Paid ads · Influencers · Scale</div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                You can't attract sponsors without authority.<br>
+                You can't build authority without credibility.<br>
+                So we start at the foundation.
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Phase 1 Deliverables -->
+    <section class="slide slide-5">
+        <div class="slide-content">
+            <h3>Phase 1: Fix Credibility</h3>
+            <h2>THE FOUNDATION. EVERYTHING STARTS HERE.</h2>
+            
+            <ul class="deliverables-list">
+                <li>
+                    <strong>Brand Identity & Guidelines</strong>
+                    Logo refinement, colour palette, typography, tone of voice, templates
+                </li>
+                <li>
+                    <strong>Website — Sponsor Hub</strong>
+                    Projects, sponsors, impact, donate button, contact. Live in 2 weeks.
+                </li>
+                <li>
+                    <strong>LinkedIn Company Page</strong>
+                    Professional setup, optimised for corporate discovery. Non-negotiable alongside the website.
+                </li>
+                <li>
+                    <strong>Sponsor Deck & One-Pager</strong>
+                    Professional materials ready to send within minutes of any enquiry.
+                </li>
+                <li>
+                    <strong>Social Accounts Refreshed</strong>
+                    Facebook & Instagram updated with new branding, bios, pinned content.
+                </li>
+            </ul>
+
+            <div class="highlight">
+                End of Phase 1: When someone searches for the Feel Good Initiative, they find a serious, trustworthy organisation worth backing.
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Phase 1 Investment -->
+    <section class="slide slide-6">
+        <div class="slide-content">
+            <h3>Phase 1: Fix Credibility</h3>
+            <h2>WHAT YOU PAY NOW</h2>
+            
+            <div class="pricing-table">
+                <div class="pricing-row">
+                    <span class="pricing-label">Website Build</span>
+                    <span class="pricing-value">R20,000 (once-off)</span>
+                </div>
+                <div class="pricing-row">
+                    <span class="pricing-label">Brand Identity & Guidelines</span>
+                    <span class="pricing-value">R10,000 (once-off)</span>
+                </div>
+                <div class="pricing-row total">
+                    <span class="pricing-label">TOTAL TO START</span>
+                    <span class="pricing-value">R30,000</span>
+                </div>
+            </div>
+
+            <div class="pricing-footer">
+                <p><strong>50% deposit to begin: R15,000</strong></p>
+                <p><strong>Balance on completion: R15,000</strong></p>
+                <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Website retainer after launch: R2,550/month</p>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.25rem;">This is what you pay now. Nothing else until Phase 1 is complete and you're happy with the results.</p>
+        </div>
+    </section>
+
+    <!-- Slide 7: Phase 2 Overview -->
+    <section class="slide slide-7">
+        <div class="slide-content">
+            <h3>Phase 2: Build Authority</h3>
+            <h2>TELL THE STORY. MAKE PEOPLE CARE.</h2>
+            
+            <p style="text-align: center; margin-bottom: 2rem;">Starting with LinkedIn and Facebook — the two platforms that matter most.</p>
+
+            <div class="platform-grid">
+                <div class="platform-box">
+                    <h4>LinkedIn</h4>
+                    <p>Where corporates verify you. Where CSR managers find causes to back.</p>
+                </div>
+                <div class="platform-box">
+                    <h4>Facebook</h4>
+                    <p>Where community lives. Where Hout Bay engages. Where content goes viral locally.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">Deliverables:</h3>
+            <ul class="deliverables-list">
+                <li>4 posts per week (scaling as we grow)</li>
+                <li>Impact storytelling (video + photo)</li>
+                <li>The Hout Bay Narrative — your origin story</li>
+                <li>Project showcases & milestones</li>
+                <li>LinkedIn thought leadership</li>
+                <li>"Be Part of the Journey" content</li>
+                <li>Sponsor visibility on every post — existing sponsors highlighted to create FOMO</li>
+                <li>Community engagement & comment management</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slide 8: Phase 2 Pricing -->
+    <section class="slide slide-8">
+        <div class="slide-content">
+            <h3>Phase 2: Build Authority</h3>
+            <h2>HOW SOCIAL MEDIA WORKS</h2>
+            
+            <div class="pricing-table">
+                <div class="pricing-row">
+                    <span class="pricing-label">Social Media Management (includes 1 platform)</span>
+                    <span class="pricing-value">R14,000/month</span>
+                </div>
+                <p style="margin: 1rem 0; font-size: 1rem; opacity: 0.8;">This covers: dedicated manager, content creation, strategy, engagement, reporting + one platform of your choice.</p>
+                <div class="pricing-row">
+                    <span class="pricing-label">Additional platforms</span>
+                    <span class="pricing-value">R5,000/month each</span>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2.5rem; border-radius: 8px; margin-top: 2rem; box-shadow: 0 4px 20px rgba(26, 60, 60, 0.1);">
+                <h3 style="margin-bottom: 1.5rem;">RECOMMENDED START:</h3>
+                <div class="pricing-row">
+                    <span class="pricing-label">Social Media Management + LinkedIn</span>
+                    <span class="pricing-value">R14,000/month</span>
+                </div>
+                <div class="pricing-row">
+                    <span class="pricing-label">+ Facebook</span>
+                    <span class="pricing-value">+R5,000/month</span>
+                </div>
+                <div class="pricing-row total">
+                    <span class="pricing-label">MONTHLY TOTAL</span>
+                    <span class="pricing-value">R19,000/month</span>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">WANT TO ADD MORE LATER?</h3>
+                <div class="pricing-row">
+                    <span class="pricing-label">+ Instagram</span>
+                    <span class="pricing-value">+R5,000/month</span>
+                </div>
+                <div class="pricing-row">
+                    <span class="pricing-label">+ TikTok</span>
+                    <span class="pricing-value">+R5,000/month</span>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.25rem;">You scale when you're ready. Each platform adds on incrementally.</p>
+        </div>
+    </section>
+
+    <!-- Slide 9: Phase 3 -->
+    <section class="slide slide-9">
+        <div class="slide-content">
+            <h3>Phase 3: Attract Sponsors</h3>
+            <h2>CREDIBILITY ✓ STORY ✓ NOW AMPLIFY.</h2>
+            
+            <ul class="deliverables-list">
+                <li>
+                    <strong>Paid Advertising</strong>
+                    R12,000/month ad budget
+                </li>
+                <li>
+                    <strong>Influencer Collaborations</strong>
+                    R3,000/month (local Cape Town micro-influencers)
+                </li>
+                <li>
+                    <strong>Additional Platforms</strong>
+                    Instagram & TikTok at scale
+                </li>
+                <li>
+                    <strong>Monthly Performance Review</strong>
+                    Full transparency on every rand spent
+                </li>
+            </ul>
+
+            <div class="highlight" style="margin-top: 3rem;">
+                David's TikTok (14K followers) is already an asset waiting to be activated.
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: The Full Picture -->
+    <section class="slide slide-10">
+        <div class="slide-content">
+            <h2>YOU DON'T PAY FOR ALL OF THIS AT ONCE.</h2>
+            
+            <div class="full-picture-grid">
+                <div class="phase-summary">
+                    <h4>PHASE 1 (Now)</h4>
+                    <ul>
+                        <li>Brand Identity: R10,000</li>
+                        <li>Website: R20,000</li>
+                        <li>Retainer: R2,550/mo</li>
+                    </ul>
+                    <div class="total-price">R30,000 once-off</div>
+                </div>
+
+                <div class="phase-summary">
+                    <h4>PHASE 2 (After Website)</h4>
+                    <ul>
+                        <li>SM + 1 Platform: R14,000/mo</li>
+                        <li>+ Facebook: R5,000/mo</li>
+                    </ul>
+                    <div class="total-price">R19,000/month</div>
+                </div>
+
+                <div class="phase-summary">
+                    <h4>PHASE 3 (When Ready)</h4>
+                    <ul>
+                        <li>Paid Ads: R12,000/mo</li>
+                        <li>Influencers: R3,000/mo</li>
+                        <li>+ Platforms: R5,000/mo each</li>
+                    </ul>
+                    <div class="total-price">Add when ready</div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                TO GET STARTED: R15,000 deposit. That's it.
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: Accountability -->
+    <section class="slide slide-11">
+        <div class="slide-content">
+            <h2>MEASURABLE TARGETS</h2>
+            
+            <div class="targets-grid">
+                <div class="target-row">
+                    <span><strong>Facebook Followers:</strong> <span class="target-value">144</span></span>
+                    <span class="arrow">→</span>
+                    <span class="target-value">10,000</span>
+                </div>
+                <div class="target-row">
+                    <span><strong>LinkedIn Followers:</strong> <span class="target-value">0</span></span>
+                    <span class="arrow">→</span>
+                    <span class="target-value">1,000</span>
+                </div>
+                <div class="target-row">
+                    <span><strong>Website:</strong> <span class="target-value">None</span></span>
+                    <span class="arrow">→</span>
+                    <span class="target-value">Live with donate button</span>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Slide 12: Why Now -->
+    <section class="slide slide-12">
+        <div class="slide-content">
+            <h2>There are 6 days until April.</h2>
+            
+            <div class="urgency-number">6</div>
+
+            <p style="text-align: center; font-size: 1.25rem; max-width: 800px; margin: 0 auto;">The Feel Good Initiative has been operating for over a year without a website. Without a LinkedIn. Without a professional digital presence.</p>
+
+            <div class="highlight" style="margin-top: 3rem;">
+                Every month without credibility is a month of missed sponsors.<br>
+                Every week without a story is a week of missed donations.
+            </div>
+
+            <p style="text-align: center; font-size: 1.25rem; max-width: 800px; margin: 3rem auto 0;">The Tidal Pool is a 10-year, R50 million project. Corporations want to be part of that journey — but they need to find you first.</p>
+        </div>
+    </section>
+
+    <!-- Slide 13: Final CTA -->
+    <section class="slide slide-13">
+        <div class="slide-content">
+            <h2>Nobody gives money to people they don't trust.<br>Let's build that trust.</h2>
+            
+            <div class="final-phases">
+                <div class="final-phase">
+                    <h4>PHASE 1: R30,000 once-off (R15,000 deposit)</h4>
+                    <p>Brand · Website · LinkedIn · Sponsor materials</p>
+                </div>
+
+                <div class="final-phase">
+                    <h4>PHASE 2: R19,000/month</h4>
+                    <p>Social media management · LinkedIn · Facebook</p>
+                </div>
+
+                <div class="final-phase">
+                    <h4>PHASE 3: Add on when you're ready</h4>
+                    <p>Paid ads · Influencers · More platforms</p>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 3rem;">
+                You only continue if you see results.
+            </div>
+
+            <p class="final-tagline">Prepared by Wilfred & Team — March 2026</p>
+        </div>
+    </section>
+
+    <script>
+        // Slide navigation
+        const slides = document.querySelectorAll('.slide');
+        const currentSlideEl = document.getElementById('current-slide');
+        const totalSlidesEl = document.getElementById('total-slides');
+        let currentSlide = 0;
+
+        totalSlidesEl.textContent = slides.length;
+
+        function updateSlideCounter() {
+            currentSlideEl.textContent = currentSlide + 1;
+        }
+
+        function goToSlide(index) {
+            if (index >= 0 && index < slides.length) {
+                currentSlide = index;
+                slides[currentSlide].scrollIntoView({ behavior: 'smooth' });
+                updateSlideCounter();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                goToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goToSlide(currentSlide - 1);
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(slides.length - 1);
+            }
+        });
+
+        // Click/tap navigation
+        slides.forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                if (currentSlide < slides.length - 1) {
+                    goToSlide(currentSlide + 1);
+                }
+            });
+        });
+
+        // Track scroll position to update counter
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const scrollPosition = window.scrollY + window.innerHeight / 2;
+                slides.forEach((slide, index) => {
+                    const slideTop = slide.offsetTop;
+                    const slideBottom = slideTop + slide.offsetHeight;
+                    if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
+                        currentSlide = index;
+                        updateSlideCounter();
+                    }
+                });
+            }, 100);
+        });
+
+        // Touch swipe support for mobile
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartY - touchEndY > swipeThreshold) {
+                // Swipe up
+                goToSlide(currentSlide + 1);
+            } else if (touchEndY - touchStartY > swipeThreshold) {
+                // Swipe down
+                goToSlide(currentSlide - 1);
+            }
+        }
+    </script>
+
+</body>
+</html>
