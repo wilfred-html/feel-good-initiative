@@ -291,7 +291,7 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
 <!-- ═══════════════════════════════════════ -->
 <!-- PAGE 5: TYPOGRAPHY -->
 <!-- ═══════════════════════════════════════ -->
-<div class="page section-page">
+<div class="page section-page alt-bg">
   <div class="sec-label">03 — Typography</div>
   <div class="sec-title">How we <span>speak visually.</span></div>
   <p class="sec-desc">Two complementary typefaces: one with presence for headlines, one built for readability in body text.</p>
@@ -572,7 +572,8 @@ h1,h2,h3,h4,.sec-title{font-family:'Josefin Sans',sans-serif;color:var(--dark);l
 // Reveal on scroll — matching website formula
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
 // Auto-tag elements for reveal
-document.querySelectorAll('.sec-label, .sec-title, .sec-desc, .card, .value-card, .swatch, .rule-box, .tone-do, .tone-dont, .type-specimen, .toc-item, .cover-badge, .cover h1, .cover-sub, .cover-meta').forEach((el,i)=>{
+// Exclude cover elements — they should be immediately visible
+document.querySelectorAll('.section-page .sec-label, .section-page .sec-title, .section-page .sec-desc, .card, .value-card, .swatch, .rule-box, .tone-do, .tone-dont, .type-specimen, .toc-item').forEach((el,i)=>{
   el.classList.add('reveal');
   if(i%4===1)el.classList.add('rd1');
   if(i%4===2)el.classList.add('rd2');
