@@ -159,48 +159,62 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .lead-role{font-size:var(--t-sm);color:var(--teal);font-weight:600;margin-bottom:var(--s2)}
 .lead-info p{font-size:var(--t-sm);color:var(--text-light);line-height:1.65}
 
-/* ═══ SPONSORSHIP — Anchoring + Hick's Law ═══ */
+/* ═══ SPONSORSHIP — Visual Hierarchy + Anchoring + Hick's Law + Progressive Disclosure ═══ */
 .sponsor{background:var(--dark-deep);color:#fff}
-.sponsor-header{text-align:center;max-width:640px;margin:0 auto var(--s8)}
+.sponsor-header{text-align:center;max-width:680px;margin:0 auto var(--s7)}
 .sponsor h2{color:#fff;margin-bottom:var(--s2)}.sponsor h2 span{color:var(--teal-light)}
-.sponsor-header p{color:rgba(255,255,255,.6);font-size:var(--t-base)}
+.sponsor-header p{color:rgba(255,255,255,.62);font-size:var(--t-base)}
 
-.sponsor-interest{max-width:1040px;margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:28px;padding:var(--s6);box-shadow:0 20px 60px rgba(0,0,0,.18)}
-.sponsor-interest-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s5);align-items:start}
-.sponsor-interest-panel{padding:var(--s2) 0}
-.sponsor-interest-panel h3{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;letter-spacing:.02em;color:#fff;margin-bottom:var(--s2)}
-.sponsor-interest-panel p{color:rgba(255,255,255,.68);font-size:var(--t-sm);line-height:1.8;margin-bottom:var(--s4)}
-.sponsor-points{display:grid;gap:var(--s2)}
-.sponsor-point{display:flex;gap:var(--s2);align-items:flex-start;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
-.sponsor-point i{color:var(--teal-light);font-size:var(--t-base);margin-top:2px}
-.sponsor-point strong{display:block;color:#fff;font-size:var(--t-sm);margin-bottom:4px}
-.sponsor-point span{color:rgba(255,255,255,.58);font-size:var(--t-xs);line-height:1.65}
-.sponsor-form-card{background:rgba(8,27,27,.55);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:var(--s5)}
-.sponsor-form-card h4{font-size:var(--t-base);color:#fff;margin-bottom:6px}
-.sponsor-form-card > p{font-size:var(--t-xs);color:rgba(255,255,255,.55);margin-bottom:var(--s4)}
-.sponsor-form{display:grid;gap:var(--s3)}
-.sponsor-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.sponsor-shell{max-width:980px;margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:32px;padding:var(--s6);box-shadow:0 24px 80px rgba(0,0,0,.18)}
+.sponsor-topline{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s4);padding-bottom:var(--s3);border-bottom:1px solid rgba(255,255,255,.07)}
+.sponsor-topline p{font-size:var(--t-sm);color:rgba(255,255,255,.54)}
+.sponsor-trust{display:flex;gap:10px;flex-wrap:wrap}
+.sponsor-trust span{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:11px;color:rgba(255,255,255,.72)}
+.sponsor-trust i{color:var(--teal-light)}
+
+.sponsor-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:var(--s5);align-items:start}
+.sponsor-main h3{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.02;color:#fff;margin-bottom:12px;max-width:10ch}
+.sponsor-main .microcopy{font-size:var(--t-sm);line-height:1.75;color:rgba(255,255,255,.66);max-width:56ch;margin-bottom:var(--s4)}
+.sponsor-main .mini-proof{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:var(--s4)}
+.sponsor-main .mini-proof span{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.72);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.sponsor-main .mini-proof i{color:var(--orange)}
+
+.sponsor-step-label{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+.sponsor-step-label::before{content:'';width:28px;height:1px;background:rgba(255,255,255,.22)}
+.sponsor-amount-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:var(--s4)}
+.sponsor-amount-option{position:relative}
+.sponsor-amount-option input{position:absolute;opacity:0;pointer-events:none}
+.sponsor-amount-option label{display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:118px;padding:18px;border-radius:22px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.03);cursor:pointer;transition:all .22s var(--ease)}
+.sponsor-amount-option label small{display:inline-flex;align-items:center;align-self:flex-start;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.05);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.sponsor-amount-option label strong{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.35rem,2vw,1.7rem);letter-spacing:.03em;color:#fff}
+.sponsor-amount-option label span{font-size:12px;line-height:1.55;color:rgba(255,255,255,.55);max-width:24ch}
+.sponsor-amount-option label:hover{transform:translateY(-2px);border-color:rgba(95,214,214,.5);background:rgba(95,214,214,.075)}
+.sponsor-amount-option input:checked + label{border-color:var(--orange);background:linear-gradient(180deg,rgba(217,90,16,.18),rgba(217,90,16,.08));box-shadow:0 0 0 1px rgba(217,90,16,.24) inset}
+.sponsor-amount-option.featured label{border-color:rgba(217,90,16,.35)}
+.sponsor-amount-option.featured label small{background:rgba(217,90,16,.18);color:#ffd2bc}
+.sponsor-disclaimer{font-size:11px;color:rgba(255,255,255,.42);margin-top:-6px}
+
+.sponsor-side{background:rgba(8,27,27,.56);border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:var(--s5);position:sticky;top:96px}
+.sponsor-side h4{font-size:var(--t-base);color:#fff;margin-bottom:6px}
+.sponsor-side p{font-size:var(--t-xs);line-height:1.7;color:rgba(255,255,255,.56);margin-bottom:var(--s3)}
+.sponsor-form{display:grid;gap:12px}
 .sponsor-form input,.sponsor-form select,.sponsor-form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 16px;color:#fff;font-family:inherit;font-size:var(--t-sm);outline:none;transition:border-color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease)}
-.sponsor-form input::placeholder,.sponsor-form textarea::placeholder{color:rgba(255,255,255,.4)}
+.sponsor-form input::placeholder,.sponsor-form textarea::placeholder{color:rgba(255,255,255,.38)}
 .sponsor-form select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,.55) 50%),linear-gradient(135deg,rgba(255,255,255,.55) 50%,transparent 50%);background-position:calc(100% - 22px) calc(50% - 3px),calc(100% - 16px) calc(50% - 3px);background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:42px}
 .sponsor-form select option{color:#102424;background:#f2f6f5}
 .sponsor-form input:focus,.sponsor-form select:focus,.sponsor-form textarea:focus{border-color:rgba(95,214,214,.8);background:rgba(255,255,255,.06);transform:translateY(-1px)}
-.sponsor-amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.sponsor-amount-option{position:relative}
-.sponsor-amount-option input{position:absolute;opacity:0;pointer-events:none}
-.sponsor-amount-option label{display:flex;flex-direction:column;gap:6px;justify-content:center;min-height:90px;padding:16px 14px;border-radius:18px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);cursor:pointer;transition:all .22s var(--ease)}
-.sponsor-amount-option label strong{font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);font-weight:700;color:#fff;letter-spacing:.04em}
-.sponsor-amount-option label span{font-size:var(--t-xs);color:rgba(255,255,255,.5);line-height:1.45}
-.sponsor-amount-option label:hover{border-color:rgba(95,214,214,.5);background:rgba(95,214,214,.08);transform:translateY(-2px)}
-.sponsor-amount-option input:checked + label{border-color:var(--orange);background:rgba(217,90,16,.12);box-shadow:0 0 0 1px rgba(217,90,16,.28) inset}
-.sponsor-amount-option.custom label strong{font-size:var(--t-sm)}
-.sponsor-inline-note{font-size:11px;color:rgba(255,255,255,.45);margin-top:-4px}
-.sponsor-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.sponsor-actions .btn{min-width:220px;justify-content:center}
-.sponsor-actions p{font-size:11px;color:rgba(255,255,255,.45)}
+.sponsor-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.details-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);cursor:pointer;color:#fff;font-size:12px;font-weight:600}
+.details-toggle span:last-child{font-size:11px;color:rgba(255,255,255,.45);font-weight:500}
+.sponsor-details{display:none}
+.sponsor-details.open{display:grid;gap:12px}
+.sponsor-actions{display:grid;gap:10px;margin-top:4px}
+.sponsor-actions .btn{width:100%;justify-content:center}
+.sponsor-actions p{font-size:11px;color:rgba(255,255,255,.42);text-align:center}
 
-.sponsor-footer{text-align:center;margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid rgba(255,255,255,.06)}
+.sponsor-footer{text-align:center;margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid rgba(255,255,255,.06)}
 .sponsor-footer p{color:rgba(255,255,255,.4);font-size:var(--t-sm);margin-bottom:var(--s3)}
+
 
 /* ═══ SOCIAL PROOF — Proximity before CTA ═══ */
 .voices{background:var(--bg-alt)}
@@ -710,58 +724,105 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   </div>
 </section>
 
-<!-- SPONSORSHIP PORTAL — Anchoring + Hick's Law -->
+<!-- SPONSORSHIP PORTAL — Visual Hierarchy + Anchoring + Progressive Disclosure -->
 <section class="sponsor section" id="sponsor">
   <div class="container">
     <div class="sponsor-header">
       <div class="label reveal" style="background:rgba(255,255,255,.08);color:var(--teal-light);justify-content:center;"><i class="bi bi-arrow-up-right"></i> Sponsorship</div>
-      <h2 class="reveal rd1">Invest in <span>lasting impact.</span></h2>
-      <p class="reveal rd2">Your partnership funds real infrastructure, creates jobs, and puts your brand alongside a movement people believe in. Not a logo on a wall — a seat at the table.</p>
+      <h2 class="reveal rd1">Choose the level of <span>impact you’re considering.</span></h2>
+      <p class="reveal rd2">We’ve made this simple: pick the support level that feels closest to your intent, then leave your details and the team will follow up personally.</p>
     </div>
-    <div class="sponsor-interest reveal rd2">
-      <div class="sponsor-interest-grid">
-        <div class="sponsor-interest-panel">
-          <h3>Tell us how you’d like to support the project.</h3>
-          <p>Instead of forcing every sponsor into a fixed tier, this form lets partners signal their level of interest so the team can shape the right sponsorship or donation conversation around it.</p>
-          <div class="sponsor-points">
-            <div class="sponsor-point">
-              <i class="bi bi-building"></i>
-              <div>
-                <strong>For brands, funders, and private donors</strong>
-                <span>Whether you're exploring CSI, a once-off contribution, or a larger naming-rights conversation, this captures intent fast.</span>
-              </div>
+
+    <div class="sponsor-shell reveal rd2">
+      <div class="sponsor-topline">
+        <p>Designed to be scanned in seconds — decision first, details second.</p>
+        <div class="sponsor-trust">
+          <span><i class="bi bi-shield-check"></i> Community-led project</span>
+          <span><i class="bi bi-envelope-check"></i> Direct team follow-up</span>
+        </div>
+      </div>
+
+      <div class="sponsor-grid">
+        <div class="sponsor-main">
+          <h3>What level of support are you interested in?</h3>
+          <p class="microcopy">Start with the amount band that feels right. You’re not locking yourself into anything — this just helps the team understand the kind of sponsorship or donation conversation to have with you.</p>
+          <div class="mini-proof">
+            <span><i class="bi bi-people-fill"></i> Sponsors, brands &amp; private donors welcome</span>
+            <span><i class="bi bi-water"></i> Supporting the Hout Bay tidal pool vision</span>
+          </div>
+
+          <div class="sponsor-step-label">Step 1 — Select an amount</div>
+          <div class="sponsor-amount-grid">
+            <div class="sponsor-amount-option">
+              <input type="radio" name="amount-interest" id="amt-50" value="R50K" checked form="sponsorship-interest">
+              <label for="amt-50">
+                <small>Starter support</small>
+                <strong>R50K</strong>
+                <span>Ideal for early sponsor interest or a meaningful one-off donation.</span>
+              </label>
             </div>
-            <div class="sponsor-point">
-              <i class="bi bi-sliders2"></i>
-              <div>
-                <strong>Flexible by design</strong>
-                <span>Supporters can choose a suggested amount bracket or request a custom partnership structure that fits their budget and goals.</span>
-              </div>
+            <div class="sponsor-amount-option">
+              <input type="radio" name="amount-interest" id="amt-250" value="R250K" form="sponsorship-interest">
+              <label for="amt-250">
+                <small>Major sponsor</small>
+                <strong>R250K</strong>
+                <span>For brands or funders exploring a more visible partnership.</span>
+              </label>
             </div>
-            <div class="sponsor-point">
-              <i class="bi bi-heart-fill"></i>
-              <div>
-                <strong>Built for serious interest</strong>
-                <span>The goal is to turn curiosity into qualified sponsor leads the team can follow up on personally.</span>
-              </div>
+            <div class="sponsor-amount-option featured">
+              <input type="radio" name="amount-interest" id="amt-1m" value="R1M+" form="sponsorship-interest">
+              <label for="amt-1m">
+                <small>Recommended</small>
+                <strong>R1M+</strong>
+                <span>Best fit for strategic backers who want to help shape real project momentum.</span>
+              </label>
+            </div>
+            <div class="sponsor-amount-option">
+              <input type="radio" name="amount-interest" id="amt-5m" value="R5M+" form="sponsorship-interest">
+              <label for="amt-5m">
+                <small>Transformational</small>
+                <strong>R5M+</strong>
+                <span>For large-scale backing, naming-rights discussions, or flagship support.</span>
+              </label>
+            </div>
+            <div class="sponsor-amount-option">
+              <input type="radio" name="amount-interest" id="amt-custom" value="Custom amount" form="sponsorship-interest">
+              <label for="amt-custom">
+                <small>Flexible</small>
+                <strong>Custom</strong>
+                <span>I’d like to discuss a different amount or structure.</span>
+              </label>
+            </div>
+            <div class="sponsor-amount-option">
+              <input type="radio" name="amount-interest" id="amt-undecided" value="Not sure yet" form="sponsorship-interest">
+              <label for="amt-undecided">
+                <small>Need guidance</small>
+                <strong>Not sure yet</strong>
+                <span>I’m interested, but I’d prefer a quick conversation first.</span>
+              </label>
             </div>
           </div>
+          <p class="sponsor-disclaimer">This is an expression of interest, not a binding commitment.</p>
         </div>
-        <div class="sponsor-form-card reveal rd3">
-          <h4>Sponsorship / Donation Interest</h4>
-          <p>Leave your details and select the level of support you’re considering.</p>
-          <form name="sponsorship-interest" class="sponsor-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+
+        <aside class="sponsor-side reveal rd3">
+          <h4>Step 2 — Leave your details</h4>
+          <p>Once you submit, the team can follow up with the right sponsorship or donation conversation for your level of interest.</p>
+
+          <form id="sponsorship-interest" name="sponsorship-interest" class="sponsor-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="sponsorship-interest">
             <input type="hidden" name="source-section" value="sponsorship portal">
             <p style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
             <div class="form-row">
               <input type="text" name="full-name" placeholder="Full name" required>
-              <input type="text" name="organisation" placeholder="Organisation / Company">
+              <input type="email" name="email" placeholder="Email address" required>
             </div>
             <div class="form-row">
-              <input type="email" name="email" placeholder="Email address" required>
+              <input type="text" name="organisation" placeholder="Organisation / Company">
               <input type="tel" name="phone" placeholder="Phone number">
             </div>
+
             <select name="interest-type" required>
               <option value="" disabled selected>I’m interested in...</option>
               <option>Corporate sponsorship</option>
@@ -770,65 +831,27 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
               <option>Naming-rights conversation</option>
               <option>Custom partnership structure</option>
             </select>
-            <div>
-              <label style="display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px;">Amount of interest</label>
-              <div class="sponsor-amount-grid">
-                <div class="sponsor-amount-option">
-                  <input type="radio" name="amount-interest" id="amt-50" value="R50K" checked>
-                  <label for="amt-50">
-                    <strong>R50K</strong>
-                    <span>Entry-level sponsor / donor interest</span>
-                  </label>
-                </div>
-                <div class="sponsor-amount-option">
-                  <input type="radio" name="amount-interest" id="amt-250" value="R250K">
-                  <label for="amt-250">
-                    <strong>R250K</strong>
-                    <span>Major sponsor conversation</span>
-                  </label>
-                </div>
-                <div class="sponsor-amount-option">
-                  <input type="radio" name="amount-interest" id="amt-1m" value="R1M+">
-                  <label for="amt-1m">
-                    <strong>R1M+</strong>
-                    <span>Strategic / flagship support</span>
-                  </label>
-                </div>
-                <div class="sponsor-amount-option">
-                  <input type="radio" name="amount-interest" id="amt-5m" value="R5M+">
-                  <label for="amt-5m">
-                    <strong>R5M+</strong>
-                    <span>Transformational project backing</span>
-                  </label>
-                </div>
-                <div class="sponsor-amount-option custom">
-                  <input type="radio" name="amount-interest" id="amt-custom" value="Custom amount">
-                  <label for="amt-custom">
-                    <strong>Custom amount</strong>
-                    <span>I’d like to discuss a different level</span>
-                  </label>
-                </div>
-                <div class="sponsor-amount-option custom">
-                  <input type="radio" name="amount-interest" id="amt-undecided" value="Not sure yet">
-                  <label for="amt-undecided">
-                    <strong>Not sure yet</strong>
-                    <span>I need a conversation first</span>
-                  </label>
-                </div>
-              </div>
+
+            <button type="button" class="details-toggle" id="detailsToggle" aria-expanded="false" aria-controls="sponsorDetails">
+              <span>Add more details (optional)</span>
+              <span>Timeline, goals, notes</span>
+            </button>
+            <div class="sponsor-details" id="sponsorDetails">
+              <textarea name="message" rows="4" placeholder="Anything you'd like the team to know? For example: timeline, sponsorship goals, preferred structure, or whether this is a donation."></textarea>
             </div>
-            <textarea name="message" rows="4" placeholder="Anything you'd like the team to know? For example: preferred sponsorship type, timeline, brand goals, or whether this is a donation."></textarea>
+
             <div class="sponsor-actions">
               <button type="submit" class="btn btn-orange"><i class="bi bi-send"></i> Submit Sponsorship Interest</button>
-              <p>This can later be wired to email, Formspark, Netlify Forms, or the existing contact workflow.</p>
+              <p>Netlify Forms will capture the submission for direct follow-up.</p>
             </div>
           </form>
-        </div>
+        </aside>
       </div>
-    </div>
-    <div class="sponsor-footer reveal">
-      <p>Looking for a custom partnership structure? Every contribution is an investment in lasting change. Let's talk.</p>
-      <a href="#contact" class="btn btn-white"><i class="bi bi-file-earmark-arrow-down"></i> Request Prospectus</a>
+
+      <div class="sponsor-footer reveal">
+        <p>Looking for a custom partnership structure? Every contribution is an investment in lasting change.</p>
+        <a href="#contact" class="btn btn-white"><i class="bi bi-file-earmark-arrow-down"></i> Request Prospectus</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1148,6 +1171,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     respond(text);
     document.getElementById('cbQuick').style.display='none';
   }
+
+  const detailsToggle=document.getElementById('detailsToggle');
+  const sponsorDetails=document.getElementById('sponsorDetails');
+  if(detailsToggle&&sponsorDetails){detailsToggle.onclick=()=>{const open=sponsorDetails.classList.toggle('open');detailsToggle.setAttribute('aria-expanded',open?'true':'false');};}
 
   // Toggle
   fab.onclick=()=>{
