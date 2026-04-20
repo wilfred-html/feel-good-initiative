@@ -165,21 +165,41 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .sponsor h2{color:#fff;margin-bottom:var(--s2)}.sponsor h2 span{color:var(--teal-light)}
 .sponsor-header p{color:rgba(255,255,255,.6);font-size:var(--t-base)}
 
-.sponsor-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
-.tier{border-radius:var(--rlg);padding:var(--s4);border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);text-align:center;transition:all .25s var(--ease);position:relative}
-.tier:hover{background:rgba(255,255,255,.06);transform:translateY(-2px)}
-.tier.featured{border-color:var(--orange);background:rgba(217,90,16,.08)}
-.tier-tag{position:absolute;top:calc(var(--s2) * -1);left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.6rem;font-weight:700;padding:3px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
-.tier-name{font-family:'Josefin Sans',sans-serif;font-size:var(--t-sm);font-weight:400;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.15em;margin-bottom:var(--s2)}
-.tier-amount{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xl);font-weight:700;color:#fff;margin-bottom:var(--s3)}
-.tier-amount small{font-size:var(--t-sm);font-weight:400;opacity:.5}
-.tier-benefits{list-style:none;text-align:left;margin-bottom:var(--s4)}
-.tier-benefits li{font-size:var(--t-xs);color:rgba(255,255,255,.5);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:var(--s1);align-items:flex-start}
-.tier-benefits li:last-child{border-bottom:none}
-.tier-benefits i{color:var(--teal-light);font-size:var(--t-xs);flex-shrink:0;margin-top:2px}
-.tier .btn{width:100%}
+.sponsor-interest{max-width:1040px;margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:28px;padding:var(--s6);box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.sponsor-interest-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s5);align-items:start}
+.sponsor-interest-panel{padding:var(--s2) 0}
+.sponsor-interest-panel h3{font-family:'Josefin Sans',sans-serif;font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;letter-spacing:.02em;color:#fff;margin-bottom:var(--s2)}
+.sponsor-interest-panel p{color:rgba(255,255,255,.68);font-size:var(--t-sm);line-height:1.8;margin-bottom:var(--s4)}
+.sponsor-points{display:grid;gap:var(--s2)}
+.sponsor-point{display:flex;gap:var(--s2);align-items:flex-start;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.sponsor-point i{color:var(--teal-light);font-size:var(--t-base);margin-top:2px}
+.sponsor-point strong{display:block;color:#fff;font-size:var(--t-sm);margin-bottom:4px}
+.sponsor-point span{color:rgba(255,255,255,.58);font-size:var(--t-xs);line-height:1.65}
+.sponsor-form-card{background:rgba(8,27,27,.55);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:var(--s5)}
+.sponsor-form-card h4{font-size:var(--t-base);color:#fff;margin-bottom:6px}
+.sponsor-form-card > p{font-size:var(--t-xs);color:rgba(255,255,255,.55);margin-bottom:var(--s4)}
+.sponsor-form{display:grid;gap:var(--s3)}
+.sponsor-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.sponsor-form input,.sponsor-form select,.sponsor-form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 16px;color:#fff;font-family:inherit;font-size:var(--t-sm);outline:none;transition:border-color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease)}
+.sponsor-form input::placeholder,.sponsor-form textarea::placeholder{color:rgba(255,255,255,.4)}
+.sponsor-form select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,.55) 50%),linear-gradient(135deg,rgba(255,255,255,.55) 50%,transparent 50%);background-position:calc(100% - 22px) calc(50% - 3px),calc(100% - 16px) calc(50% - 3px);background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:42px}
+.sponsor-form select option{color:#102424;background:#f2f6f5}
+.sponsor-form input:focus,.sponsor-form select:focus,.sponsor-form textarea:focus{border-color:rgba(95,214,214,.8);background:rgba(255,255,255,.06);transform:translateY(-1px)}
+.sponsor-amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sponsor-amount-option{position:relative}
+.sponsor-amount-option input{position:absolute;opacity:0;pointer-events:none}
+.sponsor-amount-option label{display:flex;flex-direction:column;gap:6px;justify-content:center;min-height:90px;padding:16px 14px;border-radius:18px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);cursor:pointer;transition:all .22s var(--ease)}
+.sponsor-amount-option label strong{font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);font-weight:700;color:#fff;letter-spacing:.04em}
+.sponsor-amount-option label span{font-size:var(--t-xs);color:rgba(255,255,255,.5);line-height:1.45}
+.sponsor-amount-option label:hover{border-color:rgba(95,214,214,.5);background:rgba(95,214,214,.08);transform:translateY(-2px)}
+.sponsor-amount-option input:checked + label{border-color:var(--orange);background:rgba(217,90,16,.12);box-shadow:0 0 0 1px rgba(217,90,16,.28) inset}
+.sponsor-amount-option.custom label strong{font-size:var(--t-sm)}
+.sponsor-inline-note{font-size:11px;color:rgba(255,255,255,.45);margin-top:-4px}
+.sponsor-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sponsor-actions .btn{min-width:220px;justify-content:center}
+.sponsor-actions p{font-size:11px;color:rgba(255,255,255,.45)}
 
-.sponsor-footer{text-align:center;margin-top:var(--s8);padding-top:var(--s6);border-top:1px solid rgba(255,255,255,.06)}
+.sponsor-footer{text-align:center;margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid rgba(255,255,255,.06)}
 .sponsor-footer p{color:rgba(255,255,255,.4);font-size:var(--t-sm);margin-bottom:var(--s3)}
 
 /* ═══ SOCIAL PROOF — Proximity before CTA ═══ */
@@ -263,9 +283,9 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 
 /* Responsive */
 @media(max-width:1024px){
-  .hero-inner,.vision-grid,.lead-grid,.comm-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-inner,.vision-grid,.lead-grid,.comm-grid,.contact-grid,.sponsor-interest-grid{grid-template-columns:1fr}
   .hcard{max-width:480px}
-  .sponsor-tiers{grid-template-columns:repeat(2,1fr)}
+  .sponsor-amount-grid{grid-template-columns:repeat(2,1fr)}
   .ft-top{grid-template-columns:1fr 1fr}
   .vision-aside{position:static}
   .values-grid{grid-template-columns:repeat(3,1fr)!important}
@@ -274,8 +294,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .nav-links{display:none}.menu-toggle{display:block}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--bg);align-items:center;justify-content:center;gap:var(--s4);z-index:200}
   .nav-links.open a{font-size:var(--t-lg);color:var(--dark)}
-  .env-grid,.voices-grid,.values-grid{grid-template-columns:1fr!important}
-  .sponsor-tiers{grid-template-columns:1fr}
+  .env-grid,.voices-grid,.values-grid,.sponsor-amount-grid,.sponsor-form .form-row{grid-template-columns:1fr!important}
   .comm-stats{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .ft-top{grid-template-columns:1fr;gap:var(--s4)}
@@ -283,6 +302,9 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .section{padding:var(--s8) 0}
   .lead-card{flex-direction:column;text-align:center}
   .lead-avatar{margin:0 auto}
+  .sponsor-interest{padding:var(--s4)}
+  .sponsor-form-card{padding:var(--s4)}
+  .sponsor-actions .btn{width:100%;min-width:0}
 }
 
 /* ═══ ORIGIN STORY ═══ */
@@ -696,53 +718,112 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <h2 class="reveal rd1">Invest in <span>lasting impact.</span></h2>
       <p class="reveal rd2">Your partnership funds real infrastructure, creates jobs, and puts your brand alongside a movement people believe in. Not a logo on a wall — a seat at the table.</p>
     </div>
-    <div class="sponsor-tiers">
-      <div class="tier reveal rd1">
-        <div class="tier-name">Supporter</div>
-        <div class="tier-amount">R50K<small> ZAR</small></div>
-        <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> Your brand on our website &amp; materials</li>
-          <li><i class="bi bi-check-lg"></i> Social media features to your audience</li>
-          <li><i class="bi bi-check-lg"></i> Quarterly impact reports for your CSI records</li>
-          <li><i class="bi bi-check-lg"></i> Exclusive invitation to groundbreaking event</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Get Started</a>
-      </div>
-      <div class="tier reveal rd2">
-        <div class="tier-name">Champion</div>
-        <div class="tier-amount">R250K<small> ZAR</small></div>
-        <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> Everything in Supporter</li>
-          <li><i class="bi bi-check-lg"></i> Featured in all project media &amp; press coverage</li>
-          <li><i class="bi bi-check-lg"></i> On-site branding visible to thousands of visitors</li>
-          <li><i class="bi bi-check-lg"></i> Annual CSI impact report for stakeholders</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Get Started</a>
-      </div>
-      <div class="tier featured reveal rd3">
-        <div class="tier-tag">Most Popular</div>
-        <div class="tier-name">Builder</div>
-        <div class="tier-amount">R1M<small> ZAR</small></div>
-        <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> Everything in Champion</li>
-          <li><i class="bi bi-check-lg"></i> Your name permanently engraved on-site</li>
-          <li><i class="bi bi-check-lg"></i> Naming rights on pool features</li>
-          <li><i class="bi bi-check-lg"></i> VIP launch event with media coverage</li>
-          <li><i class="bi bi-check-lg"></i> Dedicated CSI case study for your brand</li>
-        </ul>
-        <a href="#contact" class="btn btn-orange" style="justify-content:center;">Become a Builder</a>
-      </div>
-      <div class="tier reveal rd4">
-        <div class="tier-name">Visionary</div>
-        <div class="tier-amount">R5M+<small> ZAR</small></div>
-        <ul class="tier-benefits">
-          <li><i class="bi bi-check-lg"></i> Everything in Builder</li>
-          <li><i class="bi bi-check-lg"></i> Major naming rights across the project</li>
-          <li><i class="bi bi-check-lg"></i> Advisory seat at the table</li>
-          <li><i class="bi bi-check-lg"></i> Full co-branding across all channels</li>
-          <li><i class="bi bi-check-lg"></i> Long-term tourism &amp; hospitality association</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,.15);color:#fff;justify-content:center;">Schedule a Conversation</a>
+    <div class="sponsor-interest reveal rd2">
+      <div class="sponsor-interest-grid">
+        <div class="sponsor-interest-panel">
+          <h3>Tell us how you’d like to support the project.</h3>
+          <p>Instead of forcing every sponsor into a fixed tier, this form lets partners signal their level of interest so the team can shape the right sponsorship or donation conversation around it.</p>
+          <div class="sponsor-points">
+            <div class="sponsor-point">
+              <i class="bi bi-building"></i>
+              <div>
+                <strong>For brands, funders, and private donors</strong>
+                <span>Whether you're exploring CSI, a once-off contribution, or a larger naming-rights conversation, this captures intent fast.</span>
+              </div>
+            </div>
+            <div class="sponsor-point">
+              <i class="bi bi-sliders2"></i>
+              <div>
+                <strong>Flexible by design</strong>
+                <span>Supporters can choose a suggested amount bracket or request a custom partnership structure that fits their budget and goals.</span>
+              </div>
+            </div>
+            <div class="sponsor-point">
+              <i class="bi bi-heart-fill"></i>
+              <div>
+                <strong>Built for serious interest</strong>
+                <span>The goal is to turn curiosity into qualified sponsor leads the team can follow up on personally.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sponsor-form-card reveal rd3">
+          <h4>Sponsorship / Donation Interest</h4>
+          <p>Leave your details and select the level of support you’re considering.</p>
+          <form name="sponsorship-interest" class="sponsor-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="sponsorship-interest">
+            <input type="hidden" name="source-section" value="sponsorship portal">
+            <p style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+            <div class="form-row">
+              <input type="text" name="full-name" placeholder="Full name" required>
+              <input type="text" name="organisation" placeholder="Organisation / Company">
+            </div>
+            <div class="form-row">
+              <input type="email" name="email" placeholder="Email address" required>
+              <input type="tel" name="phone" placeholder="Phone number">
+            </div>
+            <select name="interest-type" required>
+              <option value="" disabled selected>I’m interested in...</option>
+              <option>Corporate sponsorship</option>
+              <option>Private donation</option>
+              <option>CSI / foundation partnership</option>
+              <option>Naming-rights conversation</option>
+              <option>Custom partnership structure</option>
+            </select>
+            <div>
+              <label style="display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px;">Amount of interest</label>
+              <div class="sponsor-amount-grid">
+                <div class="sponsor-amount-option">
+                  <input type="radio" name="amount-interest" id="amt-50" value="R50K" checked>
+                  <label for="amt-50">
+                    <strong>R50K</strong>
+                    <span>Entry-level sponsor / donor interest</span>
+                  </label>
+                </div>
+                <div class="sponsor-amount-option">
+                  <input type="radio" name="amount-interest" id="amt-250" value="R250K">
+                  <label for="amt-250">
+                    <strong>R250K</strong>
+                    <span>Major sponsor conversation</span>
+                  </label>
+                </div>
+                <div class="sponsor-amount-option">
+                  <input type="radio" name="amount-interest" id="amt-1m" value="R1M+">
+                  <label for="amt-1m">
+                    <strong>R1M+</strong>
+                    <span>Strategic / flagship support</span>
+                  </label>
+                </div>
+                <div class="sponsor-amount-option">
+                  <input type="radio" name="amount-interest" id="amt-5m" value="R5M+">
+                  <label for="amt-5m">
+                    <strong>R5M+</strong>
+                    <span>Transformational project backing</span>
+                  </label>
+                </div>
+                <div class="sponsor-amount-option custom">
+                  <input type="radio" name="amount-interest" id="amt-custom" value="Custom amount">
+                  <label for="amt-custom">
+                    <strong>Custom amount</strong>
+                    <span>I’d like to discuss a different level</span>
+                  </label>
+                </div>
+                <div class="sponsor-amount-option custom">
+                  <input type="radio" name="amount-interest" id="amt-undecided" value="Not sure yet">
+                  <label for="amt-undecided">
+                    <strong>Not sure yet</strong>
+                    <span>I need a conversation first</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <textarea name="message" rows="4" placeholder="Anything you'd like the team to know? For example: preferred sponsorship type, timeline, brand goals, or whether this is a donation."></textarea>
+            <div class="sponsor-actions">
+              <button type="submit" class="btn btn-orange"><i class="bi bi-send"></i> Submit Sponsorship Interest</button>
+              <p>This can later be wired to email, Formspark, Netlify Forms, or the existing contact workflow.</p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <div class="sponsor-footer reveal">
