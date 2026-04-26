@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Feel Good Initiative — Do Good. Feel Good.</title>
-<meta name="description" content="Protecting Hout Bay's beaches, building a community tidal pool, and creating real change through daily action. Beach cleanups, environmental projects, and community upliftment.">
+<meta name="description" content="Protecting Hout Bay's beach, building a community tidal pool, and creating real change through daily action. Beach cleanups, environmental projects, and community upliftment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -159,34 +159,57 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .lead-role{font-size:var(--t-sm);color:var(--teal);font-weight:600;margin-bottom:var(--s2)}
 .lead-info p{font-size:var(--t-sm);color:var(--text-light);line-height:1.65}
 
-/* ═══ SPONSORSHIP — integrated section language ═══ */
-.sponsor{background:var(--dark-deep);color:#fff}
-.sponsor-header{text-align:center;max-width:640px;margin:0 auto var(--s6)}
+/* ═══ SPONSORSHIP — Hick's Law tiers · Anchoring · Proximity · Progressive disclosure ═══ */
+.sponsor{background:var(--dark-deep);color:#fff;position:relative;overflow:hidden}
+.sponsor::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.08) 0%,transparent 60%);pointer-events:none}
+.sponsor .container{position:relative;z-index:1}
+.sponsor-header{text-align:center;max-width:640px;margin:0 auto var(--s8)}
 .sponsor h2{color:#fff;margin-bottom:var(--s2)}.sponsor h2 span{color:var(--teal-light)}
-.sponsor-header p{color:rgba(255,255,255,.6);font-size:var(--t-base)}
-.sponsor-grid{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s8);align-items:start}
-.sponsor-copy h3{color:#fff;font-size:var(--t-md);margin-bottom:var(--s2)}
-.sponsor-copy p{font-size:var(--t-sm);line-height:1.75;color:rgba(255,255,255,.62);max-width:56ch}
-.sponsor-copy p + p{margin-top:var(--s2)}
-.sponsor-meta{display:flex;gap:var(--s2);flex-wrap:wrap;margin:var(--s4) 0 var(--s5)}
-.sponsor-meta span{display:inline-flex;align-items:center;gap:8px;font-size:var(--t-xs);color:rgba(255,255,255,.58);padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.1)}
-.sponsor-meta i{color:var(--teal-light)}
-.sponsor-step{font-family:'Josefin Sans',sans-serif;font-size:var(--t-sm);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:var(--s3)}
-.sponsor-options{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.08);border-left:1px solid rgba(255,255,255,.08);margin-bottom:var(--s3)}
-.sponsor-option{position:relative}
-.sponsor-option input{position:absolute;opacity:0;pointer-events:none}
-.sponsor-option label{display:block;padding:var(--s4);min-height:144px;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;transition:background .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease)}
-.sponsor-option label:hover{background:rgba(255,255,255,.03)}
-.sponsor-option input:checked + label{background:rgba(42,139,139,.14)}
-.sponsor-option strong{display:block;font-family:'Josefin Sans',sans-serif;font-size:clamp(1.35rem,2vw,1.7rem);font-weight:700;letter-spacing:.03em;color:#fff;margin-bottom:8px}
-.sponsor-option em{display:block;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-bottom:12px}
-.sponsor-option span{display:block;font-size:var(--t-xs);line-height:1.65;color:rgba(255,255,255,.56);max-width:24ch}
-.sponsor-option.featured label{background:rgba(217,90,16,.06)}
-.sponsor-option.featured input:checked + label{background:rgba(217,90,16,.14)}
-.sponsor-note{font-size:var(--t-xs);color:rgba(255,255,255,.4)}
-.sponsor-form-wrap{border-left:1px solid rgba(255,255,255,.08);padding-left:var(--s6)}
-.sponsor-form-wrap h3{color:#fff;font-size:var(--t-md);margin-bottom:var(--s2)}
-.sponsor-form-wrap p{font-size:var(--t-xs);line-height:1.7;color:rgba(255,255,255,.55);margin-bottom:var(--s3)}
+.sponsor-header .desc{color:rgba(255,255,255,.6);margin:var(--s1) auto 0}
+.sponsor .label{background:rgba(255,255,255,.06);color:var(--teal-light)}
+
+/* Tier grid — Hick's: 4 tiers · Anchoring: Builder featured, Visionary high anchor */
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);margin-bottom:var(--s4)}
+.tier{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s4);display:flex;flex-direction:column;transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease)}
+.tier:hover{transform:translateY(-3px);border-color:rgba(92,189,174,.25);background:rgba(255,255,255,.05)}
+.tier.featured{border-color:rgba(217,90,16,.4);background:rgba(217,90,16,.04)}
+.tier.featured:hover{border-color:rgba(217,90,16,.6)}
+.tier.selected{border-color:var(--teal-light);background:rgba(92,189,174,.08);box-shadow:0 0 0 1px rgba(92,189,174,.4)}
+.tier-flag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;white-space:nowrap}
+.tier-name{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--s2)}
+.tier.featured .tier-name{color:var(--orange)}
+.tier-price{font-family:'Josefin Sans',sans-serif;font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1;margin-bottom:var(--s1);letter-spacing:-.01em}
+.tier-tagline{font-size:var(--t-sm);color:rgba(255,255,255,.62);line-height:1.6;margin-bottom:var(--s3);min-height:42px}
+.tier-perks{list-style:none;display:flex;flex-direction:column;gap:var(--s1);margin-bottom:var(--s2);flex:1}
+.tier-perks li{display:flex;align-items:flex-start;gap:8px;font-size:var(--t-xs);color:rgba(255,255,255,.78);line-height:1.6}
+.tier-perks i{color:var(--teal-light);font-size:11px;margin-top:5px;flex-shrink:0}
+.tier.featured .tier-perks i{color:var(--orange)}
+.tier-toggle{background:none;border:none;color:var(--teal-light);font-size:var(--t-xs);font-weight:600;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-bottom:var(--s2)}
+.tier-toggle i{transition:transform .2s var(--ease);font-size:.65rem}
+.tier.expanded .tier-toggle i{transform:rotate(180deg)}
+.tier-detail{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.tier.expanded .tier-detail{max-height:260px}
+.tier-detail ul{list-style:none;display:flex;flex-direction:column;gap:6px;padding:var(--s2) 0;border-top:1px solid rgba(255,255,255,.08);margin-bottom:var(--s2)}
+.tier-detail li{display:flex;align-items:flex-start;gap:8px;font-size:var(--t-xs);color:rgba(255,255,255,.55);line-height:1.55}
+.tier-detail i{color:rgba(255,255,255,.35);font-size:11px;margin-top:5px;flex-shrink:0}
+.tier-cta{padding:var(--s2) var(--s3);width:100%;justify-content:center;margin-top:auto;background:transparent;border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:var(--t-sm)}
+.tier-cta:hover{border-color:var(--teal-light);background:rgba(92,189,174,.08);color:#fff;transform:translateY(-1px)}
+.tier.featured .tier-cta{background:var(--orange);border-color:var(--orange);color:#fff}
+.tier.featured .tier-cta:hover{background:var(--orange-hover);border-color:var(--orange-hover)}
+
+/* Custom — Hick's Law: 4 tiles only, route everything else to one line */
+.tier-custom{text-align:center;font-size:var(--t-sm);color:rgba(255,255,255,.55);margin-bottom:var(--s8)}
+.tier-custom a{color:var(--teal-light);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(92,189,174,.3);transition:border-color .15s,color .15s}
+.tier-custom a:hover{border-color:var(--teal-light);color:#fff}
+
+/* Action — Golden ratio 61.8/38.2 · Proximity: proof beside CTA */
+.sponsor-action{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s5);align-items:start;scroll-margin-top:calc(var(--nav-h) + var(--s3))}
+.sponsor-form-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s5)}
+.sponsor-form-wrap h3{color:#fff;font-size:var(--t-md);margin-bottom:var(--s1)}
+.sponsor-form-wrap > p{font-size:var(--t-sm);color:rgba(255,255,255,.55);margin-bottom:var(--s3);line-height:1.7}
+.tier-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(92,189,174,.1);border:1px solid rgba(92,189,174,.3);border-radius:100px;font-size:var(--t-xs);font-weight:600;color:var(--teal-light);margin-bottom:var(--s3);transition:all .25s var(--ease)}
+.tier-pill i{font-size:11px}
+.tier-pill.empty{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.45)}
 .sponsor-form{display:flex;flex-direction:column;gap:var(--s2)}
 .sponsor-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
 .sponsor-form input,.sponsor-form select,.sponsor-form textarea{width:100%;padding:var(--s2);background:transparent;border:1.5px solid rgba(255,255,255,.16);border-radius:var(--r);font-family:inherit;font-size:var(--t-base);color:#fff;outline:none;transition:border .15s,background .15s;-webkit-appearance:none}
@@ -200,10 +223,25 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .sponsor-inline-toggle.open i{transform:rotate(180deg)}
 .sponsor-details{display:none}
 .sponsor-details.open{display:block}
-.sponsor-actions{display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s1)}
-.sponsor-actions p{font-size:11px;color:rgba(255,255,255,.38)}
-.sponsor-footer{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:var(--s3);flex-wrap:wrap}
-.sponsor-footer p{font-size:var(--t-sm);color:rgba(255,255,255,.42);margin:0}
+.sponsor-form-actions{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s2)}
+
+/* Proof aside — Proximity Principle */
+.sponsor-proof{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s5);position:sticky;top:calc(var(--nav-h) + var(--s3))}
+.sponsor-proof h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:var(--s3)}
+.sponsor-proof-list{list-style:none;display:flex;flex-direction:column;gap:var(--s2);margin-bottom:var(--s3)}
+.sponsor-proof-list li{display:flex;align-items:center;gap:var(--s2);font-size:var(--t-sm);color:rgba(255,255,255,.78)}
+.sponsor-proof-list i{color:var(--teal-light);font-size:var(--t-sm)}
+.sponsor-proof-stat{padding-top:var(--s3);border-top:1px solid rgba(255,255,255,.08);font-size:var(--t-xs);color:rgba(255,255,255,.5);line-height:1.7}
+.sponsor-proof-stat strong{color:#fff;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);font-weight:700;display:block;margin-bottom:4px}
+
+@media(max-width:1024px){
+  .tier-grid{grid-template-columns:repeat(2,1fr);gap:var(--s2)}
+  .sponsor-action{grid-template-columns:1fr;gap:var(--s4)}
+  .sponsor-proof{position:static}
+}
+@media(max-width:600px){
+  .tier-grid{grid-template-columns:1fr}
+}
 
 
 /* ═══ SOCIAL PROOF — Proximity before CTA ═══ */
@@ -353,7 +391,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <div>
         <div class="hero-badge reveal"><div class="hero-badge-dot"></div> Community Movement — Hout Bay, Western Cape</div>
         <h1 class="reveal rd1">Do good. <span>Feel good.</span></h1>
-        <p class="lead reveal rd2">We're cleaning Hout Bay's beaches every day, building a tidal pool for the community, and proving that small actions create real change. Join the movement.</p>
+        <p class="lead reveal rd2">We're cleaning Hout Bay's beach every day, building a tidal pool for the community, and proving that small actions create real change. Join the movement.</p>
         <div class="hero-ctas reveal rd3">
           <a href="#sponsor" class="btn btn-orange btn-cta-main"><i class="bi bi-arrow-up-right"></i> Partner With Us</a>
           <a href="#vision" class="btn btn-outline btn-lg">View the Vision</a>
@@ -717,83 +755,125 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 <!-- SPONSORSHIP PORTAL — integrated section language -->
 <section class="sponsor section" id="sponsor">
   <div class="container">
+
+    <!-- Centered header — same pattern as env/projects/leadership -->
     <div class="sponsor-header">
-      <div class="label reveal" style="background:rgba(255,255,255,.08);color:var(--teal-light);justify-content:center;"><i class="bi bi-arrow-up-right"></i> Sponsorship</div>
-      <h2 class="reveal rd1">Back the vision at a level that <span>fits your intent.</span></h2>
-      <p class="reveal rd2">Select the amount range that feels closest to your interest, then leave your details so the team can follow up directly.</p>
+      <div class="label reveal" style="justify-content:center;"><i class="bi bi-arrow-up-right"></i> Partner With Us</div>
+      <h2 class="reveal rd1">Four ways to <span>back the build.</span></h2>
+      <p class="desc reveal rd2">Pick a level. Leave your details. The team takes it from there — sponsorship, donation, or partnership, on your terms.</p>
     </div>
 
-    <div class="sponsor-grid">
-      <div class="sponsor-copy reveal rd2">
-        <h3>Choose a support range.</h3>
-        <p>This section is built to do one job clearly: help potential sponsors or donors express the level of contribution they’re considering without forcing a long decision upfront.</p>
-        <p>Pick the amount band that feels closest to your intent. If you’re not sure yet, choose that option and the team will guide the conversation from there.</p>
+    <!-- Hick's Law: 4 canonical tiers · Anchoring: Builder featured · Serial position: Supporter low / Visionary high -->
+    <div class="tier-grid">
 
-        <div class="sponsor-meta">
-          <span><i class="bi bi-people-fill"></i> Corporate sponsors, CSI partners, and private donors</span>
-          <span><i class="bi bi-water"></i> Supporting the Hout Bay tidal pool vision</span>
+      <div class="tier reveal rd1">
+        <div class="tier-name">Supporter</div>
+        <div class="tier-price">R50K</div>
+        <p class="tier-tagline">A meaningful first contribution that shows up across our channels.</p>
+        <ul class="tier-perks">
+          <li><i class="bi bi-check-lg"></i> Brand on website + materials</li>
+          <li><i class="bi bi-check-lg"></i> Social media features</li>
+          <li><i class="bi bi-check-lg"></i> Quarterly impact reports</li>
+          <li><i class="bi bi-check-lg"></i> Groundbreaking event invitation</li>
+        </ul>
+        <button type="button" class="tier-toggle" onclick="event.stopPropagation();this.closest('.tier').classList.toggle('expanded')">
+          <i class="bi bi-chevron-down"></i> What's included
+        </button>
+        <div class="tier-detail">
+          <ul>
+            <li><i class="bi bi-dot"></i> Logo placement on the sponsorship page</li>
+            <li><i class="bi bi-dot"></i> Two dedicated social posts per quarter</li>
+            <li><i class="bi bi-dot"></i> Inclusion in printed event collateral</li>
+          </ul>
         </div>
-
-        <div class="sponsor-step">Step 1 — select your level</div>
-        <div class="sponsor-options">
-          <div class="sponsor-option">
-            <input type="radio" name="amount-interest" id="amt-50" value="R50K" checked form="sponsorship-interest">
-            <label for="amt-50">
-              <em>Starter support</em>
-              <strong>R50K</strong>
-              <span>For early sponsor interest or a meaningful once-off donation.</span>
-            </label>
-          </div>
-          <div class="sponsor-option">
-            <input type="radio" name="amount-interest" id="amt-250" value="R250K" form="sponsorship-interest">
-            <label for="amt-250">
-              <em>Major sponsor</em>
-              <strong>R250K</strong>
-              <span>For brands and funders exploring a visible partnership.</span>
-            </label>
-          </div>
-          <div class="sponsor-option featured">
-            <input type="radio" name="amount-interest" id="amt-1m" value="R1M+" form="sponsorship-interest">
-            <label for="amt-1m">
-              <em>Strategic backing</em>
-              <strong>R1M+</strong>
-              <span>For serious project backers wanting to help create momentum.</span>
-            </label>
-          </div>
-          <div class="sponsor-option">
-            <input type="radio" name="amount-interest" id="amt-5m" value="R5M+" form="sponsorship-interest">
-            <label for="amt-5m">
-              <em>Transformational</em>
-              <strong>R5M+</strong>
-              <span>For flagship support, naming-rights conversations, or major backing.</span>
-            </label>
-          </div>
-          <div class="sponsor-option">
-            <input type="radio" name="amount-interest" id="amt-custom" value="Custom amount" form="sponsorship-interest">
-            <label for="amt-custom">
-              <em>Flexible</em>
-              <strong>Custom</strong>
-              <span>For a different amount or a partnership structure tailored to your goals.</span>
-            </label>
-          </div>
-          <div class="sponsor-option">
-            <input type="radio" name="amount-interest" id="amt-undecided" value="Not sure yet" form="sponsorship-interest">
-            <label for="amt-undecided">
-              <em>Need guidance</em>
-              <strong>Not sure yet</strong>
-              <span>For supporters who want the conversation first before deciding.</span>
-            </label>
-          </div>
-        </div>
-        <p class="sponsor-note">This is an expression of interest, not a binding commitment.</p>
+        <button type="button" class="btn tier-cta" data-choose="Supporter — R50K">Choose Supporter</button>
       </div>
 
-      <div class="sponsor-form-wrap reveal rd3">
-        <h3>Step 2 — leave your details.</h3>
-        <p>Once submitted, the team can follow up with the right sponsorship, donation, or partnership conversation.</p>
+      <div class="tier reveal rd2">
+        <div class="tier-name">Champion</div>
+        <div class="tier-price">R250K</div>
+        <p class="tier-tagline">For brands ready to be visible at every stage of the build.</p>
+        <ul class="tier-perks">
+          <li><i class="bi bi-check-lg"></i> Featured in project media + press</li>
+          <li><i class="bi bi-check-lg"></i> On-site branding during construction</li>
+          <li><i class="bi bi-check-lg"></i> Annual CSI impact report</li>
+          <li><i class="bi bi-check-lg"></i> Everything in Supporter</li>
+        </ul>
+        <button type="button" class="tier-toggle" onclick="event.stopPropagation();this.closest('.tier').classList.toggle('expanded')">
+          <i class="bi bi-chevron-down"></i> What's included
+        </button>
+        <div class="tier-detail">
+          <ul>
+            <li><i class="bi bi-dot"></i> Co-branded press releases at project milestones</li>
+            <li><i class="bi bi-dot"></i> On-site signage during construction</li>
+            <li><i class="bi bi-dot"></i> CSI report tailored for stakeholder distribution</li>
+          </ul>
+        </div>
+        <button type="button" class="btn tier-cta" data-choose="Champion — R250K">Choose Champion</button>
+      </div>
+
+      <div class="tier featured reveal rd3">
+        <div class="tier-flag">Naming rights</div>
+        <div class="tier-name">Builder</div>
+        <div class="tier-price">R1M</div>
+        <p class="tier-tagline">A permanent place in the project — your name on the build.</p>
+        <ul class="tier-perks">
+          <li><i class="bi bi-check-lg"></i> Permanent on-site plaque</li>
+          <li><i class="bi bi-check-lg"></i> Naming rights on pool features</li>
+          <li><i class="bi bi-check-lg"></i> VIP launch access</li>
+          <li><i class="bi bi-check-lg"></i> Dedicated CSI case study</li>
+        </ul>
+        <button type="button" class="tier-toggle" onclick="event.stopPropagation();this.closest('.tier').classList.toggle('expanded')">
+          <i class="bi bi-chevron-down"></i> What's included
+        </button>
+        <div class="tier-detail">
+          <ul>
+            <li><i class="bi bi-dot"></i> Plaque permanently installed at the tidal pool</li>
+            <li><i class="bi bi-dot"></i> Naming rights to a feature, zone, or programme</li>
+            <li><i class="bi bi-dot"></i> Filmed CSI case study for your reporting</li>
+          </ul>
+        </div>
+        <button type="button" class="btn tier-cta" data-choose="Builder — R1M">Choose Builder</button>
+      </div>
+
+      <div class="tier reveal rd4">
+        <div class="tier-name">Visionary</div>
+        <div class="tier-price">R5M+</div>
+        <p class="tier-tagline">For flagship partners shaping the direction of the project.</p>
+        <ul class="tier-perks">
+          <li><i class="bi bi-check-lg"></i> Major naming rights</li>
+          <li><i class="bi bi-check-lg"></i> Full co-branding across all channels</li>
+          <li><i class="bi bi-check-lg"></i> Logo on materials, signage, communications</li>
+          <li><i class="bi bi-check-lg"></i> Advisory seat on the project</li>
+        </ul>
+        <button type="button" class="tier-toggle" onclick="event.stopPropagation();this.closest('.tier').classList.toggle('expanded')">
+          <i class="bi bi-chevron-down"></i> What's included
+        </button>
+        <div class="tier-detail">
+          <ul>
+            <li><i class="bi bi-dot"></i> Headline naming on the tidal pool itself</li>
+            <li><i class="bi bi-dot"></i> Strategic input via an advisory seat</li>
+            <li><i class="bi bi-dot"></i> First call on every media + launch moment</li>
+          </ul>
+        </div>
+        <button type="button" class="btn tier-cta" data-choose="Visionary — R5M+">Choose Visionary</button>
+      </div>
+
+    </div>
+
+    <p class="tier-custom reveal">Looking for a custom structure or unsure where to start? <a href="#sponsorForm">Tell us what you have in mind →</a></p>
+
+    <!-- Action — Golden ratio: form (61.8%) + proof (38.2%) · Proximity Principle -->
+    <div class="sponsor-action" id="sponsorForm">
+      <div class="sponsor-form-wrap reveal">
+        <h3>Leave your details.</h3>
+        <p>The team will follow up directly to walk through fit, structure, and the conversations that matter to your organisation.</p>
+
+        <div class="tier-pill empty" id="tierPill"><i class="bi bi-circle"></i> <span>Choose a level above</span></div>
 
         <form id="sponsorship-interest" name="sponsorship-interest" class="sponsor-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="sponsorship-interest">
+          <input type="hidden" name="amount-interest" id="amountInterest" value="Open — to discuss">
           <input type="hidden" name="source-section" value="sponsorship portal">
           <p style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
 
@@ -807,7 +887,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           </div>
 
           <select name="interest-type" required>
-            <option value="" disabled selected>I’m interested in...</option>
+            <option value="" disabled selected>I'm interested in...</option>
             <option>Corporate sponsorship</option>
             <option>Private donation</option>
             <option>CSI / foundation partnership</option>
@@ -816,24 +896,35 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           </select>
 
           <button type="button" class="sponsor-inline-toggle" id="detailsToggle" aria-expanded="false" aria-controls="sponsorDetails">
-            <i class="bi bi-chevron-down"></i> Add more details (optional)
+            <i class="bi bi-chevron-down"></i> Add a message (optional)
           </button>
           <div class="sponsor-details" id="sponsorDetails">
-            <textarea name="message" rows="4" placeholder="Anything you'd like the team to know? For example: timeline, sponsorship goals, preferred structure, or whether this is a donation."></textarea>
+            <textarea name="message" rows="4" placeholder="Anything the team should know? Timeline, goals, preferred structure, or whether this is a once-off donation."></textarea>
           </div>
 
-          <div class="sponsor-actions">
-            <button type="submit" class="btn btn-orange"><i class="bi bi-send"></i> Submit Sponsorship Interest</button>
-            <p>Captured through Netlify Forms for direct follow-up.</p>
+          <div class="sponsor-form-actions">
+            <button type="submit" class="btn btn-orange btn-lg"><i class="bi bi-arrow-up-right"></i> Submit Interest</button>
           </div>
         </form>
       </div>
+
+      <aside class="sponsor-proof reveal rd2">
+        <h4>In good company</h4>
+        <ul class="sponsor-proof-list">
+          <li><i class="bi bi-check-circle-fill"></i> Spar</li>
+          <li><i class="bi bi-check-circle-fill"></i> Bokbus Tours</li>
+          <li><i class="bi bi-check-circle-fill"></i> Deep Blue Security</li>
+          <li><i class="bi bi-check-circle-fill"></i> Chas Everitt</li>
+          <li><i class="bi bi-check-circle-fill"></i> Office National</li>
+          <li><i class="bi bi-check-circle-fill"></i> Alex Stewart, Beach Clinic + more</li>
+        </ul>
+        <div class="sponsor-proof-stat">
+          <strong>10 partners</strong>
+          backing the build, alongside daily action on the beach since day one.
+        </div>
+      </aside>
     </div>
 
-    <div class="sponsor-footer reveal">
-      <p>Looking for a custom partnership structure? Every contribution is an investment in lasting change.</p>
-      <a href="#contact" class="btn btn-white"><i class="bi bi-file-earmark-arrow-down"></i> Request Prospectus</a>
-    </div>
   </div>
 </section>
 
@@ -888,7 +979,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <div class="ft-top">
       <div class="ft-brand">
         <a href="#" class="nav-logo"><img src="logo.jpg" alt="TFGI" class="nav-logo-img"><span class="nav-logo-text" style="color:#fff">Feel Good Initiative</span></a>
-        <p>Do Good. Feel Good. Protecting Hout Bay's beaches, building community infrastructure, and creating lasting change — every single day.</p>
+        <p>Do Good. Feel Good. Protecting Hout Bay's beach, building community infrastructure, and creating lasting change — every single day.</p>
       </div>
       <div class="ft-col"><h4>Project</h4><a href="#vision">The Vision</a><a href="#environment">Environment</a><a href="#community">Community</a><a href="#leadership">Leadership</a></div>
       <div class="ft-col"><h4>Get Involved</h4><a href="#sponsor">Sponsorship Tiers</a><a href="#contact">Enquiries</a><a href="#contact">Request Prospectus</a></div>
@@ -1000,6 +1091,23 @@ const po=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){document
 const hc=document.querySelector('.hcard');if(hc)po.observe(hc);
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
 
+/* Sponsor tier → form selection */
+(function(){
+  const pill=document.getElementById('tierPill');
+  const hidden=document.getElementById('amountInterest');
+  const form=document.getElementById('sponsorForm');
+  document.querySelectorAll('.tier-cta[data-choose]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const value=btn.getAttribute('data-choose');
+      document.querySelectorAll('.tier').forEach(t=>t.classList.remove('selected'));
+      btn.closest('.tier').classList.add('selected');
+      if(hidden)hidden.value=value;
+      if(pill){pill.classList.remove('empty');pill.innerHTML='<i class="bi bi-check-circle-fill"></i> <span>'+value+'</span>';}
+      if(form)form.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+})();
+
 /* ═══ CHATBOT ENGINE ═══ */
 (function(){
   const fab=document.getElementById('cbFab'),win=document.getElementById('cbWin'),msgs=document.getElementById('cbMsgs'),inp=document.getElementById('cbIn'),badge=fab.querySelector('.cb-badge');
@@ -1009,7 +1117,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const KB={
     project:{
       keywords:['tidal pool','project','pool','what is','about','tell me','overview','mission'],
-      answer:`The Feel Good Initiative protects, restores, and beautifies Hout Bay's beaches and public spaces. Our biggest project is a <strong>R50 million eco-friendly tidal pool</strong> at Hout Bay Beach — but we're also running <strong>daily Beach Ranger operations</strong>, community bin initiatives, Hangberg beautification, and entrance improvement projects. We don't just plan — we show up every single day.`,
+      answer:`The Feel Good Initiative protects, restores, and beautifies Hout Bay's beach and public spaces. Our biggest project is a <strong>R50 million eco-friendly tidal pool</strong> at Hout Bay Beach — but we're also running <strong>daily Beach Ranger operations</strong>, community bin initiatives, Hangberg beautification, and entrance improvement projects. We don't just plan — we show up every single day.`,
       actions:[{label:'View the Vision',icon:'bi-eye',action:'navigate',target:'#vision'},{label:'See Our Projects',icon:'bi-kanban',action:'navigate',target:'#projects'}]
     },
     sponsor:{

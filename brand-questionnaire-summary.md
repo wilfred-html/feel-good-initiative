@@ -5,7 +5,7 @@
 
 ## 1. Origin & Purpose
 - **Founder:** Ryan Bluck — grew up in Hout Bay, daily beach walker, frustrated by rubbish
-- **Mission:** Protect, restore, and beautify beaches & public spaces; create safe, accessible environments; bring community together; create jobs; inspire pride
+- **Mission:** Protect, restore, and beautify beach & public spaces; create safe, accessible environments; bring community together; create jobs; inspire pride
 - **Vision:** Scale from local cleanup to national model for environmental care + community upliftment
 - **Values:** Community First, Environmental Stewardship, Consistency & Accountability, Local Pride, Growth & Opportunity
 - **UVP:** Daily hands-on action (Beach Ranger every day), not occasional cleanups
