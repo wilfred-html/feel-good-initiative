@@ -17,14 +17,15 @@ Forms only work end-to-end on the deployed Netlify site — local submits will f
 
 ## Top-level pages
 
-Three independent self-contained HTML files. Each has its **own inline `<style>` and `<script>`**; there are no shared CSS/JS files. Design tokens (colors, spacing, type scale) are **duplicated** across the files — when adjusting the palette or scale, update each file you touch.
+The three HTML files below are independent and self-contained. Each has its **own inline `<style>` and `<script>`**; there are no shared CSS/JS files. Design tokens (colors, spacing, type scale) are **duplicated** across the files — when adjusting the palette or scale, update each file you touch.
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Main marketing site — sponsor-focused, all content sections + chatbot + sponsorship form. |
+| `index.html` | Main marketing site (~1.6k lines, all inline). Section order: hero → ongoing-projects ticker → value-prop (with `.vp-partners` logo carousel inside it as proof band) → core values → origin story → vision → 6-phase roadmap → environment → projects → community → leadership → voices → sponsor tiers + Netlify form → final-cta → footer → chatbot. |
 | `brand-book.html` | Print-ready A4 brand book (`@page { size: A4 }`). Same tokens as `index.html`, page-based layout. |
 | `pitch-deck.html` | Scroll-snap pitch deck. **Different type system** (Crimson Pro serif, simpler `--teal/--orange` vars). Don't import its styles into the others. |
 | `pitch-deck-v2.txt` | Plain-text source for a v2 pitch deck — narrative only, not rendered anywhere. |
+| `DESIGN-SYSTEM.md` | Consolidated colour/type/spacing/motion reference. Read this before extending the design system; the live CSS in `index.html` is still authoritative when the two disagree. |
 
 ## Design system (index.html + brand-book.html)
 
@@ -40,14 +41,20 @@ CSS is hand-minified-ish (multi-rule lines, no whitespace). Match the surroundin
 
 ## Forms (Netlify-specific)
 
-- `index.html:795` — `<form data-netlify="true" name="sponsorship-interest">` is the **only live form**. Netlify discovers forms by parsing static HTML at deploy time, so:
+The file is long and edited often, so search by attribute rather than chasing line numbers.
+
+- The **only live form** is `<form name="sponsorship-interest" data-netlify="true">` inside the sponsor section. Netlify discovers forms by parsing static HTML at deploy time, so:
   - The form must stay rendered in HTML at page load (do not inject it via JS).
   - The hidden `<input name="form-name" value="sponsorship-interest">` and the `bot-field` honeypot must remain.
-- `index.html:861` — `<form class="contact-form" onsubmit="event.preventDefault();">` is a **non-functional placeholder**. If wiring it up, give it a unique `name=`, add `data-netlify="true"` + the `form-name` hidden input, and remove the preventDefault.
+- The contact section's `<form class="contact-form" onsubmit="event.preventDefault();">` is a **non-functional placeholder**. If wiring it up, give it a unique `name=`, add `data-netlify="true"` + the `form-name` hidden input, and remove the preventDefault.
 
 ## Chatbot (index.html)
 
-The "assistant" floating button is a static keyword-matched FAQ, not an LLM. The knowledge base lives in the `KB` object near `index.html:1009`. Add topics by extending `KB` with `keywords`, `answer`, and optional `actions` (`navigate` to a section anchor or `form` to pre-select a contact-form option). `matchTopic()` scores by keyword length, so multi-word keywords beat single words.
+The "assistant" floating button is a static keyword-matched FAQ, not an LLM. The knowledge base lives in the `KB` object inside the `/* ═══ CHATBOT ENGINE ═══ */` IIFE near the bottom of `index.html`. Topics currently covered: `project`, `sponsor`, `donate`, `team`, `environment`, `community`, plus volunteering / contact / timeline entries. Add topics by extending `KB` with `keywords`, `answer`, and optional `actions` (`navigate` to a section anchor or `form` to pre-select a contact-form option). `matchTopic()` scores by keyword length, so multi-word keywords beat single words.
+
+## Roadmap section (index.html)
+
+The `<section class="roadmap">` block is a six-phase tabbed stepper (Foundation → Authorisation → Design → Funding → Build → Open) with one `.phase-panel` per phase and a single `.active` panel at a time. Markup, styling, and the click-to-switch script must stay in lockstep — `data-phase="N"` on the `.step-node` button matches the `.phase-panel[data-phase="N"]` it controls, and the per-phase border/accent colours are keyed off that same attribute.
 
 ## Pitch-deck slide images
 

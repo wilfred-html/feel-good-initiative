@@ -94,12 +94,20 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .hcard-stats strong{display:block;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);color:var(--dark);font-weight:700}
 .hcard-stats span{font-size:var(--t-xs);color:var(--text-muted)}
 
-/* ═══ VALUE PROP ═══ */
-.vp{background:var(--dark-deep);color:#fff}
+/* ═══ VALUE PROP — claim + Proximity proof in one surface ═══ */
+.vp{background:var(--dark-deep);color:#fff;position:relative;overflow:hidden;padding:var(--s12) 0 var(--s8)}
+.vp::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.1) 0%,transparent 60%);pointer-events:none}
+.vp .container,.vp-partners{position:relative;z-index:1}
 .vp-inner{text-align:center;max-width:800px;margin:0 auto}
 .vp h2{color:#fff;margin-bottom:var(--s3)}.vp h2 span{color:var(--teal-light)}
 .vp p{color:rgba(255,255,255,.65);font-size:var(--t-md);line-height:1.7;max-width:640px;margin:0 auto}
 .vp-divider{width:48px;height:2px;background:var(--teal-light);margin:var(--s4) auto var(--s3);opacity:.5}
+
+/* Partners proof band — sits inside .vp · Proximity: proof immediately after the claim */
+.vp-partners{margin-top:var(--s8);padding-top:var(--s5);border-top:1px solid rgba(255,255,255,.06)}
+.vp-partners-header{max-width:var(--max-w);margin:0 auto var(--s4);padding:0 var(--s3);display:flex;align-items:center;gap:var(--s3)}
+.vp-partners-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
+.vp-partners-label{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:400;text-transform:uppercase;letter-spacing:.25em;color:rgba(255,255,255,.4);white-space:nowrap;padding:0 var(--s2)}
 
 /* ═══ THE VISION — pitch deck style ═══ */
 .vision{background:var(--bg-card)}
@@ -135,6 +143,38 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .env-card:hover{transform:translateY(-2px);box-shadow:0 var(--s1) var(--s4) rgba(26,60,60,.05)}
 .env-icon{width:var(--s6);height:var(--s6);border-radius:50%;display:grid;place-items:center;margin-bottom:var(--s3);font-size:var(--t-md)}
 .env-icon.t{background:var(--teal-wash);color:var(--teal)}.env-icon.b{background:var(--teal-pale);color:var(--dark)}.env-icon.g{background:rgba(42,139,139,.1);color:var(--teal)}.env-icon.a{background:rgba(217,90,16,.08);color:var(--orange)}.env-icon.d{background:var(--dark);color:var(--teal-light)}
+
+/* ═══ OUR PROJECTS — Golden Ratio split · Anchoring (flagship) · Hick's chunking ═══ */
+.proj-grid{display:grid;grid-template-columns:38.2% 61.8%;gap:var(--s4);align-items:stretch}
+.proj-feature{display:flex;flex-direction:column;background:linear-gradient(160deg,var(--teal-wash) 0%,var(--bg-card) 70%);border:1px solid var(--border);border-radius:var(--rlg);padding:var(--s5);text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.proj-feature::after{content:'';position:absolute;bottom:-40%;right:-20%;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(42,139,139,.08) 0%,transparent 70%);pointer-events:none}
+.proj-feature:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 var(--s2) var(--s5) rgba(26,60,60,.08)}
+.proj-feature > *{position:relative;z-index:1}
+.proj-feature-tag{display:inline-flex;align-items:center;align-self:flex-start;gap:6px;font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:700;color:var(--orange);background:rgba(217,90,16,.08);border:1px solid rgba(217,90,16,.18);padding:5px var(--s2);border-radius:100px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:var(--s3)}
+.proj-feature-icon{width:var(--s8);height:var(--s8);border-radius:var(--rlg);background:var(--teal);color:#fff;display:grid;place-items:center;font-size:var(--t-xl);margin-bottom:var(--s3);box-shadow:0 var(--s1) var(--s3) rgba(42,139,139,.25)}
+.proj-feature h3{font-size:var(--t-xl);margin-bottom:var(--s2);color:var(--dark)}
+.proj-feature p{color:var(--text-light);font-size:var(--t-base);line-height:1.7;margin-bottom:var(--s4)}
+.proj-feature-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);padding:var(--s3) 0;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);margin-bottom:var(--s3)}
+.proj-feature-stats > div{text-align:left}
+.proj-feature-stats strong{display:block;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);color:var(--teal);font-weight:700;line-height:1;letter-spacing:-.01em}
+.proj-feature-stats span{font-size:var(--t-xs);color:var(--text-muted);margin-top:6px;display:block;line-height:1.3}
+.proj-feature-cta{font-size:var(--t-sm);font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:6px;margin-top:auto;align-self:flex-start;transition:gap .25s var(--ease)}
+.proj-feature:hover .proj-feature-cta{gap:12px}
+
+/* Supporting 6 — 2 × 3 sub-grid keeps cards readable inside the 61.8% column */
+.proj-rest{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3)}
+.proj-rest .env-card{padding:var(--s3) var(--s4);display:flex;flex-direction:column}
+.proj-rest .env-card h3{font-size:var(--t-md);margin-bottom:var(--s1);color:var(--dark)}
+.proj-rest .env-card p{font-size:var(--t-sm);color:var(--text-light);line-height:1.6}
+.proj-rest .env-icon{width:var(--s5);height:var(--s5);font-size:var(--t-base);margin-bottom:var(--s2)}
+
+@media(max-width:1024px){
+  .proj-grid{grid-template-columns:1fr;gap:var(--s3)}
+  .proj-rest{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .proj-rest{grid-template-columns:1fr}
+}
 .env-card h3{font-size:var(--t-md);margin-bottom:var(--s1)}.env-card p{font-size:var(--t-sm);color:var(--text-light);line-height:1.65}
 
 /* ═══ COMMUNITY — Golden Ratio ═══ */
@@ -241,51 +281,76 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
   .step-node{flex:0 0 calc(50% - var(--s2));max-width:calc(50% - var(--s2))}
 }
 
-/* ═══ SPONSORSHIP — Hick's Law tiers · Anchoring · Proximity · Progressive disclosure ═══ */
+/* ═══ SPONSORSHIP — F-pattern header · Golden ratio · Hick's tiers · Major-Third anchor · Proximity proof · Fitts CTA ═══ */
 .sponsor{background:var(--dark-deep);color:#fff;position:relative;overflow:hidden}
-.sponsor::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.08) 0%,transparent 60%);pointer-events:none}
+.sponsor::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.1) 0%,transparent 60%);pointer-events:none}
+.sponsor::after{content:'';position:absolute;bottom:-30%;right:-10%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(217,90,16,.06) 0%,transparent 70%);pointer-events:none}
 .sponsor .container{position:relative;z-index:1}
-.sponsor-header{text-align:center;max-width:640px;margin:0 auto var(--s8)}
 .sponsor h2{color:#fff;margin-bottom:var(--s2)}.sponsor h2 span{color:var(--teal-light)}
-.sponsor-header .desc{color:rgba(255,255,255,.6);margin:var(--s1) auto 0}
 .sponsor .label{background:rgba(255,255,255,.06);color:var(--teal-light)}
 
-/* Tier grid — Hick's: 4 tiers · Anchoring: Builder featured, Visionary high anchor */
-.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);margin-bottom:var(--s4)}
-.tier{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s4);display:flex;flex-direction:column;transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease)}
-.tier:hover{transform:translateY(-3px);border-color:rgba(92,189,174,.25);background:rgba(255,255,255,.05)}
-.tier.featured{border-color:rgba(217,90,16,.4);background:rgba(217,90,16,.04)}
-.tier.featured:hover{border-color:rgba(217,90,16,.6)}
+/* HEADER — F-pattern + Golden Ratio (intro 61.8 / anchor card 38.2) */
+.sponsor-header{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s6);align-items:end;margin-bottom:var(--s8)}
+.sponsor-header .desc{color:rgba(255,255,255,.62);margin-top:var(--s2);max-width:520px}
+.sponsor-anchor{background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(217,90,16,.05));border:1px solid rgba(255,255,255,.1);border-radius:var(--rlg);padding:var(--s4)}
+.sponsor-anchor-label{font-size:var(--t-xs);color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:var(--s2);font-family:'Josefin Sans',sans-serif}
+.sponsor-anchor-stat{font-family:'Josefin Sans',sans-serif;font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1;margin-bottom:var(--s1);letter-spacing:-.01em}
+.sponsor-anchor-stat span{color:var(--orange)}
+.sponsor-anchor-sub{font-size:var(--t-xs);color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:var(--s3)}
+.sponsor-anchor-foot{padding-top:var(--s2);border-top:1px solid rgba(255,255,255,.08);font-size:var(--t-xs);color:rgba(255,255,255,.6);line-height:1.6;display:flex;align-items:center;gap:var(--s1)}
+.sponsor-anchor-foot i{color:var(--teal-light);font-size:var(--t-sm)}
+.sponsor-anchor-foot strong{color:#fff}
+
+/* TIER GRID — Hick's Law (4 options) · Anchoring (Builder featured, Major-Third price scale) */
+.tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);margin-bottom:var(--s4);align-items:stretch}
+.tier{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s4);display:flex;flex-direction:column;transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease)}
+.tier:hover{transform:translateY(-4px);border-color:rgba(92,189,174,.3);background:rgba(255,255,255,.05)}
+.tier.featured{padding:var(--s5);background:linear-gradient(180deg,rgba(217,90,16,.08) 0%,rgba(217,90,16,.02) 60%,rgba(255,255,255,.03) 100%);border-color:rgba(217,90,16,.45);box-shadow:0 0 40px rgba(217,90,16,.08)}
+.tier.featured:hover{border-color:rgba(217,90,16,.65);box-shadow:0 0 60px rgba(217,90,16,.14);transform:translateY(-4px)}
 .tier.selected{border-color:var(--teal-light);background:rgba(92,189,174,.08);box-shadow:0 0 0 1px rgba(92,189,174,.4)}
-.tier-flag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;white-space:nowrap}
+.tier-flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:100px;white-space:nowrap;box-shadow:0 4px 14px rgba(217,90,16,.35)}
 .tier-name{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--s2)}
 .tier.featured .tier-name{color:var(--orange)}
+/* Major Third anchor: featured price one step up the scale */
 .tier-price{font-family:'Josefin Sans',sans-serif;font-size:var(--t-2xl);font-weight:700;color:#fff;line-height:1;margin-bottom:var(--s1);letter-spacing:-.01em}
+.tier.featured .tier-price{font-size:var(--t-3xl)}
 .tier-tagline{font-size:var(--t-sm);color:rgba(255,255,255,.62);line-height:1.6;margin-bottom:var(--s3);min-height:42px}
 .tier-perks{list-style:none;display:flex;flex-direction:column;gap:var(--s1);margin-bottom:var(--s2);flex:1}
 .tier-perks li{display:flex;align-items:flex-start;gap:8px;font-size:var(--t-xs);color:rgba(255,255,255,.78);line-height:1.6}
 .tier-perks i{color:var(--teal-light);font-size:11px;margin-top:5px;flex-shrink:0}
 .tier.featured .tier-perks i{color:var(--orange)}
+/* Progressive disclosure */
 .tier-toggle{background:none;border:none;color:var(--teal-light);font-size:var(--t-xs);font-weight:600;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-bottom:var(--s2)}
-.tier-toggle i{transition:transform .2s var(--ease);font-size:.65rem}
+.tier-toggle i{transition:transform .25s var(--ease);font-size:.65rem}
 .tier.expanded .tier-toggle i{transform:rotate(180deg)}
 .tier-detail{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
 .tier.expanded .tier-detail{max-height:260px}
 .tier-detail ul{list-style:none;display:flex;flex-direction:column;gap:6px;padding:var(--s2) 0;border-top:1px solid rgba(255,255,255,.08);margin-bottom:var(--s2)}
 .tier-detail li{display:flex;align-items:flex-start;gap:8px;font-size:var(--t-xs);color:rgba(255,255,255,.55);line-height:1.55}
 .tier-detail i{color:rgba(255,255,255,.35);font-size:11px;margin-top:5px;flex-shrink:0}
-.tier-cta{padding:var(--s2) var(--s3);width:100%;justify-content:center;margin-top:auto;background:transparent;border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:var(--t-sm)}
+/* Fitts's Law CTA — featured tier gets a larger target */
+.tier-cta{padding:var(--s2) var(--s3);width:100%;justify-content:center;margin-top:auto;background:transparent;border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:var(--t-sm);font-weight:600;cursor:pointer}
 .tier-cta:hover{border-color:var(--teal-light);background:rgba(92,189,174,.08);color:#fff;transform:translateY(-1px)}
-.tier.featured .tier-cta{background:var(--orange);border-color:var(--orange);color:#fff}
+.tier.featured .tier-cta{background:var(--orange);border-color:var(--orange);color:#fff;padding:var(--s2) var(--s4);font-size:var(--t-base)}
 .tier.featured .tier-cta:hover{background:var(--orange-hover);border-color:var(--orange-hover)}
 
-/* Custom — Hick's Law: 4 tiles only, route everything else to one line */
-.tier-custom{text-align:center;font-size:var(--t-sm);color:rgba(255,255,255,.55);margin-bottom:var(--s8)}
+/* Custom — single-line escape hatch */
+.tier-custom{text-align:center;font-size:var(--t-sm);color:rgba(255,255,255,.55);margin-bottom:var(--s6)}
 .tier-custom a{color:var(--teal-light);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(92,189,174,.3);transition:border-color .15s,color .15s}
 .tier-custom a:hover{border-color:var(--teal-light);color:#fff}
 
-/* Action — Golden ratio 61.8/38.2 · Proximity: proof beside CTA */
-.sponsor-action{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s5);align-items:start;scroll-margin-top:calc(var(--nav-h) + var(--s3))}
+/* SOCIAL PROOF BAND — Proximity Principle: proof immediately before the CTA */
+.sponsor-proof-band{display:grid;grid-template-columns:38.2% 61.8%;gap:var(--s5);align-items:center;background:linear-gradient(135deg,rgba(92,189,174,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s4) var(--s5);margin-bottom:var(--s6)}
+.sponsor-proof-head h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--teal-light);margin-bottom:var(--s2)}
+.sponsor-proof-head strong{display:block;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);color:#fff;font-weight:600;line-height:1.3;margin-bottom:var(--s1)}
+.sponsor-proof-head p{font-size:var(--t-xs);color:rgba(255,255,255,.55);line-height:1.55}
+.sponsor-proof-logos{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s2);align-items:center}
+.sponsor-proof-tag{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:6px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:100px;transition:all .25s var(--ease);white-space:nowrap}
+.sponsor-proof-tag:hover{color:#fff;border-color:rgba(92,189,174,.35);background:rgba(92,189,174,.06)}
+.sponsor-proof-tag.more{color:var(--teal-light);border-color:rgba(92,189,174,.25)}
+
+/* FORM — Centered focus column (no aside) · Fitts's Law submit */
+.sponsor-action{max-width:780px;margin:0 auto;scroll-margin-top:calc(var(--nav-h) + var(--s3))}
 .sponsor-form-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s5)}
 .sponsor-form-wrap h3{color:#fff;font-size:var(--t-md);margin-bottom:var(--s1)}
 .sponsor-form-wrap > p{font-size:var(--t-sm);color:rgba(255,255,255,.55);margin-bottom:var(--s3);line-height:1.7}
@@ -301,25 +366,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .sponsor-form select option{color:var(--dark);background:#fff}
 .sponsor-form textarea{min-height:110px;resize:vertical}
 .sponsor-inline-toggle{display:inline-flex;align-items:center;gap:8px;font-size:var(--t-xs);font-weight:600;color:var(--teal-light);background:none;border:none;padding:0;cursor:pointer;font-family:inherit;align-self:flex-start}
-.sponsor-inline-toggle i{transition:transform .2s var(--ease)}
+.sponsor-inline-toggle i{transition:transform .25s var(--ease)}
 .sponsor-inline-toggle.open i{transform:rotate(180deg)}
 .sponsor-details{display:none}
 .sponsor-details.open{display:block}
 .sponsor-form-actions{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s2)}
-
-/* Proof aside — Proximity Principle */
-.sponsor-proof{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s5);position:sticky;top:calc(var(--nav-h) + var(--s3))}
-.sponsor-proof h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:var(--s3)}
-.sponsor-proof-list{list-style:none;display:flex;flex-direction:column;gap:var(--s2);margin-bottom:var(--s3)}
-.sponsor-proof-list li{display:flex;align-items:center;gap:var(--s2);font-size:var(--t-sm);color:rgba(255,255,255,.78)}
-.sponsor-proof-list i{color:var(--teal-light);font-size:var(--t-sm)}
-.sponsor-proof-stat{padding-top:var(--s3);border-top:1px solid rgba(255,255,255,.08);font-size:var(--t-xs);color:rgba(255,255,255,.5);line-height:1.7}
-.sponsor-proof-stat strong{color:#fff;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);font-weight:700;display:block;margin-bottom:4px}
+.sponsor-form-actions .btn{padding:var(--s2) var(--s5);font-size:var(--t-base)}
 
 @media(max-width:1024px){
+  .sponsor-header{grid-template-columns:1fr;gap:var(--s4);align-items:start}
   .tier-grid{grid-template-columns:repeat(2,1fr);gap:var(--s2)}
-  .sponsor-action{grid-template-columns:1fr;gap:var(--s4)}
-  .sponsor-proof{position:static}
+  .tier.featured{padding:var(--s4)}
+  .tier.featured .tier-price{font-size:var(--t-2xl)}
+  .sponsor-proof-band{grid-template-columns:1fr;padding:var(--s4)}
 }
 @media(max-width:600px){
   .tier-grid{grid-template-columns:1fr}
@@ -337,27 +396,21 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .vc-role{font-size:var(--t-xs);color:var(--text-muted)}
 
 /* ═══ FINAL CTA — Serial Position Effect ═══ */
-.final-cta{background:var(--teal-wash);text-align:center}
-.final-cta h2{margin-bottom:var(--s2)}.final-cta h2 span{color:var(--teal)}
-.final-cta p{color:var(--text-light);max-width:540px;margin:0 auto var(--s4);font-size:var(--t-base)}
-.final-cta-btns{display:flex;gap:var(--s2);justify-content:center;flex-wrap:wrap}
+.final-cta{background:#F8FAF9 url('join-us-bg.png') no-repeat right center;background-size:auto 100%;position:relative;overflow:hidden;padding:var(--s10) 0}
+.final-cta .container{position:relative;z-index:1}
+.final-cta-inner{display:flex;align-items:center;gap:var(--s4);max-width:60%}
+.final-cta-icon{width:var(--s8);height:var(--s8);border-radius:50%;background:var(--bg-card);border:1px solid var(--border-light);display:grid;place-items:center;flex-shrink:0;box-shadow:0 2px 12px rgba(26,60,60,.05)}
+.final-cta-icon img{width:70%;height:70%;border-radius:50%;object-fit:cover}
+.final-cta-text h2{margin-bottom:var(--s1)}.final-cta-text h2 span{color:var(--teal)}
+.final-cta-text p{color:var(--text-light);max-width:440px;margin-bottom:var(--s3);font-size:var(--t-sm);line-height:1.6}
+.final-cta-btns{display:flex;gap:var(--s2);flex-wrap:wrap}
+@media(max-width:900px){
+  .final-cta{background-size:auto 55%;background-position:right bottom;padding:var(--s8) 0 calc(var(--s10) + 30vw)}
+  .final-cta-inner{max-width:100%;flex-direction:column;align-items:flex-start;text-align:left}
+}
 
-/* ═══ CONTACT ═══ */
-.contact{background:var(--bg-card)}
-.contact-grid{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s6);align-items:start}
-.contact-form{display:flex;flex-direction:column;gap:var(--s2)}
+/* form-row is shared by the sponsor form */
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
-.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:var(--s2);background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);font-family:inherit;font-size:var(--t-base);color:var(--dark);outline:none;transition:border .15s;-webkit-appearance:none}
-.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--text-muted)}
-.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--teal)}
-.contact-form textarea{min-height:110px;resize:vertical}
-.contact-form select{color:var(--text-muted)}
-
-.contact-cards{display:flex;flex-direction:column;gap:var(--s2)}
-.cc{display:flex;gap:var(--s2);padding:var(--s2) var(--s3);background:var(--bg);border-radius:var(--r);border:1px solid var(--border-light)}
-.cc-icon{width:var(--s5);height:var(--s5);border-radius:var(--r);background:var(--teal-wash);color:var(--teal);display:grid;place-items:center;font-size:var(--t-base);flex-shrink:0}
-.cc h4{font-size:var(--t-sm);font-weight:600;color:var(--dark);margin-bottom:2px;font-family:'Plus Jakarta Sans',sans-serif}
-.cc p{font-size:var(--t-sm);color:var(--text-light);line-height:1.5}
 
 /* Footer */
 footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
@@ -397,13 +450,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .ongoing-track{gap:var(--s4)}
 }
 
-/* ═══ SPONSOR CAROUSEL ═══ */
-.sponsors-bar{padding:var(--s6) 0;background:var(--dark-deep);overflow:hidden;position:relative}
-.sponsors-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.08) 0%,transparent 70%)}
-.sponsors-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--s3)}
-.sponsors-header{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s5)}
-.sponsors-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
-.sponsors-label{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:400;text-transform:uppercase;letter-spacing:.25em;color:rgba(255,255,255,.35);white-space:nowrap;padding:0 var(--s2)}
+/* ═══ SPONSOR LOGO CAROUSEL — used inside .vp-partners ═══ */
 .carousel-track-wrapper{position:relative;overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%)}
 .carousel-track{display:flex;width:max-content;animation:scrollLogos 35s linear infinite}
 .carousel-track:hover{animation-play-state:paused}
@@ -430,7 +477,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 
 /* Responsive */
 @media(max-width:1024px){
-  .hero-inner,.vision-grid,.lead-grid,.comm-grid,.contact-grid,.sponsor-grid{grid-template-columns:1fr}
+  .hero-inner,.vision-grid,.lead-grid,.comm-grid,.sponsor-grid{grid-template-columns:1fr}
   .hcard{max-width:480px}
   .ft-top{grid-template-columns:1fr 1fr}
   .vision-aside{position:static}
@@ -478,10 +525,10 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <ul class="nav-links" id="nl">
       <li><a href="#story">Our Story</a></li>
       <li><a href="#vision">The Vision</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#community">Community</a></li>
       <li><a href="#leadership">Team</a></li>
-      <li><a href="#contact">Contact</a></li>
       <li><a href="#sponsor" class="donate-nav"><i class="bi bi-arrow-up-right"></i> Partner With Us</a></li>
     </ul>
     <button class="menu-toggle" id="mt" aria-label="Menu"><i class="bi bi-list"></i></button>
@@ -521,7 +568,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
             </div>
             <div class="hcard-stats">
               <div><strong>3</strong><span>Communities</span></div>
-              <div><strong>34K+</strong><span>Residents Served</span></div>
+              <div><strong>~27K</strong><span>Residents Served*</span></div>
               <div><strong>1st</strong><span>Eco Tidal Pool</span></div>
             </div>
           </div>
@@ -553,51 +600,48 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   </div>
 </section>
 
-<!-- SPONSOR CAROUSEL -->
-<section class="sponsors-bar">
-  <div class="sponsors-inner">
-    <div class="sponsors-header">
-      <div class="sponsors-line"></div>
-      <p class="sponsors-label">Proudly Supported By</p>
-      <div class="sponsors-line"></div>
-    </div>
-  </div>
-  <div class="carousel-track-wrapper">
-    <div class="carousel-track">
-      <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
-      <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
-      <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
-      <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
-      <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
-      <div class="sp-logo"><span class="sp-text">REMAX<small>LIVING</small></span></div>
-      <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
-      <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
-      <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
-      <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
-      <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
-      <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
-      <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
-      <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
-      <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
-      <div class="sp-logo"><span class="sp-text">REMAX<small>LIVING</small></span></div>
-      <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
-      <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
-      <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
-      <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
-      <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- VALUE PROPOSITION -->
-<section class="vp section">
+<!-- VALUE PROP + PARTNER PROOF — claim followed immediately by social proof (Proximity Principle) -->
+<section class="vp">
   <div class="container">
     <div class="vp-inner">
       <h2 class="reveal">We show up. <span>Every single day.</span></h2>
       <div class="vp-divider"></div>
       <p class="reveal rd1">From daily beach cleanups and our Beach Ranger walking the shoreline, to a landmark tidal pool project near Chapman's Peak — The Feel Good Initiative combines environmental action, community engagement, and real infrastructure that everyone can see and feel.</p>
+    </div>
+  </div>
+
+  <div class="vp-partners reveal rd2">
+    <div class="vp-partners-header">
+      <div class="vp-partners-line"></div>
+      <p class="vp-partners-label">Proudly Supported By</p>
+      <div class="vp-partners-line"></div>
+    </div>
+    <div class="carousel-track-wrapper">
+      <div class="carousel-track">
+        <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
+        <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
+        <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
+        <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
+        <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
+        <div class="sp-logo"><span class="sp-text">REMAX<small>LIVING</small></span></div>
+        <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
+        <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
+        <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
+        <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
+        <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
+        <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
+        <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
+        <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
+        <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
+        <div class="sp-logo"><span class="sp-text">REMAX<small>LIVING</small></span></div>
+        <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
+        <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
+        <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
+        <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
+        <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -922,7 +966,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   </div>
 </section>
 
-<!-- ACTIVE PROJECTS -->
+<!-- ACTIVE PROJECTS — Golden Ratio split · Anchoring: flagship Tidal Pool · 6-card sub-grid avoids the dangling 7th -->
 <section class="section" id="projects" style="background:var(--bg-card);">
   <div class="container">
     <div style="text-align:center;max-width:640px;margin:0 auto var(--s8);">
@@ -930,41 +974,54 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <h2 class="reveal rd1">Seven initiatives. One <span>mission.</span></h2>
       <p class="desc reveal rd2" style="margin:var(--s1) auto 0;">Environmental protection, community upliftment, and lasting infrastructure — delivered through daily action and long-term vision.</p>
     </div>
-    <div class="env-grid">
-      <div class="env-card reveal rd1" id="proj-tidalpool">
-        <div class="env-icon t"><i class="bi bi-water"></i></div>
+
+    <div class="proj-grid">
+      <!-- Flagship — anchors the scale of the work -->
+      <a href="#sponsor" class="proj-feature reveal rd1" id="proj-tidalpool">
+        <span class="proj-feature-tag"><i class="bi bi-star-fill"></i> Flagship project</span>
+        <div class="proj-feature-icon"><i class="bi bi-water"></i></div>
         <h3>The Tidal Pool</h3>
         <p>A R50M eco-friendly pool near Chapman's Peak — safe ocean access and marine education for communities excluded from the coastline they live beside.</p>
-      </div>
-      <div class="env-card reveal rd2">
-        <div class="env-icon a"><i class="bi bi-person-walking"></i></div>
-        <h3>Beach Ranger Programme</h3>
-        <p>David Becker walks Hout Bay Beach every single day — removing waste, engaging visitors, and showing what consistent environmental care looks like.</p>
-      </div>
-      <div class="env-card reveal rd3">
-        <div class="env-icon g"><i class="bi bi-trash3"></i></div>
-        <h3>Community Bins</h3>
-        <p>Branded bins in key locations reducing litter and encouraging responsible waste disposal. Turning awareness into daily action across Hout Bay.</p>
-      </div>
-      <div class="env-card reveal rd1" id="proj-hangberg">
-        <div class="env-icon b"><i class="bi bi-buildings"></i></div>
-        <h3>Hangberg Waste Management &amp; Beautification</h3>
-        <p>Active waste management paired with beautification work in Hangberg — a managed collection cage staffed daily, plus partnerships with the City and recycling operators to keep the area clean and safer for the whole community.</p>
-      </div>
-      <div class="env-card reveal rd2" id="proj-entrance">
-        <div class="env-icon d"><i class="bi bi-signpost-2"></i></div>
-        <h3>Entrance Beautification</h3>
-        <p>Enhancing Hout Bay's main entry points — giving residents and visitors a positive first impression and restoring pride in shared spaces.</p>
-      </div>
-      <div class="env-card reveal rd3" id="proj-cleanups">
-        <div class="env-icon t"><i class="bi bi-calendar-event"></i></div>
-        <h3>Beach Cleanup Events</h3>
-        <p>Regular community cleanup days bringing volunteers, families, and sponsors together. Gloves and bags provided — just bring a friend.</p>
-      </div>
-      <div class="env-card reveal rd1" id="proj-gorilla">
-        <div class="env-icon g"><i class="bi bi-tree"></i></div>
-        <h3>Gorilla Gardens</h3>
-        <p>Sponsor-backed community beautification beyond Hout Bay — taking neglected parcels of land and turning them into shared green spaces. Kicking off in Rondebosch, with the community doing the work and sponsors enabling it.</p>
+        <div class="proj-feature-stats">
+          <div><strong>R50M</strong><span>capital build</span></div>
+          <div><strong>10–12 yrs</strong><span>delivery window</span></div>
+          <div><strong>~27K</strong><span>residents served*</span></div>
+        </div>
+        <span class="proj-feature-cta">Back the build <i class="bi bi-arrow-right"></i></span>
+      </a>
+
+      <!-- Supporting six — 2 × 3 grid -->
+      <div class="proj-rest">
+        <div class="env-card reveal rd2">
+          <div class="env-icon a"><i class="bi bi-person-walking"></i></div>
+          <h3>Beach Ranger Programme</h3>
+          <p>David Becker walks Hout Bay Beach every single day — removing waste, engaging visitors, and showing what consistent environmental care looks like.</p>
+        </div>
+        <div class="env-card reveal rd3">
+          <div class="env-icon g"><i class="bi bi-trash3"></i></div>
+          <h3>Community Bins</h3>
+          <p>Branded bins in key locations reducing litter and encouraging responsible waste disposal. Turning awareness into daily action across Hout Bay.</p>
+        </div>
+        <div class="env-card reveal rd1" id="proj-hangberg">
+          <div class="env-icon b"><i class="bi bi-buildings"></i></div>
+          <h3>Hangberg Waste Management &amp; Beautification</h3>
+          <p>A managed collection cage staffed daily, plus City and recycling-operator partnerships keeping the area clean and safer for the whole community.</p>
+        </div>
+        <div class="env-card reveal rd2" id="proj-entrance">
+          <div class="env-icon d"><i class="bi bi-signpost-2"></i></div>
+          <h3>Entrance Beautification</h3>
+          <p>Enhancing Hout Bay's main entry points — giving residents and visitors a positive first impression and restoring pride in shared spaces.</p>
+        </div>
+        <div class="env-card reveal rd3" id="proj-cleanups">
+          <div class="env-icon t"><i class="bi bi-calendar-event"></i></div>
+          <h3>Beach Cleanup Events</h3>
+          <p>Regular community cleanup days bringing volunteers, families, and sponsors together. Gloves and bags provided — just bring a friend.</p>
+        </div>
+        <div class="env-card reveal rd1" id="proj-gorilla">
+          <div class="env-icon g"><i class="bi bi-tree"></i></div>
+          <h3>Gorilla Gardens</h3>
+          <p>Sponsor-backed beautification beyond Hout Bay. Kicking off in Rondebosch — community doing the work, sponsors enabling it.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -979,15 +1036,16 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <h2 class="reveal rd1">Direct benefits to those who need it <span>most.</span></h2>
         <p class="desc reveal rd2">Residents of Imizamo Yethu and Hangberg live beside the ocean but lack safe recreational access. This project changes that.</p>
         <div class="comm-stats reveal rd3">
-          <div class="comm-stat"><strong>34K+</strong><span>Imizamo Yethu residents</span></div>
+          <div class="comm-stat"><strong>~27K</strong><span>Imizamo Yethu residents*</span></div>
           <div class="comm-stat"><strong>Zero</strong><span>Safe swimming spots</span></div>
           <div class="comm-stat"><strong>3</strong><span>Communities served</span></div>
           <div class="comm-stat"><strong>R50M</strong><span>Infrastructure investment</span></div>
         </div>
+        <p class="reveal rd4" style="font-size:var(--t-xs);color:var(--text-muted);margin-top:var(--s2);line-height:1.55;max-width:520px;">*Imizamo Yethu's last official census count was 15,538 residents and 6,009 households in 2011. Current City of Cape Town records indicate about 6,000 households, and triangulation of recent academic, NGO and incident-based evidence suggests a current population of roughly 27,000 — with a plausible range of 24,000–30,000.</p>
       </div>
       <div>
         <div class="comm-list">
-          <div class="comm-item reveal rd1"><div class="comm-dot" style="background:var(--teal)"></div><div><h4>Imizamo Yethu</h4><p>34,000+ residents in an informal settlement adjacent to Hout Bay Beach. The community lacks safe coastal access despite living meters from the shoreline.</p></div></div>
+          <div class="comm-item reveal rd1"><div class="comm-dot" style="background:var(--teal)"></div><div><h4>Imizamo Yethu</h4><p>An informal settlement adjacent to Hout Bay Beach. The 2011 census recorded 15,538 residents; current estimates triangulated from academic, NGO and incident-based evidence put the population at roughly 27,000 (range 24,000–30,000) — all living meters from a shoreline they can't safely access.</p></div></div>
           <div class="comm-item reveal rd2"><div class="comm-dot" style="background:var(--orange)"></div><div><h4>Hangberg</h4><p>A fishing community on the harbour side of Hout Bay with limited beach access and no safe swimming infrastructure for families.</p></div></div>
           <div class="comm-item reveal rd3"><div class="comm-dot" style="background:var(--dark)"></div><div><h4>Greater Hout Bay</h4><p>Families, surfers, and visitors all sharing dangerously overcrowded beach facilities — especially in summer months.</p></div></div>
         </div>
@@ -1072,11 +1130,19 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 <section class="sponsor section" id="sponsor">
   <div class="container">
 
-    <!-- Centered header — same pattern as env/projects/leadership -->
+    <!-- F-pattern header — eye scans heading horizontally, lands on anchor card · Golden ratio 61.8/38.2 -->
     <div class="sponsor-header">
-      <div class="label reveal" style="justify-content:center;"><i class="bi bi-arrow-up-right"></i> Partner With Us</div>
-      <h2 class="reveal rd1">Four ways to <span>back the build.</span></h2>
-      <p class="desc reveal rd2">Pick a level. Leave your details. The team takes it from there — sponsorship, donation, or partnership, on your terms.</p>
+      <div>
+        <div class="label reveal"><i class="bi bi-arrow-up-right"></i> Partner With Us</div>
+        <h2 class="reveal rd1">Four ways to <span>back the build.</span></h2>
+        <p class="desc reveal rd2">Pick a level. Leave your details. The team takes it from there — sponsorship, donation, or partnership, on your terms.</p>
+      </div>
+      <div class="sponsor-anchor reveal rd2">
+        <div class="sponsor-anchor-label">The capital ask</div>
+        <div class="sponsor-anchor-stat"><span>R50M</span> tidal pool</div>
+        <p class="sponsor-anchor-sub">Phased delivery over a 10–12 year build, raised across four sponsorship levels.</p>
+        <div class="sponsor-anchor-foot"><i class="bi bi-people-fill"></i> <span><strong>11 partners</strong> already on board — be the next.</span></div>
+      </div>
     </div>
 
     <!-- Hick's Law: 4 canonical tiers · Anchoring: Builder featured · Serial position: Supporter low / Visionary high -->
@@ -1179,11 +1245,32 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 
     <p class="tier-custom reveal">Looking for a custom structure or unsure where to start? <a href="#sponsorForm">Tell us what you have in mind →</a></p>
 
-    <!-- Action — Golden ratio: form (61.8%) + proof (38.2%) · Proximity Principle -->
+    <!-- Social proof band — Proximity Principle: proof immediately precedes the CTA · Golden ratio 38.2/61.8 -->
+    <div class="sponsor-proof-band reveal">
+      <div class="sponsor-proof-head">
+        <h4>You'd be in good company</h4>
+        <strong>11 partners backing the build.</strong>
+        <p>Active on the beach since day one — daily Beach Ranger ops, community projects, and the tidal pool ahead.</p>
+      </div>
+      <div class="sponsor-proof-logos">
+        <span class="sponsor-proof-tag">Spar</span>
+        <span class="sponsor-proof-tag">Bokbus Tours</span>
+        <span class="sponsor-proof-tag">The Beach Bar</span>
+        <span class="sponsor-proof-tag">Deep Blue Security</span>
+        <span class="sponsor-proof-tag">Chas Everitt</span>
+        <span class="sponsor-proof-tag">Remax Living</span>
+        <span class="sponsor-proof-tag">Office National</span>
+        <span class="sponsor-proof-tag">The Beach Clinic</span>
+        <span class="sponsor-proof-tag">Alex Stewart</span>
+        <span class="sponsor-proof-tag more">+ more</span>
+      </div>
+    </div>
+
+    <!-- Action — focused single column · Fitts's Law: large orange submit -->
     <div class="sponsor-action" id="sponsorForm">
       <div class="sponsor-form-wrap reveal">
         <h3>Leave your details.</h3>
-        <p>The team will follow up directly to walk through fit, structure, and the conversations that matter to your organisation.</p>
+        <p>Sponsorship, volunteering, prospectus requests, or general questions — leave a message and the team will follow up directly.</p>
 
         <div class="tier-pill empty" id="tierPill"><i class="bi bi-circle"></i> <span>Choose a level above</span></div>
 
@@ -1209,6 +1296,9 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
             <option>CSI / foundation partnership</option>
             <option>Naming-rights conversation</option>
             <option>Custom partnership structure</option>
+            <option>Sponsorship prospectus</option>
+            <option>Volunteering</option>
+            <option>General enquiry</option>
           </select>
 
           <button type="button" class="sponsor-inline-toggle" id="detailsToggle" aria-expanded="false" aria-controls="sponsorDetails">
@@ -1223,70 +1313,25 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           </div>
         </form>
       </div>
-
-      <aside class="sponsor-proof reveal rd2">
-        <h4>In good company</h4>
-        <ul class="sponsor-proof-list">
-          <li><i class="bi bi-check-circle-fill"></i> Spar</li>
-          <li><i class="bi bi-check-circle-fill"></i> Bokbus Tours</li>
-          <li><i class="bi bi-check-circle-fill"></i> Deep Blue Security</li>
-          <li><i class="bi bi-check-circle-fill"></i> Chas Everitt</li>
-          <li><i class="bi bi-check-circle-fill"></i> Remax Living</li>
-          <li><i class="bi bi-check-circle-fill"></i> Office National</li>
-          <li><i class="bi bi-check-circle-fill"></i> The Beach Clinic</li>
-          <li><i class="bi bi-check-circle-fill"></i> Alex Stewart + more</li>
-        </ul>
-        <div class="sponsor-proof-stat">
-          <strong>11 partners</strong>
-          backing the build, alongside daily action on the beach since day one.
-        </div>
-      </aside>
     </div>
 
   </div>
 </section>
+
+
 
 <!-- FINAL CTA — Serial Position: last thing seen -->
 <section class="final-cta section">
   <div class="container">
-    <h2 class="reveal">Do good. Feel good. <span>Join us.</span></h2>
-    <p class="reveal rd1">Every beach cleanup, every bin placed, every rand invested brings us closer to a cleaner, safer Hout Bay for everyone. Your support creates real, visible change.</p>
-    <div class="final-cta-btns reveal rd2">
-      <a href="#sponsor" class="btn btn-orange btn-cta-main"><i class="bi bi-arrow-up-right"></i> Partner With Us</a>
-      <a href="#contact" class="btn btn-outline btn-lg">Get In Touch</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact section" id="contact">
-  <div class="container">
-    <div style="margin-bottom:var(--s6);">
-      <div class="label reveal">Enquiries</div>
-      <h2 class="reveal rd1">Start a <span>conversation.</span></h2>
-      <p class="desc reveal rd2">Sponsorship enquiries, partnership proposals, or questions about the project — we'd love to hear from you.</p>
-    </div>
-    <div class="contact-grid">
-      <form class="contact-form reveal rd3" onsubmit="event.preventDefault();">
-        <div class="form-row"><input type="text" placeholder="Full Name" required><input type="text" placeholder="Organisation"></div>
-        <div class="form-row"><input type="email" placeholder="Email Address" required><input type="tel" placeholder="Phone Number"></div>
-        <select>
-          <option value="" disabled selected>I'm interested in...</option>
-          <option>Corporate Sponsorship</option>
-          <option>Private Sponsorship</option>
-          <option>CSI Partnership</option>
-          <option>Sponsorship Prospectus</option>
-          <option>Volunteering</option>
-          <option>General Enquiry</option>
-        </select>
-        <textarea placeholder="Your Message" rows="5"></textarea>
-        <button type="submit" class="btn btn-teal" style="align-self:flex-start;"><i class="bi bi-send"></i> Submit Enquiry</button>
-      </form>
-      <div class="contact-cards reveal rd3">
-        <div class="cc"><div class="cc-icon"><i class="bi bi-person"></i></div><div><h4>Administration</h4><p>Sandy Daniel<br>The Feel Good Initiative</p></div></div>
-        <div class="cc"><div class="cc-icon"><i class="bi bi-geo-alt"></i></div><div><h4>Location</h4><p>Hout Bay, Western Cape<br>South Africa</p></div></div>
-        <div class="cc"><div class="cc-icon"><i class="bi bi-envelope"></i></div><div><h4>Email</h4><p>admin@thefeelgoodinitiative.org</p></div></div>
-        <div class="cc"><div class="cc-icon"><i class="bi bi-facebook"></i></div><div><h4>Facebook</h4><p>@TheFeelGoodInitiative</p></div></div>
+    <div class="final-cta-inner">
+      <div class="final-cta-icon reveal"><img src="logo.png" alt="TFGI"></div>
+      <div class="final-cta-text">
+        <h2 class="reveal">Do good. Feel good. <span>Join us.</span></h2>
+        <p class="reveal rd1">Be part of a movement creating a legacy of access, nature and community.</p>
+        <div class="final-cta-btns reveal rd2">
+          <a href="#sponsor" class="btn btn-orange"><i class="bi bi-arrow-up-right"></i> Partner With Us</a>
+          <a href="#story" class="btn btn-outline">Learn More</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1300,7 +1345,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <p>Do Good. Feel Good. Protecting Hout Bay's beach, building community infrastructure, and creating lasting change — every single day.</p>
       </div>
       <div class="ft-col"><h4>Project</h4><a href="#vision">The Vision</a><a href="#environment">Environment</a><a href="#community">Community</a><a href="#leadership">Leadership</a></div>
-      <div class="ft-col"><h4>Get Involved</h4><a href="#sponsor">Sponsorship Tiers</a><a href="#contact">Enquiries</a><a href="#contact">Request Prospectus</a></div>
+      <div class="ft-col"><h4>Get Involved</h4><a href="#sponsor">Sponsorship Tiers</a><a href="#sponsorForm">Enquiries</a><a href="#sponsorForm">Request Prospectus</a></div>
       <div class="ft-col"><h4>Connect</h4><a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">Facebook</a><a href="https://www.tiktok.com/@beachranger" target="_blank">TikTok (Beach Ranger)</a></div>
     </div>
     <div class="ft-bottom">
@@ -1455,12 +1500,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     sponsor:{
       keywords:['sponsor','sponsorship','partner','invest','support','fund','corporate','csi','csr'],
       answer:`We have <strong>4 sponsorship tiers</strong> designed for meaningful impact:\n\n<strong>🟢 Supporter</strong> — R50K (logo, social recognition, updates)\n<strong>🔵 Champion</strong> — R250K (media features, on-site branding, CSI report)\n<strong>🟠 Builder</strong> — R1M (permanent plaque, naming rights, VIP launch)\n<strong>⭐ Visionary</strong> — R5M+ (major naming rights, board advisory seat)\n\nAll contributions are tax-deductible under NPO status.`,
-      actions:[{label:'View Sponsorship Tiers',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},{label:'Enquire Now',icon:'bi-envelope',action:'navigate',target:'#contact'},{label:'Request Prospectus',icon:'bi-file-earmark-arrow-down',action:'navigate',target:'#contact'}]
+      actions:[{label:'View Sponsorship Tiers',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},{label:'Enquire Now',icon:'bi-envelope',action:'navigate',target:'#sponsorForm'},{label:'Request Prospectus',icon:'bi-file-earmark-arrow-down',action:'form',target:'Sponsorship prospectus'}]
     },
     donate:{
       keywords:['donate','donation','give','contribute','help','money'],
-      answer:`Thank you for wanting to support us! 💚 You can invest in real change through our <strong>partnership programme</strong> starting from R50,000 for corporate partners. For smaller contributions or alternative ways to help, reach out via our contact form and we'll find the right fit for you.`,
-      actions:[{label:'Sponsorship Options',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},{label:'Contact Us',icon:'bi-envelope',action:'navigate',target:'#contact'}]
+      answer:`Thank you for wanting to support us! 💚 You can invest in real change through our <strong>partnership programme</strong> starting from R50,000 for corporate partners. For smaller contributions or alternative ways to help, reach out via our enquiry form and we'll find the right fit for you.`,
+      actions:[{label:'Sponsorship Options',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},{label:'Send Enquiry',icon:'bi-envelope',action:'navigate',target:'#sponsorForm'}]
     },
     team:{
       keywords:['who','team','founder','sandy','ryan','greg','leadership','lead','run','behind'],
@@ -1474,23 +1519,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     community:{
       keywords:['community','imizamo','hangberg','hout bay','residents','people','who benefits','impact'],
-      answer:`The tidal pool directly benefits three communities:\n\n<strong>Imizamo Yethu</strong> — 34,000+ residents in an informal settlement adjacent to Hout Bay Beach with no safe coastal access.\n\n<strong>Hangberg</strong> — A fishing community with limited beach access and no safe swimming infrastructure.\n\n<strong>Greater Hout Bay</strong> — Families and visitors sharing dangerously overcrowded beach facilities.\n\nCurrently, there are <strong>zero</strong> safe swimming spots for these communities despite living meters from the ocean.`,
+      answer:`The tidal pool directly benefits three communities:\n\n<strong>Imizamo Yethu</strong> — an informal settlement adjacent to Hout Bay Beach. The 2011 census recorded 15,538 residents; triangulation of recent academic, NGO and incident-based evidence puts the current population at <strong>roughly 27,000</strong> (plausible range 24,000–30,000), with no safe coastal access.\n\n<strong>Hangberg</strong> — A fishing community with limited beach access and no safe swimming infrastructure.\n\n<strong>Greater Hout Bay</strong> — Families and visitors sharing dangerously overcrowded beach facilities.\n\nCurrently, there are <strong>zero</strong> safe swimming spots for these communities despite living meters from the ocean.`,
       actions:[{label:'Community Impact',icon:'bi-people-fill',action:'navigate',target:'#community'}]
     },
     beach:{
       keywords:['beach','cleanup','clean','ranger','rangers','waste','trash','litter'],
       answer:`Our Beach Ranger <strong>David Becker</strong> walks Hout Bay Beach <strong>every single day</strong> — removing waste, engaging visitors, educating the public, and setting the standard for community pride. With 14K+ TikTok followers, David documents real, visible impact daily. Beyond the Beach Ranger programme, we run regular <strong>community cleanup events</strong> and are expanding into Hangberg. Want to get involved?`,
-      actions:[{label:'See Our Projects',icon:'bi-kanban',action:'navigate',target:'#projects'},{label:'Volunteer',icon:'bi-hand-thumbs-up',action:'navigate',target:'#contact'}]
+      actions:[{label:'See Our Projects',icon:'bi-kanban',action:'navigate',target:'#projects'},{label:'Volunteer',icon:'bi-hand-thumbs-up',action:'form',target:'Volunteering'}]
     },
     volunteer:{
       keywords:['volunteer','join','help out','get involved','participate','work'],
-      answer:`We'd love to have you! Whether it's joining a beach cleanup, helping with events, or contributing your professional skills — there's a place for you. Fill out our contact form and select "Volunteering" and we'll get back to you.`,
+      answer:`We'd love to have you! Whether it's joining a beach cleanup, helping with events, or contributing your professional skills — there's a place for you. Fill out the enquiry form and select "Volunteering" and we'll get back to you.`,
       actions:[{label:'Sign Up to Volunteer',icon:'bi-person-plus',action:'form',target:'Volunteering'}]
     },
     contact:{
       keywords:['contact','email','phone','reach','talk','get in touch','address','location','where'],
-      answer:`You can reach us at:\n\n📧 <strong>admin@thefeelgoodinitiative.org</strong>\n📍 Hout Bay, Western Cape, South Africa\n📘 <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">@TheFeelGoodInitiative on Facebook</a>\n\nOr fill out the contact form on this page and we'll get back to you promptly.`,
-      actions:[{label:'Open Contact Form',icon:'bi-envelope',action:'navigate',target:'#contact'}]
+      answer:`You can reach us at:\n\n📧 <strong>admin@thefeelgoodinitiative.org</strong>\n📍 Hout Bay, Western Cape, South Africa\n📘 <a href="https://www.facebook.com/TheFeelGoodInitiative/" target="_blank">@TheFeelGoodInitiative on Facebook</a>\n\nOr fill out the enquiry form on this page and we'll get back to you promptly.`,
+      actions:[{label:'Open Enquiry Form',icon:'bi-envelope',action:'navigate',target:'#sponsorForm'}]
     },
     status:{
       keywords:['status','progress','when','timeline','stage','phase','update','how far','started'],
@@ -1546,10 +1591,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     }else if(a.action==='form'){
       win.classList.remove('open');isOpen=false;fab.classList.remove('open');
       fab.innerHTML='<i class="bi bi-chat-dots-fill"></i>';
-      const el=document.querySelector('#contact');
+      const el=document.querySelector('#sponsorForm');
       if(el)el.scrollIntoView({behavior:'smooth'});
       setTimeout(()=>{
-        const sel=document.querySelector('.contact-form select');
+        const sel=document.querySelector('#sponsorship-interest select[name="interest-type"]');
         if(sel){
           for(let i=0;i<sel.options.length;i++){
             if(sel.options[i].text===a.target){sel.selectedIndex=i;break;}
@@ -1576,9 +1621,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       if(topic){
         addMsg(KB[topic].answer,'bot',KB[topic].actions);
       }else{
-        addMsg(`I'm not sure I have info on that specific topic, but I can help with:\n\n🌊 The tidal pool project\n🤝 Sponsorship options\n💚 How to donate or volunteer\n👥 Our team & leadership\n🌿 Environmental approach\n📍 Contact details\n\nTry asking about any of these, or <a href="#contact" onclick="document.querySelector('.cb-window').classList.remove('open')">contact us directly</a>.`,'bot',[
+        addMsg(`I'm not sure I have info on that specific topic, but I can help with:\n\n🌊 The tidal pool project\n🤝 Sponsorship options\n💚 How to donate or volunteer\n👥 Our team & leadership\n🌿 Environmental approach\n📍 Contact details\n\nTry asking about any of these, or <a href="#sponsorForm" onclick="document.querySelector('.cb-window').classList.remove('open')">send us an enquiry</a>.`,'bot',[
           {label:'View Sponsorship',icon:'bi-arrow-up-right',action:'navigate',target:'#sponsor'},
-          {label:'Contact Us',icon:'bi-envelope',action:'navigate',target:'#contact'}
+          {label:'Send Enquiry',icon:'bi-envelope',action:'navigate',target:'#sponsorForm'}
         ]);
       }
     },delay);
