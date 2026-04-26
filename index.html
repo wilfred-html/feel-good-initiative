@@ -107,7 +107,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .vision-features{display:flex;flex-direction:column;gap:var(--s3);margin-top:var(--s4)}
 .vf{display:flex;gap:var(--s3);align-items:flex-start}
 .vf-icon{width:var(--s6);height:var(--s6);border-radius:var(--r);display:grid;place-items:center;flex-shrink:0;font-size:var(--t-md)}
-.vf-icon.t{background:var(--teal-wash);color:var(--teal)}.vf-icon.b{background:#EFF6FF;color:#2563EB}.vf-icon.g{background:#F0FDF4;color:#16A34A}.vf-icon.a{background:#FFF7ED;color:var(--orange)}
+.vf-icon.t{background:var(--teal-wash);color:var(--teal)}.vf-icon.b{background:var(--teal-pale);color:var(--dark)}.vf-icon.g{background:rgba(42,139,139,.1);color:var(--teal)}.vf-icon.a{background:rgba(217,90,16,.08);color:var(--orange)}
 .vf h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-sm);font-weight:600;color:var(--dark);margin-bottom:2px}
 .vf p{font-size:var(--t-sm);color:var(--text-light);line-height:1.6}
 /* Progressive disclosure */
@@ -134,7 +134,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .env-card{padding:var(--s4);background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--rlg);transition:all .25s var(--ease)}
 .env-card:hover{transform:translateY(-2px);box-shadow:0 var(--s1) var(--s4) rgba(26,60,60,.05)}
 .env-icon{width:var(--s6);height:var(--s6);border-radius:50%;display:grid;place-items:center;margin-bottom:var(--s3);font-size:var(--t-md)}
-.env-icon.t{background:var(--teal-wash);color:var(--teal)}.env-icon.b{background:#EFF6FF;color:#2563EB}.env-icon.g{background:#F0FDF4;color:#16A34A}
+.env-icon.t{background:var(--teal-wash);color:var(--teal)}.env-icon.b{background:var(--teal-pale);color:var(--dark)}.env-icon.g{background:rgba(42,139,139,.1);color:var(--teal)}.env-icon.a{background:rgba(217,90,16,.08);color:var(--orange)}.env-icon.d{background:var(--dark);color:var(--teal-light)}
 .env-card h3{font-size:var(--t-md);margin-bottom:var(--s1)}.env-card p{font-size:var(--t-sm);color:var(--text-light);line-height:1.65}
 
 /* ═══ COMMUNITY — Golden Ratio ═══ */
@@ -388,7 +388,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 .op-pill.t i{color:var(--teal)}
 .op-pill.o i{color:var(--orange)}
 .op-pill.d i{color:var(--dark)}
-.op-pill.g i{color:#16A34A}
+.op-pill.g i{color:var(--dark-deep)}
 .op-pill.c i{color:var(--teal)}
 .env-card[id^="proj-"]{scroll-margin-top:calc(var(--nav-h) + var(--s4))}
 @media(max-width:768px){
@@ -617,12 +617,12 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Protect first. Build second. No shortcuts.</p>
       </div>
       <div class="reveal rd3">
-        <div class="env-icon" style="margin:0 auto var(--s2);background:#FFF7ED;color:var(--orange);"><i class="bi bi-calendar-check"></i></div>
+        <div class="env-icon a" style="margin:0 auto var(--s2);"><i class="bi bi-calendar-check"></i></div>
         <h4 style="font-size:var(--t-sm);margin-bottom:4px;">Consistency</h4>
         <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Not once a month. Every single day.</p>
       </div>
       <div class="reveal rd4">
-        <div class="env-icon" style="margin:0 auto var(--s2);background:#F3F0FF;color:#7C3AED;"><i class="bi bi-flag-fill"></i></div>
+        <div class="env-icon d" style="margin:0 auto var(--s2);"><i class="bi bi-flag-fill"></i></div>
         <h4 style="font-size:var(--t-sm);margin-bottom:4px;">Local Pride</h4>
         <p style="font-size:var(--t-xs);color:var(--text-muted);line-height:1.5;">Built by Hout Bay, for Hout Bay.</p>
       </div>
@@ -937,7 +937,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <p>A R50M eco-friendly pool near Chapman's Peak — safe ocean access and marine education for communities excluded from the coastline they live beside.</p>
       </div>
       <div class="env-card reveal rd2">
-        <div class="env-icon" style="background:#FFF7ED;color:var(--orange);"><i class="bi bi-person-walking"></i></div>
+        <div class="env-icon a"><i class="bi bi-person-walking"></i></div>
         <h3>Beach Ranger Programme</h3>
         <p>David Becker walks Hout Bay Beach every single day — removing waste, engaging visitors, and showing what consistent environmental care looks like.</p>
       </div>
@@ -952,7 +952,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <p>Active waste management paired with beautification work in Hangberg — a managed collection cage staffed daily, plus partnerships with the City and recycling operators to keep the area clean and safer for the whole community.</p>
       </div>
       <div class="env-card reveal rd2" id="proj-entrance">
-        <div class="env-icon" style="background:#F3F0FF;color:#7C3AED;"><i class="bi bi-signpost-2"></i></div>
+        <div class="env-icon d"><i class="bi bi-signpost-2"></i></div>
         <h3>Entrance Beautification</h3>
         <p>Enhancing Hout Bay's main entry points — giving residents and visitors a positive first impression and restoring pride in shared spaces.</p>
       </div>
@@ -989,7 +989,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <div class="comm-list">
           <div class="comm-item reveal rd1"><div class="comm-dot" style="background:var(--teal)"></div><div><h4>Imizamo Yethu</h4><p>34,000+ residents in an informal settlement adjacent to Hout Bay Beach. The community lacks safe coastal access despite living meters from the shoreline.</p></div></div>
           <div class="comm-item reveal rd2"><div class="comm-dot" style="background:var(--orange)"></div><div><h4>Hangberg</h4><p>A fishing community on the harbour side of Hout Bay with limited beach access and no safe swimming infrastructure for families.</p></div></div>
-          <div class="comm-item reveal rd3"><div class="comm-dot" style="background:#7C3AED"></div><div><h4>Greater Hout Bay</h4><p>Families, surfers, and visitors all sharing dangerously overcrowded beach facilities — especially in summer months.</p></div></div>
+          <div class="comm-item reveal rd3"><div class="comm-dot" style="background:var(--dark)"></div><div><h4>Greater Hout Bay</h4><p>Families, surfers, and visitors all sharing dangerously overcrowded beach facilities — especially in summer months.</p></div></div>
         </div>
       </div>
     </div>
@@ -1022,7 +1022,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         </div>
       </div>
       <div class="lead-card reveal rd3" style="flex-direction:column;text-align:center;">
-        <div class="lead-avatar" style="background:#16A34A;"><i class="bi bi-tree"></i></div>
+        <div class="lead-avatar" style="background:var(--teal-light);"><i class="bi bi-tree"></i></div>
         <div class="lead-info">
           <h3>David Becker</h3>
           <div class="lead-role">Beach Ranger &amp; Community Engagement</div>
@@ -1030,7 +1030,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         </div>
       </div>
       <div class="lead-card reveal rd4" style="flex-direction:column;text-align:center;">
-        <div class="lead-avatar" style="background:#7C3AED;"><i class="bi bi-shield-check"></i></div>
+        <div class="lead-avatar" style="background:var(--dark-deep);"><i class="bi bi-shield-check"></i></div>
         <div class="lead-info">
           <h3>Ross Wilson</h3>
           <div class="lead-role">Director</div>
@@ -1059,7 +1059,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       </div>
       <div class="vc reveal rd3">
         <blockquote>"The environmental-first approach is exactly right. You can create community spaces while protecting the marine ecosystem."</blockquote>
-        <div class="vc-author"><div class="vc-avatar" style="background:#16A34A"><i class="bi bi-person-fill"></i></div><div><div class="vc-name">Marine Biologist</div><div class="vc-role">Environmental Consultant</div></div></div>
+        <div class="vc-author"><div class="vc-avatar" style="background:var(--dark)"><i class="bi bi-person-fill"></i></div><div><div class="vc-name">Marine Biologist</div><div class="vc-role">Environmental Consultant</div></div></div>
       </div>
     </div>
     <div class="reveal rd4" style="margin-top:var(--s4);text-align:center;">
@@ -1329,7 +1329,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 .cb-avatar{width:36px;height:36px;border-radius:50%;background:var(--teal);display:grid;place-items:center;font-size:16px}
 .cb-header-info h4{font-size:13px;font-weight:600;margin-bottom:1px;font-family:'Plus Jakarta Sans',sans-serif}
 .cb-header-info span{font-size:11px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:4px}
-.cb-header-info span::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80}
+.cb-header-info span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal-light)}
 .cb-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:18px;padding:4px;transition:color .15s}
 .cb-close:hover{color:#fff}
 
