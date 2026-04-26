@@ -153,7 +153,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .proj-feature-tag{display:inline-flex;align-items:center;align-self:flex-start;gap:6px;font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:700;color:var(--orange);background:rgba(217,90,16,.08);border:1px solid rgba(217,90,16,.18);padding:5px var(--s2);border-radius:100px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:var(--s3)}
 .proj-feature-icon{width:var(--s8);height:var(--s8);border-radius:var(--rlg);background:var(--teal);color:#fff;display:grid;place-items:center;font-size:var(--t-xl);margin-bottom:var(--s3);box-shadow:0 var(--s1) var(--s3) rgba(42,139,139,.25)}
 .proj-feature h3{font-size:var(--t-xl);margin-bottom:var(--s2);color:var(--dark)}
-.proj-feature p{color:var(--text-light);font-size:var(--t-base);line-height:1.7;margin-bottom:var(--s4)}
+.proj-feature p{color:var(--text-light);font-size:var(--t-base);line-height:1.7;margin-bottom:var(--s3)}
+/* Illustration — bleeds to card edges, sits between description and stats */
+.proj-feature-art{display:block;width:calc(100% + var(--s5) * 2);max-width:none;margin:var(--s2) calc(var(--s5) * -1) var(--s3);height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center;pointer-events:none;user-select:none}
 .proj-feature-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);padding:var(--s3) 0;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);margin-bottom:var(--s3)}
 .proj-feature-stats > div{text-align:left}
 .proj-feature-stats strong{display:block;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);color:var(--teal);font-weight:700;line-height:1;letter-spacing:-.01em}
@@ -399,8 +401,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .final-cta{background:#F8FAF9 url('join-us-bg.png') no-repeat right center;background-size:auto 100%;position:relative;overflow:hidden;padding:var(--s10) 0}
 .final-cta .container{position:relative;z-index:1}
 .final-cta-inner{display:flex;align-items:center;gap:var(--s4);max-width:60%}
-.final-cta-icon{width:var(--s8);height:var(--s8);border-radius:50%;background:var(--bg-card);border:1px solid var(--border-light);display:grid;place-items:center;flex-shrink:0;box-shadow:0 2px 12px rgba(26,60,60,.05)}
-.final-cta-icon img{width:70%;height:70%;border-radius:50%;object-fit:cover}
+.final-cta-icon{width:var(--s12);height:var(--s12);border-radius:50%;background:var(--bg-card);border:1px solid var(--border-light);display:grid;place-items:center;flex-shrink:0;box-shadow:0 4px 20px rgba(26,60,60,.06)}
+.final-cta-icon img{width:88%;height:88%;border-radius:50%;object-fit:cover}
 .final-cta-text h2{margin-bottom:var(--s1)}.final-cta-text h2 span{color:var(--teal)}
 .final-cta-text p{color:var(--text-light);max-width:440px;margin-bottom:var(--s3);font-size:var(--t-sm);line-height:1.6}
 .final-cta-btns{display:flex;gap:var(--s2);flex-wrap:wrap}
@@ -982,6 +984,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <div class="proj-feature-icon"><i class="bi bi-water"></i></div>
         <h3>The Tidal Pool</h3>
         <p>A R50M eco-friendly pool near Chapman's Peak — safe ocean access and marine education for communities excluded from the coastline they live beside.</p>
+        <img class="proj-feature-art" src="tidal-pool-bg.png" alt="Sketch of Hout Bay coastline with Sentinel mountain and a sailboat at anchor" loading="lazy">
         <div class="proj-feature-stats">
           <div><strong>R50M</strong><span>capital build</span></div>
           <div><strong>10–12 yrs</strong><span>delivery window</span></div>
@@ -1324,7 +1327,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 <section class="final-cta section">
   <div class="container">
     <div class="final-cta-inner">
-      <div class="final-cta-icon reveal"><img src="logo.png" alt="TFGI"></div>
+      <div class="final-cta-icon reveal"><img src="submark.png" alt="TFGI"></div>
       <div class="final-cta-text">
         <h2 class="reveal">Do good. Feel good. <span>Join us.</span></h2>
         <p class="reveal rd1">Be part of a movement creating a legacy of access, nature and community.</p>
