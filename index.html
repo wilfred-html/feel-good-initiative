@@ -159,6 +159,88 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .lead-role{font-size:var(--t-sm);color:var(--teal);font-weight:600;margin-bottom:var(--s2)}
 .lead-info p{font-size:var(--t-sm);color:var(--text-light);line-height:1.65}
 
+/* ═══ TIDAL POOL ROADMAP — Hick's reduction · F-pattern · Progressive disclosure · Golden ratio panel ═══ */
+.roadmap{background:var(--dark-deep);color:#fff;position:relative;overflow:hidden}
+.roadmap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.1) 0%,transparent 60%);pointer-events:none}
+.roadmap .container{position:relative;z-index:1}
+.roadmap-header{text-align:center;max-width:640px;margin:0 auto var(--s8)}
+.roadmap h2{color:#fff;margin-bottom:var(--s2)}.roadmap h2 span{color:var(--teal-light)}
+.roadmap-header .desc{color:rgba(255,255,255,.6);margin:var(--s1) auto 0}
+.roadmap .label{background:rgba(255,255,255,.06);color:var(--teal-light)}
+
+/* Stepper — 6 phase nodes, horizontal */
+.stepper{display:flex;align-items:flex-start;justify-content:space-between;position:relative;padding:0 var(--s2);margin-bottom:var(--s5)}
+.stepper::before{content:'';position:absolute;top:24px;left:5%;right:5%;height:1px;background:rgba(255,255,255,.1);z-index:0}
+.step-node{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.45);transition:color .25s var(--ease);padding:0;font-family:inherit;flex:1;min-width:0}
+.step-node:hover{color:rgba(255,255,255,.85)}
+.step-node.active{color:#fff}
+.step-circle{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:'Josefin Sans',sans-serif;font-size:var(--t-base);font-weight:700;background:var(--dark-deep);border:2px solid rgba(255,255,255,.18);transition:all .3s var(--ease);color:inherit}
+.step-node:hover .step-circle{border-color:rgba(255,255,255,.4)}
+.step-node.active .step-circle{transform:scale(1.08);box-shadow:0 0 0 4px rgba(92,189,174,.15)}
+.step-node[data-phase="1"].active .step-circle{background:var(--dark);border-color:var(--teal-light);color:#fff}
+.step-node[data-phase="2"].active .step-circle{background:var(--teal);border-color:var(--teal-light);color:#fff}
+.step-node[data-phase="3"].active .step-circle{background:var(--teal);border-color:var(--teal-light);color:#fff}
+.step-node[data-phase="4"].active .step-circle{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 0 0 4px rgba(217,90,16,.18)}
+.step-node[data-phase="5"].active .step-circle{background:var(--teal);border-color:var(--teal-light);color:#fff}
+.step-node[data-phase="6"].active .step-circle{background:var(--teal-light);border-color:var(--teal-light);color:var(--dark)}
+.step-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-xs);font-weight:600;text-transform:uppercase;letter-spacing:.12em;text-align:center;line-height:1.3}
+
+/* Panels — Golden ratio 38.2/61.8 · Progressive disclosure · stacked, only active visible */
+.panels{display:grid}
+.phase-panel{grid-column:1;grid-row:1;display:grid;grid-template-columns:38.2% 61.8%;gap:var(--s5);align-items:stretch;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-top:3px solid transparent;border-radius:var(--rlg);padding:var(--s5);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility 0s .3s}
+.phase-panel.active{opacity:1;visibility:visible;transform:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.phase-panel[data-phase="1"]{border-top-color:var(--teal-light)}
+.phase-panel[data-phase="2"]{border-top-color:var(--teal)}
+.phase-panel[data-phase="3"]{border-top-color:var(--teal)}
+.phase-panel[data-phase="4"]{border-top-color:var(--orange)}
+.phase-panel[data-phase="5"]{border-top-color:var(--teal)}
+.phase-panel[data-phase="6"]{border-top-color:var(--teal-light)}
+.panel-summary{padding-right:var(--s4);border-right:1px solid rgba(255,255,255,.08);min-height:0;display:flex;flex-direction:column}
+.panel-status{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:var(--s3);align-self:flex-start;line-height:1}
+.panel-status.current{background:rgba(92,189,174,.14);border:1px solid rgba(92,189,174,.36);color:var(--teal-light)}
+.panel-status.upcoming{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55)}
+.panel-status .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.panel-status.current .dot{animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+.panel-num{font-family:'Josefin Sans',sans-serif;font-size:var(--t-3xl);font-weight:700;line-height:1;margin-bottom:var(--s1);letter-spacing:-.02em;color:#fff}
+.phase-panel[data-phase="2"] .panel-num{color:var(--teal-light)}
+.phase-panel[data-phase="3"] .panel-num{color:var(--teal-light)}
+.phase-panel[data-phase="4"] .panel-num{color:var(--orange)}
+.phase-panel[data-phase="5"] .panel-num{color:var(--teal-light)}
+.phase-panel[data-phase="6"] .panel-num{color:var(--teal-light)}
+.panel-kicker{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-xs);color:rgba(255,255,255,.5);font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin-bottom:var(--s1)}
+.panel-title{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xl);font-weight:600;color:#fff;line-height:1.2;margin-bottom:var(--s3);letter-spacing:-.01em}
+.panel-intro{font-size:var(--t-sm);color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:var(--s3)}
+.panel-flag{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(217,90,16,.12);border:1px solid rgba(217,90,16,.32);border-radius:100px;font-size:var(--t-xs);font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;line-height:1.2;margin-top:var(--s2);align-self:flex-start}
+.panel-flag i{font-size:11px}
+.panel-cta{display:inline-flex;align-items:center;gap:8px;margin-top:var(--s3);padding:10px 18px;background:var(--orange);color:#fff;border-radius:var(--r);font-size:var(--t-sm);font-weight:600;text-decoration:none;transition:background .2s var(--ease),transform .2s var(--ease);align-self:flex-start}
+.panel-cta:hover{background:var(--orange-hover);transform:translateY(-1px)}
+.panel-unlocks{margin-top:auto;padding-top:var(--s3);border-top:1px solid rgba(255,255,255,.08);font-size:var(--t-sm);color:rgba(255,255,255,.7);line-height:1.55}
+.panel-unlocks strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.panel-unlocks i{color:var(--teal-light);font-size:11px;margin-right:6px}
+
+.panel-actions-wrap{display:flex;flex-direction:column}
+.panel-actions-header{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:rgba(255,255,255,.45);font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin-bottom:var(--s3);padding-bottom:var(--s2);border-bottom:1px solid rgba(255,255,255,.08)}
+.panel-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s2) var(--s4);align-content:start;flex:1}
+.panel-action{display:flex;align-items:flex-start;gap:10px;font-size:var(--t-sm);color:rgba(255,255,255,.78);line-height:1.5}
+.panel-action i{color:var(--teal-light);font-size:9px;margin-top:7px;flex-shrink:0}
+.phase-panel[data-phase="4"] .panel-action i{color:var(--orange)}
+.panel-tip{margin-top:var(--s4);padding:var(--s2) var(--s3);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);font-size:var(--t-xs);color:rgba(255,255,255,.6);line-height:1.6;display:flex;align-items:flex-start;gap:8px}
+.panel-tip i{color:var(--teal-light);font-size:12px;margin-top:2px;flex-shrink:0}
+.panel-tip strong{color:#fff;font-weight:700}
+
+@media(max-width:1024px){
+  .stepper{flex-wrap:wrap;gap:var(--s3) var(--s2);padding:0;justify-content:center}
+  .stepper::before{display:none}
+  .step-node{flex:0 0 calc(33.333% - var(--s2));max-width:calc(33.333% - var(--s2))}
+  .phase-panel{grid-template-columns:1fr;gap:var(--s4);padding:var(--s4)}
+  .panel-summary{padding-right:0;border-right:none;padding-bottom:var(--s3);border-bottom:1px solid rgba(255,255,255,.08)}
+  .panel-actions{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .step-node{flex:0 0 calc(50% - var(--s2));max-width:calc(50% - var(--s2))}
+}
+
 /* ═══ SPONSORSHIP — Hick's Law tiers · Anchoring · Proximity · Progressive disclosure ═══ */
 .sponsor{background:var(--dark-deep);color:#fff;position:relative;overflow:hidden}
 .sponsor::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(42,139,139,.08) 0%,transparent 60%);pointer-events:none}
@@ -392,7 +474,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><img src="logo.jpg" alt="TFGI" class="nav-logo-img"><span class="nav-logo-text">Feel Good Initiative</span></a>
+    <a href="#" class="nav-logo"><img src="logo.png" alt="TFGI" class="nav-logo-img"><span class="nav-logo-text">Feel Good Initiative</span></a>
     <ul class="nav-links" id="nl">
       <li><a href="#story">Our Story</a></li>
       <li><a href="#vision">The Vision</a></li>
@@ -634,6 +716,180 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-clock"></i></div><div><h4>Full EIA</h4><p>Pending — conducted once the EAP is appointed</p></div></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIDAL POOL ROADMAP — Hick's reduction · F-pattern · Progressive disclosure · Golden ratio panel -->
+<section class="roadmap section" id="roadmap">
+  <div class="container">
+
+    <div class="roadmap-header">
+      <div class="label reveal" style="justify-content:center;"><i class="bi bi-signpost-split"></i> The Roadmap</div>
+      <h2 class="reveal rd1">From concept to <span>opening day.</span></h2>
+      <p class="desc reveal rd2">A 10–12 year journey in six phases. Click a phase to see the key actions inside it.</p>
+    </div>
+
+    <!-- F-pattern stepper — six tap targets, large enough for Fitts -->
+    <div class="stepper reveal rd1" role="tablist" aria-label="Project phases">
+      <button type="button" class="step-node active" data-phase="1" role="tab" aria-selected="true" aria-controls="panel-1">
+        <span class="step-circle">01</span>
+        <span class="step-label">Foundation</span>
+      </button>
+      <button type="button" class="step-node" data-phase="2" role="tab" aria-selected="false" aria-controls="panel-2">
+        <span class="step-circle">02</span>
+        <span class="step-label">Authorisation</span>
+      </button>
+      <button type="button" class="step-node" data-phase="3" role="tab" aria-selected="false" aria-controls="panel-3">
+        <span class="step-circle">03</span>
+        <span class="step-label">Design</span>
+      </button>
+      <button type="button" class="step-node" data-phase="4" role="tab" aria-selected="false" aria-controls="panel-4">
+        <span class="step-circle">04</span>
+        <span class="step-label">Funding</span>
+      </button>
+      <button type="button" class="step-node" data-phase="5" role="tab" aria-selected="false" aria-controls="panel-5">
+        <span class="step-circle">05</span>
+        <span class="step-label">Build</span>
+      </button>
+      <button type="button" class="step-node" data-phase="6" role="tab" aria-selected="false" aria-controls="panel-6">
+        <span class="step-circle">06</span>
+        <span class="step-label">Open</span>
+      </button>
+    </div>
+
+    <!-- Stacked panels — only the active one is visible (progressive disclosure) -->
+    <div class="panels reveal rd2">
+
+      <div class="phase-panel active" data-phase="1" id="panel-1" role="tabpanel">
+        <div class="panel-summary">
+          <span class="panel-status current"><span class="dot"></span> Currently in progress</span>
+          <div class="panel-num">01</div>
+          <div class="panel-kicker">Phase 1 of 6</div>
+          <div class="panel-title">Concept &amp; Technical Foundation</div>
+          <p class="panel-intro">Lock the vision and prove the project is buildable — before any formal clocks start.</p>
+          <div class="panel-unlocks"><strong>Unlocks next</strong><i class="bi bi-arrow-right"></i> Appointing the EAP and starting environmental authorisation.</div>
+        </div>
+        <div class="panel-actions-wrap">
+          <div class="panel-actions-header">6 Key Actions</div>
+          <div class="panel-actions">
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Concept alignment with engineers</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Preliminary engineering design</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Rough cost estimate</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Environmental screening</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Stakeholder identification</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Initial engagement with authorities</div>
+          </div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span>The concept study report is being completed with the project engineering team — once signed off by the City of Cape Town, Phase 2 begins.</span></div>
+        </div>
+      </div>
+
+      <div class="phase-panel" data-phase="2" id="panel-2" role="tabpanel">
+        <div class="panel-summary">
+          <span class="panel-status upcoming"><span class="dot"></span> Upcoming</span>
+          <div class="panel-num">02</div>
+          <div class="panel-kicker">Phase 2 of 6</div>
+          <div class="panel-title">Environmental Authorisation</div>
+          <p class="panel-intro">The site sits in a Marine Protected Area. This phase earns the right to build.</p>
+          <div class="panel-unlocks"><strong>Unlocks next</strong><i class="bi bi-arrow-right"></i> Detailed engineering design and final permits.</div>
+        </div>
+        <div class="panel-actions-wrap">
+          <div class="panel-actions-header">8 Key Actions</div>
+          <div class="panel-actions">
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Appoint the EAP</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Pre-application meeting with DFFE</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Scoping phase</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Specialist studies</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Public Participation Process</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Draft Environmental Impact Report</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Submission to DFFE</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Authorisation decision</div>
+          </div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span>Specialist studies cover marine biology, coastal engineering, heritage and socio-economic impact — all with marine-biologist oversight.</span></div>
+        </div>
+      </div>
+
+      <div class="phase-panel" data-phase="3" id="panel-3" role="tabpanel">
+        <div class="panel-summary">
+          <span class="panel-status upcoming"><span class="dot"></span> Upcoming</span>
+          <div class="panel-num">03</div>
+          <div class="panel-kicker">Phase 3 of 6</div>
+          <div class="panel-title">Design Development &amp; Approvals</div>
+          <p class="panel-intro">From concept to construction-ready: detailed design, permits, and accurate costing.</p>
+          <div class="panel-unlocks"><strong>Unlocks next</strong><i class="bi bi-arrow-right"></i> Construction tender and contractor appointment.</div>
+        </div>
+        <div class="panel-actions-wrap">
+          <div class="panel-actions-header">3 Key Actions</div>
+          <div class="panel-actions">
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Detailed engineering design</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Coastal permits &amp; land-use approvals</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Budget refinement</div>
+          </div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span>Approvals here include the Coastal Management Act, City of Cape Town sign-off and any land agreements required by the site.</span></div>
+        </div>
+      </div>
+
+      <div class="phase-panel" data-phase="4" id="panel-4" role="tabpanel">
+        <div class="panel-summary">
+          <span class="panel-status current"><span class="dot"></span> Currently active</span>
+          <div class="panel-num">04</div>
+          <div class="panel-kicker">Phase 4 of 6</div>
+          <div class="panel-title">Funding &amp; Partnerships</div>
+          <p class="panel-intro">Capital flows continuously through the project, drawn from a deliberately diverse mix — government, corporate, grants and donors.</p>
+          <span class="panel-flag"><i class="bi bi-exclamation-triangle-fill"></i> Often the biggest bottleneck</span>
+          <a href="#sponsor" class="panel-cta"><i class="bi bi-arrow-up-right"></i> Partner With Us</a>
+          <div class="panel-unlocks"><strong>Why it's continuous</strong><i class="bi bi-arrow-right"></i> Funding runs in parallel with every other phase — sponsorship is the project's continuous engine.</div>
+        </div>
+        <div class="panel-actions-wrap">
+          <div class="panel-actions-header">The Funding Mix</div>
+          <div class="panel-actions">
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Government funding</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Corporate sponsorships</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Grants</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Donor campaigns</div>
+          </div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span><strong>11 partners</strong> already backing the build. Capital raising is active and runs in parallel with the engineering work.</span></div>
+        </div>
+      </div>
+
+      <div class="phase-panel" data-phase="5" id="panel-5" role="tabpanel">
+        <div class="panel-summary">
+          <span class="panel-status upcoming"><span class="dot"></span> Upcoming</span>
+          <div class="panel-num">05</div>
+          <div class="panel-kicker">Phase 5 of 6</div>
+          <div class="panel-title">Procurement &amp; Construction</div>
+          <p class="panel-intro">Tender, appoint, build. Marine construction is weather-dependent and tightly monitored for compliance.</p>
+          <div class="panel-unlocks"><strong>Unlocks next</strong><i class="bi bi-arrow-right"></i> Completion and public handover.</div>
+        </div>
+        <div class="panel-actions-wrap">
+          <div class="panel-actions-header">2 Key Actions</div>
+          <div class="panel-actions">
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Tender &amp; contractor appointment</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Construction phase</div>
+          </div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span>Construction includes site prep, marine work (weather-dependent) and ongoing environmental compliance monitoring.</span></div>
+        </div>
+      </div>
+
+      <div class="phase-panel" data-phase="6" id="panel-6" role="tabpanel">
+        <div class="panel-summary">
+          <span class="panel-status upcoming"><span class="dot"></span> Upcoming</span>
+          <div class="panel-num">06</div>
+          <div class="panel-kicker">Phase 6 of 6</div>
+          <div class="panel-title">Completion &amp; Handover</div>
+          <p class="panel-intro">Sign-off, public opening, and the operational plan that keeps the pool running for decades.</p>
+          <div class="panel-unlocks"><strong>The finish line</strong><i class="bi bi-arrow-right"></i> A maintained public coastal asset for decades.</div>
+        </div>
+        <div class="panel-actions-wrap">
+          <div class="panel-actions-header">2 Key Actions</div>
+          <div class="panel-actions">
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Final inspections &amp; sign-off</div>
+            <div class="panel-action"><i class="bi bi-circle-fill"></i> Public opening &amp; operational plan</div>
+          </div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span>Sign-off closes out engineering, environmental and city compliance before the doors open to the public.</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1040,7 +1296,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   <div class="container">
     <div class="ft-top">
       <div class="ft-brand">
-        <a href="#" class="nav-logo"><img src="logo.jpg" alt="TFGI" class="nav-logo-img"><span class="nav-logo-text" style="color:#fff">Feel Good Initiative</span></a>
+        <a href="#" class="nav-logo"><img src="logo.png" alt="TFGI" class="nav-logo-img"><span class="nav-logo-text" style="color:#fff">Feel Good Initiative</span></a>
         <p>Do Good. Feel Good. Protecting Hout Bay's beach, building community infrastructure, and creating lasting change — every single day.</p>
       </div>
       <div class="ft-col"><h4>Project</h4><a href="#vision">The Vision</a><a href="#environment">Environment</a><a href="#community">Community</a><a href="#leadership">Leadership</a></div>
@@ -1153,6 +1409,20 @@ const po=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){document
 const hc=document.querySelector('.hcard');if(hc)po.observe(hc);
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
 
+/* Roadmap stepper → swap active phase panel */
+(function(){
+  const nodes=document.querySelectorAll('.step-node');
+  const panels=document.querySelectorAll('.phase-panel');
+  if(!nodes.length||!panels.length)return;
+  nodes.forEach(node=>{
+    node.addEventListener('click',()=>{
+      const phase=node.dataset.phase;
+      nodes.forEach(n=>{const a=n===node;n.classList.toggle('active',a);n.setAttribute('aria-selected',a?'true':'false');});
+      panels.forEach(p=>p.classList.toggle('active',p.dataset.phase===phase));
+    });
+  });
+})();
+
 /* Sponsor tier → form selection */
 (function(){
   const pill=document.getElementById('tierPill');
@@ -1225,7 +1495,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     status:{
       keywords:['status','progress','when','timeline','stage','phase','update','how far','started'],
       answer:`The project is currently in the <strong>early feasibility stage</strong>:\n\n🔄 Concept study report — In progress with the project engineering team\n🔄 Capital raising — Active, seeking corporate & private sponsors\n⏳ EAP appointment — Pending, once the study is signed off by the City of Cape Town\n⏳ Full EIA — Conducted once the EAP is appointed\n\nOnce the EIA is complete and funding is secured, construction planning begins. This is a 10-year development project.`,
-      actions:[{label:'Project Status',icon:'bi-clipboard-check',action:'navigate',target:'#vision'}]
+      actions:[{label:'Project Status',icon:'bi-clipboard-check',action:'navigate',target:'#vision'},{label:'See the Full Roadmap',icon:'bi-signpost-split',action:'navigate',target:'#roadmap'}]
     },
     cost:{
       keywords:['cost','r50','fifty million','how much','price','budget','expensive'],
