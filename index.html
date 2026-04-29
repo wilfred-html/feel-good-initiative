@@ -358,15 +358,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .partner-panel.active{display:block;animation:panelIn .35s var(--ease)}
 @keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* Hero amount display */
-.amount-display{text-align:center;margin-bottom:var(--s3);padding:var(--s4) var(--s2);background:radial-gradient(ellipse at 50% 50%,rgba(217,90,16,.07),transparent 70%);border-radius:var(--rlg)}
-.amount-currency{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xl);font-weight:300;color:rgba(255,255,255,.55);vertical-align:top;line-height:1;margin-right:6px;display:inline-block;margin-top:14px}
-.amount-value{font-family:'Josefin Sans',sans-serif;font-size:clamp(var(--t-3xl),9vw,5.5rem);font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;display:inline-block}
-.amount-context{font-size:var(--t-sm);color:rgba(255,255,255,.6);margin-top:var(--s2);line-height:1.5;max-width:560px;margin-left:auto;margin-right:auto}
+/* Golden ratio split: 61.8% slider area / 38.2% supporting aside */
+.partner-grid{display:grid;grid-template-columns:61.8% 38.2%;gap:var(--s5);align-items:start}
+.partner-main{min-width:0}
+
+/* Hero amount display — Major Third type scale, capped at --t-3xl */
+.amount-display{text-align:center;margin-bottom:var(--s3);padding:var(--s4) var(--s2);background:radial-gradient(ellipse at 50% 50%,rgba(217,90,16,.07),transparent 70%);border-radius:var(--rlg);transition:background .25s var(--ease)}
+.amount-currency{font-family:'Josefin Sans',sans-serif;font-size:var(--t-lg);font-weight:300;color:rgba(255,255,255,.55);vertical-align:top;line-height:1;margin-right:6px;display:inline-block;margin-top:10px}
+.amount-value{font-family:'Josefin Sans',sans-serif;font-size:clamp(var(--t-2xl),7vw,var(--t-3xl));font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;display:inline-block;transition:color .25s var(--ease)}
+.amount-context{font-size:var(--t-sm);color:rgba(255,255,255,.6);margin-top:var(--s2);line-height:1.5}
 .amount-context strong{color:var(--teal-light);font-weight:700;letter-spacing:.02em}
 
 /* Slider */
-.amount-slider-wrap{max-width:680px;margin:0 auto;padding:0 var(--s1)}
+.amount-slider-wrap{padding:0 var(--s1)}
 .amount-slider{-webkit-appearance:none;appearance:none;width:100%;height:8px;background:linear-gradient(90deg,var(--orange) 0,var(--orange) var(--fill,30%),rgba(255,255,255,.1) var(--fill,30%),rgba(255,255,255,.1) 100%);border-radius:100px;outline:none;cursor:pointer;transition:background .15s linear}
 .amount-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;height:28px;background:var(--orange);border-radius:50%;cursor:pointer;border:4px solid #fff;box-shadow:0 2px 12px rgba(217,90,16,.5);transition:transform .15s var(--ease)}
 .amount-slider::-webkit-slider-thumb:hover{transform:scale(1.12)}
@@ -379,7 +383,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .amount-marks span:hover{color:var(--teal-light)}
 .amount-marks span.active{color:var(--orange)}
 
-/* Actions */
+/* Actions — Fitts CTA */
 .amount-actions{display:flex;flex-direction:column;align-items:center;gap:var(--s2);margin-top:var(--s4)}
 .amount-link{background:none;border:none;font-size:var(--t-sm);color:var(--teal-light);font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;border-bottom:1px solid rgba(92,189,174,.3);padding:0 0 2px;transition:border-color .15s,color .15s}
 .amount-link:hover{border-color:var(--teal-light);color:#fff}
@@ -391,16 +395,36 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .amount-custom input{width:100%;padding:var(--s2);background:transparent;border:1.5px solid rgba(255,255,255,.16);border-radius:var(--r);font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);color:#fff;outline:none;font-weight:700}
 .amount-custom input:focus{border-color:var(--teal-light);background:rgba(255,255,255,.03)}
 
-/* Live tier perks card (sponsor panel) */
-.tier-live{max-width:680px;margin:var(--s3) auto 0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s4)}
-.tier-live h4{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:var(--s2)}
-.tier-live .tier-perks{margin-bottom:var(--s3)}
-.tier-live .tier-perks li{font-size:var(--t-sm)}
-.tier-live-detail{padding-top:var(--s2);border-top:1px solid rgba(255,255,255,.08)}
-.tier-live-detail ul{list-style:none;display:flex;flex-direction:column;gap:var(--s075)}
+/* Aside — 38.2% column · supporting card */
+.partner-aside{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--rlg);padding:var(--s4);transition:border-color .25s var(--ease),background .25s var(--ease)}
+.partner-flag{display:none;align-self:flex-start;background:var(--orange);color:#fff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:var(--s05) var(--s2);border-radius:100px;margin-bottom:var(--s2);box-shadow:0 var(--s05) var(--s2) rgba(217,90,16,.35);width:fit-content}
+.partner-aside h4{font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:var(--s2)}
+.partner-aside-list{list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
+.partner-aside-list li{display:flex;align-items:flex-start;gap:var(--s15);font-size:var(--t-sm);color:rgba(255,255,255,.78);line-height:1.5}
+.partner-aside-list li i{color:var(--teal-light);font-size:var(--t-md);margin-top:2px;flex-shrink:0}
+.partner-aside-list strong{color:#fff;font-weight:700;display:block;margin-bottom:2px}
+.partner-aside .tier-perks{margin-bottom:0}
+.partner-aside .tier-perks li{font-size:var(--t-sm)}
+
+/* Anchoring — Builder gets featured styling when slider lands on it */
+.partner-panel.is-builder .partner-flag{display:inline-flex;animation:panelIn .25s var(--ease)}
+.partner-panel.is-builder .partner-aside{border-color:rgba(217,90,16,.35);background:linear-gradient(180deg,rgba(217,90,16,.06),rgba(255,255,255,.03))}
+.partner-panel.is-builder .amount-display{background:radial-gradient(ellipse at 50% 50%,rgba(217,90,16,.14),transparent 70%)}
+.partner-panel.is-builder .partner-aside .tier-perks i{color:var(--orange)}
+
+/* Progressive disclosure — More detail toggle */
+.tier-live-toggle{background:none;border:none;color:var(--teal-light);font-size:var(--t-xs);font-weight:600;cursor:pointer;padding:0;font-family:inherit;display:inline-flex;align-items:center;gap:var(--s075);margin-top:var(--s3)}
+.tier-live-toggle i{transition:transform .25s var(--ease);font-size:.65rem}
+.tier-live-toggle.open i{transform:rotate(180deg)}
+.tier-live-detail{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.tier-live-detail.open{max-height:280px}
+.tier-live-detail ul{list-style:none;display:flex;flex-direction:column;gap:var(--s075);padding-top:var(--s2);margin-top:var(--s2);border-top:1px solid rgba(255,255,255,.08)}
 .tier-live-detail li{display:flex;align-items:flex-start;gap:var(--s1);font-size:var(--t-xs);color:rgba(255,255,255,.55);line-height:1.55}
 .tier-live-detail i{color:rgba(255,255,255,.35);font-size:11px;margin-top:var(--s05);flex-shrink:0}
 
+@media(max-width:1024px){
+  .partner-grid{grid-template-columns:1fr;gap:var(--s3)}
+}
 @media(max-width:600px){
   .partner-tab{padding:var(--s15) var(--s2);gap:var(--s1)}
   .partner-tab i{font-size:var(--t-sm)}
@@ -1234,48 +1258,69 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       </button>
     </div>
 
-    <!-- DONATE PANEL -->
+    <!-- DONATE PANEL — Golden ratio 61.8 main / 38.2 aside -->
     <div class="partner-panel active reveal rd1" data-panel="donate">
-      <div class="amount-display">
-        <span class="amount-currency">R</span><span class="amount-value" data-donate-display>500</span>
-        <div class="amount-context">A one-off contribution. Every rand goes to daily ops, equipment, and the build.</div>
-      </div>
-      <div class="amount-slider-wrap">
-        <input type="range" class="amount-slider" id="donateSlider" min="0" max="7" step="1" value="2" aria-label="Donation amount">
-        <div class="amount-marks" data-marks="donate">
-          <span>R100</span><span>R250</span><span>R500</span><span>R1K</span><span>R2.5K</span><span>R5K</span><span>R10K</span><span>R25K</span>
+      <div class="partner-grid">
+        <div class="partner-main">
+          <div class="amount-display">
+            <span class="amount-currency">R</span><span class="amount-value" data-donate-display>500</span>
+            <div class="amount-context">A one-off contribution. Every rand goes to daily ops, equipment, and the build.</div>
+          </div>
+          <div class="amount-slider-wrap">
+            <input type="range" class="amount-slider" id="donateSlider" min="0" max="7" step="1" value="2" aria-label="Donation amount">
+            <div class="amount-marks" data-marks="donate">
+              <span>R100</span><span>R250</span><span>R500</span><span>R1K</span><span>R2.5K</span><span>R5K</span><span>R10K</span><span>R25K</span>
+            </div>
+          </div>
+          <div class="amount-actions">
+            <button type="button" class="btn btn-orange btn-lg" data-cta="donate"><i class="bi bi-heart-fill"></i> Continue with R<span data-donate-display>500</span></button>
+            <button type="button" class="amount-link" id="customToggle">Want to give more than R25K?</button>
+          </div>
+          <div class="amount-custom" id="customWrap">
+            <label for="customInput">Custom amount (R)</label>
+            <input type="number" min="100" step="50" placeholder="e.g. 35000" id="customInput">
+          </div>
         </div>
-      </div>
-      <div class="amount-actions">
-        <button type="button" class="btn btn-orange btn-lg" data-cta="donate"><i class="bi bi-heart-fill"></i> Continue with R<span data-donate-display>500</span></button>
-        <button type="button" class="amount-link" id="customToggle">Want to give more than R25K?</button>
-      </div>
-      <div class="amount-custom" id="customWrap">
-        <label for="customInput">Custom amount (R)</label>
-        <input type="number" min="100" step="50" placeholder="e.g. 35000" id="customInput">
+        <aside class="partner-aside">
+          <h4>Where it goes</h4>
+          <ul class="partner-aside-list">
+            <li><i class="bi bi-person-walking"></i><span><strong>Beach Ranger ops</strong>Daily shoreline work — gear, fuel, consumables.</span></li>
+            <li><i class="bi bi-trash3"></i><span><strong>Community bins</strong>Branded bins and ongoing maintenance.</span></li>
+            <li><i class="bi bi-buildings"></i><span><strong>Hangberg waste</strong>Cage, ranger, recycling partnerships.</span></li>
+            <li><i class="bi bi-water"></i><span><strong>Tidal pool</strong>Feasibility studies and the long build.</span></li>
+          </ul>
+        </aside>
       </div>
     </div>
 
-    <!-- SPONSOR PANEL -->
+    <!-- SPONSOR PANEL — Golden ratio 61.8 main / 38.2 aside · Anchoring on Builder -->
     <div class="partner-panel reveal rd1" data-panel="sponsor">
-      <div class="amount-display">
-        <span class="amount-currency">R</span><span class="amount-value" data-tier-amount>50K</span>
-        <div class="amount-context"><strong data-tier-name>Supporter</strong> — <span data-tier-tagline>A meaningful first contribution that shows up across our channels.</span></div>
-      </div>
-      <div class="amount-slider-wrap">
-        <input type="range" class="amount-slider" id="sponsorSlider" min="0" max="3" step="1" value="0" aria-label="Sponsor tier">
-        <div class="amount-marks" data-marks="sponsor">
-          <span>Supporter</span><span>Champion</span><span>Builder</span><span>Visionary</span>
+      <div class="partner-grid">
+        <div class="partner-main">
+          <div class="amount-display">
+            <span class="amount-currency">R</span><span class="amount-value" data-tier-amount>50K</span>
+            <div class="amount-context"><strong data-tier-name>Supporter</strong> — <span data-tier-tagline>A meaningful first contribution that shows up across our channels.</span></div>
+          </div>
+          <div class="amount-slider-wrap">
+            <input type="range" class="amount-slider" id="sponsorSlider" min="0" max="3" step="1" value="0" aria-label="Sponsor tier">
+            <div class="amount-marks" data-marks="sponsor">
+              <span>Supporter</span><span>Champion</span><span>Builder</span><span>Visionary</span>
+            </div>
+          </div>
+          <div class="amount-actions">
+            <button type="button" class="btn btn-orange btn-lg" data-cta="sponsor"><i class="bi bi-arrow-up-right"></i> Discuss <span data-tier-name>Supporter</span></button>
+            <a href="#sponsorForm" class="amount-link">Looking for a custom partnership structure?</a>
+          </div>
         </div>
-      </div>
-      <div class="tier-live">
-        <h4>What's included</h4>
-        <ul class="tier-perks" id="tierPerks"></ul>
-        <div class="tier-live-detail"><ul id="tierDetail"></ul></div>
-      </div>
-      <div class="amount-actions">
-        <button type="button" class="btn btn-orange btn-lg" data-cta="sponsor"><i class="bi bi-arrow-up-right"></i> Discuss <span data-tier-name>Supporter</span></button>
-        <a href="#sponsorForm" class="amount-link">Looking for a custom partnership structure?</a>
+        <aside class="partner-aside">
+          <div class="partner-flag" data-tier-flag>Naming rights</div>
+          <h4>What's included</h4>
+          <ul class="tier-perks" id="tierPerks"></ul>
+          <button type="button" class="tier-live-toggle" id="tierLiveToggle" aria-expanded="false" aria-controls="tierLiveDetail">
+            <i class="bi bi-chevron-down"></i> More detail
+          </button>
+          <div class="tier-live-detail" id="tierLiveDetail"><ul id="tierDetail"></ul></div>
+        </aside>
       </div>
     </div>
 
@@ -1544,7 +1589,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     document.getElementById('tierPerks').innerHTML=t.perks.map(p=>`<li><i class="bi bi-check-lg"></i> ${p}</li>`).join('');
     document.getElementById('tierDetail').innerHTML=t.detail.map(d=>`<li><i class="bi bi-dot"></i> ${d}</li>`).join('');
     document.querySelectorAll('[data-marks="sponsor"] span').forEach((el,j)=>el.classList.toggle('active',j===i));
+    document.querySelector('[data-panel="sponsor"]').classList.toggle('is-builder',i===2);
     fillSlider(sponsorSlider);
+  }
+
+  /* Progressive disclosure — More detail toggle */
+  const tierLiveToggle=document.getElementById('tierLiveToggle');
+  const tierLiveDetail=document.getElementById('tierLiveDetail');
+  if(tierLiveToggle&&tierLiveDetail){
+    tierLiveToggle.addEventListener('click',()=>{
+      const open=tierLiveDetail.classList.toggle('open');
+      tierLiveToggle.classList.toggle('open',open);
+      tierLiveToggle.setAttribute('aria-expanded',open?'true':'false');
+    });
   }
   let interestTouched=false;
   if(interestSelect)interestSelect.addEventListener('change',()=>{interestTouched=true;});
