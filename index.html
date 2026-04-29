@@ -468,6 +468,11 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 /* Dark/colored logos need brightness boost to show on dark bg */
 .sp-logo img.logo-dark{filter:brightness(10) grayscale(100%);opacity:.35}
 .sp-logo:hover img.logo-dark{filter:brightness(1) grayscale(0%);opacity:.9}
+/* Logos delivered on a solid white plate — invert lightness so the plate disappears into the dark carousel while hue is preserved */
+.sp-logo img.logo-invert{filter:invert(1) hue-rotate(180deg) saturate(.4);opacity:.6}
+.sp-logo:hover img.logo-invert{filter:none;opacity:.95}
+/* Square/portrait logos need extra height so the wordmark matches other logos visually */
+.sp-logo img.logo-tall{max-height:72px}
 .sp-text{font-family:'Josefin Sans',sans-serif;font-weight:600;font-size:var(--t-sm);color:rgba(255,255,255,.3);letter-spacing:.12em;text-align:center;line-height:1.15;transition:all .4s var(--ease);display:flex;flex-direction:column;align-items:center;gap:2px}
 .sp-logo:hover .sp-text{color:rgba(255,255,255,.7)}
 .sp-text small{font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;opacity:.6}
@@ -625,24 +630,26 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
         <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
         <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
-        <div class="sp-logo"><span class="sp-text">REMAX<small>LIVING</small></span></div>
+        <div class="sp-logo"><img src="logos/remax_living.png" alt="Remax Living" class="logo-invert logo-tall"></div>
         <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
         <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
         <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
         <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
         <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
+        <div class="sp-logo"><img src="logos/sebcid.png" alt="SEBCID Hout Bay" class="logo-invert"></div>
         <!-- Duplicate for seamless loop -->
         <div class="sp-logo"><img src="logos/spar.png" alt="Spar" class="logo-dark"></div>
         <div class="sp-logo"><img src="logos/bokbus.png" alt="Bokbus Tours" class="logo-dark"></div>
         <div class="sp-logo"><span class="sp-text">THE BEACH BAR</span></div>
         <div class="sp-logo"><img src="logos/deepblue.png" alt="Deep Blue Security" class="logo-white"></div>
         <div class="sp-logo"><img src="logos/chaseveritt.svg" alt="Chas Everitt" class="logo-dark"></div>
-        <div class="sp-logo"><span class="sp-text">REMAX<small>LIVING</small></span></div>
+        <div class="sp-logo"><img src="logos/remax_living.png" alt="Remax Living" class="logo-invert logo-tall"></div>
         <div class="sp-logo"><span class="sp-text">HOUT BAY<small>GALLERY</small></span></div>
         <div class="sp-logo"><span class="sp-text">HANDIMAN<small>HARDWARE</small></span></div>
         <div class="sp-logo"><img src="logos/officenational.png" alt="Office National" class="logo-dark"></div>
         <div class="sp-logo"><span class="sp-text">THE BEACH<small>CLINIC</small></span></div>
         <div class="sp-logo"><span class="sp-text">ALEX STEWART<small>INTERNATIONAL</small></span></div>
+        <div class="sp-logo"><img src="logos/sebcid.png" alt="SEBCID Hout Bay" class="logo-invert"></div>
       </div>
     </div>
   </div>
@@ -697,7 +704,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           <h3><i class="bi bi-lightning-fill"></i> From Daily Action to Lasting Impact</h3>
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-calendar-check"></i></div><div><h4>Every Single Day</h4><p>Our Beach Ranger walks the beach daily — removing waste, engaging the community, setting the standard</p></div></div>
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-people-fill"></i></div><div><h4>Community-Powered</h4><p>From one person to a team of volunteers, sponsors, and partners working together</p></div></div>
-          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-people-fill"></i></div><div><h4>Backed by the Community</h4><p>Spar → Bokbus → The Beach Bar → Deep Blue Security → Chas Everitt → Remax Living → Hout Bay Gallery → Handiman Hardware → Office National → The Beach Clinic → Alex Stewart International</p></div></div>
+          <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-people-fill"></i></div><div><h4>Backed by the Community</h4><p>Spar → Bokbus → The Beach Bar → Deep Blue Security → Chas Everitt → Remax Living → Hout Bay Gallery → Handiman Hardware → Office National → The Beach Clinic → Alex Stewart International → SEBCID Hout Bay</p></div></div>
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-globe2"></i></div><div><h4>Bigger Than Hout Bay</h4><p>Building a model for environmental care + community upliftment that can scale nationally</p></div></div>
         </div>
       </div>
@@ -728,7 +735,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
             <div>
               <h4>Marine Protected Area Compliance</h4>
               <p>Full environmental assessment within one of South Africa's most sensitive coastal zones.</p>
-              <div class="vf-detail"><p style="margin-top:var(--s1);font-size:var(--t-sm);color:var(--text-light);">The site sits within a Marine Protected Area, requiring the highest level of environmental compliance. We're currently completing a concept study report with the project engineering team — once finalised and signed off by the City of Cape Town, an Environmental Assessment Practitioner will be appointed to conduct the full Environmental Impact Assessment with marine-biologist oversight before any construction begins.</p></div>
+              <div class="vf-detail"><p style="margin-top:var(--s1);font-size:var(--t-sm);color:var(--text-light);">The site sits within a Marine Protected Area, requiring the highest level of environmental compliance. We're currently completing a concept study report with Inanda Engineering — once finalised and signed off by the City of Cape Town, an Environmental Assessment Practitioner will be appointed to conduct the full Environmental Impact Assessment with marine-biologist oversight before any construction begins.</p></div>
               <button class="vf-toggle">Read more <i class="bi bi-chevron-down"></i></button>
             </div>
           </div>
@@ -755,7 +762,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <div class="vision-aside reveal rd2">
         <div class="vision-highlight">
           <h3><i class="bi bi-clipboard-check"></i> Project Status</h3>
-          <div class="vh-item"><div class="vh-icon"><i class="bi bi-arrow-repeat"></i></div><div><h4>Concept Study Report</h4><p>In progress with the project engineering team</p></div></div>
+          <div class="vh-item"><div class="vh-icon"><i class="bi bi-arrow-repeat"></i></div><div><h4>Concept Study Report</h4><p>In progress with Inanda Engineering</p></div></div>
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-arrow-repeat"></i></div><div><h4>Capital Raising</h4><p>Active — seeking corporate &amp; private sponsors</p></div></div>
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-clock"></i></div><div><h4>EAP Appointment</h4><p>Pending — once the study is signed off by the City of Cape Town</p></div></div>
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-clock"></i></div><div><h4>Full EIA</h4><p>Pending — conducted once the EAP is appointed</p></div></div>
@@ -825,7 +832,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
             <div class="panel-action"><i class="bi bi-circle-fill"></i> Stakeholder identification</div>
             <div class="panel-action"><i class="bi bi-circle-fill"></i> Initial engagement with authorities</div>
           </div>
-          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span>The concept study report is being completed with the project engineering team — once signed off by the City of Cape Town, Phase 2 begins.</span></div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span>The concept study report is being completed with Inanda Engineering — once signed off by the City of Cape Town, Phase 2 begins.</span></div>
         </div>
       </div>
 
@@ -893,7 +900,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
             <div class="panel-action"><i class="bi bi-circle-fill"></i> Grants</div>
             <div class="panel-action"><i class="bi bi-circle-fill"></i> Donor campaigns</div>
           </div>
-          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span><strong>11 partners</strong> already backing the build. Capital raising is active and runs in parallel with the engineering work.</span></div>
+          <div class="panel-tip"><i class="bi bi-info-circle-fill"></i><span><strong>12 partners</strong> already backing the build. Capital raising is active and runs in parallel with the engineering work.</span></div>
         </div>
       </div>
 
@@ -1066,15 +1073,15 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     </div>
     <div class="env-grid" style="grid-template-columns:repeat(4,1fr);">
       <div class="lead-card reveal rd1" style="flex-direction:column;text-align:center;">
-        <div class="lead-avatar"><i class="bi bi-people"></i></div>
+        <div class="lead-avatar" style="overflow:hidden;background:none;"><img src="Ryan_profile.png" alt="Ryan Bluck" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="lead-info">
-          <h3>Ryan Bluck &amp; Greg Simpson</h3>
-          <div class="lead-role">Co-Founders</div>
-          <p>Co-founders of The Feel Good Initiative with a shared vision for community upliftment and environmental sustainability in Hout Bay.</p>
+          <h3>Ryan Bluck</h3>
+          <div class="lead-role">Co-Founder</div>
+          <p>Born and raised in Hout Bay with a deep love for its beach and ocean. Ryan walks the shoreline every single day — the frustration with what he found there is what started this initiative.</p>
         </div>
       </div>
       <div class="lead-card reveal rd2" style="flex-direction:column;text-align:center;">
-        <div class="lead-avatar" style="background:var(--teal);"><i class="bi bi-person-gear"></i></div>
+        <div class="lead-avatar" style="overflow:hidden;background:none;"><img src="Sandy_profile.png" alt="Sandy Daniel" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="lead-info">
           <h3>Sandy Daniel</h3>
           <div class="lead-role">Administration &amp; Project Management</div>
@@ -1090,11 +1097,11 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         </div>
       </div>
       <div class="lead-card reveal rd4" style="flex-direction:column;text-align:center;">
-        <div class="lead-avatar" style="background:var(--dark-deep);"><i class="bi bi-shield-check"></i></div>
+        <div class="lead-avatar" style="overflow:hidden;background:none;"><img src="Greg_profile.png" alt="Greg Simpson" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="lead-info">
-          <h3>Ross Wilson</h3>
-          <div class="lead-role">Director</div>
-          <p>The third director on the board, supporting governance and NPO compliance alongside Ryan and Greg.</p>
+          <h3>Greg Simpson</h3>
+          <div class="lead-role">Co-Founder</div>
+          <p>Co-founder making waves beyond the shoreline. Greg is launching a wildlife forensics academy in Cape Town — bringing an evidence-led response to rhino poaching and pangolin trafficking.</p>
         </div>
       </div>
     </div>
@@ -1143,7 +1150,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <div class="sponsor-anchor-label">The capital ask</div>
         <div class="sponsor-anchor-stat"><span>R50M</span> tidal pool</div>
         <p class="sponsor-anchor-sub">Phased delivery over a 10–12 year build, raised across four sponsorship levels.</p>
-        <div class="sponsor-anchor-foot"><i class="bi bi-people-fill"></i> <span><strong>11 partners</strong> already on board — be the next.</span></div>
+        <div class="sponsor-anchor-foot"><i class="bi bi-people-fill"></i> <span><strong>12 partners</strong> already on board — be the next.</span></div>
       </div>
     </div>
 
@@ -1251,7 +1258,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <div class="sponsor-proof-band reveal">
       <div class="sponsor-proof-head">
         <h4>You'd be in good company</h4>
-        <strong>11 partners backing the build.</strong>
+        <strong>12 partners backing the build.</strong>
         <p>Active on the beach since day one — daily Beach Ranger ops, community projects, and the tidal pool ahead.</p>
       </div>
       <div class="sponsor-proof-logos">
@@ -1264,6 +1271,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
         <span class="sponsor-proof-tag">Office National</span>
         <span class="sponsor-proof-tag">The Beach Clinic</span>
         <span class="sponsor-proof-tag">Alex Stewart</span>
+        <span class="sponsor-proof-tag">SEBCID Hout Bay</span>
         <span class="sponsor-proof-tag more">+ more</span>
       </div>
     </div>
@@ -1511,12 +1519,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     team:{
       keywords:['who','team','founder','sandy','ryan','greg','leadership','lead','run','behind'],
-      answer:`The Feel Good Initiative is led by:\n\n<strong>Ryan Bluck & Greg Simpson</strong> — Co-Founders with a shared vision for community upliftment and environmental sustainability in Hout Bay.\n\n<strong>Sandy Daniel</strong> — Administration & Project Management, handling engineering and stakeholder liaison, funding logistics, and compliance.\n\n<strong>David Becker</strong> — Beach Ranger, walking the shoreline daily.\n\n<strong>Ross Wilson</strong> — Director, supporting NPO governance and compliance.`,
+      answer:`The Feel Good Initiative is led by:\n\n<strong>Ryan Bluck</strong> — Co-Founder, born and raised in Hout Bay and the daily presence on the shoreline that started this initiative.\n\n<strong>Greg Simpson</strong> — Co-Founder, also launching a wildlife forensics academy in Cape Town to take on rhino poaching and pangolin trafficking.\n\n<strong>Sandy Daniel</strong> — Administration & Project Management, handling engineering and stakeholder liaison, funding logistics, and compliance.\n\n<strong>David Becker</strong> — Beach Ranger, walking the shoreline daily.`,
       actions:[{label:'Meet the Team',icon:'bi-people',action:'navigate',target:'#leadership'}]
     },
     environment:{
       keywords:['environment','marine','protected','eia','eco','sustainable','nature','wildlife','assessment'],
-      answer:`Environmental integrity is at the core of this project. The site lies within a <strong>Marine Protected Area</strong>, requiring the highest level of environmental compliance:\n\n• A concept study report is currently being completed with the project engineering team\n• Full Environmental Impact Assessment (EIA) will follow once the EAP is appointed\n• Marine-biologist oversight before any construction\n• Intent to design with the existing rock formations wherever the engineering allows\n• Sustainable construction methods that minimise ecological disruption\n\nNo shortcuts. The environment comes first.`,
+      answer:`Environmental integrity is at the core of this project. The site lies within a <strong>Marine Protected Area</strong>, requiring the highest level of environmental compliance:\n\n• A concept study report is currently being completed with Inanda Engineering\n• Full Environmental Impact Assessment (EIA) will follow once the EAP is appointed\n• Marine-biologist oversight before any construction\n• Intent to design with the existing rock formations wherever the engineering allows\n• Sustainable construction methods that minimise ecological disruption\n\nNo shortcuts. The environment comes first.`,
       actions:[{label:'Environmental Commitment',icon:'bi-tree',action:'navigate',target:'#environment'}]
     },
     community:{
@@ -1541,7 +1549,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     status:{
       keywords:['status','progress','when','timeline','stage','phase','update','how far','started'],
-      answer:`The project is currently in the <strong>early feasibility stage</strong>:\n\n🔄 Concept study report — In progress with the project engineering team\n🔄 Capital raising — Active, seeking corporate & private sponsors\n⏳ EAP appointment — Pending, once the study is signed off by the City of Cape Town\n⏳ Full EIA — Conducted once the EAP is appointed\n\nOnce the EIA is complete and funding is secured, construction planning begins. This is a 10-year development project.`,
+      answer:`The project is currently in the <strong>early feasibility stage</strong>:\n\n🔄 Concept study report — In progress with Inanda Engineering\n🔄 Capital raising — Active, seeking corporate & private sponsors\n⏳ EAP appointment — Pending, once the study is signed off by the City of Cape Town\n⏳ Full EIA — Conducted once the EAP is appointed\n\nOnce the EIA is complete and funding is secured, construction planning begins. This is a 10-year development project.`,
       actions:[{label:'Project Status',icon:'bi-clipboard-check',action:'navigate',target:'#vision'},{label:'See the Full Roadmap',icon:'bi-signpost-split',action:'navigate',target:'#roadmap'}]
     },
     cost:{
