@@ -614,6 +614,24 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 .origin-stat h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--t-sm);font-weight:600;color:#fff;margin-bottom:2px}
 .origin-stat p{font-size:var(--t-xs);color:rgba(255,255,255,.45);line-height:1.5}
 @media(max-width:1024px){.origin-grid{grid-template-columns:1fr}}
+
+/* ═══ IMAGERY HOOKS — added to make text-heavy sections feel alive ═══ */
+/* Cards that hold bleed-edge images must clip to their border-radius (matches .proj-feature pattern) */
+.env-card,.origin-highlight,.vision-highlight{overflow:hidden}
+/* max-width:none overrides the global img{max-width:100%} so the negative-margin bleed actually works */
+.proj-card-thumb,.env-card-thumb,.highlight-img{max-width:none}
+/* Bleed-edge thumbnail at top of project sub-cards (cancels the s3 top / s4 horizontal padding) */
+.proj-card-thumb{display:block;width:calc(100% + var(--s4) * 2);margin:calc(var(--s3) * -1) calc(var(--s4) * -1) var(--s3);aspect-ratio:16/9;object-fit:cover;background:var(--bg-alt)}
+/* Bleed-edge thumbnail at top of environment cards (cancels s4 padding on all sides) */
+.env-card-thumb{display:block;width:calc(100% + var(--s4) * 2);margin:calc(var(--s4) * -1) calc(var(--s4) * -1) var(--s3);aspect-ratio:16/9;object-fit:cover;background:var(--bg-alt)}
+/* Testimonial portrait — overrides icon-avatar styling */
+.vc-avatar{width:var(--s6);height:var(--s6);overflow:hidden}
+.vc-avatar.has-img{background:none!important}
+.vc-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+/* Bleed-edge image at top of dark highlight cards (cancels s5 padding on all sides) */
+.highlight-img{display:block;width:calc(100% + var(--s5) * 2);margin:calc(var(--s5) * -1) calc(var(--s5) * -1) var(--s4);aspect-ratio:16/9;object-fit:cover;background:var(--dark-deep)}
+/* Community section photo — sits inside left column under the stats */
+.comm-photo{display:block;width:100%;margin-top:var(--s4);aspect-ratio:4/3;object-fit:cover;border-radius:var(--rlg);border:1px solid var(--border-light)}
 </style>
 </head>
 <body>
@@ -793,6 +811,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       </div>
       <div class="reveal rd2">
         <div class="origin-highlight">
+          <img class="highlight-img" src="https://picsum.photos/seed/tfgi-houtbay-shoreline/800/450" alt="Hout Bay shoreline at sunrise" loading="lazy">
           <h3><i class="bi bi-lightning-fill"></i> From Daily Action to Lasting Impact</h3>
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-calendar-check"></i></div><div><h4>Every Single Day</h4><p>Our Beach Ranger walks the beach daily — removing waste, engaging the community, setting the standard</p></div></div>
           <div class="origin-stat"><div class="origin-stat-icon"><i class="bi bi-people-fill"></i></div><div><h4>Community-Powered</h4><p>From one person to a team of volunteers, sponsors, and partners working together</p></div></div>
@@ -853,6 +872,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       </div>
       <div class="vision-aside reveal rd2">
         <div class="vision-highlight">
+          <img class="highlight-img" src="https://picsum.photos/seed/tfgi-tidalpool-vision/800/450" alt="Coastal tidal pool inspiration" loading="lazy">
           <h3><i class="bi bi-clipboard-check"></i> Project Status</h3>
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-arrow-repeat"></i></div><div><h4>Concept Study Report</h4><p>In progress with Inanda Engineering</p></div></div>
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-arrow-repeat"></i></div><div><h4>Capital Raising</h4><p>Active — seeking corporate &amp; private sponsors</p></div></div>
@@ -1048,16 +1068,19 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     </div>
     <div class="env-grid">
       <div class="env-card reveal rd1">
+        <img class="env-card-thumb" src="https://picsum.photos/seed/tfgi-eia-survey/640/360" alt="Marine environmental survey work" loading="lazy">
         <div class="env-icon t"><i class="bi bi-clipboard-data"></i></div>
         <h3>Full Environmental Impact Assessment</h3>
         <p>A comprehensive EIA will be conducted by an appointed Environmental Assessment Practitioner with marine-biologist oversight — mandatory before any construction begins, and pending the outcome of the current concept study report.</p>
       </div>
       <div class="env-card reveal rd2">
+        <img class="env-card-thumb" src="https://picsum.photos/seed/tfgi-rock-pool/640/360" alt="Rock pool with marine life" loading="lazy">
         <div class="env-icon b"><i class="bi bi-water"></i></div>
         <h3>Marine Ecosystem Preservation</h3>
         <p>The design will integrate with existing rock formations wherever the engineering allows, protecting and enhancing local marine biodiversity. The aim is a living tidal ecosystem — final materials and methods follow from the concept study and EIA.</p>
       </div>
       <div class="env-card reveal rd3">
+        <img class="env-card-thumb" src="https://picsum.photos/seed/tfgi-coastal-build/640/360" alt="Coastal construction methods" loading="lazy">
         <div class="env-icon g"><i class="bi bi-recycle"></i></div>
         <h3>Sustainable Construction</h3>
         <p>Bio-compatible materials, local labor, and construction methods designed to minimize ecological disruption during the build phase.</p>
@@ -1094,31 +1117,37 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <!-- Supporting six — 2 × 3 grid -->
       <div class="proj-rest">
         <div class="env-card reveal rd2">
+          <img class="proj-card-thumb" src="https://picsum.photos/seed/tfgi-beach-ranger/640/360" alt="Beach Ranger walking the shoreline" loading="lazy">
           <div class="env-icon a"><i class="bi bi-person-walking"></i></div>
           <h3>Beach Ranger Programme</h3>
           <p>David Becker walks Hout Bay Beach every single day — removing waste, engaging visitors, and showing what consistent environmental care looks like.</p>
         </div>
         <div class="env-card reveal rd3">
+          <img class="proj-card-thumb" src="https://picsum.photos/seed/tfgi-bins/640/360" alt="Community waste bins" loading="lazy">
           <div class="env-icon g"><i class="bi bi-trash3"></i></div>
           <h3>Community Bins</h3>
           <p>Branded bins in key locations reducing litter and encouraging responsible waste disposal. Turning awareness into daily action across Hout Bay.</p>
         </div>
         <div class="env-card reveal rd1" id="proj-hangberg">
+          <img class="proj-card-thumb" src="https://picsum.photos/seed/tfgi-hangberg/640/360" alt="Hangberg fishing community" loading="lazy">
           <div class="env-icon b"><i class="bi bi-buildings"></i></div>
           <h3>Hangberg Waste Management &amp; Beautification</h3>
           <p>A managed collection cage staffed daily, plus City and recycling-operator partnerships keeping the area clean and safer for the whole community.</p>
         </div>
         <div class="env-card reveal rd2" id="proj-entrance">
+          <img class="proj-card-thumb" src="https://picsum.photos/seed/tfgi-entrance/640/360" alt="Hout Bay entrance landscape" loading="lazy">
           <div class="env-icon d"><i class="bi bi-signpost-2"></i></div>
           <h3>Entrance Beautification</h3>
           <p>Enhancing Hout Bay's main entry points — giving residents and visitors a positive first impression and restoring pride in shared spaces.</p>
         </div>
         <div class="env-card reveal rd3" id="proj-cleanups">
+          <img class="proj-card-thumb" src="https://picsum.photos/seed/tfgi-cleanup-volunteers/640/360" alt="Volunteers at a beach cleanup" loading="lazy">
           <div class="env-icon t"><i class="bi bi-calendar-event"></i></div>
           <h3>Beach Cleanup Events</h3>
           <p>Regular community cleanup days bringing volunteers, families, and sponsors together. Gloves and bags provided — just bring a friend.</p>
         </div>
         <div class="env-card reveal rd1" id="proj-gorilla">
+          <img class="proj-card-thumb" src="https://picsum.photos/seed/tfgi-gorilla-gardens/640/360" alt="Volunteers gardening a community space" loading="lazy">
           <div class="env-icon g"><i class="bi bi-tree"></i></div>
           <h3>Gorilla Gardeners Project</h3>
           <p>Rondebosch — volunteers transforming neglected spaces into thriving community and ornamental gardens.</p>
@@ -1142,7 +1171,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
           <div class="comm-stat"><strong>3</strong><span>Communities served</span></div>
           <div class="comm-stat"><strong>R50M</strong><span>Infrastructure investment</span></div>
         </div>
-     
+        <img class="comm-photo reveal rd4" src="https://picsum.photos/seed/tfgi-imizamo-yethu/800/600" alt="Hout Bay community living beside the ocean" loading="lazy">
       </div>
       <div>
         <div class="comm-list">
@@ -1210,15 +1239,15 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     <div class="voices-grid">
       <div class="vc reveal rd1">
         <blockquote>"The tidal pool is long overdue, especially in summer when the beach gets packed. This will be a game-changer for our community."</blockquote>
-        <div class="vc-author"><div class="vc-avatar" style="background:var(--teal)"><i class="bi bi-person-fill"></i></div><div><div class="vc-name">Local Surfer</div><div class="vc-role">Hout Bay Community</div></div></div>
+        <div class="vc-author"><div class="vc-avatar has-img"><img src="https://i.pravatar.cc/120?img=12" alt="Local Surfer portrait" loading="lazy"></div><div><div class="vc-name">Local Surfer</div><div class="vc-role">Hout Bay Community</div></div></div>
       </div>
       <div class="vc reveal rd2">
         <blockquote>"This is what real community development looks like — infrastructure that serves the people who've been overlooked for too long."</blockquote>
-        <div class="vc-author"><div class="vc-avatar" style="background:var(--orange)"><i class="bi bi-person-fill"></i></div><div><div class="vc-name">Community Leader</div><div class="vc-role">Imizamo Yethu</div></div></div>
+        <div class="vc-author"><div class="vc-avatar has-img"><img src="https://i.pravatar.cc/120?img=47" alt="Community Leader portrait" loading="lazy"></div><div><div class="vc-name">Community Leader</div><div class="vc-role">Imizamo Yethu</div></div></div>
       </div>
       <div class="vc reveal rd3">
         <blockquote>"The environmental-first approach is exactly right. You can create community spaces while protecting the marine ecosystem."</blockquote>
-        <div class="vc-author"><div class="vc-avatar" style="background:var(--dark)"><i class="bi bi-person-fill"></i></div><div><div class="vc-name">Marine Biologist</div><div class="vc-role">Environmental Consultant</div></div></div>
+        <div class="vc-author"><div class="vc-avatar has-img"><img src="https://i.pravatar.cc/120?img=33" alt="Marine Biologist portrait" loading="lazy"></div><div><div class="vc-name">Marine Biologist</div><div class="vc-role">Environmental Consultant</div></div></div>
       </div>
     </div>
     <div class="reveal rd4" style="margin-top:var(--s4);text-align:center;">
