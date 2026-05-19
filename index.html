@@ -482,10 +482,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 /* ═══ SOCIAL PROOF — Proximity before CTA ═══ */
 .voices{background:var(--bg-alt)}
 .voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
-.vc{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--rlg);padding:var(--s4)}
-.vc blockquote{font-size:var(--t-base);line-height:1.7;color:var(--text);margin-bottom:var(--s3);font-style:italic}
-.vc-author{display:flex;align-items:center;gap:var(--s2)}
-.vc-avatar{width:var(--s5);height:var(--s5);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:var(--t-base)}
+.vc{position:relative;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--rlg);padding:var(--s4);overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.vc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);transition:background .3s ease}
+.vc:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(26,60,60,.08);border-color:rgba(26,60,60,.18)}
+.vc:hover::before{background:var(--orange)}
+.vc-mark{position:absolute;top:var(--s1);right:var(--s2);font-size:3.5rem;line-height:1;color:rgba(26,60,60,.08);pointer-events:none;font-family:'Josefin Sans',sans-serif;font-weight:700}
+.vc-tag{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;font-family:'Josefin Sans',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:var(--s2)}
+.vc-tag i{font-size:.75rem}
+.vc blockquote{position:relative;z-index:1;font-size:var(--t-base);line-height:1.7;color:var(--text);margin-bottom:var(--s3);font-style:italic}
+.vc-author{display:flex;align-items:center;gap:var(--s2);padding-top:var(--s2);border-top:1px solid var(--border-light)}
+.vc-avatar{width:var(--s5);height:var(--s5);border-radius:50%;display:grid;place-items:center;background:rgba(26,60,60,.08);color:var(--teal);font-size:var(--t-base);flex-shrink:0}
 .vc-name{font-weight:600;font-size:var(--t-sm);color:var(--dark)}
 .vc-role{font-size:var(--t-xs);color:var(--text-muted)}
 
@@ -634,10 +640,6 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 .proj-card-canvas .canvas-chip.accent{background:var(--orange);border-color:var(--orange)}
 /* Bleed-edge thumbnail at top of environment cards (cancels s4 padding on all sides) */
 .env-card-thumb{display:block;width:calc(100% + var(--s4) * 2);margin:calc(var(--s4) * -1) calc(var(--s4) * -1) var(--s3);aspect-ratio:16/9;object-fit:cover;background:var(--bg-alt)}
-/* Testimonial portrait — overrides icon-avatar styling */
-.vc-avatar{width:var(--s6);height:var(--s6);overflow:hidden}
-.vc-avatar.has-img{background:none!important}
-.vc-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 /* Bleed-edge image at top of dark highlight cards (cancels s5 padding on all sides) */
 .highlight-img{display:block;width:calc(100% + var(--s5) * 2);margin:calc(var(--s5) * -1) calc(var(--s5) * -1) var(--s4);aspect-ratio:16/9;object-fit:cover;background:var(--dark-deep)}
 /* Community section photo — sits inside left column under the stats */
@@ -882,7 +884,7 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       </div>
       <div class="vision-aside reveal rd2">
         <div class="vision-highlight">
-          <img class="highlight-img" src="images/tidalpool-vision.jpg" alt="Coastal tidal pool inspiration" loading="lazy">
+          <img class="highlight-img" src="images/hout-bay-vision.jpg" alt="Hout Bay shoreline at golden hour — site of the future tidal pool" loading="lazy">
           <h3><i class="bi bi-clipboard-check"></i> Project Status</h3>
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-arrow-repeat"></i></div><div><h4>Concept Study Report</h4><p>In progress with Inanda Engineering</p></div></div>
           <div class="vh-item"><div class="vh-icon"><i class="bi bi-arrow-repeat"></i></div><div><h4>Capital Raising</h4><p>Active — seeking corporate &amp; private sponsors</p></div></div>
@@ -1260,16 +1262,22 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
     </div>
     <div class="voices-grid">
       <div class="vc reveal rd1">
+        <span class="vc-mark" aria-hidden="true">&ldquo;</span>
+        <div class="vc-tag"><i class="bi bi-geo-alt-fill"></i> Hout Bay</div>
         <blockquote>"The tidal pool is long overdue, especially in summer when the beach gets packed. This will be a game-changer for our community."</blockquote>
-        <div class="vc-author"><div class="vc-avatar has-img"><img src="https://i.pravatar.cc/120?img=12" alt="Local Surfer portrait" loading="lazy"></div><div><div class="vc-name">Local Surfer</div><div class="vc-role">Hout Bay Community</div></div></div>
+        <div class="vc-author"><div class="vc-avatar"><i class="bi bi-water" aria-hidden="true"></i></div><div><div class="vc-name">Local Surfer</div><div class="vc-role">Hout Bay Community</div></div></div>
       </div>
       <div class="vc reveal rd2">
+        <span class="vc-mark" aria-hidden="true">&ldquo;</span>
+        <div class="vc-tag"><i class="bi bi-geo-alt-fill"></i> Imizamo Yethu</div>
         <blockquote>"This is what real community development looks like — infrastructure that serves the people who've been overlooked for too long."</blockquote>
-        <div class="vc-author"><div class="vc-avatar has-img"><img src="https://i.pravatar.cc/120?img=47" alt="Community Leader portrait" loading="lazy"></div><div><div class="vc-name">Community Leader</div><div class="vc-role">Imizamo Yethu</div></div></div>
+        <div class="vc-author"><div class="vc-avatar"><i class="bi bi-people-fill" aria-hidden="true"></i></div><div><div class="vc-name">Community Leader</div><div class="vc-role">Imizamo Yethu</div></div></div>
       </div>
       <div class="vc reveal rd3">
+        <span class="vc-mark" aria-hidden="true">&ldquo;</span>
+        <div class="vc-tag"><i class="bi bi-droplet-half"></i> Marine Science</div>
         <blockquote>"The environmental-first approach is exactly right. You can create community spaces while protecting the marine ecosystem."</blockquote>
-        <div class="vc-author"><div class="vc-avatar has-img"><img src="https://i.pravatar.cc/120?img=33" alt="Marine Biologist portrait" loading="lazy"></div><div><div class="vc-name">Marine Biologist</div><div class="vc-role">Environmental Consultant</div></div></div>
+        <div class="vc-author"><div class="vc-avatar"><i class="bi bi-binoculars-fill" aria-hidden="true"></i></div><div><div class="vc-name">Marine Biologist</div><div class="vc-role">Environmental Consultant</div></div></div>
       </div>
     </div>
     <div class="reveal rd4" style="margin-top:var(--s4);text-align:center;">
