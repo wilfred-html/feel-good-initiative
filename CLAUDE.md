@@ -21,11 +21,16 @@ The three HTML files below are independent and self-contained. Each has its **ow
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Main marketing site (~1.6k lines, all inline). Section order: hero → ongoing-projects ticker → value-prop (with `.vp-partners` logo carousel inside it as proof band) → core values → origin story → vision → 6-phase roadmap → environment → projects → community → leadership → voices → sponsor tiers + Netlify form → final-cta → footer → chatbot. |
+| `index.html` | Main marketing site (~1.9k lines, all inline). Section order: hero → ongoing-projects ticker → value-prop (with `.vp-partners` logo carousel inside it as proof band) → core values (5-icon band) → origin story → vision → 6-phase roadmap → environment → projects → community → leadership → voices → sponsor tiers + Netlify form → final-cta → footer → chatbot. There is **no separate contact section/form** — enquiries route through the sponsor form (`#sponsorForm`). |
 | `brand-book.html` | Print-ready A4 brand book (`@page { size: A4 }`). Same tokens as `index.html`, page-based layout. |
 | `pitch-deck.html` | Scroll-snap pitch deck. **Different type system** (Crimson Pro serif, simpler `--teal/--orange` vars). Don't import its styles into the others. |
 | `pitch-deck-v2.txt` | Plain-text source for a v2 pitch deck — narrative only, not rendered anywhere. |
 | `DESIGN-SYSTEM.md` | Consolidated colour/type/spacing/motion reference. Read this before extending the design system; the live CSS in `index.html` is still authoritative when the two disagree. |
+
+## Image assets
+
+- `images/` — section photography (hero, environment, projects, community, vision). `logos/` — partner/sponsor logos for the `.vp-partners` carousel. `slides/` — pitch-deck renders. `design-refs/` — design comps (reference only).
+- The live HTML references **`.webp`** everywhere (via a plain `src`, no `<picture>` fallback). Each `.webp` has a same-named `.png`/`.jpg`/`.svg` original kept on disk as the source — when swapping an image, regenerate the `.webp` from the original (the originals are large and not all served).
 
 ## Design system (index.html + brand-book.html)
 
@@ -43,14 +48,15 @@ CSS is hand-minified-ish (multi-rule lines, no whitespace). Match the surroundin
 
 The file is long and edited often, so search by attribute rather than chasing line numbers.
 
-- The **only live form** is `<form name="sponsorship-interest" data-netlify="true">` inside the sponsor section. Netlify discovers forms by parsing static HTML at deploy time, so:
+- The **only form** is `<form name="sponsorship-interest" data-netlify="true">` (id `#sponsorForm`) inside the sponsor section — it doubles as the site's general enquiry form. Netlify discovers forms by parsing static HTML at deploy time, so:
   - The form must stay rendered in HTML at page load (do not inject it via JS).
   - The hidden `<input name="form-name" value="sponsorship-interest">` and the `bot-field` honeypot must remain.
-- The contact section's `<form class="contact-form" onsubmit="event.preventDefault();">` is a **non-functional placeholder**. If wiring it up, give it a unique `name=`, add `data-netlify="true"` + the `form-name` hidden input, and remove the preventDefault.
+  - Its `select[name="interest-type"]` options are the targets the chatbot pre-selects (see Chatbot below) — keep option `text` in sync with the `action:'form'` `target` strings in `KB`.
+- The standalone contact-form placeholder that used to live in a contact section has been **removed** — don't reintroduce one without giving it a unique `name=`, `data-netlify="true"`, and a `form-name` hidden input.
 
 ## Chatbot (index.html)
 
-The "assistant" floating button is a static keyword-matched FAQ, not an LLM. The knowledge base lives in the `KB` object inside the `/* ═══ CHATBOT ENGINE ═══ */` IIFE near the bottom of `index.html`. Topics currently covered: `project`, `sponsor`, `donate`, `team`, `environment`, `community`, plus volunteering / contact / timeline entries. Add topics by extending `KB` with `keywords`, `answer`, and optional `actions` (`navigate` to a section anchor or `form` to pre-select a contact-form option). `matchTopic()` scores by keyword length, so multi-word keywords beat single words.
+The "assistant" floating button is a static keyword-matched FAQ, not an LLM. The knowledge base lives in the `KB` object inside the `/* ═══ CHATBOT ENGINE ═══ */` IIFE near the bottom of `index.html`. Topics currently covered: `project`, `sponsor`, `donate`, `team`, `environment`, `community`, plus volunteering / contact / timeline / cost entries. Add topics by extending `KB` with `keywords`, `answer`, and optional `actions`. Two action kinds (`handleAction()`): `action:'navigate'` scrolls to a section anchor; `action:'form'` scrolls to `#sponsorForm` and pre-selects the matching `select[name="interest-type"]` option by matching the action's `target` string against the option `text` (so the `target` must equal an existing option, e.g. `Volunteering`, `Sponsorship prospectus`). `matchTopic()` scores by keyword length, so multi-word keywords beat single words.
 
 ## Roadmap section (index.html)
 
