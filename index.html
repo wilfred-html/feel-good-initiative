@@ -597,9 +597,12 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
   .sponsor-form-wrap{border-left:none;padding-left:0;padding-top:var(--s5);border-top:1px solid rgba(255,255,255,.08)}
 }
 @media(max-width:768px){
-  .nav-links{display:none}.menu-toggle{display:block}
-  .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--bg);align-items:center;justify-content:center;gap:var(--s4);z-index:200}
+  .nav-links{display:none}.menu-toggle{display:block;position:relative;z-index:120}
+  /* Drop the panel below the nav with an explicit height — nav's backdrop-filter is the containing block for position:fixed, so inset:0 would collapse it to the 64px bar */
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;height:calc(100vh - var(--nav-h));height:calc(100dvh - var(--nav-h));background:var(--bg);align-items:center;justify-content:center;gap:var(--s4);z-index:110;overflow-y:auto;padding:var(--s5) 0;overscroll-behavior:contain}
   .nav-links.open a{font-size:var(--t-lg);color:var(--dark)}
+  body.nav-open{overflow:hidden}
+  body.nav-open .cb-fab,body.nav-open .cb-window{display:none}
   .env-grid,.voices-grid,.values-grid,.sponsor-options,.sponsor-form .form-row{grid-template-columns:1fr!important}
   .comm-stats{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
@@ -1584,8 +1587,11 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
 </div>
 
 <script>
-document.getElementById('mt').addEventListener('click',()=>document.getElementById('nl').classList.toggle('open'));
-document.querySelectorAll('#nl a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nl').classList.remove('open')));
+(function(){const mt=document.getElementById('mt'),nl=document.getElementById('nl'),mi=mt.querySelector('i');
+  function setMenu(open){nl.classList.toggle('open',open);document.body.classList.toggle('nav-open',open);if(mi)mi.className=open?'bi bi-x-lg':'bi bi-list';mt.setAttribute('aria-expanded',open?'true':'false');}
+  mt.addEventListener('click',()=>setMenu(!nl.classList.contains('open')));
+  document.querySelectorAll('#nl a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});})();
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const po=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){document.getElementById('pb').style.width='15%';po.unobserve(x.target)}}),{threshold:.4});
