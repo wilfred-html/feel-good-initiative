@@ -156,9 +156,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .proj-feature h3{font-size:var(--t-xl);margin-bottom:var(--s2);color:var(--dark)}
 .proj-feature p{color:var(--text-light);font-size:var(--t-base);line-height:1.7;margin-bottom:var(--s3)}
 /* Banner image — fills the right golden-ratio cell; left edge feathers into the content panel */
-.proj-feature-media{position:relative;overflow:hidden;min-height:300px;-webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.5) 24%,#000 48%);mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.5) 24%,#000 48%)}
-.proj-feature-art{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.92);pointer-events:none;user-select:none}
-.proj-feature-media::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(42,139,139,.14) 0%,rgba(42,139,139,0) 40%,rgba(26,60,60,.07) 100%);pointer-events:none}
+.proj-feature-media{position:relative;overflow:hidden;min-height:300px}
+.proj-feature-art{display:block;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;user-select:none}
 .proj-feature-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);padding:var(--s3) 0;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);margin-bottom:var(--s3)}
 .proj-feature-stats > div{text-align:left}
 .proj-feature-stats strong{display:block;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);color:var(--teal);font-weight:700;line-height:1;letter-spacing:-.01em}
