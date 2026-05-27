@@ -147,22 +147,22 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 /* ═══ OUR PROJECTS — Golden Ratio split · Anchoring (flagship) · Hick's chunking ═══ */
 .proj-grid{display:flex;flex-direction:column;gap:var(--s5)}
 .proj-feature{display:grid;grid-template-columns:38.2% 61.8%;align-items:stretch;background:linear-gradient(160deg,var(--teal-wash) 0%,var(--bg-card) 70%);border:1px solid var(--border);border-radius:var(--rlg);text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
-.proj-feature-body{display:flex;flex-direction:column;padding:var(--s5)}
+.proj-feature-body{display:flex;flex-direction:column;justify-content:center;padding:var(--s2) var(--s5)}
 .proj-feature::after{content:'';position:absolute;bottom:-40%;right:-20%;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(42,139,139,.08) 0%,transparent 70%);pointer-events:none}
 .proj-feature:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 var(--s2) var(--s5) rgba(26,60,60,.08)}
 .proj-feature > *{position:relative;z-index:1}
-.proj-feature-tag{display:inline-flex;align-items:center;align-self:flex-start;gap:var(--s075);font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:700;color:var(--orange);background:rgba(217,90,16,.08);border:1px solid rgba(217,90,16,.18);padding:var(--s05) var(--s2);border-radius:100px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:var(--s3)}
+.proj-feature-tag{display:inline-flex;align-items:center;align-self:flex-start;gap:var(--s075);font-family:'Josefin Sans',sans-serif;font-size:var(--t-xs);font-weight:700;color:var(--orange);background:rgba(217,90,16,.08);border:1px solid rgba(217,90,16,.18);padding:var(--s05) var(--s2);border-radius:100px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:var(--s1)}
 .proj-feature-icon{width:var(--s8);height:var(--s8);border-radius:var(--rlg);background:var(--teal);color:#fff;display:grid;place-items:center;font-size:var(--t-xl);margin-bottom:var(--s3);box-shadow:0 var(--s1) var(--s3) rgba(42,139,139,.25)}
-.proj-feature h3{font-size:var(--t-xl);margin-bottom:var(--s2);color:var(--dark)}
-.proj-feature p{color:var(--text-light);font-size:var(--t-base);line-height:1.7;margin-bottom:var(--s3)}
+.proj-feature h3{font-size:var(--t-xl);margin-bottom:var(--s1);color:var(--dark)}
+.proj-feature p{color:var(--text-light);font-size:var(--t-base);line-height:1.55;margin-bottom:var(--s1)}
 /* Banner image — fills the right golden-ratio cell; left edge feathers into the content panel */
-.proj-feature-media{position:relative;overflow:hidden;min-height:300px}
-.proj-feature-art{display:block;width:100%;height:100%;object-fit:contain;object-position:center;pointer-events:none;user-select:none}
-.proj-feature-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);padding:var(--s3) 0;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);margin-bottom:var(--s3)}
+.proj-feature-media{position:relative;overflow:hidden;aspect-ratio:16/9;align-self:center}
+.proj-feature-art{display:block;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;user-select:none}
+.proj-feature-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);padding:var(--s15) 0;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);margin-bottom:var(--s15)}
 .proj-feature-stats > div{text-align:left}
 .proj-feature-stats strong{display:block;font-family:'Josefin Sans',sans-serif;font-size:var(--t-md);color:var(--teal);font-weight:700;line-height:1;letter-spacing:-.01em}
 .proj-feature-stats span{font-size:var(--t-xs);color:var(--text-muted);margin-top:var(--s075);display:block;line-height:1.3}
-.proj-feature-cta{font-size:var(--t-sm);font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:var(--s075);margin-top:auto;align-self:flex-start;transition:gap .25s var(--ease)}
+.proj-feature-cta{font-size:var(--t-sm);font-weight:600;color:var(--orange);display:inline-flex;align-items:center;gap:var(--s075);margin-top:var(--s05);align-self:flex-start;transition:gap .25s var(--ease)}
 .proj-feature:hover .proj-feature-cta{gap:var(--s15)}
 
 /* Supporting 6 — 3-column grid beneath the flagship banner */
@@ -172,10 +172,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(247,249,248,.92);backdrop-
 .proj-rest .env-card p{font-size:var(--t-sm);color:var(--text-light);line-height:1.6}
 .proj-rest .env-icon{width:var(--s5);height:var(--s5);font-size:var(--t-base);margin-bottom:var(--s2)}
 
-@media(max-width:1024px){
+@media(max-width:1100px){
   .proj-grid{gap:var(--s3)}
   .proj-feature{grid-template-columns:1fr}
-  .proj-feature-media{order:-1;min-height:0;aspect-ratio:16/9;-webkit-mask-image:none;mask-image:none}
+  .proj-feature-media{order:-1;align-self:stretch;aspect-ratio:16/9}
+  .proj-feature-body{padding:var(--s5)}
+}
+@media(max-width:1024px){
   .proj-rest{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
@@ -1121,9 +1124,8 @@ footer{background:var(--dark-deep);color:#fff;padding:var(--s8) 0 var(--s4)}
       <a href="#sponsor" class="proj-feature reveal rd1" id="proj-tidalpool">
         <div class="proj-feature-body">
           <span class="proj-feature-tag"><i class="bi bi-star-fill"></i> Flagship project</span>
-          <div class="proj-feature-icon"><i class="bi bi-water"></i></div>
           <h3>The Tidal Pool</h3>
-          <p>A R50M eco-friendly pool near Chapman's Peak — safe ocean access and marine education for communities excluded from the coastline they live beside.</p>
+          <p>A R50M eco-friendly pool near Chapman's Peak — safe ocean access and marine education for communities cut off from their own coast.</p>
           <div class="proj-feature-stats">
             <div><strong>R50M</strong><span>capital build</span></div>
             <div><strong>10–12 yrs</strong><span>delivery window</span></div>
